@@ -1,0 +1,1446 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>Quiz Master PWA</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: '#4F46E5', // Indigo 600
+              secondary: '#10B981', // Emerald 500
+              danger: '#EF4444', // Red 500
+              background: '#F8FAFC', // Slate 50
+            },
+          },
+        },
+      }
+    </script>
+
+    <!-- Vue.js 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Icons (Phosphor Icons) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+      body {
+        background-color: #f8fafc;
+        -webkit-tap-highlight-color: transparent;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .slide-enter-active,
+      .slide-leave-active {
+        transition: all 0.3s ease;
+      }
+      .slide-enter-from {
+        opacity: 0;
+        transform: translateX(30px);
+      }
+      .slide-leave-to {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      /* Custom scrollbar clean */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-thumb {
+        background-color: #cbd5e1;
+        border-radius: 4px;
+      }
+    </style>
+  </head>
+  <body class="text-slate-800 h-screen overflow-hidden flex flex-col">
+    <div
+      id="app"
+      class="h-full flex flex-col max-w-md mx-auto w-full bg-white shadow-xl relative overflow-hidden"
+    >
+      <!-- HEADER -->
+      <header
+        class="flex items-center justify-between px-4 py-3 border-b border-slate-100 bg-white z-20"
+      >
+        <div class="flex items-center gap-2 cursor-pointer" @click="goHome">
+          <div
+            class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold text-lg"
+          >
+            Q
+          </div>
+          <h1 class="font-bold text-lg tracking-tight">QuizMaster</h1>
+        </div>
+        <button @click="goToStats" class="p-2 rounded-full hover:bg-slate-100 transition relative">
+          <i class="ph ph-chart-bar text-2xl text-slate-600"></i>
+          <span
+            v-if="badgesNonLus"
+            class="absolute top-1 right-1 w-2.5 h-2.5 bg-red-500 rounded-full border-2 border-white"
+          ></span>
+        </button>
+      </header>
+
+      <!-- MAIN CONTENT AREA -->
+      <main class="flex-1 overflow-y-auto overflow-x-hidden relative bg-slate-50">
+        <transition name="slide" mode="out-in">
+          <!-- VIEW: HOME -->
+          <div v-if="currentView === 'home'" key="home" class="p-4 space-y-6">
+            <div class="space-y-2">
+              <h2 class="text-2xl font-bold text-slate-800">Bonjour ! 👋</h2>
+              <p class="text-slate-500">Prêt pour un entraînement ? Choisis une catégorie.</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-3">
+              <button
+                v-for="cat in categoriesDisponibles"
+                :key="cat"
+                @click="selectCategory(cat)"
+                class="p-4 bg-white rounded-xl shadow-sm border border-slate-100 flex flex-col items-center gap-2 hover:border-primary hover:shadow-md transition active:scale-95"
+              >
+                <div
+                  class="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center text-primary"
+                >
+                  <i class="ph ph-books text-xl"></i>
+                </div>
+                <span class="font-medium text-sm text-center">{{ cat }}</span>
+              </button>
+            </div>
+
+            <!-- Random Selection -->
+            <button
+              @click="openRandomConfig"
+              class="w-full p-4 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl shadow-md text-white flex items-center justify-between group active:scale-95 transition"
+            >
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                  <i class="ph ph-shuffle text-xl"></i>
+                </div>
+                <div class="text-left">
+                  <div class="font-bold">Mode Aléatoire</div>
+                  <div class="text-xs opacity-90">Mélange les catégories</div>
+                </div>
+              </div>
+              <i class="ph ph-caret-right text-xl group-hover:translate-x-1 transition"></i>
+            </button>
+
+            <div class="pt-8 border-t border-slate-200 mt-4">
+              <button
+                @click="currentView = 'import'"
+                class="text-sm text-slate-500 flex items-center gap-2 hover:text-primary"
+              >
+                <i class="ph ph-download-simple"></i> Gestion des données / Import
+              </button>
+            </div>
+          </div>
+
+          <!-- VIEW: RANDOM CONFIG (Subset selection) -->
+          <div
+            v-else-if="currentView === 'randomConfig'"
+            key="randomConfig"
+            class="p-4 flex flex-col h-full"
+          >
+            <h2 class="text-xl font-bold mb-4">Quelles catégories ?</h2>
+            <div class="flex-1 overflow-y-auto space-y-2">
+              <label
+                v-for="cat in categoriesDisponibles"
+                :key="cat"
+                class="flex items-center gap-3 p-3 bg-white rounded-lg border border-slate-200"
+              >
+                <input
+                  type="checkbox"
+                  :value="cat"
+                  v-model="randomCategoriesSelection"
+                  class="w-5 h-5 text-primary rounded focus:ring-primary"
+                />
+                <span class="font-medium">{{ cat }}</span>
+              </label>
+            </div>
+            <div class="mt-4 pt-4 border-t">
+              <button
+                @click="validateRandomSelection"
+                :disabled="randomCategoriesSelection.length === 0"
+                class="w-full btn-primary disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Valider la sélection
+              </button>
+            </div>
+          </div>
+
+          <!-- VIEW: DIFFICULTY -->
+          <div v-else-if="currentView === 'difficulty'" key="difficulty" class="p-4 space-y-6">
+            <div class="text-center space-y-1">
+              <h2 class="text-xl font-bold">Difficulté</h2>
+              <p class="text-slate-500 text-sm">Niveau du challenge</p>
+            </div>
+
+            <div class="space-y-3">
+              <button
+                @click="selectDifficulty('facile')"
+                class="difficulty-card border-green-200 bg-green-50 hover:bg-green-100 text-green-800"
+              >
+                <i class="ph ph-bicycle text-2xl"></i>
+                <span class="font-bold">Facile</span>
+                <span class="text-xs opacity-75">1 point / question</span>
+              </button>
+              <button
+                @click="selectDifficulty('moyen')"
+                class="difficulty-card border-yellow-200 bg-yellow-50 hover:bg-yellow-100 text-yellow-800"
+              >
+                <i class="ph ph-car text-2xl"></i>
+                <span class="font-bold">Moyen</span>
+                <span class="text-xs opacity-75">2 points / question</span>
+              </button>
+              <button
+                @click="selectDifficulty('difficile')"
+                class="difficulty-card border-red-200 bg-red-50 hover:bg-red-100 text-red-800"
+              >
+                <i class="ph ph-rocket-launch text-2xl"></i>
+                <span class="font-bold">Difficile</span>
+                <span class="text-xs opacity-75">3 points / question</span>
+              </button>
+              <button
+                @click="selectDifficulty('random')"
+                class="difficulty-card border-indigo-200 bg-indigo-50 hover:bg-indigo-100 text-indigo-800"
+              >
+                <i class="ph ph-dice-five text-2xl"></i>
+                <span class="font-bold">Aléatoire</span>
+                <span class="text-xs opacity-75">Difficultés mixtes</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- VIEW: COUNT -->
+          <div
+            v-else-if="currentView === 'count'"
+            key="count"
+            class="p-4 space-y-6 flex flex-col h-full justify-center"
+          >
+            <h2 class="text-2xl font-bold text-center mb-6">Combien de questions ?</h2>
+            <div class="grid grid-cols-1 gap-4">
+              <button
+                @click="startQuiz(5)"
+                class="p-6 bg-white border-2 border-slate-100 rounded-2xl font-bold text-xl hover:border-primary hover:text-primary transition shadow-sm"
+              >
+                5 Questions
+              </button>
+              <button
+                @click="startQuiz(10)"
+                class="p-6 bg-white border-2 border-slate-100 rounded-2xl font-bold text-xl hover:border-primary hover:text-primary transition shadow-sm"
+              >
+                10 Questions
+              </button>
+              <button
+                @click="startQuiz(20)"
+                class="p-6 bg-white border-2 border-slate-100 rounded-2xl font-bold text-xl hover:border-primary hover:text-primary transition shadow-sm"
+              >
+                20 Questions
+              </button>
+            </div>
+          </div>
+
+          <!-- VIEW: QUIZ ACTIVE -->
+          <div v-else-if="currentView === 'quiz'" key="quiz" class="h-full flex flex-col p-4">
+            <!-- Progress Bar -->
+            <div class="w-full bg-slate-200 h-2 rounded-full mb-6 overflow-hidden">
+              <div
+                class="bg-primary h-full transition-all duration-500 ease-out"
+                :style="{ width: progressPercent + '%' }"
+              ></div>
+            </div>
+
+            <div class="flex-1 flex flex-col justify-center max-w-lg mx-auto w-full">
+              <div
+                class="mb-2 flex justify-between items-center text-sm text-slate-500 font-medium"
+              >
+                <span
+                  >Question {{ currentQuestionIndex + 1 }}/{{ activeSession.questions.length
+                  }}</span
+                >
+                <span
+                  class="px-2 py-0.5 rounded text-xs uppercase font-bold tracking-wider"
+                  :class="{
+                                    'bg-green-100 text-green-700': currentQuestion.difficulte === 'facile',
+                                    'bg-yellow-100 text-yellow-700': currentQuestion.difficulte === 'moyen',
+                                    'bg-red-100 text-red-700': currentQuestion.difficulte === 'difficile'
+                                }"
+                >
+                  {{ currentQuestion.difficulte }}
+                </span>
+              </div>
+
+              <!-- Question Text -->
+              <h3 class="text-xl font-bold text-slate-900 mb-6 leading-tight">
+                {{ currentQuestion.intitule }}
+              </h3>
+
+              <!-- Answers -->
+              <div class="space-y-3">
+                <button
+                  v-for="(repIndex, idx) in currentQuestion.ordreReponses"
+                  :key="idx"
+                  @click="handleAnswer(repIndex)"
+                  :disabled="hasAnswered"
+                  class="w-full p-4 rounded-xl border-2 text-left transition relative overflow-hidden"
+                  :class="getAnswerClass(repIndex)"
+                >
+                  <span class="relative z-10">{{ currentQuestion.reponses[repIndex] }}</span>
+                  <i
+                    v-if="hasAnswered && repIndex === currentQuestion.indexBonneReponse"
+                    class="ph ph-check-circle absolute right-3 top-1/2 -translate-y-1/2 text-xl text-green-600"
+                  ></i>
+                  <i
+                    v-if="hasAnswered && selectedAnswerIndex === repIndex && repIndex !== currentQuestion.indexBonneReponse"
+                    class="ph ph-x-circle absolute right-3 top-1/2 -translate-y-1/2 text-xl text-red-600"
+                  ></i>
+                </button>
+              </div>
+
+              <!-- Feedback / Explanation -->
+              <div
+                v-if="hasAnswered && !currentQuestion.estSkippe"
+                class="mt-4 p-4 bg-blue-50 text-blue-900 rounded-lg border border-blue-100 text-sm animate-fade-in"
+              >
+                <div class="font-bold mb-1 flex items-center gap-2">
+                  <i class="ph ph-info"></i> Explication
+                </div>
+                {{ currentQuestion.explication }}
+              </div>
+            </div>
+
+            <!-- Actions -->
+            <div class="mt-auto pt-6">
+              <button
+                v-if="!hasAnswered"
+                @click="skipQuestion"
+                class="w-full py-3 text-slate-500 hover:text-slate-800 font-medium transition"
+              >
+                Passer cette question
+              </button>
+              <button v-else @click="nextQuestion" class="w-full btn-primary animate-bounce-short">
+                {{ isLastQuestion ? 'Terminer le Quiz' : 'Suivant' }}
+              </button>
+            </div>
+          </div>
+
+          <!-- VIEW: SUMMARY (End of Quiz) -->
+          <div
+            v-else-if="currentView === 'summary'"
+            key="summary"
+            class="p-4 flex flex-col items-center justify-center h-full space-y-6 text-center"
+          >
+            <div
+              class="w-24 h-24 rounded-full flex items-center justify-center text-4xl shadow-lg border-4"
+              :class="sessionResultClass"
+            >
+              {{ Math.round(activeSession.notePourcentage) }}%
+            </div>
+
+            <div>
+              <h2 class="text-2xl font-bold mb-1">Quiz terminé !</h2>
+              <p class="text-slate-500">
+                Score pondéré :
+                <span class="font-bold text-slate-800">{{ activeSession.scorePondere }}</span> / {{
+                activeSession.scorePondereMax }}
+              </p>
+            </div>
+
+            <!-- Stats Comparatives -->
+            <div class="w-full bg-white rounded-xl shadow-sm border border-slate-100 p-4 space-y-3">
+              <div
+                v-if="previousStats.average"
+                class="flex justify-between items-center border-b pb-2 border-slate-50"
+              >
+                <span class="text-sm text-slate-500">Moyenne Globale</span>
+                <div
+                  class="flex items-center gap-1 font-bold"
+                  :class="getComparisonColor(activeSession.notePourcentage, previousStats.average)"
+                >
+                  <span
+                    >{{ getDiffSymbol(activeSession.notePourcentage, previousStats.average) }}</span
+                  >
+                  {{ Math.abs(Math.round(activeSession.notePourcentage - previousStats.average)) }}
+                  pts
+                </div>
+              </div>
+              <div class="flex justify-between items-center">
+                <span class="text-sm text-slate-500">Bonnes réponses</span>
+                <span class="font-bold text-slate-800"
+                  >{{ activeSession.questions.filter(q => q.estCorrecte).length }} / {{
+                  activeSession.nbQuestions }}</span
+                >
+              </div>
+            </div>
+
+            <!-- Badges unlocked in this session -->
+            <div v-if="newlyUnlockedBadges.length > 0" class="w-full">
+              <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wider mb-2">
+                Badges débloqués !
+              </h3>
+              <div class="grid grid-cols-1 gap-2">
+                <div
+                  v-for="b in newlyUnlockedBadges"
+                  :key="b.id"
+                  class="flex items-center gap-3 p-3 bg-yellow-50 border border-yellow-200 rounded-lg text-left"
+                >
+                  <div class="text-2xl">🏆</div>
+                  <div>
+                    <div class="font-bold text-yellow-900">{{ b.nom }}</div>
+                    <div class="text-xs text-yellow-700">{{ b.description }}</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button @click="goHome" class="w-full btn-primary mt-4">Retour à l'accueil</button>
+          </div>
+
+          <!-- VIEW: STATS -->
+          <div v-else-if="currentView === 'stats'" key="stats" class="p-4 space-y-6">
+            <!-- KPI Cards -->
+            <div class="grid grid-cols-2 gap-3">
+              <div class="stat-card">
+                <div class="label">Moyenne</div>
+                <div class="value text-primary">
+                  {{ Math.round(globalStats.moyenneGlobale || 0) }}%
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="label">Meilleur Score</div>
+                <div class="value text-green-600">
+                  {{ Math.round(globalStats.meilleurScore || 0) }}%
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="label">Streak Actuel</div>
+                <div class="value text-orange-500 flex items-center justify-center gap-1">
+                  <i class="ph ph-fire"></i> {{ globalStats.streakActuel }}j
+                </div>
+              </div>
+              <div class="stat-card">
+                <div class="label">Quiz Totaux</div>
+                <div class="value text-slate-700">{{ globalStats.totalSessions }}</div>
+              </div>
+            </div>
+
+            <!-- Chart -->
+            <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
+              <h3 class="font-bold text-sm text-slate-500 mb-4">Évolution (30 derniers jours)</h3>
+              <canvas id="evolutionChart" height="200"></canvas>
+              <div
+                v-if="globalStats.historiqueSessions.length === 0"
+                class="text-center text-xs text-slate-400 py-4"
+              >
+                Pas encore assez de données
+              </div>
+            </div>
+
+            <!-- Badges List -->
+            <div>
+              <h3 class="font-bold text-lg mb-3">Badges</h3>
+              <div class="grid grid-cols-3 gap-2">
+                <div
+                  v-for="badge in badgesList"
+                  :key="badge.id"
+                  @click="showBadgeDetails(badge)"
+                  class="aspect-square rounded-xl flex flex-col items-center justify-center p-2 text-center border transition"
+                  :class="badge.statut === 'debloque' ? 'bg-white border-yellow-300 shadow-sm' : 'bg-slate-100 border-slate-200 opacity-60 grayscale'"
+                >
+                  <div class="text-2xl mb-1">{{ badge.icon || '🏅' }}</div>
+                  <div class="text-[10px] font-bold leading-tight line-clamp-2">
+                    {{ badge.nom }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- VIEW: IMPORT / SETTINGS -->
+          <div v-else-if="currentView === 'import'" key="import" class="p-4 space-y-6">
+            <h2 class="text-xl font-bold">Gestion des données</h2>
+
+            <div class="bg-white p-4 rounded-xl border border-slate-200 space-y-4">
+              <h3 class="font-bold text-slate-700">Importer des questions</h3>
+              <p class="text-sm text-slate-500">
+                Le fichier doit être un JSON valide contenant un tableau de questions.
+              </p>
+              <input
+                type="file"
+                accept=".json"
+                @change="handleFileUpload"
+                class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100"
+              />
+              <p
+                v-if="importMessage"
+                :class="importError ? 'text-red-500' : 'text-green-500'"
+                class="text-sm font-bold"
+              >
+                {{ importMessage }}
+              </p>
+            </div>
+
+            <div class="bg-red-50 p-4 rounded-xl border border-red-100 space-y-4">
+              <h3 class="font-bold text-red-800">Zone de danger</h3>
+              <button
+                @click="resetStats"
+                class="w-full py-2 px-4 bg-white border border-red-200 text-red-600 rounded-lg font-bold hover:bg-red-100 transition"
+              >
+                Réinitialiser toutes les stats
+              </button>
+            </div>
+          </div>
+        </transition>
+      </main>
+
+      <!-- MODAL: Resume Quiz -->
+      <div
+        v-if="showResumeModal"
+        class="absolute inset-0 z-50 bg-black/50 backdrop-blur-sm flex items-center justify-center p-4"
+      >
+        <div class="bg-white rounded-2xl p-6 w-full max-w-xs shadow-2xl transform scale-100">
+          <h3 class="text-xl font-bold mb-2">Quiz en cours</h3>
+          <p class="text-slate-600 mb-6">Tu avais un quiz non terminé. Veux-tu le reprendre ?</p>
+          <div class="flex gap-3">
+            <button
+              @click="abandonResume"
+              class="flex-1 py-3 text-slate-500 font-bold hover:bg-slate-50 rounded-lg"
+            >
+              Abandonner
+            </button>
+            <button
+              @click="confirmResume"
+              class="flex-1 py-3 bg-primary text-white font-bold rounded-lg shadow-lg shadow-indigo-200"
+            >
+              Reprendre
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN APP SCRIPT -->
+    <script>
+      const { createApp, ref, computed, onMounted, watch, nextTick } = Vue
+
+      // --- IDB HELPER ---
+      const DB_NAME = 'quiz-master-db'
+      const DB_VERSION = 1
+
+      const dbPromise = new Promise((resolve, reject) => {
+        const req = indexedDB.open(DB_NAME, DB_VERSION)
+        req.onupgradeneeded = (e) => {
+          const db = e.target.result
+          // Store Questions
+          if (!db.objectStoreNames.contains('questions')) {
+            const qStore = db.createObjectStore('questions', { keyPath: 'id' })
+            qStore.createIndex('countApparition', 'countApparition', { unique: false })
+          }
+          // Store Sessions
+          if (!db.objectStoreNames.contains('sessions')) {
+            const sStore = db.createObjectStore('sessions', { keyPath: 'sessionId' })
+            sStore.createIndex('dateFin', 'dateFin', { unique: false })
+          }
+          // Store Badges/Meta
+          if (!db.objectStoreNames.contains('meta')) {
+            db.createObjectStore('meta', { keyPath: 'id' })
+          }
+        }
+        req.onsuccess = () => resolve(req.result)
+        req.onerror = () => reject(req.error)
+      })
+
+      async function dbOp(storeName, mode, callback) {
+        const db = await dbPromise
+        return new Promise((resolve, reject) => {
+          const tx = db.transaction(storeName, mode)
+          const store = tx.objectStore(storeName)
+          const req = callback(store)
+          req.onsuccess = () => resolve(req.result)
+          req.onerror = () => reject(req.error)
+        })
+      }
+
+      // --- DEFAULT DATA (For demo) ---
+      const DEFAULT_QUESTIONS = [
+        {
+          id: '1',
+          intitule: 'Combien font 2 + 2 ?',
+          reponses: ['3', '4', '5', '0'],
+          indexBonneReponse: 1,
+          explication: 'Mathématiques de base.',
+          categorie: 'Maths',
+          difficulte: 'facile',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '2',
+          intitule: 'Capitale de la France ?',
+          reponses: ['Lyon', 'Marseille', 'Paris', 'Bordeaux'],
+          indexBonneReponse: 2,
+          explication: 'Paris est la capitale.',
+          categorie: 'Géographie',
+          difficulte: 'facile',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '3',
+          intitule: "Symbole chimique de l'Or ?",
+          reponses: ['Ag', 'Au', 'Fe', 'Cu'],
+          indexBonneReponse: 1,
+          explication: 'Au vient du latin Aurum.',
+          categorie: 'Science',
+          difficulte: 'moyen',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '4',
+          intitule: 'Qui a peint la Joconde ?',
+          reponses: ['Michel-Ange', 'Van Gogh', 'Léonard de Vinci', 'Picasso'],
+          indexBonneReponse: 2,
+          explication: 'Léonard de Vinci, début XVIe siècle.',
+          categorie: 'Art',
+          difficulte: 'moyen',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '5',
+          intitule: 'Vitesse de la lumière ?',
+          reponses: ['300 000 km/s', '150 000 km/s', '1 000 km/s', 'Sonique'],
+          indexBonneReponse: 0,
+          explication: 'Environ 299 792 458 m/s.',
+          categorie: 'Physique',
+          difficulte: 'difficile',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '6',
+          intitule: 'Racine carrée de 144 ?',
+          reponses: ['10', '11', '12', '14'],
+          indexBonneReponse: 2,
+          explication: '12 x 12 = 144.',
+          categorie: 'Maths',
+          difficulte: 'moyen',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '7',
+          intitule: 'Année de la chute du mur de Berlin ?',
+          reponses: ['1987', '1989', '1991', '1990'],
+          indexBonneReponse: 1,
+          explication: '9 novembre 1989.',
+          categorie: 'Histoire',
+          difficulte: 'moyen',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '8',
+          intitule: 'Planète la plus proche du soleil ?',
+          reponses: ['Vénus', 'Terre', 'Mercure', 'Mars'],
+          indexBonneReponse: 2,
+          explication: 'Mercure est la première planète du système solaire.',
+          categorie: 'Astronomie',
+          difficulte: 'moyen',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '9',
+          intitule: "Nombre de pattes d'une araignée ?",
+          reponses: ['6', '8', '10', '12'],
+          indexBonneReponse: 1,
+          explication: 'Les arachnides ont 8 pattes.',
+          categorie: 'Biologie',
+          difficulte: 'facile',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+        {
+          id: '10',
+          intitule: "Pays d'origine du Sushi ?",
+          reponses: ['Chine', 'Corée', 'Japon', 'Thaïlande'],
+          indexBonneReponse: 2,
+          explication: "C'est un plat emblématique de la cuisine japonaise.",
+          categorie: 'Culture',
+          difficulte: 'facile',
+          countApparition: 0,
+          countBonneReponse: 0,
+        },
+      ]
+
+      const DEFAULT_BADGES = [
+        {
+          id: 'first_quiz',
+          nom: 'Premier Pas',
+          description: 'Terminer un premier quiz',
+          statut: 'verrouille',
+          icon: '🐣',
+        },
+        {
+          id: 'perfect_score',
+          nom: 'Perfection',
+          description: 'Obtenir 100% à un quiz',
+          statut: 'verrouille',
+          icon: '🎯',
+        },
+        {
+          id: 'streak_3',
+          nom: 'Habitué',
+          description: '3 jours de suite',
+          statut: 'verrouille',
+          icon: '🔥',
+        },
+        {
+          id: 'streak_7',
+          nom: 'Accro',
+          description: '7 jours de suite',
+          statut: 'verrouille',
+          icon: '⚡',
+        },
+        {
+          id: 'marathon',
+          nom: 'Marathonien',
+          description: 'Faire 20 quiz au total',
+          statut: 'verrouille',
+          icon: '🏃',
+        },
+        {
+          id: 'math_expert',
+          nom: 'Boss des Maths',
+          description: '5 quiz de Maths terminés',
+          statut: 'verrouille',
+          icon: '📐',
+        },
+      ]
+
+      createApp({
+        setup() {
+          // --- STATE ---
+          const currentView = ref('home')
+          const showResumeModal = ref(false)
+          const importMessage = ref('')
+          const importError = ref(false)
+
+          // Data loaded
+          const allQuestions = ref([])
+          const badgesList = ref([])
+
+          // Selection config
+          const selectedCategories = ref([])
+          const randomCategoriesSelection = ref([])
+          const selectedDifficulty = ref(null)
+
+          // Active Quiz Session
+          const activeSession = ref(null)
+          const selectedAnswerIndex = ref(null)
+          const hasAnswered = ref(false)
+
+          // Stats Cache
+          const globalStats = ref({
+            moyenneGlobale: 0,
+            meilleurScore: 0,
+            streakActuel: 0,
+            totalSessions: 0,
+            historiqueSessions: [],
+          })
+          const previousStats = ref({ average: 0 }) // For comparison
+          const newlyUnlockedBadges = ref([])
+
+          // Chart instance
+          let chartInstance = null
+
+          // --- COMPUTED ---
+          const categoriesDisponibles = computed(() => {
+            return [...new Set(allQuestions.value.map((q) => q.categorie))].sort()
+          })
+
+          const currentQuestion = computed(() => {
+            if (!activeSession.value) return null
+            return activeSession.value.questions[activeSession.value.indexQuestionCourante]
+          })
+
+          const currentQuestionIndex = computed(
+            () => activeSession.value?.indexQuestionCourante || 0,
+          )
+
+          const progressPercent = computed(() => {
+            if (!activeSession.value) return 0
+            return (
+              (activeSession.value.indexQuestionCourante / activeSession.value.nbQuestions) * 100
+            )
+          })
+
+          const isLastQuestion = computed(() => {
+            if (!activeSession.value) return false
+            return (
+              activeSession.value.indexQuestionCourante === activeSession.value.questions.length - 1
+            )
+          })
+
+          const sessionResultClass = computed(() => {
+            if (!activeSession.value) return ''
+            const score = activeSession.value.notePourcentage
+            if (score >= 80) return 'border-green-500 text-green-600 bg-green-50'
+            if (score >= 50) return 'border-yellow-500 text-yellow-600 bg-yellow-50'
+            return 'border-red-500 text-red-600 bg-red-50'
+          })
+
+          const badgesNonLus = computed(() => false) // Simplification
+
+          // --- LIFECYCLE ---
+          onMounted(async () => {
+            await initData()
+            await loadStats()
+            await checkResumableSession()
+          })
+
+          // --- METHODS: INIT ---
+          async function initData() {
+            // Check if questions exist
+            const qs = await dbOp('questions', 'readonly', (s) => s.getAll())
+            if (qs.length === 0) {
+              // Load defaults
+              const tx = (await dbPromise).transaction('questions', 'readwrite')
+              DEFAULT_QUESTIONS.forEach((q) => tx.objectStore('questions').put(q))
+              allQuestions.value = DEFAULT_QUESTIONS
+            } else {
+              allQuestions.value = qs
+            }
+
+            // Check Badges
+            const metas = await dbOp('meta', 'readonly', (s) => s.get('badges'))
+            if (!metas) {
+              const tx = (await dbPromise).transaction('meta', 'readwrite')
+              tx.objectStore('meta').put({ id: 'badges', list: DEFAULT_BADGES })
+              badgesList.value = DEFAULT_BADGES
+            } else {
+              badgesList.value = metas.list
+            }
+          }
+
+          async function checkResumableSession() {
+            const sessions = await dbOp('sessions', 'readonly', (s) => s.getAll())
+            const pending = sessions.find((s) => s.dateFin === null)
+            if (pending) {
+              activeSession.value = pending
+              showResumeModal.value = true
+            }
+          }
+
+          // --- METHODS: NAVIGATION & CONFIG ---
+          function goHome() {
+            currentView.value = 'home'
+            // Reset selection temp vars
+            randomCategoriesSelection.value = []
+          }
+
+          function goToStats() {
+            loadStats()
+            currentView.value = 'stats'
+            nextTick(() => renderChart())
+          }
+
+          function selectCategory(cat) {
+            selectedCategories.value = [cat]
+            currentView.value = 'difficulty'
+          }
+
+          function openRandomConfig() {
+            randomCategoriesSelection.value = [...categoriesDisponibles.value] // All checked by default
+            currentView.value = 'randomConfig'
+          }
+
+          function validateRandomSelection() {
+            selectedCategories.value = [...randomCategoriesSelection.value]
+            currentView.value = 'difficulty'
+          }
+
+          function selectDifficulty(diff) {
+            selectedDifficulty.value = diff
+            currentView.value = 'count'
+          }
+
+          // --- METHODS: QUIZ LOGIC ---
+          async function startQuiz(nbQuestions) {
+            // 1. Filter questions by Category & Difficulty
+            let pool = allQuestions.value.filter((q) =>
+              selectedCategories.value.includes(q.categorie),
+            )
+
+            if (selectedDifficulty.value !== 'random') {
+              pool = pool.filter((q) => q.difficulte === selectedDifficulty.value)
+            }
+
+            // 2. Sort by countApparition (Least seen first) + Random fallback
+            pool.sort((a, b) => {
+              if (a.countApparition === b.countApparition) return Math.random() - 0.5
+              return a.countApparition - b.countApparition
+            })
+
+            // 3. Slice
+            const questionsToPlay = pool.slice(0, nbQuestions).map((q) => {
+              // Create deep copy for session logic + shuffle answers
+              const indices = [0, 1, 2, 3].sort(() => Math.random() - 0.5)
+              return {
+                ...q,
+                ordreReponses: indices,
+                estSkippe: false,
+                estCorrecte: null,
+              }
+            })
+
+            if (questionsToPlay.length === 0) {
+              alert('Pas assez de questions disponibles pour cette sélection.')
+              return
+            }
+
+            // 4. Create Session Object
+            const session = {
+              sessionId: crypto.randomUUID(),
+              dateDebut: new Date().toISOString(),
+              dateFin: null,
+              questions: questionsToPlay,
+              indexQuestionCourante: 0,
+              nbQuestions: questionsToPlay.length,
+              scorePondere: 0,
+              scorePondereMax: 0, // Will be calc at end
+              notePourcentage: 0,
+              difficulteChoisie: selectedDifficulty.value,
+              categories: selectedCategories.value,
+            }
+
+            activeSession.value = session
+
+            // Save initial state
+            const tx = (await dbPromise).transaction('sessions', 'readwrite')
+            tx.objectStore('sessions').put(session)
+
+            currentView.value = 'quiz'
+            resetQuestionState()
+          }
+
+          function resetQuestionState() {
+            selectedAnswerIndex.value = null
+            hasAnswered.value = false
+          }
+
+          async function handleAnswer(idx) {
+            if (hasAnswered.value) return
+            hasAnswered.value = true
+            selectedAnswerIndex.value = idx
+
+            const q = activeSession.value.questions[activeSession.value.indexQuestionCourante]
+            const isCorrect = idx === q.indexBonneReponse
+
+            // Update Session State in memory
+            q.estCorrecte = isCorrect
+
+            // Update Question Meta (Apparition count) in DB immediately or later?
+            // Let's do it at end to avoid complexity, or here?
+            // Updating here ensures accuracy even if abandon.
+            const qStore = (await dbPromise)
+              .transaction('questions', 'readwrite')
+              .objectStore('questions')
+            const qRef = await new Promise(
+              (r) => (qStore.get(q.id).onsuccess = (e) => r(e.target.result)),
+            )
+            if (qRef) {
+              qRef.countApparition++
+              if (isCorrect) qRef.countBonneReponse++
+              qStore.put(qRef)
+            }
+
+            saveCurrentSession()
+          }
+
+          function skipQuestion() {
+            const q = activeSession.value.questions[activeSession.value.indexQuestionCourante]
+            q.estSkippe = true
+            q.estCorrecte = false
+            hasAnswered.value = true // Show feedback logic (or skip feedback based on specs)
+
+            // Increment appearance
+            dbOp('questions', 'readwrite', (s) => {
+              s.get(q.id).onsuccess = (e) => {
+                const ref = e.target.result
+                ref.countApparition++
+                s.put(ref)
+              }
+            })
+
+            saveCurrentSession()
+            // Auto next after short delay or wait? Spec says "Tap anywhere".
+            // We'll rely on the "Next" button appearing, but specs say "Tap skip -> Mark -> Next".
+            // Let's force next immediately for SKIP as per specs implied flow "Passer"
+            nextQuestion()
+          }
+
+          function getAnswerClass(idx) {
+            if (!hasAnswered.value) {
+              // Default state
+              return 'bg-white border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700'
+            }
+            const q = currentQuestion.value
+
+            // If this is the correct answer
+            if (idx === q.indexBonneReponse) {
+              return 'bg-green-100 border-green-500 text-green-900 font-bold'
+            }
+
+            // If this was the selected wrong answer
+            if (idx === selectedAnswerIndex.value && idx !== q.indexBonneReponse) {
+              return 'bg-red-100 border-red-500 text-red-900 opacity-60'
+            }
+
+            // Others
+            return 'bg-white border-slate-100 opacity-40 grayscale'
+          }
+
+          async function nextQuestion() {
+            if (isLastQuestion.value) {
+              finishQuiz()
+            } else {
+              activeSession.value.indexQuestionCourante++
+              resetQuestionState()
+              saveCurrentSession()
+            }
+          }
+
+          async function saveCurrentSession() {
+            const tx = (await dbPromise).transaction('sessions', 'readwrite')
+            tx.objectStore('sessions').put(JSON.parse(JSON.stringify(activeSession.value)))
+          }
+
+          async function finishQuiz() {
+            // Calc Scores
+            let scoreP = 0
+            let maxP = 0
+            let correctCount = 0
+
+            activeSession.value.questions.forEach((q) => {
+              let points = 1
+              if (q.difficulte === 'moyen') points = 2
+              if (q.difficulte === 'difficile') points = 3
+
+              maxP += points
+              if (q.estCorrecte) {
+                scoreP += points
+                correctCount++
+              }
+            })
+
+            activeSession.value.scorePondere = scoreP
+            activeSession.value.scorePondereMax = maxP
+            activeSession.value.notePourcentage =
+              (correctCount / activeSession.value.nbQuestions) * 100
+
+            // Metadata
+            activeSession.value.dateFin = new Date().toISOString()
+            activeSession.value.dateJour = new Date().toISOString().split('T')[0]
+
+            // Save
+            await saveCurrentSession()
+
+            // Update Global Stats & Check Badges
+            await updateStatsAndBadges(activeSession.value)
+
+            previousStats.value.average = globalStats.value.moyenneGlobale // snapshot before this quiz mixed in? Or after? UX says "Vs moyenne globale". Usually vs historical.
+
+            // Refresh stats for UI
+            await loadStats()
+
+            currentView.value = 'summary'
+          }
+
+          // --- METHODS: STATS & BADGES ENGINE ---
+          async function updateStatsAndBadges(session) {
+            newlyUnlockedBadges.value = []
+            const allSessions = await dbOp('sessions', 'readonly', (s) => s.getAll())
+            const completedSessions = allSessions.filter((s) => s.dateFin !== null)
+
+            // 1. STREAK CALC
+            // Sort by dateJour unique
+            const days = [...new Set(completedSessions.map((s) => s.dateJour))].sort()
+            let currentStreak = 0
+            let maxStreak = 0
+            // Simple logic: iterate days
+            if (days.length > 0) {
+              // Recalculate full streak history is safer
+              let streak = 1
+              for (let i = 0; i < days.length - 1; i++) {
+                const d1 = new Date(days[i])
+                const d2 = new Date(days[i + 1])
+                const diffTime = Math.abs(d2 - d1)
+                const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24))
+                if (diffDays === 1) streak++
+                else streak = 1
+                if (streak > maxStreak) maxStreak = streak
+              }
+              // Check if streak is active (last quiz is today or yesterday)
+              const lastDay = days[days.length - 1]
+              const today = new Date().toISOString().split('T')[0]
+              const dLast = new Date(lastDay)
+              const dToday = new Date(today)
+              const diffToNow = Math.floor((dToday - dLast) / (1000 * 60 * 60 * 24))
+
+              if (diffToNow <= 1) currentStreak = streak
+              else currentStreak = 0
+            }
+
+            // 2. BADGE LOGIC
+            const badgesStore = (await dbPromise)
+              .transaction('meta', 'readwrite')
+              .objectStore('meta')
+            const badgesData = await new Promise(
+              (r) => (badgesStore.get('badges').onsuccess = (e) => r(e.target.result)),
+            )
+            let badges = badgesData.list
+
+            const unlock = (id) => {
+              const b = badges.find((x) => x.id === id)
+              if (b && b.statut === 'verrouille') {
+                b.statut = 'debloque'
+                b.dateDebloque = new Date().toISOString()
+                newlyUnlockedBadges.value.push(b)
+              }
+            }
+
+            // Rules
+            if (completedSessions.length >= 1) unlock('first_quiz')
+            if (session.notePourcentage === 100) unlock('perfect_score')
+            if (currentStreak >= 3) unlock('streak_3')
+            if (currentStreak >= 7) unlock('streak_7')
+            if (completedSessions.length >= 20) unlock('marathon')
+
+            // Special Category check
+            const cat = session.categories[0]
+            if (session.categories.length === 1 && cat === 'Maths') {
+              const mathCount = completedSessions.filter(
+                (s) => s.categories.length === 1 && s.categories[0] === 'Maths',
+              ).length
+              if (mathCount >= 5) unlock('math_expert')
+            }
+
+            // Save Badges
+            badgesData.list = badges
+            badgesStore.put(badgesData)
+            badgesList.value = badges
+          }
+
+          async function loadStats() {
+            const sessions = await dbOp('sessions', 'readonly', (s) => s.getAll())
+            const completed = sessions.filter((s) => s.dateFin !== null)
+
+            if (completed.length === 0) {
+              globalStats.value = {
+                moyenneGlobale: 0,
+                meilleurScore: 0,
+                streakActuel: 0,
+                totalSessions: 0,
+                historiqueSessions: [],
+              }
+              return
+            }
+
+            // Moyenne
+            const sum = completed.reduce((acc, s) => acc + s.notePourcentage, 0)
+            const avg = sum / completed.length
+
+            // Max
+            const max = Math.max(...completed.map((s) => s.notePourcentage))
+
+            // Streak (Simplified recalc for UI)
+            // We reuse logic from updateStats or store it in Meta. For simplicity, recalc here.
+            const days = [...new Set(completed.map((s) => s.dateJour))].sort()
+            let currentStreak = 0
+            if (days.length > 0) {
+              let streak = 1
+              for (let i = 0; i < days.length - 1; i++) {
+                const d1 = new Date(days[i])
+                const d2 = new Date(days[i + 1])
+                const diffDays = Math.round((d2 - d1) / (1000 * 3600 * 24))
+                if (diffDays === 1) streak++
+                else streak = 1
+              }
+              const last = new Date(days[days.length - 1])
+              const now = new Date()
+              now.setHours(0, 0, 0, 0)
+              last.setHours(0, 0, 0, 0)
+              const diff = (now - last) / (1000 * 3600 * 24)
+              if (diff <= 1) currentStreak = streak
+            }
+
+            globalStats.value = {
+              moyenneGlobale: avg,
+              meilleurScore: max,
+              streakActuel: currentStreak,
+              totalSessions: completed.length,
+              historiqueSessions: completed,
+            }
+          }
+
+          function renderChart() {
+            const ctx = document.getElementById('evolutionChart')
+            if (!ctx) return
+
+            if (chartInstance) chartInstance.destroy()
+
+            // Prepare Data: Group by day, avg score
+            const dataMap = {}
+            // Last 30 days
+            const today = new Date()
+            for (let i = 29; i >= 0; i--) {
+              const d = new Date()
+              d.setDate(today.getDate() - i)
+              const key = d.toISOString().split('T')[0]
+              dataMap[key] = { sum: 0, count: 0 }
+            }
+
+            globalStats.value.historiqueSessions.forEach((s) => {
+              if (dataMap[s.dateJour]) {
+                dataMap[s.dateJour].sum += s.notePourcentage
+                dataMap[s.dateJour].count++
+              }
+            })
+
+            const labels = Object.keys(dataMap).map((d) => d.slice(5)) // MM-DD
+            const points = Object.values(dataMap).map((v) => (v.count > 0 ? v.sum / v.count : null)) // null allows gaps
+
+            chartInstance = new Chart(ctx, {
+              type: 'line',
+              data: {
+                labels: labels,
+                datasets: [
+                  {
+                    label: 'Score Moyen (%)',
+                    data: points,
+                    borderColor: '#4F46E5',
+                    backgroundColor: 'rgba(79, 70, 229, 0.1)',
+                    tension: 0.3,
+                    fill: true,
+                    spanGaps: true,
+                  },
+                ],
+              },
+              options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: { legend: { display: false } },
+                scales: {
+                  y: { beginAtZero: true, max: 100 },
+                },
+              },
+            })
+          }
+
+          // --- METHODS: IMPORT/RESET ---
+          async function handleFileUpload(event) {
+            const file = event.target.files[0]
+            if (!file) return
+
+            const reader = new FileReader()
+            reader.onload = async (e) => {
+              try {
+                const json = JSON.parse(e.target.result)
+                if (!Array.isArray(json) || !json[0].intitule) throw new Error('Format invalide')
+
+                // Reset questions DB
+                const tx = (await dbPromise).transaction('questions', 'readwrite')
+                const store = tx.objectStore('questions')
+                await new Promise((r) => (store.clear().onsuccess = r))
+
+                json.forEach((q) =>
+                  store.put({
+                    ...q,
+                    countApparition: 0,
+                    countBonneReponse: 0,
+                  }),
+                )
+
+                importMessage.value = 'Import réussi ! ' + json.length + ' questions chargées.'
+                importError.value = false
+
+                // Reload internal state
+                await initData()
+              } catch (err) {
+                importMessage.value = 'Erreur : ' + err.message
+                importError.value = true
+              }
+            }
+            reader.readAsText(file)
+          }
+
+          async function resetStats() {
+            if (!confirm('Vraiment tout effacer ? (Les questions restent)')) return
+
+            const tx = (await dbPromise).transaction(['sessions', 'meta'], 'readwrite')
+            tx.objectStore('sessions').clear()
+
+            // Reset Badges status but keep structure
+            const bStore = tx.objectStore('meta')
+            const bData = await new Promise(
+              (r) => (bStore.get('badges').onsuccess = (e) => r(e.target.result)),
+            )
+            if (bData) {
+              bData.list.forEach((b) => {
+                b.statut = 'verrouille'
+                b.dateDebloque = null
+              })
+              bStore.put(bData)
+            }
+
+            await loadStats()
+            badgesList.value = bData.list
+            alert('Statistiques remises à zéro.')
+          }
+
+          // --- MODAL UTILS ---
+          function abandonResume() {
+            // Mark session as aborted in DB (or delete it?) spec says "abandonner"
+            // We'll just delete it to clean up or keep it with dateFin = null (but ignored).
+            // Cleaner: Delete.
+            dbOp('sessions', 'readwrite', (s) => s.delete(activeSession.value.sessionId))
+            activeSession.value = null
+            showResumeModal.value = false
+          }
+
+          function confirmResume() {
+            showResumeModal.value = false
+            currentView.value = 'quiz'
+          }
+
+          function showBadgeDetails(badge) {
+            if (badge.statut === 'verrouille') {
+              alert(`🔒 Badge verrouillé : ${badge.nom}\nObjectif : ${badge.description}`)
+            } else {
+              alert(`🏆 Bravo ! Badge ${badge.nom} obtenu.\n${badge.description}`)
+            }
+          }
+
+          function getComparisonColor(current, avg) {
+            if (current > avg + 5) return 'text-green-600'
+            if (current < avg - 5) return 'text-red-500'
+            return 'text-slate-500'
+          }
+
+          function getDiffSymbol(current, avg) {
+            if (current > avg) return '▲'
+            if (current < avg) return '▼'
+            return '='
+          }
+
+          return {
+            currentView,
+            categoriesDisponibles,
+            selectCategory,
+            openRandomConfig,
+            randomCategoriesSelection,
+            validateRandomSelection,
+            selectDifficulty,
+            startQuiz,
+
+            // Quiz State
+            activeSession,
+            currentQuestion,
+            currentQuestionIndex,
+            progressPercent,
+            handleAnswer,
+            hasAnswered,
+            selectedAnswerIndex,
+            getAnswerClass,
+            skipQuestion,
+            nextQuestion,
+            isLastQuestion,
+            sessionResultClass,
+
+            // Stats
+            globalStats,
+            previousStats,
+            newlyUnlockedBadges,
+            badgesList,
+            showBadgeDetails,
+            goToStats,
+            badgesNonLus,
+            getComparisonColor,
+            getDiffSymbol,
+
+            // Nav
+            goHome,
+
+            // Import
+            handleFileUpload,
+            importMessage,
+            importError,
+            resetStats,
+
+            // Modal
+            showResumeModal,
+            abandonResume,
+            confirmResume,
+          }
+        },
+      }).mount('#app')
+    </script>
+
+    <style>
+      /* CSS Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.4s ease-out forwards;
+      }
+
+      @keyframes bounceShort {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-3px);
+        }
+      }
+      .animate-bounce-short {
+        animation: bounceShort 2s infinite;
+      }
+
+      .btn-primary {
+        @apply bg-primary text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 hover:shadow-xl transition transform active:scale-95 text-center block;
+      }
+
+      .difficulty-card {
+        @apply w-full p-4 rounded-xl border-2 flex items-center gap-4 transition text-left active:scale-95;
+      }
+
+      .stat-card {
+        @apply bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-1;
+      }
+      .stat-card .label {
+        @apply text-xs uppercase font-bold text-slate-400 tracking-wider;
+      }
+      .stat-card .value {
+        @apply text-2xl font-bold text-slate-800;
+      }
+    </style>
+  </body>
+</html>

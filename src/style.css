@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@layer components {
+  .btn-primary {
+    @apply bg-indigo-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-indigo-200 hover:bg-indigo-700 transition transform active:scale-95 text-center block;
+  }
+
+  .difficulty-card {
+    @apply w-full p-4 rounded-xl border-2 flex items-center gap-4 transition text-left active:scale-95;
+  }
+
+  .stat-card {
+    @apply bg-white p-3 rounded-xl shadow-sm border border-slate-100 flex flex-col items-center justify-center gap-1;
+  }
+
+  .stat-card .label {
+    @apply text-xs uppercase font-bold text-slate-400 tracking-wider;
+  }
+
+  .stat-card .value {
+    @apply text-2xl font-bold text-slate-800;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  .animate-bounce-short {
+    animation: bounceShort 2s infinite;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounceShort {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-3px);
+  }
+}
