@@ -61,6 +61,8 @@ export interface GlobalStats {
   streakActuel: number
   totalSessions: number
   historiqueSessions: QuizSession[]
+  xp: number
+  level: number
 }
 
 export interface ImportData {
