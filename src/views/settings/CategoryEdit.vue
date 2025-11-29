@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import type { Category } from '@/types/models'
 import { useDataStore } from '@/stores/useDataStore'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
 const route = useRoute()
@@ -134,14 +135,14 @@ const handleSubmit = async () => {
       await dataStore.addCategory(category)
     }
 
-    router.push({ name: 'categories' })
+    router.push({ name: AppRoutes.Settings.Categories })
   } catch (err) {
     console.error('Erreur lors de la sauvegarde de la catégorie:', err)
   }
 }
 
 const handleCancel = () => {
-  router.push({ name: 'categories' })
+  router.push({ name: AppRoutes.Settings.Categories })
 }
 </script>
 

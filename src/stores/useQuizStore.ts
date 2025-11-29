@@ -4,11 +4,12 @@
 
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
-import type { QuizSession, SessionQuestion, Difficulty } from '@/types/models'
-import { DIFFICULTY_POINTS } from '@/types/constants'
+import type { QuizSession, Difficulty } from '@/types/models'
 import { sessionRepository, questionRepository } from '@/db/repositories'
 import { useDataStore } from './useDataStore'
 import { useStatsStore } from './useStatsStore'
+import { logger } from '@/utils/logger'
+import { selectQuestionsForSession, calculateSessionScore } from '@/logic/quizEngine'
 
 export const useQuizStore = defineStore('quiz', () => {
   // State
@@ -55,7 +56,7 @@ export const useQuizStore = defineStore('quiz', () => {
         showResumeModal.value = true
       }
     } catch (err) {
-      console.error('Error checking resumable session:', err)
+      logger.error('Error checking resumable session:', err)
     }
   }
 
@@ -83,74 +84,57 @@ export const useQuizStore = defineStore('quiz', () => {
   ) {
     // Convert Proxy array to plain array
     const cleanCategories = Array.isArray(categories) ? [...categories] : []
-    console.log('[QuizStore] createQuizSession called with:', { categories: cleanCategories, difficulty, count })
+    logger.log('[QuizStore] createQuizSession called with:', { categories: cleanCategories, difficulty, count })
 
     const dataStore = useDataStore()
-    console.log('[QuizStore] Total questions in store:', dataStore.questions.length)
+    logger.log('[QuizStore] Total questions in store:', dataStore.questions.length)
 
     // Use category labels directly for filtering (questions now store labels, not IDs)
-    const categoryLabels = cleanCategories
-    console.log('[QuizStore] Category labels for filtering:', categoryLabels)
+    logger.log('[QuizStore] Category labels for filtering:', cleanCategories)
 
-    // Filter questions by category and difficulty
-    let pool = dataStore.questions.filter((q) => categoryLabels.includes(q.categorie))
-    console.log('[QuizStore] Questions after category filter:', pool.length)
+    // Logic moved to quizEngine
+    try {
+      const questionsToPlay = selectQuestionsForSession(
+        dataStore.questions,
+        cleanCategories,
+        difficulty,
+        count
+      )
 
-    if (difficulty !== 'random') {
-      pool = pool.filter((q) => q.difficulte === difficulty)
-      console.log('[QuizStore] Questions after difficulty filter:', pool.length)
-    }
+      logger.log('[QuizStore] Questions selected for quiz:', questionsToPlay.length)
 
-    // Sort by appearance count (least seen first), then random
-    pool.sort((a, b) => {
-      if (a.countApparition === b.countApparition) {
-        return Math.random() - 0.5
+      if (questionsToPlay.length === 0) {
+        throw new Error('Pas assez de questions disponibles pour cette sélection')
       }
-      return a.countApparition - b.countApparition
-    })
 
-    // Take requested amount
-    const questionsToPlay = pool.slice(0, count).map((q) => {
-      // Shuffle answer indices
-      const indices = [0, 1, 2, 3].sort(() => Math.random() - 0.5)
-      return {
-        ...q,
-        ordreReponses: indices,
-        estSkippe: false,
-        estCorrecte: null,
-      } as SessionQuestion
-    })
+      // Create session
+      const session: QuizSession = {
+        sessionId: crypto.randomUUID(),
+        dateDebut: new Date().toISOString(),
+        dateFin: null,
+        questions: questionsToPlay,
+        indexQuestionCourante: 0,
+        nbQuestions: questionsToPlay.length,
+        scorePondere: 0,
+        scorePondereMax: 0,
+        notePourcentage: 0,
+        difficulteChoisie: difficulty,
+        categories: cleanCategories,
+      }
 
-    console.log('[QuizStore] Questions selected for quiz:', questionsToPlay.length)
+      logger.log('[QuizStore] Quiz session created:', { sessionId: session.sessionId, nbQuestions: session.nbQuestions })
 
-    if (questionsToPlay.length === 0) {
-      throw new Error('Pas assez de questions disponibles pour cette sélection')
+      activeSession.value = session
+      resetQuestionState()
+
+      logger.log('[QuizStore] Saving session to DB...')
+      // Save to DB
+      await sessionRepository.save(session)
+      logger.log('[QuizStore] Session saved to DB')
+    } catch (error) {
+      logger.error('[QuizStore] Error creating session:', error)
+      throw error
     }
-
-    // Create session
-    const session: QuizSession = {
-      sessionId: crypto.randomUUID(),
-      dateDebut: new Date().toISOString(),
-      dateFin: null,
-      questions: questionsToPlay,
-      indexQuestionCourante: 0,
-      nbQuestions: questionsToPlay.length,
-      scorePondere: 0,
-      scorePondereMax: 0,
-      notePourcentage: 0,
-      difficulteChoisie: difficulty,
-      categories: cleanCategories,
-    }
-
-    console.log('[QuizStore] Quiz session created:', { sessionId: session.sessionId, nbQuestions: session.nbQuestions })
-
-    activeSession.value = session
-    resetQuestionState()
-
-    console.log('[QuizStore] Saving session to DB...')
-    // Save to DB
-    await sessionRepository.save(session)
-    console.log('[QuizStore] Session saved to DB')
   }
 
   function resetQuestionState() {
@@ -196,11 +180,11 @@ export const useQuizStore = defineStore('quiz', () => {
 
     // Update question aparition count
     questionRepository.incrementApparition(question.id).catch((err) => {
-      console.error('Error updating question metadata:', err)
+      logger.error('Error updating question metadata:', err)
     })
 
     saveCurrentSession().catch((err) => {
-      console.error('Error saving session:', err)
+      logger.error('Error saving session:', err)
     })
 
     // Immediately go to next
@@ -211,7 +195,7 @@ export const useQuizStore = defineStore('quiz', () => {
     if (!activeSession.value) return
 
     if (isLastQuestion.value) {
-      console.log('[QuizStore] Last question - finishing quiz')
+      logger.log('[QuizStore] Last question - finishing quiz')
       await finishQuiz()
     } else {
       activeSession.value.indexQuestionCourante++
@@ -231,25 +215,12 @@ export const useQuizStore = defineStore('quiz', () => {
 
     const statsStore = useStatsStore()
 
-    // Calculate scores
-    let scorePondere = 0
-    let scorePondereMax = 0
-    let correctCount = 0
+    // Logic moved to quizEngine
+    const result = calculateSessionScore(activeSession.value.questions)
 
-    activeSession.value.questions.forEach((q) => {
-      const points = DIFFICULTY_POINTS[q.difficulte] || 1
-      scorePondereMax += points
-
-      if (q.estCorrecte) {
-        scorePondere += points
-        correctCount++
-      }
-    })
-
-    activeSession.value.scorePondere = scorePondere
-    activeSession.value.scorePondereMax = scorePondereMax
-    activeSession.value.notePourcentage =
-      (correctCount / activeSession.value.nbQuestions) * 100
+    activeSession.value.scorePondere = result.scorePondere
+    activeSession.value.scorePondereMax = result.scorePondereMax
+    activeSession.value.notePourcentage = result.notePourcentage
     activeSession.value.dateFin = new Date().toISOString()
     activeSession.value.dateJour = new Date().toISOString().split('T')[0]
 
@@ -263,7 +234,7 @@ export const useQuizStore = defineStore('quiz', () => {
     await statsStore.loadStats()
 
     // Keep session for Summary page to display results
-    console.log('[QuizStore] Quiz finished - score:', activeSession.value.notePourcentage.toFixed(1) + '%')
+    logger.log('[QuizStore] Quiz finished - score:', activeSession.value.notePourcentage.toFixed(1) + '%')
   }
 
   // Category selection helpers

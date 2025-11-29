@@ -1,36 +1,57 @@
 <script setup lang="ts">
-import { useRouter } from 'vue-router'
-import { useDataStore } from '@/stores/useDataStore'
-import { useStatsStore } from '@/stores/useStatsStore'
 import { ref, computed, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+import { useStatsStore } from '@/stores/useStatsStore'
+import { useDataStore } from '@/stores/useDataStore'
 import type { Badge } from '@/types/models'
+import StatCard from '@/components/stats/StatCard.vue'
 import EvolutionChart from '@/components/stats/EvolutionChart.vue'
+import BadgesGrid from '@/components/stats/BadgesGrid.vue'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
-const dataStore = useDataStore()
 const statsStore = useStatsStore()
+const dataStore = useDataStore()
+
+// Badge Modal State
 const activeBadge = ref<Badge | null>(null)
 
-// Computed global stats
-const globalStats = computed(() => statsStore.globalStats)
-const badges = computed(() => dataStore.badges)
-const sessions = computed(() => statsStore.globalStats?.historiqueSessions || [])
-
-// Initialize chart on mount
 onMounted(async () => {
   await statsStore.loadStats()
-  // Chart initialization would happen here if using Chart.js component
+  // Ensure static data (badges defs) are loaded
+  if (dataStore.badges.length === 0) {
+    await dataStore.initData()
+  }
 })
 
-// Methods
-async function goBack() {
-  await router.back()
-}
+const globalStats = computed(() => statsStore.globalStats)
+// Badges source is dataStore (definitions) merged with unlocking logic in statsStore or just persisted status
+const badges = computed(() => dataStore.badges)
+const sessions = computed(() => globalStats.value.historiqueSessions || [])
 
+const sortedBadges = computed(() => {
+  const all = [...badges.value]
+  // Unlocked first, then by date
+  return all.sort((a, b) => {
+    if (a.statut === 'debloque' && b.statut !== 'debloque') return -1
+    if (a.statut !== 'debloque' && b.statut === 'debloque') return 1
+    if (a.dateDebloque && b.dateDebloque) {
+      return new Date(b.dateDebloque).getTime() - new Date(a.dateDebloque).getTime()
+    }
+    return 0
+  })
+})
+
+// Actions
 async function goHome() {
-  await router.push({ name: 'home' })
+  await router.push({ name: AppRoutes.Home })
 }
 
+function goBack() {
+  router.back()
+}
+
+// Modal Logic
 function showBadgeDetails(badge: Badge) {
   activeBadge.value = badge
 }
@@ -39,11 +60,11 @@ function closeBadgeModal() {
   activeBadge.value = null
 }
 
-// Helper to check if badge is unlocked
 function isBadgeUnlocked(badge: Badge): boolean {
   return badge.statut === 'debloque'
 }
 </script>
+
 
 <template>
   <div class="flex flex-col bg-slate-50 text-slate-900 h-full">

@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/useDataStore'
 import type { Category } from '@/types/models'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -106,7 +107,7 @@ const handleSelect = async () => {
     console.log('[SelectCategory] Import complete, navigating to home')
 
     setTimeout(() => {
-      router.push({ name: 'home' })
+      router.push({ name: AppRoutes.Home })
     }, 2000)
   } catch (err) {
     isImporting.value = false

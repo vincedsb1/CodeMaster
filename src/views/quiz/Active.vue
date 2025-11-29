@@ -4,6 +4,7 @@ import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/useQuizStore'
 import { marked } from 'marked'
 import { getCategoryLabel } from '@/types/constants'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
 const quizStore = useQuizStore()
@@ -99,7 +100,7 @@ function handleSkip() {
 async function handleNext() {
   const result = await quizStore.nextQuestion()
   if (quizStore.isQuizFinished) {
-    await router.push({ name: 'summary' })
+    await router.push({ name: AppRoutes.Quiz.Summary })
   }
 }
 
@@ -110,7 +111,7 @@ function confirmAbandon() {
 async function quitQuiz() {
   showAbandonModal.value = false
   quizStore.clearActiveSession()
-  await router.push({ name: 'home' })
+  await router.push({ name: AppRoutes.Home })
 }
 </script>
 

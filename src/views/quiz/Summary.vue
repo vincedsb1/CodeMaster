@@ -3,6 +3,7 @@ import { computed, onMounted, unref, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/useQuizStore'
 import { useStatsStore } from '@/stores/useStatsStore'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
 const quizStore = useQuizStore()
@@ -143,7 +144,7 @@ function createConfetti() {
 
 async function goHome() {
   quizStore.clearActiveSession()
-  await router.push({ name: 'home' })
+  await router.push({ name: AppRoutes.Home })
 }
 
 async function replayQuiz() {
@@ -152,7 +153,7 @@ async function replayQuiz() {
 
   quizStore.clearActiveSession()
   await quizStore.createQuizSession(params.categories, params.difficulty, params.count)
-  await router.push({ name: 'quiz-active' })
+  await router.push({ name: AppRoutes.Quiz.Active })
 }
 </script>
 

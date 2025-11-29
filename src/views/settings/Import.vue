@@ -13,6 +13,7 @@ import {
 } from '@/services/categoryLoadingService'
 import { loadQuestionsFromJsonFile } from '@/db/loaders/questionsLoader'
 import { questionRepository } from '@/db/repositories'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -94,7 +95,7 @@ async function handleFileUpload(event: Event) {
       // Store JSON in sessionStorage and navigate to category selection page
       sessionStorage.setItem('pendingImportJson', JSON.stringify(json))
       console.log('[Import] Navigating to category selection')
-      router.push({ name: 'settings-select-category' })
+      router.push({ name: AppRoutes.Settings.SelectCategory })
     } catch (err) {
       console.error('[Import] Error parsing JSON:', err)
       importMessage.value = err instanceof Error ? err.message : 'Erreur lors du parsing du JSON'
@@ -271,7 +272,7 @@ async function loadAllCategories() {
 
     // Auto-navigate to home after 1.5 seconds
     setTimeout(() => {
-      router.push({ name: 'home' })
+      router.push({ name: AppRoutes.Home })
     }, 1500)
   } finally {
     loadingAll.value = false

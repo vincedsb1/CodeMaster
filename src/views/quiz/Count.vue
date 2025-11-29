@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/useQuizStore'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
 const quizStore = useQuizStore()
@@ -22,7 +23,7 @@ async function startQuiz(count: number) {
       quizStore.selectedDifficulty!,
       count
     )
-    router.push({ name: 'quiz-active' })
+    router.push({ name: AppRoutes.Quiz.Active })
   } catch (error) {
     console.error('[Count] Error starting quiz:', error)
     showToast(error instanceof Error ? error.message : 'Erreur lors du démarrage')
@@ -31,11 +32,11 @@ async function startQuiz(count: number) {
 }
 
 function goBack() {
-  router.push('/quiz/difficulty')
+  router.push({ name: AppRoutes.Quiz.Difficulty })
 }
 
 function closeFlow() {
-  router.push('/home')
+  router.push({ name: AppRoutes.Home })
 }
 
 function showToast(msg: string) {

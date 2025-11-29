@@ -7,6 +7,8 @@ import { ref, computed } from 'vue'
 import type { Question, Badge, Category, Difficulty } from '@/types/models'
 import { DEFAULT_QUESTIONS, DEFAULT_BADGES, DEFAULT_CATEGORIES } from '@/types/constants'
 import { questionRepository, metaRepository, categoryRepository } from '@/db/repositories'
+import { logger } from '@/utils/logger'
+import { isValidQuestionArray } from '@/utils/validators'
 
 export const useDataStore = defineStore('data', () => {
   // State
@@ -23,12 +25,12 @@ export const useDataStore = defineStore('data', () => {
 
     try {
       // Load questions from DB (JSON loading happens via Import.vue)
-      console.log('[DataStore] initData() started, loading questions from IndexedDB...')
+      logger.log('[DataStore] initData() started, loading questions from IndexedDB...')
       const qs = await questionRepository.getAll()
       questions.value = qs
-      console.log(`[DataStore] ✓ Loaded ${qs.length} questions from IndexedDB`)
+      logger.log(`[DataStore] ✓ Loaded ${qs.length} questions from IndexedDB`)
       if (qs.length === 0) {
-        console.warn('[DataStore] ⚠️ No questions found in IndexedDB. User needs to load them via /settings/import')
+        logger.warn('[DataStore] ⚠️ No questions found in IndexedDB. User needs to load them via /settings/import')
       }
 
       // Load badges from meta store
@@ -54,79 +56,61 @@ export const useDataStore = defineStore('data', () => {
       categories.value = cats
     } catch (err) {
       error.value = err instanceof Error ? err.message : 'Erreur lors du chargement des données'
-      console.error('Data init error:', err)
+      logger.error('Data init error:', err)
     } finally {
       isLoading.value = false
     }
   }
 
-  async function importQuestions(json: Array<Record<string, unknown>>, targetCategory?: string) {
+  async function importQuestions(json: unknown, targetCategory?: string) {
     error.value = null
 
     try {
-      console.log('[DataStore] importQuestions called with', json.length, 'questions, targetCategory:', targetCategory)
-
-      // Validation
-      if (!Array.isArray(json)) {
-        throw new Error('Le fichier doit contenir un tableau JSON')
+      // Validation with Type Guard
+      if (!isValidQuestionArray(json)) {
+        throw new Error('Le format du fichier JSON est invalide. Vérifiez la structure des questions.')
       }
 
-      if (json.length === 0) {
-        throw new Error('Le fichier est vide')
-      }
-
-      console.log('[DataStore] Validation passed, first question:', json[0])
-
-      const firstQuestion = json[0] as Record<string, unknown>
-      if (
-        !firstQuestion.intitule ||
-        !firstQuestion.reponses ||
-        firstQuestion.indexBonneReponse === undefined ||
-        !firstQuestion.difficulte
-      ) {
-        throw new Error('Format invalide : propriétés requises manquantes')
-      }
-
-      console.log('[DataStore] Format validation passed')
+      logger.log('[DataStore] importQuestions called with', json.length, 'questions, targetCategory:', targetCategory)
+      logger.log('[DataStore] Validation passed, first question:', json[0])
 
       // Normalize and save
       const normalized: Question[] = json.map((q, idx) => {
-        const question = q as Record<string, unknown>
         return {
-          id: (question.id as string) || `imported-${Date.now()}-${idx}`,
-          intitule: question.intitule as string,
-          reponses: question.reponses as string[],
-          indexBonneReponse: question.indexBonneReponse as number,
-          explication: (question.explication as string) || '',
-          categorie: (targetCategory || (question.categorie as string) || 'Sans catégorie') as string,
-          difficulte: (question.difficulte as string) as Exclude<Difficulty, 'random'>,
+          id: q.id || `imported-${Date.now()}-${idx}`,
+          intitule: q.intitule,
+          reponses: q.reponses,
+          indexBonneReponse: q.indexBonneReponse,
+          explication: q.explication || '',
+          categorie: targetCategory || q.categorie || 'Sans catégorie',
+          difficulte: q.difficulte as Exclude<Difficulty, 'random'>,
           countApparition: 0,
           countBonneReponse: 0,
         }
       })
 
-      console.log('[DataStore] Normalized', normalized.length, 'questions')
+      logger.log('[DataStore] Normalized', normalized.length, 'questions')
 
-      // Deep clone to remove any Vue proxies
+      // Deep clone to remove any Vue proxies or reference issues
+      // Using JSON parse/stringify to be safe against Proxies
       const cleanedQuestions = JSON.parse(JSON.stringify(normalized))
-      console.log('[DataStore] Questions cleaned, ready for DB')
+      logger.log('[DataStore] Questions cleaned, ready for DB')
 
-      // Clear and reload
-      console.log('[DataStore] Clearing question repository...')
+      logger.log('[DataStore] Clearing question repository...')
       await questionRepository.clear()
-      console.log('[DataStore] Question repository cleared')
+      logger.log('[DataStore] Question repository cleared')
 
-      console.log('[DataStore] Saving', cleanedQuestions.length, 'questions to repository...')
+      logger.log('[DataStore] Saving', cleanedQuestions.length, 'questions to repository...')
       await questionRepository.saveMany(cleanedQuestions)
-      console.log('[DataStore] Questions saved to repository')
+      logger.log('[DataStore] Questions saved to repository')
 
       questions.value = cleanedQuestions
-      console.log('[DataStore] Questions updated in state, total:', questions.value.length)
+      logger.log('[DataStore] Questions updated in state, total:', questions.value.length)
 
       return { success: true, count: cleanedQuestions.length }
     } catch (err) {
       error.value = err instanceof Error ? err.message : 'Erreur lors de l\'import'
-      console.error('[DataStore] Import error:', err)
+      logger.error('[DataStore] Import error:', err)
       throw error.value
     }
   }

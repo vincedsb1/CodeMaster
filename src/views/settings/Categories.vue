@@ -3,6 +3,7 @@ import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useDataStore } from '@/stores/useDataStore'
 import type { Category } from '@/types/models'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -143,11 +144,11 @@ const getPhosphorIcon = (iconName: string): string => {
 }
 
 const handleCreateCategory = () => {
-  router.push({ name: 'category-edit' })
+  router.push({ name: AppRoutes.Settings.CategoryEdit })
 }
 
 const handleCategoryClick = (categoryId: string) => {
-  router.push({ name: 'category-edit', query: { id: categoryId } })
+  router.push({ name: AppRoutes.Settings.CategoryEdit, query: { id: categoryId } })
 }
 
 const deleteCategory = (categoryId: string | undefined) => {

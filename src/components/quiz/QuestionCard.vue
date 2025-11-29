@@ -21,9 +21,26 @@ const emits = defineEmits<{
 
 const difficultyColor = DIFFICULTY_COLORS[props.question.difficulte] || DIFFICULTY_COLORS.moyen
 
-// Get category label from category ID
+// Get category label from category ID or Label
 const currentCategory = computed(() => {
-  return DEFAULT_CATEGORIES.find((cat) => cat.id === props.question.categorie)
+  return DEFAULT_CATEGORIES.find(
+    (cat) => cat.id === props.question.categorie || cat.label === props.question.categorie
+  )
+})
+
+const categoryColorClasses: Record<string, string> = {
+  blue: 'bg-blue-100 text-blue-700',
+  cyan: 'bg-cyan-100 text-cyan-700',
+  slate: 'bg-slate-100 text-slate-700',
+  green: 'bg-green-100 text-green-700',
+  purple: 'bg-purple-100 text-purple-700',
+  yellow: 'bg-yellow-100 text-yellow-700',
+  indigo: 'bg-indigo-100 text-indigo-700',
+}
+
+const categoryBadgeClass = computed(() => {
+  if (!currentCategory.value) return 'bg-gray-100 text-gray-700'
+  return categoryColorClasses[currentCategory.value.color] || 'bg-blue-100 text-blue-700'
 })
 </script>
 
@@ -36,16 +53,8 @@ const currentCategory = computed(() => {
         <!-- Category badge -->
         <span
           v-if="currentCategory"
-          :class="[
-            'px-2 py-0.5 rounded text-xs uppercase font-bold tracking-wider',
-            currentCategory.color === 'blue' && 'bg-blue-100 text-blue-700',
-            currentCategory.color === 'cyan' && 'bg-cyan-100 text-cyan-700',
-            currentCategory.color === 'slate' && 'bg-slate-100 text-slate-700',
-            currentCategory.color === 'green' && 'bg-green-100 text-green-700',
-            currentCategory.color === 'purple' && 'bg-purple-100 text-purple-700',
-            currentCategory.color === 'yellow' && 'bg-yellow-100 text-yellow-700',
-            currentCategory.color === 'indigo' && 'bg-indigo-100 text-indigo-700',
-          ]"
+          class="px-2 py-0.5 rounded text-xs uppercase font-bold tracking-wider"
+          :class="categoryBadgeClass"
         >
           {{ currentCategory.label }}
         </span>

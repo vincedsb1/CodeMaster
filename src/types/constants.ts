@@ -2,7 +2,7 @@
  * Constants, enums, and default data for Quiz Master
  */
 
-import type { Badge, Category, Question } from './models'
+import type { Badge, Category, Question, TailwindColor } from './models'
 
 export const DB_CONFIG = {
   NAME: 'quiz-master-db',
@@ -15,50 +15,23 @@ export const DB_CONFIG = {
   },
 }
 
-export const DEFAULT_CATEGORIES: Category[] = [
-  {
-    id: 'cat_typescript',
-    label: 'TypeScript',
-    icon: 'Code',
-    color: 'blue',
-  },
-  {
-    id: 'cat_react',
-    label: 'React',
-    icon: 'Code',
-    color: 'cyan',
-  },
-  {
-    id: 'cat_nextjs',
-    label: 'Next.js',
-    icon: 'Rocket',
-    color: 'slate',
-  },
-  {
-    id: 'cat_nodejs',
-    label: 'Node.js',
-    icon: 'Cpu',
-    color: 'green',
-  },
-  {
-    id: 'cat_css',
-    label: 'CSS',
-    icon: 'Palette',
-    color: 'purple',
-  },
-  {
-    id: 'cat_javascript',
-    label: 'JavaScript',
-    icon: 'Code',
-    color: 'yellow',
-  },
-  {
-    id: 'cat_entretiens',
-    label: 'Entretiens',
-    icon: 'Chat',
-    color: 'indigo',
-  },
-]
+// Unified Category Configuration
+export const CATEGORY_CONFIG: Record<string, { id: string; label: string; icon: string; color: TailwindColor; fileName: string }> = {
+  typescript: { id: 'cat_typescript', label: 'TypeScript', icon: 'Code', color: 'blue', fileName: 'typescript' },
+  react: { id: 'cat_react', label: 'React', icon: 'Code', color: 'cyan', fileName: 'react' },
+  nextjs: { id: 'cat_nextjs', label: 'Next.js', icon: 'Rocket', color: 'slate', fileName: 'nextjs' },
+  nodejs: { id: 'cat_nodejs', label: 'Node.js', icon: 'Cpu', color: 'green', fileName: 'nodejs' },
+  css: { id: 'cat_css', label: 'CSS', icon: 'Palette', color: 'purple', fileName: 'css' },
+  javascript: { id: 'cat_javascript', label: 'JavaScript', icon: 'Code', color: 'yellow', fileName: 'javascript' },
+  entretiens: { id: 'cat_entretiens', label: 'Entretiens', icon: 'Chat', color: 'indigo', fileName: 'entretiens' },
+}
+
+export const DEFAULT_CATEGORIES: Category[] = Object.values(CATEGORY_CONFIG).map(c => ({
+  id: c.id,
+  label: c.label,
+  icon: c.icon,
+  color: c.color
+}))
 
 export const DEFAULT_QUESTIONS: Question[] = []
 
@@ -134,24 +107,8 @@ export const DIFFICULTY_COLORS = {
   },
 }
 
-// Map category IDs or names to display labels
-export const CATEGORY_DISPLAY_MAP: Record<string, string> = {
-  'cat_typescript': 'TypeScript',
-  'cat_react': 'React',
-  'cat_nextjs': 'Next.js',
-  'cat_nodejs': 'Node.js',
-  'cat_css': 'CSS',
-  'cat_javascript': 'JavaScript',
-  'cat_entretiens': 'Entretiens',
-  'typescript': 'TypeScript',
-  'react': 'React',
-  'nextjs': 'Next.js',
-  'nodejs': 'Node.js',
-  'css': 'CSS',
-  'javascript': 'JavaScript',
-  'entretiens': 'Entretiens',
-}
-
-export function getCategoryLabel(categoryId: string): string {
-  return CATEGORY_DISPLAY_MAP[categoryId] || categoryId
+export function getCategoryLabel(key: string): string {
+  // Check if key matches an ID or fileName in config
+  const config = Object.values(CATEGORY_CONFIG).find(c => c.id === key || c.fileName === key || c.label === key)
+  return config ? config.label : key
 }
