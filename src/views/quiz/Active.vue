@@ -6,6 +6,7 @@ import { marked } from 'marked'
 import { getCategoryLabel } from '@/types/constants'
 import { AppRoutes } from '@/router/routes'
 import { useQuizStyles } from '@/composables/useQuizStyles'
+import { haptics } from '@/utils/haptics'
 
 const router = useRouter()
 const quizStore = useQuizStore()
@@ -34,25 +35,42 @@ function renderMarkdown(text: string): string {
 
 // Actions
 function handleAnswer(answerIndex: number) {
+  if (hasAnswered.value) return
+  
+  haptics.light()
   quizStore.submitAnswer(answerIndex)
+  
+  if (currentQuestion.value) {
+    const isCorrect = answerIndex === currentQuestion.value.indexBonneReponse
+    if (isCorrect) {
+      haptics.success()
+    } else {
+      haptics.error()
+    }
+  }
 }
 
 function handleSkip() {
+  haptics.medium()
   quizStore.skipQuestion()
 }
 
 async function handleNext() {
+  haptics.light()
   const result = await quizStore.nextQuestion()
   if (quizStore.isQuizFinished) {
+    haptics.celebrate()
     await router.push({ name: AppRoutes.Quiz.Summary })
   }
 }
 
 function confirmAbandon() {
+  haptics.medium()
   showAbandonModal.value = true
 }
 
 async function quitQuiz() {
+  haptics.medium()
   showAbandonModal.value = false
   quizStore.clearActiveSession()
   await router.push({ name: AppRoutes.Home })
