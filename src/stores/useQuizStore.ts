@@ -10,6 +10,7 @@ import { useDataStore } from './useDataStore'
 import { useStatsStore } from './useStatsStore'
 import { logger } from '@/utils/logger'
 import { selectQuestionsForSession, calculateSessionScore } from '@/logic/quizEngine'
+import { generateDailyChallengeQuestions } from '@/logic/dailyChallenge'
 
 export const useQuizStore = defineStore('quiz', () => {
   // State
@@ -75,6 +76,45 @@ export const useQuizStore = defineStore('quiz', () => {
 
   function clearActiveSession() {
     activeSession.value = null
+  }
+
+  async function startDailyChallenge() {
+    logger.log('[QuizStore] startDailyChallenge called')
+    const dataStore = useDataStore()
+    
+    // Ensure data is loaded (if starting directly from home)
+    if (dataStore.questions.length === 0) {
+        await dataStore.initData()
+    }
+
+    const today = new Date().toISOString().split('T')[0] as string
+    const questions = generateDailyChallengeQuestions(dataStore.questions, today, 10)
+
+    if (questions.length === 0) {
+        throw new Error('Pas assez de questions pour le challenge quotidien')
+    }
+
+    const session: QuizSession = {
+      sessionId: crypto.randomUUID(),
+      dateDebut: new Date().toISOString(),
+      dateFin: null,
+      questions: questions,
+      indexQuestionCourante: 0,
+      nbQuestions: questions.length,
+      scorePondere: 0,
+      scorePondereMax: 0,
+      notePourcentage: 0,
+      difficulteChoisie: 'random', // Mixed difficulty
+      categories: ['Daily Challenge'],
+      dateJour: today,
+      isDailyChallenge: true
+    }
+
+    activeSession.value = session
+    resetQuestionState()
+
+    await sessionRepository.save(session)
+    logger.log('[QuizStore] Daily Challenge session created')
   }
 
   async function createQuizSession(
@@ -294,5 +334,6 @@ export const useQuizStore = defineStore('quiz', () => {
     validateRandomSelection,
     selectDifficulty,
     getReplayParams,
+    startDailyChallenge,
   }
 })

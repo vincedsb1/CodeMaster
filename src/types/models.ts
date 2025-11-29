@@ -44,6 +44,7 @@ export interface QuizSession {
   difficulteChoisie: Difficulty
   categories: string[]
   dateJour?: string
+  isDailyChallenge?: boolean
 }
 
 export interface Badge {

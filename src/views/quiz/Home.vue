@@ -5,6 +5,7 @@ import { useDataStore } from '@/stores/useDataStore'
 import { useQuizStore } from '@/stores/useQuizStore'
 import { useStatsStore } from '@/stores/useStatsStore'
 import LoadingSpinner from '@/components/common/LoadingSpinner.vue'
+import { AppRoutes } from '@/router/routes'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -33,6 +34,9 @@ async function reloadQuestionsManual() {
 }
 
 onMounted(async () => {
+  // Load stats to check for daily challenge completion
+  await statsStore.loadStats()
+
   // Ensure questions are loaded (in case they were imported while away)
   if (!dataStore.questions || dataStore.questions.length === 0) {
     try {
@@ -68,24 +72,34 @@ function getAppleColorClasses(color: string): ColorClass {
 
 function selectCategory(category: string) {
   quizStore.selectCategory(category)
-  router.push('/quiz/difficulty')
+  router.push({ name: AppRoutes.Quiz.Difficulty })
 }
 
 function openRandomConfig() {
   quizStore.openRandomConfig(categoryLabels.value)
-  router.push('/quiz/randomconfig')
+  router.push({ name: AppRoutes.Quiz.RandomConfig })
+}
+
+async function startDailyChallenge() {
+  try {
+    await quizStore.startDailyChallenge()
+    router.push({ name: AppRoutes.Quiz.Active })
+  } catch (err) {
+    console.error('Failed to start daily challenge:', err)
+    alert('Impossible de lancer le challenge quotidien : ' + (err instanceof Error ? err.message : 'Erreur inconnue'))
+  }
 }
 
 function goToImport() {
-  router.push('/settings/import')
+  router.push({ name: AppRoutes.Settings.Import })
 }
 
 function goToSettings() {
-  router.push('/settings/categories')
+  router.push({ name: AppRoutes.Settings.Categories })
 }
 
 function goToStats() {
-  router.push('/stats')
+  router.push({ name: AppRoutes.Stats })
 }
 </script>
 
@@ -135,6 +149,24 @@ function goToStats() {
 
       <!-- C. Content State: DATA LOADED -->
       <template v-else>
+        <!-- Daily Challenge (Featured) -->
+        <button v-if="!statsStore.isDailyChallengeCompleted"
+                @click="startDailyChallenge"
+                class="w-full group relative overflow-hidden rounded-full bg-gradient-to-r from-orange-500 to-red-500 p-1 shadow-[0_6px_20px_rgba(249,115,22,0.3)] hover:shadow-lg active:scale-[0.98] transition-all duration-200 mb-4">
+          <div class="px-5 py-4 flex items-center justify-between w-full h-full">
+            <div class="flex items-center gap-4">
+              <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-inner border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                <i class="ph-fill ph-fire text-white text-2xl"></i>
+              </div>
+              <div class="text-left">
+                <div class="text-lg font-bold text-white">Défi Quotidien</div>
+                <div class="text-sm font-medium text-orange-100/90">XP doublée !</div>
+              </div>
+            </div>
+            <i class="ph ph-caret-right text-white/60 text-xl group-hover:text-white group-hover:translate-x-1 transition-all duration-200"></i>
+          </div>
+        </button>
+
         <!-- Categories Grid -->
         <section class="grid grid-cols-2 sm:grid-cols-3 gap-4">
           <button v-for="cat in categoriesDisponibles"
@@ -155,9 +187,9 @@ function goToStats() {
           </button>
         </section>
 
-        <!-- Random Mode Button (Primary Action) -->
+        <!-- Random Mode Button (Secondary Action) -->
         <button @click="openRandomConfig"
-                class="w-full group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-700 p-1 shadow-[0_6px_20px_rgba(37,99,235,0.3)] hover:shadow-lg active:scale-[0.98] transition-all duration-200 mt-2">
+                class="w-full group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-700 p-1 shadow-[0_6px_20px_rgba(37,99,235,0.3)] hover:shadow-lg active:scale-[0.98] transition-all duration-200 mt-6">
 
           <div class="px-5 py-4 flex items-center justify-between w-full h-full">
             <div class="flex items-center gap-4">
