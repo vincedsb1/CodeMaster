@@ -5,10 +5,12 @@ import { useQuizStore } from '@/stores/useQuizStore'
 import { marked } from 'marked'
 import { getCategoryLabel } from '@/types/constants'
 import { AppRoutes } from '@/router/routes'
+import { useQuizStyles } from '@/composables/useQuizStyles'
 
 const router = useRouter()
 const quizStore = useQuizStore()
 const showAbandonModal = ref(false)
+const { getDifficultyColorClass, getAnswerClasses, getBadgeClasses } = useQuizStyles()
 
 // Computed values
 const currentQuestion = computed(() => quizStore.currentQuestion)
@@ -22,70 +24,12 @@ const progressPercent = computed(() => ((currentQuestionIndex.value + (hasAnswer
 // Difficulty badge colors
 const difficultyBadgeClass = computed(() => {
   if (!currentQuestion.value) return ''
-  const map: Record<string, string> = {
-    'facile': 'bg-green-100/60 text-green-700',
-    'moyen': 'bg-amber-100/60 text-amber-700',
-    'difficile': 'bg-red-100/60 text-red-700',
-    'random': 'bg-purple-100/60 text-purple-700'
-  }
-  return map[currentQuestion.value.difficulte] || 'bg-gray-100 text-gray-700'
+  return getDifficultyColorClass(currentQuestion.value.difficulte)
 })
 
 // Render Markdown
 function renderMarkdown(text: string): string {
   return marked.parseInline(text || '') as string
-}
-
-// Answer classes based on state
-function getAnswerClasses(index: number): string {
-  if (!currentQuestion.value) return ''
-
-  if (!hasAnswered.value) {
-    return 'bg-white border-gray-100/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.08)] hover:bg-gray-50/50 active:scale-[0.98] cursor-pointer'
-  }
-
-  const isCorrect = index === currentQuestion.value.indexBonneReponse
-  const isSelected = index === selectedAnswerIndex.value
-
-  if (isSelected && isCorrect) {
-    return 'bg-green-50/40 border-green-200/50 shadow-[0_4px_12px_rgba(16,185,129,0.15)] ring-1 ring-green-200/50'
-  }
-
-  if (isSelected && !isCorrect) {
-    return 'bg-red-50/40 border-red-200/50 shadow-[0_4px_12px_rgba(239,68,68,0.15)] ring-1 ring-red-200/50'
-  }
-
-  if (!isSelected && isCorrect) {
-    return 'bg-green-50/20 border-green-100/50'
-  }
-
-  return 'bg-gray-50/30 border-gray-100/30 opacity-60'
-}
-
-// Badge letter classes
-function getBadgeClasses(index: number): string {
-  if (!currentQuestion.value) return ''
-
-  if (!hasAnswered.value) {
-    return 'bg-blue-100 text-blue-700'
-  }
-
-  const isCorrect = index === currentQuestion.value.indexBonneReponse
-  const isSelected = index === selectedAnswerIndex.value
-
-  if (isSelected && isCorrect) {
-    return 'bg-green-600 text-white'
-  }
-
-  if (isSelected && !isCorrect) {
-    return 'bg-red-600 text-white'
-  }
-
-  if (!isSelected && isCorrect) {
-    return 'bg-green-100 text-green-700'
-  }
-
-  return 'bg-gray-100 text-gray-400'
 }
 
 // Actions
@@ -173,11 +117,11 @@ async function quitQuiz() {
                     @click="handleAnswer(index)"
                     :disabled="hasAnswered"
                     class="group w-full rounded-[24px] p-4 border transition-all duration-200 flex items-start gap-4 text-left relative overflow-hidden disabled:cursor-not-allowed"
-                    :class="getAnswerClasses(index)">
+                    :class="getAnswerClasses(index, selectedAnswerIndex, currentQuestion.indexBonneReponse, hasAnswered)">
 
               <!-- Letter Badge -->
               <div class="flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm transition-colors duration-200"
-                   :class="getBadgeClasses(index)">
+                   :class="getBadgeClasses(index, selectedAnswerIndex, currentQuestion.indexBonneReponse, hasAnswered)">
                 {{ String.fromCharCode(65 + index) }}
               </div>
 
@@ -266,49 +210,6 @@ async function quitQuiz() {
 </template>
 
 <style scoped>
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(4px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes pop {
-  from {
-    transform: scale(0.95);
-  }
-  to {
-    transform: scale(1);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-.animate-slide-in {
-  animation: slideIn 0.3s ease-out forwards;
-}
-
-.animate-pop {
-  animation: pop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
 .markdown-body p {
   margin-bottom: 0.5rem;
 }

@@ -178,6 +178,27 @@ export default {
         'label-md': ['12px', { lineHeight: '16px', letterSpacing: '0.50px', fontWeight: '500' }],
         'label-sm': ['11px', { lineHeight: '16px', letterSpacing: '0.50px', fontWeight: '500' }],
       },
+
+      // Animations
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0', transform: 'translateY(4px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideIn: {
+          '0%': { opacity: '0', transform: 'translateX(20px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+        pop: {
+          '0%': { transform: 'scale(0.95)' },
+          '100%': { transform: 'scale(1)' },
+        }
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.3s ease-out forwards',
+        'slide-in': 'slideIn 0.3s ease-out forwards',
+        'pop': 'pop 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
+      },
     },
   },
   plugins: [],
