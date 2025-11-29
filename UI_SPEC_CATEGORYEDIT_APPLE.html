@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>CodeMaster - Édition Catégorie</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                    colors: {
+                        slate: { 50: '#F8F8F8' }
+                    },
+                    boxShadow: {
+                        'apple-subtle': '0 4px 12px rgba(0,0,0,0.05)',
+                        'apple-card': '0 8px 24px rgba(0,0,0,0.06)',
+                        'apple-focus': '0 0 0 4px rgba(59, 130, 246, 0.2)',
+                        'apple-glow': '0 4px 12px rgba(37,99,235,0.3)',
+                    },
+                    animation: {
+                        'page-enter': 'slideUpFade 0.5s ease-out forwards',
+                        'shake': 'shake 0.5s cubic-bezier(.36,.07,.19,.97) both',
+                    },
+                    keyframes: {
+                        slideUpFade: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        shake: {
+                            '10%, 90%': { transform: 'translate3d(-1px, 0, 0)' },
+                            '20%, 80%': { transform: 'translate3d(2px, 0, 0)' },
+                            '30%, 50%, 70%': { transform: 'translate3d(-4px, 0, 0)' },
+                            '40%, 60%': { transform: 'translate3d(4px, 0, 0)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        /* Glassmorphism */
+        .glass-panel {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        
+        .safe-pb {
+            padding-bottom: env(safe-area-inset-bottom, 24px);
+        }
+
+        /* Micro-interactions */
+        button:active, .interactive-item:active {
+            transform: scale(0.95);
+        }
+        
+        .smooth-transition {
+            transition: all 0.2s ease-out;
+        }
+
+        /* Focus styles */
+        input:focus {
+            outline: none;
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen antialiased selection:bg-blue-100">
+
+<div id="app" class="min-h-screen flex flex-col relative">
+
+    <!-- Scrollable Form Content -->
+    <main class="flex-grow pt-6 pb-28 px-6 max-w-2xl mx-auto w-full space-y-6 opacity-0 animate-page-enter">
+        
+        <!-- 1. Header -->
+        <header class="space-y-1 pt-2">
+            <h1 class="text-3xl font-bold text-slate-900 tracking-tight">
+                {{ isEditMode ? 'Modifier la catégorie' : 'Créer une catégorie' }}
+            </h1>
+            <p class="text-[15px] text-slate-600 leading-relaxed font-medium">
+                {{ isEditMode ? 'Modifiez les détails de la catégorie.' : 'Configurez votre nouvelle catégorie.' }}
+            </p>
+        </header>
+
+        <!-- 2. Form Card -->
+        <form @submit.prevent="handleSubmit" 
+              class="rounded-[24px] bg-white/50 backdrop-blur-sm border border-gray-200/50 p-6 space-y-6 shadow-apple-subtle">
+            
+            <!-- Label Input -->
+            <div class="space-y-2">
+                <label for="label" class="text-[11px] font-bold text-slate-500 uppercase tracking-wider ml-1">
+                    Nom
+                </label>
+                <div class="relative">
+                    <input 
+                        id="label"
+                        v-model="form.label"
+                        type="text"
+                        placeholder="Ex: TypeScript, React, Node.js"
+                        class="w-full px-4 py-3.5 rounded-2xl border bg-white/80 placeholder:text-slate-400 text-slate-900 font-medium border-gray-200/80 shadow-sm transition-all"
+                        :class="errors.label ? 'border-red-300 ring-2 ring-red-100 animate-shake' : ''"
+                    />
+                </div>
+                <p v-if="errors.label" class="text-xs text-red-600 font-semibold ml-1 flex items-center gap-1">
+                    <i class="ph-fill ph-warning-circle"></i>
+                    {{ errors.label }}
+                </p>
+            </div>
+
+            <!-- Icon Picker -->
+            <div class="space-y-2">
+                <label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider ml-1">
+                    Icône
+                </label>
+                <div class="grid grid-cols-6 gap-2 sm:gap-3">
+                    <button 
+                        v-for="icon in availableIcons" 
+                        :key="icon"
+                        type="button"
+                        @click="form.icon = icon"
+                        class="aspect-square rounded-2xl border-2 flex items-center justify-center smooth-transition"
+                        :class="form.icon === icon 
+                            ? 'border-blue-400 bg-blue-50 shadow-apple-focus text-blue-600 scale-[1.02]' 
+                            : 'border-gray-100/50 bg-white/60 hover:border-gray-200 text-slate-500'">
+                        <i :class="['ph-fill', icon, 'text-xl']"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Color Picker -->
+            <div class="space-y-2">
+                <label class="text-[11px] font-bold text-slate-500 uppercase tracking-wider ml-1">
+                    Couleur
+                </label>
+                <div class="grid grid-cols-7 gap-2 sm:gap-3">
+                    <button 
+                        v-for="color in availableColors" 
+                        :key="color"
+                        type="button"
+                        @click="form.color = color"
+                        class="aspect-square rounded-2xl border-2 smooth-transition relative overflow-hidden"
+                        :class="[
+                            getColorBg(color),
+                            form.color === color 
+                                ? 'border-slate-900 shadow-md scale-105 ring-2 ring-offset-2 ring-slate-900/10' 
+                                : 'border-transparent opacity-70 hover:opacity-100 hover:scale-105'
+                        ]">
+                        <div v-if="form.color === color" class="absolute inset-0 flex items-center justify-center">
+                            <i class="ph-bold ph-check text-white text-sm drop-shadow-md"></i>
+                        </div>
+                    </button>
+                </div>
+            </div>
+
+        </form>
+
+    </main>
+
+    <!-- 3. Action Buttons (Fixed Bottom) -->
+    <div class="fixed bottom-0 left-0 right-0 glass-panel border-t border-white/20 px-6 py-4 pb-safe z-50">
+        <div class="max-w-2xl mx-auto flex gap-3">
+            
+            <!-- Cancel -->
+            <button 
+                type="button"
+                @click="handleCancel"
+                class="flex-1 rounded-full px-6 py-3.5 font-semibold text-[15px] text-slate-700
+                       bg-slate-100 hover:bg-slate-200 active:scale-95
+                       transition-all duration-200 border border-slate-200/50">
+                <i class="ph-bold ph-x mr-2 inline-block align-middle"></i>
+                Annuler
+            </button>
+
+            <!-- Submit -->
+            <button 
+                type="button"
+                @click="handleSubmit"
+                class="flex-1 rounded-full px-6 py-3.5 font-semibold text-[15px] text-white
+                       bg-blue-600 hover:bg-blue-700 active:scale-95
+                       transition-all duration-200 shadow-apple-glow flex items-center justify-center gap-2">
+                <i :class="isEditMode ? 'ph-check' : 'ph-plus'" class="ph-bold text-lg"></i>
+                {{ isEditMode ? 'Mettre à jour' : 'Créer' }}
+            </button>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    const { createApp, ref, onMounted, computed } = Vue;
+
+    createApp({
+        setup() {
+            // --- State ---
+            const isEditMode = ref(false);
+            const errors = ref({});
+            
+            // Form Data
+            const form = ref({
+                id: null,
+                label: '',
+                icon: 'ph-code',
+                color: 'blue'
+            });
+
+            // --- Constants ---
+            const availableIcons = [
+                'ph-code', 'ph-rocket', 'ph-cpu', 'ph-palette', 'ph-database', 'ph-chat-circle',
+                'ph-calculator', 'ph-flask', 'ph-globe', 'ph-lightning', 'ph-book', 'ph-moon',
+                'ph-bug', 'ph-wine', 'ph-sparkle', 'ph-lightbulb', 'ph-gear', 'ph-wrench',
+                'ph-hammer', 'ph-square', 'ph-star', 'ph-heart', 'ph-flag', 'ph-target'
+            ];
+
+            const availableColors = [
+                'slate', 'red', 'orange', 'amber', 'yellow', 'lime', 'green', 
+                'emerald', 'teal', 'cyan', 'blue', 'indigo', 'purple', 'pink'
+            ];
+
+            const colorMap = {
+                slate: 'bg-slate-500', red: 'bg-red-500', orange: 'bg-orange-500',
+                amber: 'bg-amber-500', yellow: 'bg-yellow-500', lime: 'bg-lime-500',
+                green: 'bg-green-500', emerald: 'bg-emerald-500', teal: 'bg-teal-500',
+                cyan: 'bg-cyan-500', blue: 'bg-blue-500', indigo: 'bg-indigo-500',
+                purple: 'bg-purple-500', pink: 'bg-pink-500'
+            };
+
+            // --- Helper Methods ---
+            const getColorBg = (color) => colorMap[color] || 'bg-slate-500';
+
+            // --- Logic ---
+            onMounted(() => {
+                // Simulation: Check URL params for ID (Mocked here)
+                const urlParams = new URLSearchParams(window.location.search);
+                const categoryId = urlParams.get('id');
+
+                if (categoryId) {
+                    isEditMode.value = true;
+                    // Mock fetching existing data
+                    // dataStore.getCategoryById(id)
+                    form.value = {
+                        id: categoryId,
+                        label: 'Informatique', // Mock existing data
+                        icon: 'ph-desktop',
+                        color: 'purple'
+                    };
+                }
+            });
+
+            const validate = () => {
+                errors.value = {};
+                let isValid = true;
+
+                if (!form.value.label.trim()) {
+                    errors.value.label = "Le nom de la catégorie est requis.";
+                    isValid = false;
+                } else if (form.value.label.length < 2) {
+                    errors.value.label = "Le nom doit contenir au moins 2 caractères.";
+                    isValid = false;
+                }
+
+                // Add duplicate check logic here if needed
+
+                return isValid;
+            };
+
+            const handleSubmit = () => {
+                if (!validate()) return;
+
+                // Mock Submission
+                const action = isEditMode.value ? "Mise à jour" : "Création";
+                console.log(`${action} de la catégorie:`, form.value);
+                
+                // Show feedback and navigate
+                alert(`${action} réussie ! Retour à la liste...`);
+                // router.push('/settings/categories');
+            };
+
+            const handleCancel = () => {
+                // router.back();
+                alert("Annulation et retour...");
+            };
+
+            return {
+                isEditMode,
+                form,
+                errors,
+                availableIcons,
+                availableColors,
+                getColorBg,
+                handleSubmit,
+                handleCancel
+            };
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>

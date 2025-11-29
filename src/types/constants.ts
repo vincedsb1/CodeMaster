@@ -133,3 +133,25 @@ export const DIFFICULTY_COLORS = {
     badge: 'bg-red-100 text-red-700',
   },
 }
+
+// Map category IDs or names to display labels
+export const CATEGORY_DISPLAY_MAP: Record<string, string> = {
+  'cat_typescript': 'TypeScript',
+  'cat_react': 'React',
+  'cat_nextjs': 'Next.js',
+  'cat_nodejs': 'Node.js',
+  'cat_css': 'CSS',
+  'cat_javascript': 'JavaScript',
+  'cat_entretiens': 'Entretiens',
+  'typescript': 'TypeScript',
+  'react': 'React',
+  'nextjs': 'Next.js',
+  'nodejs': 'Node.js',
+  'css': 'CSS',
+  'javascript': 'JavaScript',
+  'entretiens': 'Entretiens',
+}
+
+export function getCategoryLabel(categoryId: string): string {
+  return CATEGORY_DISPLAY_MAP[categoryId] || categoryId
+}

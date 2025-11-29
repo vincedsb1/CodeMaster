@@ -91,13 +91,12 @@ function renderChart() {
 </script>
 
 <template>
-  <div class="bg-white p-4 rounded-xl shadow-sm border border-slate-100">
-    <h3 class="font-bold text-sm text-slate-500 mb-4">Évolution (30 derniers jours)</h3>
-    <div style="height: 200px">
-      <canvas id="evolutionChart"></canvas>
+  <div v-if="sessions.length === 0" class="w-full h-56 bg-gradient-to-b from-blue-50/30 to-transparent rounded-[20px] p-4 overflow-hidden border border-blue-100/20 flex items-center justify-center">
+    <div class="text-center">
+      <p class="text-sm text-slate-500">Pas encore assez de données. Complétez un quiz ! 📊</p>
     </div>
-    <div v-if="sessions.length === 0" class="text-center text-xs text-slate-400 py-4">
-      Pas encore assez de données
-    </div>
+  </div>
+  <div v-else class="w-full">
+    <canvas id="evolutionChart" style="height: 14rem;"></canvas>
   </div>
 </template>
