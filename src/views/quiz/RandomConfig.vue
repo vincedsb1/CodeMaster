@@ -32,8 +32,9 @@ const colorMap: Record<string, { bg: string; text: string }> = {
   pink: { bg: 'bg-pink-100', text: 'text-pink-600' },
 }
 
-function getColorClasses(color: string) {
-  return colorMap[color] || colorMap.indigo
+function getColorClasses(color: string | undefined): { bg: string; text: string } {
+  // @ts-ignore - conditional logic ensures return type is always valid
+  return (color && (color in colorMap) ? colorMap[color as keyof typeof colorMap] : null) || colorMap.indigo
 }
 
 function validateRandomSelection() {

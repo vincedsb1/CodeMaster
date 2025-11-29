@@ -20,7 +20,7 @@ const categoriesDisponibles = computed(() => {
 
 // Show stats badge if there are new badges
 const showStatsBadge = computed(() => {
-  return statsStore.unlockedBadges && statsStore.unlockedBadges.length > 0
+  return dataStore.badges && dataStore.badges.some((badge) => badge.statut === 'debloque')
 })
 
 // Manual reload function

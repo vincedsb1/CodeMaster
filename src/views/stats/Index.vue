@@ -14,7 +14,7 @@ const activeBadge = ref<Badge | null>(null)
 // Computed global stats
 const globalStats = computed(() => statsStore.globalStats)
 const badges = computed(() => dataStore.badges)
-const sessions = computed(() => statsStore.sessions || [])
+const sessions = computed(() => statsStore.globalStats?.historiqueSessions || [])
 
 // Initialize chart on mount
 onMounted(async () => {
@@ -41,7 +41,7 @@ function closeBadgeModal() {
 
 // Helper to check if badge is unlocked
 function isBadgeUnlocked(badge: Badge): boolean {
-  return badge.statut === 'deverrouille'
+  return badge.statut === 'debloque'
 }
 </script>
 

@@ -32,7 +32,7 @@ const difficultyBadgeClass = computed(() => {
 
 // Render Markdown
 function renderMarkdown(text: string): string {
-  return marked.parseInline(text || '')
+  return marked.parseInline(text || '') as string
 }
 
 // Answer classes based on state
