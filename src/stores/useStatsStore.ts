@@ -7,6 +7,7 @@ import { ref, computed } from 'vue'
 import type { GlobalStats, QuizSession, Badge, ComparisonStats } from '@/types/models'
 import { sessionRepository } from '@/db/repositories'
 import { useDataStore } from './useDataStore'
+import { calculateSessionXp, calculateLevel, xpForNextLevel } from '@/logic/gamification'
 
 export const useStatsStore = defineStore('stats', () => {
   // State
@@ -16,13 +17,42 @@ export const useStatsStore = defineStore('stats', () => {
     streakActuel: 0,
     totalSessions: 0,
     historiqueSessions: [],
+    xp: 0,
+    level: 1,
   })
 
   const previousStats = ref<ComparisonStats>({ average: 0 })
   const newlyUnlockedBadges = ref<Badge[]>([])
+  const xpGainedLastSession = ref(0)
 
   // Computed
   const badgesNonLus = computed(() => newlyUnlockedBadges.value.length > 0)
+  
+  const levelProgress = computed(() => {
+    const currentXp = globalStats.value.xp
+    const currentLevel = globalStats.value.level
+    
+    // XP required for current level (start of bar)
+    const xpStart = Math.pow(currentLevel - 1, 2) * 100
+    
+    // XP required for next level (end of bar)
+    const xpEnd = Math.pow(currentLevel, 2) * 100
+    
+    // Progress within the level
+    const progress = currentXp - xpStart
+    const range = xpEnd - xpStart
+    
+    // Avoid division by zero for level 1 (0-100)
+    const totalRange = range > 0 ? range : 100
+    
+    return Math.min(100, Math.max(0, (progress / totalRange) * 100))
+  })
+
+  const xpToNextLevel = computed(() => {
+    const currentLevel = globalStats.value.level
+    const xpEnd = Math.pow(currentLevel, 2) * 100
+    return Math.max(0, xpEnd - globalStats.value.xp)
+  })
 
   // Actions
   async function loadStats() {
@@ -37,6 +67,8 @@ export const useStatsStore = defineStore('stats', () => {
           streakActuel: 0,
           totalSessions: 0,
           historiqueSessions: [],
+          xp: 0,
+          level: 1,
         }
         return
       }
@@ -51,12 +83,21 @@ export const useStatsStore = defineStore('stats', () => {
       // Calculate current streak
       const currentStreak = calculateCurrentStreak(completedSessions)
 
+      // Calculate Total XP
+      // In a real persistent system, we would store XP incrementally.
+      // Here, we re-calculate it from session history to ensure consistency
+      // since we don't have a dedicated User table yet.
+      const totalXp = completedSessions.reduce((acc, s) => acc + calculateSessionXp(s.questions), 0)
+      const level = calculateLevel(totalXp)
+
       globalStats.value = {
         moyenneGlobale: avg,
         meilleurScore: max,
         streakActuel: currentStreak,
         totalSessions: completedSessions.length,
         historiqueSessions: completedSessions,
+        xp: totalXp,
+        level: level,
       }
     } catch (err) {
       console.error('Error loading stats:', err)
@@ -68,6 +109,10 @@ export const useStatsStore = defineStore('stats', () => {
     const dataStore = useDataStore()
 
     try {
+      // Calculate XP gain for this session
+      const sessionXp = calculateSessionXp(session.questions)
+      xpGainedLastSession.value = sessionXp
+
       const allSessions = await sessionRepository.getAll()
       const completedSessions = allSessions.filter((s) => s.dateFin !== null)
 
@@ -80,6 +125,8 @@ export const useStatsStore = defineStore('stats', () => {
 
       // Update badges in store
       await dataStore.updateBadges(badges)
+      
+      // Note: loadStats() will be called by the consumer to refresh the global stats object
     } catch (err) {
       console.error('Error updating stats and badges:', err)
     }
@@ -209,6 +256,8 @@ export const useStatsStore = defineStore('stats', () => {
 
     // Computed
     badgesNonLus,
+    levelProgress,
+    xpToNextLevel,
 
     // Actions
     loadStats,

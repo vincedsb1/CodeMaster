@@ -8,6 +8,7 @@ import StatCard from '@/components/stats/StatCard.vue'
 import EvolutionChart from '@/components/stats/EvolutionChart.vue'
 import BadgesGrid from '@/components/stats/BadgesGrid.vue'
 import { AppRoutes } from '@/router/routes'
+import { getTitleForLevel } from '@/logic/gamification'
 
 const router = useRouter()
 const statsStore = useStatsStore()
@@ -41,6 +42,12 @@ const sortedBadges = computed(() => {
     return 0
   })
 })
+
+// Level & XP
+const currentLevel = computed(() => globalStats.value.level || 1)
+const currentTitle = computed(() => getTitleForLevel(currentLevel.value))
+const levelProgress = computed(() => statsStore.levelProgress)
+const xpToNext = computed(() => statsStore.xpToNextLevel)
 
 // Actions
 async function goHome() {
@@ -90,6 +97,33 @@ function isBadgeUnlocked(badge: Badge): boolean {
 
     <!-- Main Content -->
     <main class="flex-grow pt-20 pb-12 px-6 max-w-2xl mx-auto w-full space-y-8">
+
+      <!-- Profile / Level Section -->
+      <section class="rounded-[24px] bg-white/60 backdrop-blur-md border border-indigo-100 p-6 shadow-sm">
+        <div class="flex items-center gap-4 mb-4">
+          <!-- Avatar Placeholder -->
+          <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center text-3xl shadow-inner border-2 border-white">
+            🧑‍💻
+          </div>
+          
+          <div>
+            <h2 class="text-lg font-bold text-slate-900 leading-tight">{{ currentTitle }}</h2>
+            <p class="text-indigo-600 font-semibold text-sm">Niveau {{ currentLevel }}</p>
+          </div>
+        </div>
+
+        <!-- XP Bar -->
+        <div class="space-y-1.5">
+          <div class="flex justify-between text-xs font-semibold text-slate-500 uppercase tracking-wide">
+            <span>XP</span>
+            <span>{{ Math.round(xpToNext) }} XP restants</span>
+          </div>
+          <div class="h-3 w-full bg-slate-200 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-1000 ease-out"
+                 :style="{ width: `${levelProgress}%` }"></div>
+          </div>
+        </div>
+      </section>
 
       <!-- KPI Cards Section -->
       <section class="grid grid-cols-2 gap-3">
