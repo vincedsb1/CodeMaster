@@ -88,16 +88,12 @@ export const useQuizStore = defineStore('quiz', () => {
     const dataStore = useDataStore()
     console.log('[QuizStore] Total questions in store:', dataStore.questions.length)
 
-    // Convert category labels to IDs
-    const categoryIds = cleanCategories.map((catLabel) => {
-      const found = dataStore.allCategories.find((c) => c.label === catLabel)
-      console.log(`[QuizStore] Converting label "${catLabel}" to ID "${found?.id || catLabel}"`)
-      return found?.id || catLabel
-    })
-    console.log('[QuizStore] Category IDs for filtering:', categoryIds)
+    // Use category labels directly for filtering (questions now store labels, not IDs)
+    const categoryLabels = cleanCategories
+    console.log('[QuizStore] Category labels for filtering:', categoryLabels)
 
     // Filter questions by category and difficulty
-    let pool = dataStore.questions.filter((q) => categoryIds.includes(q.categorie))
+    let pool = dataStore.questions.filter((q) => categoryLabels.includes(q.categorie))
     console.log('[QuizStore] Questions after category filter:', pool.length)
 
     if (difficulty !== 'random') {
