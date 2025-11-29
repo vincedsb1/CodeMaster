@@ -15,7 +15,7 @@ const statsStore = useStatsStore()
 const categoriesDisponibles = computed(() => {
   if (!dataStore.questions || !dataStore.allCategories) return []
   const questionsCategories = new Set(dataStore.questions.map((q) => q.categorie))
-  return dataStore.allCategories.filter((cat) => questionsCategories.has(cat.id))
+  return dataStore.allCategories.filter((cat) => questionsCategories.has(cat.label))
 })
 
 // Show stats badge if there are new badges

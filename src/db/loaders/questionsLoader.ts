@@ -15,6 +15,17 @@ const CATEGORY_FILE_MAPPING: Record<string, string> = {
   'entretiens': 'cat_entretiens',
 }
 
+// Mapping between JSON filename and category label (display name)
+const CATEGORY_LABEL_MAPPING: Record<string, string> = {
+  'react': 'React',
+  'typescript': 'TypeScript',
+  'nodejs': 'Node.js',
+  'nextjs': 'Next.js',
+  'css': 'CSS',
+  'javascript': 'JavaScript',
+  'entretiens': 'Entretiens',
+}
+
 /**
  * Normalize category name to match mapping (handle case variations)
  */
@@ -78,6 +89,8 @@ export async function loadQuestionsFromJsonFile(
     console.log(`[QuestionsLoader] Parsed JSON for ${category}.json, ${data.length} questions`)
 
     // Normalize and add missing fields
+    // Use the category label from the file mapping instead of the question's categorie
+    const categoryLabel = CATEGORY_LABEL_MAPPING[category] || category
     const normalized: Question[] = data.map((q, index) => {
       // Call progress callback
       if (onProgress) {
@@ -88,7 +101,7 @@ export async function loadQuestionsFromJsonFile(
         ...q,
         explication: q.explication || '',
         difficulte: q.difficulte as Exclude<Difficulty, 'random'>,
-        categorie: q.categorie,
+        categorie: categoryLabel,  // Use the normalized label from file mapping
         countApparition: 0,
         countBonneReponse: 0,
       }
