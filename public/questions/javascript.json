@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "js_001",
+    "intitule": "Quel est le résultat de `'2' + 2` en **JavaScript** ?",
+    "reponses": [
+      "4",
+      "\"22\"",
+      "NaN",
+      "Une erreur est levée"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'opérateur `+` concatène lorsqu'un des opérandes est une chaîne, donc `'2'` est concaténé avec `2` pour former `\"22\"`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_002",
+    "intitule": "Quel mot-clé permet de déclarer une variable dont la valeur ne doit pas être réassignée ?",
+    "reponses": [
+      "var",
+      "let",
+      "const",
+      "static"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`const` empêche la réassignation de la référence. L'objet pointé peut néanmoins être muté.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_003",
+    "intitule": "Quel est le type retourné par `typeof null` en **JavaScript** ?",
+    "reponses": [
+      "\"null\"",
+      "\"object\"",
+      "\"undefined\"",
+      "\"number\""
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`typeof null` retourne `\"object\"` pour des raisons historiques du langage.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_004",
+    "intitule": "Quel opérateur est utilisé pour la comparaison stricte (sans coercition de type) ?",
+    "reponses": [
+      "==",
+      "===",
+      "=",
+      "!=="
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`===` compare valeur et type, contrairement à `==` qui effectue une coercition avant de comparer.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_005",
+    "intitule": "Que fait l'instruction `'use strict';` dans un script **JavaScript** ?",
+    "reponses": [
+      "Elle active un mode plus strict avec plus d'erreurs",
+      "Elle accélère le code",
+      "Elle désactive la coercition",
+      "Elle active les modules ES"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le mode strict active des règles plus strictes (par exemple interdiction des variables implicites) et lève plus d'erreurs.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_006",
+    "intitule": "Quel est le résultat de `1 == '1'` ?",
+    "reponses": [
+      "true",
+      "false",
+      "NaN",
+      "Une erreur"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`==` effectue une coercition de type avant de comparer, donc `1 == '1'` est `true`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_007",
+    "intitule": "Quel est le résultat de `1 === '1'` ?",
+    "reponses": [
+      "true",
+      "false",
+      "NaN",
+      "Une erreur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`===` ne fait pas de coercition : le nombre `1` et la chaîne `'1'` ont des types différents, donc la comparaison est `false`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_008",
+    "intitule": "Quel mot-clé permet de déclarer une variable avec une portée de bloc ?",
+    "reponses": [
+      "var",
+      "let",
+      "const",
+      "static"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`let` et `const` ont une portée de bloc, alors que `var` a une portée de fonction.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_009",
+    "intitule": "Quel type primitif représente une valeur vraie ou fausse ?",
+    "reponses": [
+      "number",
+      "boolean",
+      "string",
+      "symbol"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`boolean` est le type pour `true` et `false`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_010",
+    "intitule": "Quelle boucle est la plus appropriée pour parcourir un tableau par index ?",
+    "reponses": [
+      "for classique",
+      "for...in",
+      "for...of",
+      "while"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "La boucle `for` avec index (`for (let i = 0; i < arr.length; i++)`) est classique pour parcourir un tableau par index.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_011",
+    "intitule": "Comment récupère-t-on un élément avec l'id `btn` dans le **DOM** ?",
+    "reponses": [
+      "document.get('btn')",
+      "document.querySelector('#btn')",
+      "document.btn()",
+      "window.query('#btn')"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`document.querySelector('#btn')` sélectionne le premier élément qui matche le sélecteur CSS `#btn`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_012",
+    "intitule": "Comment ajoute-t-on un écouteur de clic sur un bouton stocké dans la variable `btn` ?",
+    "reponses": [
+      "btn.on('click', fn)",
+      "btn.addEventListener('click', fn)",
+      "btn.click(fn)",
+      "btn.event('click', fn)"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`addEventListener` permet d'ajouter un écouteur pour un type d'événement comme `'click'`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_013",
+    "intitule": "Que retourne la fonction `Number.isNaN('NaN')` ?",
+    "reponses": [
+      "true",
+      "false",
+      "undefined",
+      "Lance une erreur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Number.isNaN` vérifie si la valeur est le nombre `NaN`, ce qui n'est pas le cas de la chaîne `'NaN'`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_014",
+    "intitule": "Quel est le résultat de `typeof NaN` ?",
+    "reponses": [
+      "\"nan\"",
+      "\"number\"",
+      "\"undefined\"",
+      "\"object\""
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`NaN` est une valeur spéciale du type `number`, `typeof NaN` retourne donc `\"number\"`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_015",
+    "intitule": "Comment définit-on correctement une fonction nommée `addition` qui prend deux paramètres `a` et `b` ?",
+    "reponses": [
+      "function addition(a, b) {}",
+      "add function(a, b) {}",
+      "func addition(a, b) {}",
+      "function(a, b) addition {}"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "La syntaxe classique est `function nom(param1, param2) { ... }`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_016",
+    "intitule": "Quelle syntaxe crée une fonction fléchée ?",
+    "reponses": [
+      "function() => {}",
+      "() -> {}",
+      "() => {}",
+      "arrow() {}"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les fonctions fléchées utilisent la syntaxe `param => expression` ou `(param1, param2) => { ... }`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_017",
+    "intitule": "Quelle valeur est *falsy* en **JavaScript** ?",
+    "reponses": [
+      "\"0\"",
+      "[]",
+      "0",
+      "{}"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`0` est *falsy*, tandis que `\"0\"`, `[]` et `{}` sont *truthy*.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_018",
+    "intitule": "Quel opérateur logique retourne le premier opérande *truthy* ou le dernier si tous sont *falsy* ?",
+    "reponses": [
+      "&&",
+      "||",
+      "??",
+      "!"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`||` retourne la première valeur *truthy* rencontrée ou la dernière si toutes sont *falsy*.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_019",
+    "intitule": "Que fait l'opérateur de négation logique `!` sur une valeur *truthy* ?",
+    "reponses": [
+      "Il la convertit en 1",
+      "Il la convertit en 0",
+      "Il retourne false",
+      "Il la convertit en chaîne"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`!value` convertit d'abord en `boolean`, puis inverse la valeur. Une valeur *truthy* devient `false`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_020",
+    "intitule": "Comment convertir une chaîne `'123'` en nombre entier de manière simple ?",
+    "reponses": [
+      "Number('123')",
+      "parseInt()",
+      "'123'.toNumber()",
+      "int('123')"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`Number('123')` convertit la chaîne en nombre, tout comme `parseInt('123', 10)`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_021",
+    "intitule": "Que fait l'instruction `break` dans une boucle `for` ?",
+    "reponses": [
+      "Elle passe à l'itération suivante",
+      "Elle arrête complètement la boucle",
+      "Elle relance la boucle",
+      "Elle ne fait rien"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`break` sort immédiatement de la boucle la plus proche.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_022",
+    "intitule": "Quelle méthode **DOM** permet de créer un nouvel élément `<div>` ?",
+    "reponses": [
+      "document.createElement('div')",
+      "document.newDiv()",
+      "document.create('div')",
+      "window.createElement('div')"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`document.createElement('div')` crée un élément **DOM** qui peut ensuite être inséré dans la page.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_023",
+    "intitule": "Comment insérer un texte `'Hello'` dans un élément `div` existant stocké dans la variable `div` ?",
+    "reponses": [
+      "div.textContent = 'Hello'",
+      "div.value = 'Hello'",
+      "div.innerValue = 'Hello'",
+      "div.setText('Hello')"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`textContent` remplace le contenu texte de l'élément, sans interprétation HTML.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_024",
+    "intitule": "Quel est le résultat de `typeof Symbol('id')` ?",
+    "reponses": [
+      "\"object\"",
+      "\"symbol\"",
+      "\"string\"",
+      "\"function\""
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Symbol` crée une valeur primitive unique de type `'symbol'`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_025",
+    "intitule": "Quelle méthode de tableau ajoute un élément à la fin du tableau ?",
+    "reponses": [
+      "push",
+      "pop",
+      "shift",
+      "unshift"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`push` ajoute un ou plusieurs éléments à la fin du tableau et renvoie la nouvelle longueur.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_026",
+    "intitule": "Que fait la méthode `pop` sur un tableau ?",
+    "reponses": [
+      "Ajoute un élément au début",
+      "Supprime le dernier élément",
+      "Supprime le premier élément",
+      "Trie le tableau"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`pop` supprime et renvoie le dernier élément du tableau.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_027",
+    "intitule": "Comment écrire une condition qui s'exécute seulement si `x` est strictement supérieur à `10` ?",
+    "reponses": [
+      "if (x > 10) {}",
+      "if (x >= 10) {}",
+      "if (x == 10) {}",
+      "if (10 > x) {}"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "L'opérateur `>` teste une stricte supériorité.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_028",
+    "intitule": "Quelle méthode **DOM** permet d'empêcher le comportement par défaut d'un événement (par exemple le submit d'un formulaire) ?",
+    "reponses": [
+      "event.stop()",
+      "event.stopPropagation()",
+      "event.preventDefault()",
+      "event.cancel()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`preventDefault` empêche le comportement par défaut associé à l'événement.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_029",
+    "intitule": "Quel mot-clé permet de définir une constante de type **BigInt** ?",
+    "reponses": [
+      "big",
+      "bigint",
+      "n",
+      "Il suffit d'ajouter n à la fin du nombre"
+    ],
+    "indexBonneReponse": 3,
+    "explication": "On écrit par exemple `123n` pour créer un **BigInt** littéral.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_030",
+    "intitule": "Comment vérifier si une variable `x` est strictement égale à `undefined` ?",
+    "reponses": [
+      "x == undefined",
+      "typeof x === 'undefined'",
+      "x = undefined",
+      "x === null"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`typeof x === 'undefined'` fonctionne même si `x` n'est pas déclarée dans un module ES.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_031",
+    "intitule": "Quel est le résultat de `'5' - 2` ?",
+    "reponses": [
+      "\"52\"",
+      "3",
+      "NaN",
+      "undefined"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'opérateur `-` force la conversion des opérandes en nombres, `'5'` devient `5` et `5 - 2 = 3`.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_032",
+    "intitule": "Quel opérateur permet de tester l'égalité de valeur ou de référence pour les objets (sans coercition) ?",
+    "reponses": [
+      "===",
+      "==",
+      "=",
+      "!=="
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`===` compare les primitives par valeur et les objets par référence.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_033",
+    "intitule": "Comment convertir un objet en **JSON** (chaîne) ?",
+    "reponses": [
+      "JSON.stringify(obj)",
+      "obj.toJSON()",
+      "String.JSON(obj)",
+      "JSON.parse(obj)"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`JSON.stringify` sérialise un objet **JavaScript** vers une chaîne **JSON**.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_034",
+    "intitule": "Que fait la méthode `JSON.parse` ?",
+    "reponses": [
+      "Elle formate un objet",
+      "Elle convertit une chaîne JSON en objet JS",
+      "Elle valide un JSON",
+      "Elle compresse un JSON"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`JSON.parse` transforme une chaîne **JSON** valide en valeur **JavaScript** correspondante.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_035",
+    "intitule": "Quelle méthode de tableau renvoie le nombre d'éléments du tableau ?",
+    "reponses": [
+      "length()",
+      "size()",
+      "count()",
+      "length"
+    ],
+    "indexBonneReponse": 3,
+    "explication": "`length` est une propriété, pas une fonction, qui contient la longueur du tableau.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_036",
+    "intitule": "Que contient `this` dans une fonction fléchée définie dans le scope global (en mode module) ?",
+    "reponses": [
+      "window",
+      "undefined",
+      "document",
+      "l'objet global"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Dans un module, le `this` de haut niveau vaut `undefined`, et les fonctions fléchées capturent ce `this` lexical.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_037",
+    "intitule": "Comment ajouter une classe CSS `'active'` à un élément **DOM** stocké dans `el` ?",
+    "reponses": [
+      "el.class = 'active'",
+      "el.classList.add('active')",
+      "el.addClass('active')",
+      "el.style.class = 'active'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`classList.add` permet de gérer les classes CSS d'un élément.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_038",
+    "intitule": "Quelle méthode sur un élément **DOM** permet de supprimer un écouteur d'événement ajouté auparavant ?",
+    "reponses": [
+      "removeEvent()",
+      "off()",
+      "removeEventListener()",
+      "stopListener()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`removeEventListener` retire un listener, à condition de fournir la même fonction de rappel que pour l'ajout.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_039",
+    "intitule": "Quelle fonction globale montre une fenêtre d'alerte dans le navigateur ?",
+    "reponses": [
+      "prompt()",
+      "confirm()",
+      "alert()",
+      "console.log()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`alert` affiche une boîte de dialogue avec un message et un bouton OK.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_040",
+    "intitule": "Quelle méthode de l'objet `console` est utilisée pour afficher un message de debug ?",
+    "reponses": [
+      "console.print()",
+      "console.log()",
+      "console.output()",
+      "console.write()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`console.log` est la méthode classique pour afficher des informations dans la console.",
+    "categorie": "javascript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "js_041",
+    "intitule": "Que retourne `[1, 2, 3].map(x => x * 2)` ?",
+    "reponses": [
+      "[2, 4]",
+      "[1, 2, 3, 2, 4, 6]",
+      "[2, 4, 6]",
+      "undefined"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`map` applique la fonction à chaque élément et retourne un nouveau tableau, ici `[2, 4, 6]`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_042",
+    "intitule": "Que retourne `[1, 2, 3, 4].filter(x => x % 2 === 0)` ?",
+    "reponses": [
+      "[1, 3]",
+      "[2, 4]",
+      "[0, 2, 4]",
+      "[1, 2, 3, 4]"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`filter` garde uniquement les éléments pour lesquels la condition est `true`, ici les nombres pairs.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_043",
+    "intitule": "Quel est le résultat de `[1, 2, 3].reduce((acc, x) => acc + x, 0)` ?",
+    "reponses": [
+      "6",
+      "\"123\"",
+      "3",
+      "NaN"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`reduce` additionne ici les éléments du tableau en partant de `0`, donc `1 + 2 + 3 = 6`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_044",
+    "intitule": "Que fait l'opérateur **spread** dans `const arr2 = [...arr1, 4]` ?",
+    "reponses": [
+      "Il copie les références des propriétés",
+      "Il déstructure un objet",
+      "Il étale les éléments de arr1 dans un nouveau tableau",
+      "Il fusionne les prototypes"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "L'opérateur `...` copie les éléments de `arr1` dans `arr2`, qui devient un nouveau tableau.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_045",
+    "intitule": "Que signifie le **rest parameter** dans `function sum(...nums) {}` ?",
+    "reponses": [
+      "Il limite le nombre d'arguments",
+      "Il collecte tous les arguments restants dans un tableau",
+      "Il crée un objet arguments",
+      "Il convertit les nombres en chaîne"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le paramètre **rest** (`...nums`) regroupe les arguments supplémentaires dans un tableau.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_046",
+    "intitule": "Que fait le **destructuring** dans `const { name } = user` ?",
+    "reponses": [
+      "Il crée une copie profonde de user",
+      "Il extrait la propriété name de user dans une variable",
+      "Il supprime la propriété name",
+      "Il renomme l'objet"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le **destructuring** permet d'extraire directement des propriétés dans des variables.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_047",
+    "intitule": "Que fait le **destructuring** dans `const [first, second] = arr` ?",
+    "reponses": [
+      "Il mélange le tableau",
+      "Il copie arr",
+      "Il affecte arr[0] à first et arr[1] à second",
+      "Il supprime les deux premiers éléments"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le **destructuring** de tableau assigne les éléments par position aux variables définies.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_048",
+    "intitule": "Dans le code `const obj = { a: 1 }; const obj2 = { ...obj, b: 2 };` que contient `obj2` ?",
+    "reponses": [
+      "{ a: 1 }",
+      "{ b: 2 }",
+      "{ a: 1, b: 2 }",
+      "{ a: 1, b: 2, obj: obj }"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "L'opérateur **spread** copie les propriétés de `obj` dans un nouvel objet, puis ajoute `b: 2`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_049",
+    "intitule": "Que représente `this` dans une méthode d'objet appelée comme `user.sayHello()` en mode non strict ?",
+    "reponses": [
+      "Toujours window",
+      "Toujours undefined",
+      "L'objet user",
+      "L'objet prototype"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Appelé en tant que méthode, `this` référence l'objet receveur (ici `user`).",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_050",
+    "intitule": "Dans une fonction fléchée `const f = () => this`, que vaut `this` ?",
+    "reponses": [
+      "Le contexte d'appel",
+      "Le contexte lexical au moment de la définition",
+      "Toujours window",
+      "Toujours undefined"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les fonctions fléchées capturent le `this` lexical du scope où elles sont définies.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_051",
+    "intitule": "Qu'est-ce qu'une **closure** (fermeture) en **JavaScript** ?",
+    "reponses": [
+      "Une fonction qui ne retourne rien",
+      "Une fonction qui retourne une autre fonction",
+      "Une fonction qui capture des variables de son scope extérieur",
+      "Une fonction anonyme"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Une **closure** est la combinaison d'une fonction et de son environnement lexical, elle peut utiliser des variables extérieures après leur scope initial.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_052",
+    "intitule": "Quel est le résultat du code suivant :\n`function makeCounter(){ let c = 0; return function(){ c++; return c; }; }`\n`const counter = makeCounter(); counter(); counter();`",
+    "reponses": [
+      "0 puis 0",
+      "1 puis 1",
+      "1 puis 2",
+      "2 puis 3"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "La fonction interne ferme sur `c` et l'incrémente à chaque appel, donc `1` puis `2`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_053",
+    "intitule": "Que représente une **Promise** en **JavaScript** ?",
+    "reponses": [
+      "Une API réseau",
+      "Un objet représentant le résultat éventuel d'une opération asynchrone",
+      "Une fonction de callback",
+      "Une classe de DOM"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Une **Promise** encapsule une valeur future : résolue, rejetée ou en attente.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_054",
+    "intitule": "Que fait la méthode `then` sur une **Promise** ?",
+    "reponses": [
+      "Elle annule la Promise",
+      "Elle synchronise la Promise",
+      "Elle enregistre un callback pour le cas de résolution et retourne une nouvelle Promise",
+      "Elle rejette la Promise"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`then` permet de réagir à la résolution et de chaîner des transformations.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_055",
+    "intitule": "Que fait le mot-clé `async` devant une fonction ?",
+    "reponses": [
+      "Il la rend plus rapide",
+      "Il indique que la fonction retourne toujours une Promise",
+      "Il bloque le thread principal",
+      "Il la transforme en générateur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Une fonction `async` retourne implicitement une **Promise**, même si on retourne une valeur simple.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_056",
+    "intitule": "Que fait le mot-clé `await` dans une fonction `async` ?",
+    "reponses": [
+      "Il bloque le thread jusqu'à la fin de l'opération",
+      "Il attend la résolution ou le rejet d'une Promise sans bloquer l'event loop",
+      "Il convertit en callback",
+      "Il crée une nouvelle Promise"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`await` suspend l'exécution de la fonction `async` jusqu'à la résolution, mais le thread continue d'exécuter d'autres tâches.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_057",
+    "intitule": "Quelle syntaxe d'import est correcte dans un module **ES** ?",
+    "reponses": [
+      "require('module')",
+      "import module from 'module'",
+      "import('module') sans mot-clé",
+      "include 'module'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La syntaxe `import defaultExport from 'module'` est celle des modules **ES**.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_058",
+    "intitule": "Quelle syntaxe d'export nommée est correcte ?",
+    "reponses": [
+      "export default const a = 1;",
+      "export const a = 1;",
+      "exports a = 1;",
+      "module.export a = 1;"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`export const a = 1;` crée un export nommé `'a'`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_059",
+    "intitule": "Comment convertir un objet **JavaScript** en chaîne **JSON** avec indentation ?",
+    "reponses": [
+      "JSON.stringify(obj, 2)",
+      "JSON.stringify(obj, null, 2)",
+      "JSON.parse(obj, null, 2)",
+      "String(obj, 2)"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le 3e paramètre de `JSON.stringify` définit l'indentation, ici 2 espaces.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_060",
+    "intitule": "Quel est l'effet de `arr.sort()` sans fonction de comparaison sur un tableau de nombres ?",
+    "reponses": [
+      "Tri numérique croissant",
+      "Tri numérique décroissant",
+      "Tri lexicographique des nombres convertis en chaînes",
+      "Aucun tri"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Sans callback, `sort` convertit les éléments en chaînes et les trie lexicographiquement.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_061",
+    "intitule": "Quel est le résultat de `['a', 'b', 'c'].join('-')` ?",
+    "reponses": [
+      "\"a-b-c\"",
+      "\"abc\"",
+      "\"a,b,c\"",
+      "['a-b-c']"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`join` crée une chaîne en joignant les éléments avec le séparateur fourni.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_062",
+    "intitule": "Que fait `Array.prototype.find` ?",
+    "reponses": [
+      "Retourne tous les éléments qui satisfont au test",
+      "Retourne le premier élément qui satisfait au test ou undefined",
+      "Retourne l'index du premier élément",
+      "Trie le tableau"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`find` renvoie le premier élément pour lequel le prédicat retourne `true`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_063",
+    "intitule": "Que fait `Array.prototype.some` ?",
+    "reponses": [
+      "Teste si tous les éléments satisfont au test",
+      "Teste si au moins un élément satisfait au test",
+      "Compte le nombre d'éléments",
+      "Filtre les éléments"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`some` retourne `true` si au moins un élément fait passer le prédicat à `true`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_064",
+    "intitule": "Que fait `Array.prototype.every` ?",
+    "reponses": [
+      "Retourne tous les éléments qui satisfont au test",
+      "Vérifie si tous les éléments satisfont au test",
+      "Retourne le premier élément",
+      "Trie le tableau"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`every` retourne `true` si tous les éléments passent le test, sinon `false`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_065",
+    "intitule": "Que fait `JSON.stringify` sur un objet contenant une fonction ?",
+    "reponses": [
+      "Il sérialise la fonction en texte",
+      "Il ignore la propriété fonction",
+      "Il lance une erreur",
+      "Il convertit en null"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les valeurs de type fonction sont ignorées par `JSON.stringify`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_066",
+    "intitule": "Dans le navigateur, que représente l'objet global en mode module **ES** ?",
+    "reponses": [
+      "this",
+      "window",
+      "globalThis",
+      "document"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`globalThis` est une référence standardisée vers l'objet global, même si `this` en module vaut `undefined`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_067",
+    "intitule": "Que fait l'opérateur de coalescence nulle `??` dans `const x = value ?? 10` ?",
+    "reponses": [
+      "Il remplace toutes les valeurs falsy par 10",
+      "Il remplace value seulement si elle vaut null ou undefined",
+      "Il supprime undefined",
+      "Il n'effectue aucune opération"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`??` ne considère que `null` et `undefined` comme besoins de valeur de secours, contrairement à `||`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_068",
+    "intitule": "À quoi sert l'opérateur d'enchaînement optionnel `?.` dans `user?.address?.city` ?",
+    "reponses": [
+      "À interdire les null",
+      "À lancer une erreur si une propriété est manquante",
+      "À retourner undefined si une partie de la chaîne est null/undefined",
+      "À convertir en JSON"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "L'opérateur `?.` court-circuite et retourne `undefined` si la partie gauche est `null` ou `undefined`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_069",
+    "intitule": "Que retourne `typeof []` ?",
+    "reponses": [
+      "\"array\"",
+      "\"object\"",
+      "\"list\"",
+      "\"function\""
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les tableaux sont des objets en **JS**, `typeof []` retourne donc `\"object\"`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_070",
+    "intitule": "Comment détecter plus précisément un tableau que avec `typeof` ?",
+    "reponses": [
+      "Array.isArray(value)",
+      "value instanceof Object",
+      "typeof value === 'array'",
+      "value.constructor === 'Array'"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`Array.isArray` est la méthode standard pour distinguer un tableau d'un autre objet.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_071",
+    "intitule": "Que fait `setTimeout(fn, 0)` ?",
+    "reponses": [
+      "Exécute fn immédiatement",
+      "Planifie fn après toutes les tâches en cours, dans la prochaine macrotâche",
+      "Bloque le thread puis exécute fn",
+      "Crée une microtâche"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`setTimeout` planifie une macrotâche, même avec 0 ms, exécutée après la fin de la pile et des microtâches en cours.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_072",
+    "intitule": "Quelle est la différence principale entre `JSON.parse` et `eval` sur une chaîne **JSON** valide ?",
+    "reponses": [
+      "eval est plus sûr",
+      "JSON.parse est dédié au JSON et ne peut pas exécuter du code arbitraire",
+      "JSON.parse est plus lent",
+      "Aucune différence"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`JSON.parse` ne traite que du **JSON**, alors qu'`eval` exécute du code arbitraire, ce qui est dangereux.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_073",
+    "intitule": "Que fait `Promise.all` sur un tableau de **Promises** ?",
+    "reponses": [
+      "Retourne la première Promise résolue",
+      "Retourne la première Promise rejetée",
+      "Retourne une Promise résolue avec un tableau de résultats si toutes réussissent",
+      "Retourne toutes les Promises telles quelles"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`Promise.all` se résout avec un tableau de valeurs si toutes les **Promises** réussissent, ou se rejette dès la première erreur.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_074",
+    "intitule": "Que fait `Promise.race` sur un tableau de **Promises** ?",
+    "reponses": [
+      "Attend que toutes soient résolues",
+      "Se résout ou se rejette selon la première Promise qui se termine",
+      "Retourne un tableau d'états",
+      "Ignore les rejets"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Promise.race` se termine dès que la première **Promise** est résolue ou rejetée.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_075",
+    "intitule": "Qu'indique la valeur de `this` dans un gestionnaire d'événement `addEventListener` en mode non strict (fonction classique) ?",
+    "reponses": [
+      "Toujours window",
+      "Toujours undefined",
+      "L'élément DOM sur lequel l'écouteur est attaché",
+      "L'objet Event"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Dans un handler non fléché, `this` pointe vers l'élément cible de l'écouteur.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_076",
+    "intitule": "Quelle méthode convertit un tableau-like (par exemple `arguments`) en véritable tableau ?",
+    "reponses": [
+      "Array.toArray(arguments)",
+      "Array.from(arguments)",
+      "arguments.toArray()",
+      "[...Array(arguments)]"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Array.from` transforme un itérable ou un array-like en nouveau tableau.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_077",
+    "intitule": "Que fait le mot-clé `default` dans un `export default` ?",
+    "reponses": [
+      "Il empêche tout autre export",
+      "Il marque l'export comme valeur principale du module",
+      "Il rend l'export global",
+      "Il active le tree-shaking"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un module ne peut avoir qu'un seul `export default`, importé sans accolades.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_078",
+    "intitule": "Quelle forme de **destructuring** permet de renommer une propriété lors de l'extraction ?",
+    "reponses": [
+      "const { oldName as newName } = obj",
+      "const { newName: oldName } = obj",
+      "const { oldName -> newName } = obj",
+      "const newName = obj.oldName as {}"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "La syntaxe `{ prop: alias }` permet de renommer la variable ciblant la propriété.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_079",
+    "intitule": "Comment faire une copie superficielle d'un objet simple `obj` ?",
+    "reponses": [
+      "const copy = obj;",
+      "const copy = { ...obj };",
+      "const copy = Object.prototype.copy(obj);",
+      "const copy = JSON.parse(obj);"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'opérateur **spread** dans un littéral objet crée une copie superficielle des propriétés propres de `obj`.",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_080",
+    "intitule": "Que vaut `this` dans une fonction classique appelée simplement `f()` en mode strict ?",
+    "reponses": [
+      "window",
+      "undefined",
+      "globalThis",
+      "null"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "En mode strict, `this` vaut `undefined` dans une fonction libre (non attachée à un objet).",
+    "categorie": "javascript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "js_081",
+    "intitule": "Dans l'**Event Loop**, où sont placés les callbacks de `Promise.then` ?",
+    "reponses": [
+      "Dans la file de macrotâches (tasks)",
+      "Dans la file de microtâches (microtasks)",
+      "Dans le call stack",
+      "Ils sont exécutés immédiatement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les callbacks de `then`/`catch`/`finally` sont planifiés comme microtâches, exécutées après la pile mais avant les macrotâches.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_082",
+    "intitule": "Dans quel ordre approximatif sont traités : call stack vide, microtasks, puis macrotasks ?",
+    "reponses": [
+      "Macrotasks -> microtasks -> call stack",
+      "Call stack -> macrotasks -> microtasks",
+      "Call stack -> microtasks -> macrotasks",
+      "Microtasks -> call stack -> macrotasks"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Une fois la pile vide, l'**Event Loop** vide la file de microtâches, puis exécute la prochaine macrotâche.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_083",
+    "intitule": "Quel est le résultat de ce code :\n`console.log('a');`\n`setTimeout(() => console.log('b'), 0);`\n`Promise.resolve().then(() => console.log('c'));`\n`console.log('d');`",
+    "reponses": [
+      "a, b, c, d",
+      "a, c, d, b",
+      "a, d, b, c",
+      "c, a, d, b"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Log synchrone: `'a'`, `'d'`; microtâche **Promise**: `'c'`; puis macrotâche `setTimeout`: `'b'`.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_084",
+    "intitule": "Comment est défini le prototype d'un objet créé avec `function Person() {}` puis `new Person()` ?",
+    "reponses": [
+      "Person.prototype devient le prototype de l'instance",
+      "Object.prototype devient toujours le prototype direct",
+      "Il n'y a pas de prototype",
+      "Le prototype est Person.proto"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`new Person()` crée un objet dont `[[Prototype]]` pointe vers `Person.prototype`.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_085",
+    "intitule": "Que retourne `Object.getPrototypeOf(obj)` ?",
+    "reponses": [
+      "Le constructeur de obj",
+      "Le prototype interne [[Prototype]] de obj",
+      "Les propriétés propres de obj",
+      "Toujours Object.prototype"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Object.getPrototypeOf` permet d'accéder à la chaîne de prototypes d'un objet.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_086",
+    "intitule": "Que fait `Function.prototype.call` ?",
+    "reponses": [
+      "Crée une nouvelle fonction liée",
+      "Appelle la fonction en spécifiant la valeur de this et les arguments séparés",
+      "Planifie la fonction plus tard",
+      "Appelle la fonction sans this"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`call` invoque immédiatement la fonction avec un `this` explicite et des arguments listés.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_087",
+    "intitule": "Quelle est la différence principale entre `call` et `apply` ?",
+    "reponses": [
+      "apply ne prend pas de this",
+      "apply prend les arguments dans un tableau, call les prend séparément",
+      "call est asynchrone, apply est synchrone",
+      "Aucune différence"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les deux fixent `this`, mais `apply` attend un tableau d'arguments.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_088",
+    "intitule": "Que fait `Function.prototype.bind` ?",
+    "reponses": [
+      "Appelle la fonction immédiatement",
+      "Retourne une nouvelle fonction avec this et éventuellement des arguments préfixés",
+      "Remplace le prototype",
+      "Annule le this"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`bind` crée une fonction liée (**bound function**) sans l'exécuter immédiatement.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_089",
+    "intitule": "En **hoisting**, comment sont traitées les déclarations `var` ?",
+    "reponses": [
+      "Ni la déclaration ni l'initialisation ne sont remontées",
+      "La déclaration est remontée en haut de la fonction, initialisée à undefined",
+      "La déclaration et l'initialisation sont remontées",
+      "var n'est pas hoisté"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le nom de variable est hoisté avec une valeur initiale `undefined`, l'affectation reste à sa place.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_090",
+    "intitule": "Comment sont hoistées les déclarations `let` et `const` ?",
+    "reponses": [
+      "Comme var, accessibles avec undefined",
+      "Pas du tout hoistées",
+      "Elles sont hoistées mais restent en zone morte temporelle jusqu'à leur déclaration",
+      "Elles sont initialisées à null"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les bindings `let`/`const` sont créés au début mais ne sont accessibles qu'après la déclaration.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_091",
+    "intitule": "Quel est le résultat de ce code :\n`console.log(a);`\n`var a = 5;`",
+    "reponses": [
+      "5",
+      "undefined",
+      "ReferenceError",
+      "TypeError"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`a` est hoistée et vaut `undefined` au moment du `console.log`.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_092",
+    "intitule": "Quel est le résultat de ce code :\n`console.log(b);`\n`let b = 5;`",
+    "reponses": [
+      "5",
+      "undefined",
+      "ReferenceError",
+      "TypeError"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`b` est en zone morte temporelle jusqu'à sa déclaration, l'accès anticipé déclenche `ReferenceError`.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_093",
+    "intitule": "Que renvoie une fonction génératrice déclarée avec `function*` ?",
+    "reponses": [
+      "Une Promise",
+      "Un itérateur/générateur avec méthode next()",
+      "Un tableau",
+      "Une fonction classique"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Une fonction génératrice retourne un objet générateur, qui est itérable et possède `next()`.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_094",
+    "intitule": "Que retourne l'appel `generator.next()` sur un générateur ?",
+    "reponses": [
+      "Uniquement la valeur produite",
+      "Un objet { value, done }",
+      "true ou false",
+      "Toujours une Promise"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`next` renvoie un objet avec la valeur courante et un booléen `done` indiquant la fin.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_095",
+    "intitule": "Quel protocole doit implémenter un objet pour être itérable avec `for...of` ?",
+    "reponses": [
+      "Avoir une propriété length",
+      "Implémenter Symbol.iterator qui retourne un itérateur",
+      "Être un tableau",
+      "Être un objet simple"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Symbol.iterator` doit renvoyer un objet avec une méthode `next` conforme au protocole d'itération.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_096",
+    "intitule": "Que permet l'API **Proxy** en **JavaScript** ?",
+    "reponses": [
+      "Créer des threads",
+      "Intercepter et redéfinir des opérations fondamentales sur un objet (lecture, écriture, etc.)",
+      "Créer des classes",
+      "Optimiser la mémoire"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Proxy** permet de piéger des opérations comme `get`, `set`, `has`, et autres sur un objet cible.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_097",
+    "intitule": "Que fait le piège `get` d'un **Proxy** ?",
+    "reponses": [
+      "Intercepte la création de propriétés",
+      "Intercepte la lecture de propriété (target[prop])",
+      "Intercepte l'affectation de propriété",
+      "Intercepte la suppression de propriété"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le `handler.get` est invoqué lorsqu'on lit une propriété sur le proxy.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_098",
+    "intitule": "Quel est l'objectif principal du **Garbage Collector** dans un moteur **JavaScript** ?",
+    "reponses": [
+      "Optimiser les performances graphiques",
+      "Gérer les événements DOM",
+      "Libérer automatiquement la mémoire des objets inaccessibles",
+      "Compresser le code source"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le **GC** détecte les objets qui ne sont plus accessibles et libère leur mémoire.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_099",
+    "intitule": "Quel algorithme conceptuel est souvent utilisé pour décider si un objet peut être garbage collecté ?",
+    "reponses": [
+      "Reference counting uniquement",
+      "Mark-and-sweep basé sur l'accessibilité depuis les racines",
+      "Tri lexicographique",
+      "Hashing"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les moteurs modernes utilisent des variantes de **mark-and-sweep** basées sur les objets accessibles depuis les racines.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_100",
+    "intitule": "Que fait un **WeakMap** par rapport à un **Map** classique ?",
+    "reponses": [
+      "Il stocke plus d'éléments",
+      "Il autorise uniquement des clés primitives",
+      "Il n'empêche pas le garbage collection des clés objets",
+      "Il est plus rapide mais moins sécurisé"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les références de clés dans un **WeakMap** sont faibles, elles n'empêchent pas leur libération.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_101",
+    "intitule": "Quelles sont les caractéristiques d'un **WeakSet** ?",
+    "reponses": [
+      "Il accepte tout type de valeur",
+      "Il accepte uniquement des objets, référencés faiblement",
+      "Il est itérable comme un Set",
+      "Il stocke des paires clé/valeur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**WeakSet** ne peut contenir que des objets, qui peuvent être collectés s'ils ne sont plus référencés ailleurs.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_102",
+    "intitule": "Pourquoi **WeakMap** et **WeakSet** ne sont-ils pas itérables ?",
+    "reponses": [
+      "Pour des raisons de performance",
+      "Parce que l'ordre n'est pas garanti",
+      "Parce que les entrées peuvent disparaître à tout moment à cause du GC",
+      "Parce qu'ils ne stockent pas vraiment de données"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "L'imprévisibilité du **GC** rendrait une itération cohérente très difficile à garantir.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_103",
+    "intitule": "Quel est le résultat de `[] == ![]` ?",
+    "reponses": [
+      "true",
+      "false",
+      "undefined",
+      "NaN"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`[]` est *truthy*, `![]` vaut `false` puis est converti en `0`. `[] == 0` devient `true` après coercition complexe.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_104",
+    "intitule": "Que vaut `0 == '0'` et `0 === '0'` respectivement ?",
+    "reponses": [
+      "true et true",
+      "false et false",
+      "true et false",
+      "false et true"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`0 == '0'` est `true` après coercition, mais `0 === '0'` est `false` car types différents.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_105",
+    "intitule": "Que vaut `[] + []` en **JavaScript** ?",
+    "reponses": [
+      "[]",
+      "\"\"",
+      "0",
+      "NaN"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les tableaux sont convertis en chaîne lors de la concaténation, `[]` devient `\"\"`, donc `\"\" + \"\" = \"\"`.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_106",
+    "intitule": "Pourquoi `typeof NaN === 'number'` est-il considéré comme une bizarrerie du langage ?",
+    "reponses": [
+      "Parce que NaN devrait être 'nan'",
+      "Parce que NaN n'est pas un nombre mais une valeur d'erreur numérique",
+      "Parce que typeof est mal implémenté",
+      "Parce que NaN est un objet"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`NaN` représente un résultat numérique invalide mais reste du type `number` selon la spécification historique.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_107",
+    "intitule": "Dans quel cas un **Proxy** peut-il causer des fuites de mémoire ?",
+    "reponses": [
+      "Quand le handler est vide",
+      "Quand la cible est un tableau",
+      "Si le Proxy garde des références à des objets autrement libérables",
+      "Il est géré automatiquement et ne peut pas fuir"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Comme tout objet, un **Proxy** peut empêcher la collecte d'objets tant qu'il les référence.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_108",
+    "intitule": "Pourquoi les **closures** peuvent-elles entraîner des fuites mémoire si elles sont mal gérées ?",
+    "reponses": [
+      "Parce qu'elles sont stockées dans le DOM",
+      "Parce qu'elles empêchent la collecte des variables capturées tant qu'elles sont référencées",
+      "Parce qu'elles créent des threads",
+      "Parce qu'elles désactivent le GC"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Une **closure** garde en vie son environnement lexical tant qu'elle est accessible.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_109",
+    "intitule": "Quel est l'effet d'un cycle de références mutuelles entre deux objets `A` et `B` dans JS moderne ?",
+    "reponses": [
+      "Ils ne seront jamais collectés",
+      "Ils seront collectés si plus rien ne les référence depuis les racines",
+      "Ils causent une erreur de stack",
+      "Ils sont automatiquement rompus"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **GC** modernes basés sur l'accessibilité collectent les cycles inaccessibles.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_110",
+    "intitule": "Quel est l'effet de `Object.create(null)` ?",
+    "reponses": [
+      "Crée un objet avec prototype par défaut",
+      "Crée un objet sans prototype, donc sans héritage depuis Object.prototype",
+      "Crée un objet immuable",
+      "Crée un objet avec un prototype vide mais toString"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'objet créé n'a pas de `[[Prototype]]`, utile pour des dictionnaires sans collisions de propriétés héritées.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_111",
+    "intitule": "Quel est l'effet de `Object.freeze(obj)` ?",
+    "reponses": [
+      "Empêche toute modification de référence, mais pas les propriétés internes",
+      "Empêche l'ajout, la suppression et la modification des propriétés propres",
+      "Supprime le prototype",
+      "Supprime toutes les propriétés"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`freeze` rend l'objet immuable au niveau de ses propriétés propres (en mode strict les écritures échouent).",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_112",
+    "intitule": "Que fait `Reflect.get(target, prop, receiver)` par rapport à `target[prop]` ?",
+    "reponses": [
+      "C'est une syntaxe équivalente sans différence",
+      "Il respecte les pièges de Proxy et la sémantique de this d'une façon standardisée",
+      "Il est plus rapide",
+      "Il ignore les getters"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Reflect` expose les opérations internes d'une manière reflétable, utilisée souvent avec **Proxy**.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_113",
+    "intitule": "Dans un générateur, que permet l'instruction `yield* autreGen()` ?",
+    "reponses": [
+      "Arrêter le générateur",
+      "Déléguer à un autre itérable/générateur et relayer ses valeurs",
+      "Créer une Promise",
+      "Concaténer des tableaux"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`yield*` délègue l'itération à un autre itérable, simplifiant la composition de générateurs.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_114",
+    "intitule": "Quel est l'effet de `queueMicrotask(fn)` ?",
+    "reponses": [
+      "Planifier fn comme macrotâche",
+      "Ajouter fn à la file de microtâches",
+      "Exécuter fn immédiatement",
+      "Remplacer setTimeout"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`queueMicrotask` est une API standard pour ajouter explicitement une microtâche.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_115",
+    "intitule": "Pourquoi est-il risqué de bloquer longtemps la call stack avec une boucle `while` lourde en JS ?",
+    "reponses": [
+      "Parce que cela nettoie le GC",
+      "Parce que cela empêche l'Event Loop de traiter les événements et rend l'UI non réactive",
+      "Parce que cela vide les microtâches",
+      "Parce que cela désactive le strict mode"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "JavaScript étant **single-threaded** côté main thread, une tâche longue bloque tout le reste.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_116",
+    "intitule": "Quel est l'effet d'un handler **Proxy** qui renvoie `false` dans le piège `set` ?",
+    "reponses": [
+      "Aucun effet",
+      "Empêche l'affectation de se produire, en mode strict cela lève une erreur",
+      "Supprime la propriété",
+      "Convertit la valeur en null"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le retour `false` de `set` indique que l'affectation a échoué, ce qui est une erreur en mode strict.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_117",
+    "intitule": "Pourquoi utiliser **WeakMap** pour associer des métadonnées à des objets du DOM ?",
+    "reponses": [
+      "Pour pouvoir les sérialiser en JSON",
+      "Pour que les métadonnées soient libérées automatiquement lorsque le DOM est collecté",
+      "Parce que WeakMap est plus rapide que Map",
+      "Parce qu'il supporte les clés primitives"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les clés DOM peuvent être collectées librement sans fuite mémoire dans la structure de métadonnées.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_118",
+    "intitule": "Que renvoie `Symbol.iterator` sur un tableau ?",
+    "reponses": [
+      "Une fonction qui crée un itérateur",
+      "Un générateur vide",
+      "Un WeakMap",
+      "Une Promise"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`arr[Symbol.iterator]` retourne l'itérateur qui produit les éléments du tableau pour `for...of`.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_119",
+    "intitule": "Pourquoi `JSON.stringify(new Map())` retourne-t-il `\"{}\"` ?",
+    "reponses": [
+      "Parce que Map n'a pas de propriétés énumérables propres",
+      "Parce que Map est sérialisé comme un tableau",
+      "Parce que Map n'est pas sérialisable",
+      "Parce que JSON.stringify ne fonctionne pas"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`JSON.stringify` ne voit que les propriétés énumérables, ce qui n'est pas le cas des entrées internes d'un **Map**.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "js_120",
+    "intitule": "Quel pattern permet de limiter l'exposition de variables internes tout en offrant une API publique ?",
+    "reponses": [
+      "Utiliser uniquement des variables globales",
+      "Utiliser les closures et l'Immediately Invoked Function Expression (IIFE) ou les modules",
+      "Utiliser var partout",
+      "Désactiver le strict mode"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **closures** et les modules encapsulent les détails internes et exposent uniquement ce qui est exporté.",
+    "categorie": "javascript",
+    "difficulte": "difficile"
+  }
+]

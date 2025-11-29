@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "next_001",
+    "intitule": "Dans l'**App Router**, quel fichier définit l'interface utilisateur commune à plusieurs routes ?",
+    "reponses": [
+      "head.js",
+      "layout.js",
+      "template.js",
+      "page.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le fichier `layout.js` définit une UI partagée (header, nav, footer) pour un segment et ses segments enfants. Il reste monté entre les navigations.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_002",
+    "intitule": "Dans le dossier `/app`, quel fichier est utilisé pour définir le contenu principal d'une route ?",
+    "reponses": [
+      "layout.js",
+      "template.js",
+      "page.js",
+      "route.js"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`page.js` (ou `page.tsx`) correspond au composant de page rendu pour une route donnée. Chaque segment peut définir sa propre page.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_003",
+    "intitule": "Quelle est la route associée au fichier `app/dashboard/page.tsx` ?",
+    "reponses": [
+      "/",
+      "/app/dashboard",
+      "/dashboard",
+      "/dashboard/page"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Dans l'**App Router**, la structure du dossier `/app` reflète l'URL. `app/dashboard/page.tsx` correspond à `/dashboard`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_004",
+    "intitule": "Comment crée-t-on une route dynamique dans le dossier `/app` ?",
+    "reponses": [
+      "En utilisant [id]/page.tsx",
+      "En utilisant :id/page.tsx",
+      "En utilisant {id}/page.tsx",
+      "En utilisant _id/page.tsx"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les segments dynamiques utilisent des crochets, par exemple `app/blog/[slug]/page.tsx` pour la route `/blog/:slug`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_005",
+    "intitule": "Dans l'**App Router**, à quoi sert le composant `<Link>` de `next/link` ?",
+    "reponses": [
+      "À charger des polices",
+      "À précharger des images",
+      "À faire une navigation côté client sans rechargement complet",
+      "À définir des routes API"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`<Link>` permet une navigation client-side entre pages **Next.js**, en préchargeant les ressources et sans rechargement complet du document.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_006",
+    "intitule": "Quel import est correct pour utiliser le composant `<Link>` dans l'**App Router** ?",
+    "reponses": [
+      "import { Link } from 'next/router'",
+      "import Link from 'next/link'",
+      "import { Link } from 'react-router-dom'",
+      "import Link from 'next/navigation'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le composant de navigation declarative se trouve dans `next/link`. Les hooks de navigation se trouvent eux dans `next/navigation`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_007",
+    "intitule": "Quel composant **Next.js** optimise automatiquement les images (lazy-loading, formats, tailles) ?",
+    "reponses": [
+      "<img>",
+      "<Image> de 'next/image'",
+      "<Picture>",
+      "<OptimizedImage>"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le composant `<Image>` de `'next/image'` gère le redimensionnement, les formats optimisés et le lazy-loading par défaut.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_008",
+    "intitule": "Quelle propriété de `<Image>` permet de remplir son conteneur parent en positionnant l'image en absolu ?",
+    "reponses": [
+      "cover",
+      "fill",
+      "responsive",
+      "stretch"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La prop `fill` de `<Image>` lui permet de se positionner en position absolue et de remplir son parent en width/height.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_009",
+    "intitule": "Par défaut, dans l'**App Router**, les composants de page sont rendus en tant que...",
+    "reponses": [
+      "Client Components",
+      "Server Components",
+      "Static HTML uniquement",
+      "ISR uniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Dans `/app`, les fichiers `page.tsx`, `layout.tsx`, etc. sont des **React Server Components** par défaut, sauf si on ajoute `\"use client\"`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_010",
+    "intitule": "Que faut-il ajouter en haut d'un fichier pour en faire un **Client Component** dans l'**App Router** ?",
+    "reponses": [
+      "\"use browser\";",
+      "\"use client\";",
+      "\"use strict\";",
+      "\"use next\";"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le directive `\"use client\"` au sommet du fichier indique à **Next.js** que ce composant doit être rendu côté client (**CSR**).",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_011",
+    "intitule": "Quel type de code nécessite un **Client Component** avec `\"use client\"` ?",
+    "reponses": [
+      "Accès à process.env côté serveur",
+      "Hooks React client (useState, useEffect)",
+      "Data fetching avec fetch sur une API externe",
+      "Utilisation de cookies() côté serveur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les hooks comme `useState`, `useEffect` ou les APIs du navigateur nécessitent un **Client Component**.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_012",
+    "intitule": "Dans l'**App Router**, où place-t-on le fichier `global.css` pour qu'il soit appliqué à toute l'app ?",
+    "reponses": [
+      "Dans /public",
+      "Dans /styles puis importé dans app/layout.tsx",
+      "Dans /pages",
+      "Dans /app/page.tsx directement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On place `global.css` (par exemple dans `/styles`) et on l'importe une seule fois dans `app/layout.tsx` pour l'appliquer globalement.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_013",
+    "intitule": "Comment activer **Tailwind CSS** dans un projet **Next.js** récent ?",
+    "reponses": [
+      "En important 'tailwind' dans page.tsx",
+      "En créant tailwind.config.js et en important les styles générés dans layout.tsx",
+      "En ajoutant 'use tailwind' en haut des fichiers",
+      "Impossible avec l'App Router"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On initialise **Tailwind** (via le CLI ou template), configure `tailwind.config.js` et on importe les styles (globals) dans `app/layout.tsx`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_014",
+    "intitule": "Quel avantage principal offre l'**App Router** par rapport au **Pages Router** historique ?",
+    "reponses": [
+      "Moins de dossiers",
+      "Support natif des React Server Components et de la composition de layouts imbriqués",
+      "Aucun, c'est juste un renommage",
+      "Obligation d'utiliser TypeScript"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'**App Router** apporte les **RSC**, les layouts imbriqués, les segments, les route handlers dans `/app`, etc. (comparaison historique).",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_015",
+    "intitule": "Quel fichier optionnel permet de définir un layout qui se remonte à chaque navigation (contrairement à `layout.tsx`) ?",
+    "reponses": [
+      "template.tsx",
+      "shared.tsx",
+      "reset.tsx",
+      "global.tsx"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`template.tsx` se comporte comme un layout mais est recréé à chaque navigation, utile pour réinitialiser certains états.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_016",
+    "intitule": "Quel composant permet de définir des liens actifs en lisant l'URL courante dans l'**App Router** ?",
+    "reponses": [
+      "useRouter de 'next/router'",
+      "usePathname de 'next/navigation'",
+      "useLocation de 'react-router-dom'",
+      "useURL de 'next/navigation'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`usePathname` (`next/navigation`) renvoie le pathname courant et est pensé pour l'**App Router**.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_017",
+    "intitule": "Quel est le comportement par défaut de `fetch()` dans un **Server Component** **Next.js** ?",
+    "reponses": [
+      "Pas de cache",
+      "Cache local uniquement",
+      "Cache côté serveur avec revalidation possible",
+      "Erreur, il faut useEffect"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`fetch` dans un **RSC** est intégré au cache de **Next.js** et peut être revalidé selon les options (`revalidate`, `cache`).",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_018",
+    "intitule": "Quelle extension de fichier est recommandée pour les composants **App Router** en **TypeScript** ?",
+    "reponses": [
+      ".jsx",
+      ".tsx",
+      ".ts",
+      ".mjs"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les composants **React** avec JSX en **TypeScript** utilisent l'extension `.tsx`, que ce soit pour `page.tsx`, `layout.tsx`, etc.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_019",
+    "intitule": "Dans l'**App Router**, comment créer une page 404 personnalisée pour une route imbriquée ?",
+    "reponses": [
+      "En créant 404.tsx à la racine",
+      "En créant not-found.tsx dans le segment concerné",
+      "En créant error.tsx à la racine",
+      "Impossible avec App Router"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Chaque segment peut définir `not-found.tsx` pour gérer les cas de 'not found' localisés à ce segment.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_020",
+    "intitule": "Quel fichier spécial permet d'afficher un indicateur de chargement pour une route dans l'**App Router** ?",
+    "reponses": [
+      "loading.tsx",
+      "spinner.tsx",
+      "skeleton.tsx",
+      "loader.tsx"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`loading.tsx` est rendu automatiquement pendant le chargement ou le streaming d'un segment.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_021",
+    "intitule": "Dans un projet **Next.js** récent, où configure-t-on les métadonnées de base (title, description) pour une page ?",
+    "reponses": [
+      "Dans next.config.js uniquement",
+      "Dans <Head> de 'next/document'",
+      "Via l'export metadata ou generateMetadata dans les fichiers de l'App Router",
+      "Dans public/index.html"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "L'**App Router** expose l'API Metadata via l'export `metadata` ou la fonction `generateMetadata` pour chaque segment.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_022",
+    "intitule": "Quel fichier racine est obligatoire dans `/app` pour un projet **App Router** ?",
+    "reponses": [
+      "app/_app.tsx",
+      "app/_document.tsx",
+      "app/layout.tsx",
+      "app/_middleware.ts"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`layout.tsx` à la racine de `/app` est le layout root de l'application et est requis.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_023",
+    "intitule": "Quel est le but principal des **React Server Components** (**RSC**) dans **Next.js** ?",
+    "reponses": [
+      "Remplacer complètement les Client Components",
+      "Permettre de faire du data fetching et du rendu côté serveur sans envoyer le code aux clients",
+      "Désactiver le JavaScript côté client",
+      "Améliorer uniquement le SEO"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **RSC** permettent de rendre et d'orchestrer les données côté serveur, en envoyant au client un payload sérialisé minimal.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_024",
+    "intitule": "Quel fichier permet de gérer les erreurs non interceptées dans un segment de l'**App Router** ?",
+    "reponses": [
+      "error.tsx",
+      "catch.tsx",
+      "exception.tsx",
+      "fault.tsx"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`error.tsx` joue le rôle de boundary d'erreur pour un segment et ses enfants, en **App Router**.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_025",
+    "intitule": "Comment importer correctement le composant `<Image>` dans un fichier **App Router** ?",
+    "reponses": [
+      "import { Image } from 'next/image'",
+      "import Image from 'next/image'",
+      "import Image from 'react-image'",
+      "import { Image } from 'react'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le composant optimisé se trouve dans le default export de `'next/image'`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_026",
+    "intitule": "Quelle configuration globale permet d'activer l'**App Router** dans un projet **Next.js** moderne ?",
+    "reponses": [
+      "/app est utilisé automatiquement s'il existe",
+      "Il faut activer appRouter: true dans next.config.js",
+      "Il faut supprimer /pages",
+      "Il faut ajouter \"use app\""
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Si le dossier `/app` est présent, l'**App Router** est activé. `/pages` peut coexister pour la compatibilité.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_027",
+    "intitule": "Quelle catégorie de composants est idéale pour la logique de formulaire et les interactions UI complexes ?",
+    "reponses": [
+      "Server Components",
+      "Client Components avec \"use client\"",
+      "Middleware",
+      "Route Handlers"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les formulaires interactifs (state local, validation instantanée) nécessitent des **Client Components**.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_028",
+    "intitule": "Quel fichier historique du **Pages Router** gérait l'initialisation de pages, mais n'est plus utilisé en **App Router** ?",
+    "reponses": [
+      "_document.tsx",
+      "_app.tsx",
+      "_middleware.ts",
+      "_root.tsx"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`_app.tsx` est propre au **Pages Router** (`/pages`) et n'est pas utilisé dans l'**App Router** (historique pour comparaison).",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_029",
+    "intitule": "Dans un projet **Tailwind** + **Next.js App Router**, où se trouve généralement la directive `@tailwind base` ?",
+    "reponses": [
+      "Dans next.config.js",
+      "Dans globals.css importé dans layout.tsx",
+      "Dans page.tsx",
+      "Dans tailwind.config.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les directives `@tailwind base/components/utilities` sont dans un CSS global (souvent `globals.css`) importé dans `app/layout.tsx`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_030",
+    "intitule": "Quel hook de `'next/navigation'` permet de faire une navigation impérative en **App Router** ?",
+    "reponses": [
+      "useRouter de 'next/router'",
+      "useNavigate",
+      "useRouter de 'next/navigation'",
+      "useHistory"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "En **App Router**, on utilise `useRouter` depuis `'next/navigation'`, différent de l'ancien `'next/router'`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_031",
+    "intitule": "Dans l'**App Router**, comment exclure un dossier de l'URL tout en l'utilisant pour organiser le code ?",
+    "reponses": [
+      "En commençant le dossier par _",
+      "En entourant le nom avec des parenthèses (groupes de routes)",
+      "En ajoutant .hidden au nom",
+      "Impossible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les segments de groupe, par exemple `(marketing)`, organisent les fichiers sans affecter le chemin d'URL.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_032",
+    "intitule": "Quelle API permet de lire les cookies dans un **Server Component** ou un **Route Handler** ?",
+    "reponses": [
+      "document.cookie",
+      "cookies() depuis 'next/headers'",
+      "useCookies() dans 'next/navigation'",
+      "localStorage.getItem('cookie')"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`cookies()` de `'next/headers'` est disponible côté serveur (**RSC**, actions, route handlers) pour lire les cookies.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_033",
+    "intitule": "Quel est le runtime par défaut pour les pages **App Router** classiques (sans configuration spécifique) ?",
+    "reponses": [
+      "Edge Runtime",
+      "Node.js Runtime",
+      "Deno Runtime",
+      "Cloudflare Workers Runtime"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Par défaut, **Next.js** utilise le runtime **Node.js** pour les **RSC** et route handlers, sauf si on active l'exécution à l'edge.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_034",
+    "intitule": "Quel fichier permet d'ajouter un overlay de chargement global autour de l'application entière ?",
+    "reponses": [
+      "app/loading.tsx à la racine",
+      "pages/_loading.tsx",
+      "app/global-loading.tsx",
+      "app/spinner.tsx"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Un `loading.tsx` à la racine de `/app` agit comme fallback de chargement global pour les segments en streaming.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_035",
+    "intitule": "Dans l'**App Router**, quel type de composant est le plus approprié pour un header global qui ne dépend pas de state client ?",
+    "reponses": [
+      "Client Component avec \"use client\"",
+      "Server Component",
+      "Route Handler",
+      "Middleware"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un header purement décoratif ou basé sur des données serveur peut rester un **Server Component**, plus léger côté client.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_036",
+    "intitule": "Quel avantage principal offre `<Image>` sur la balise `<img>` pour les performances ?",
+    "reponses": [
+      "Il enlève le besoin de CDN",
+      "Il inline le SVG",
+      "Il génère des tailles multiples adaptées aux devices",
+      "Il convertit tout en WebP uniquement"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`<Image>` gère le responsive et la génération de plusieurs tailles pour s'adapter aux résolutions d'écran.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_037",
+    "intitule": "Dans l'**App Router**, quel fichier est utilisé pour imbriquer un layout spécifique sous un autre layout ?",
+    "reponses": [
+      "nested.tsx",
+      "sub-layout.tsx",
+      "layout.tsx dans un sous-dossier",
+      "appLayout.tsx"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Chaque dossier peut contenir son propre `layout.tsx`, imbriqué dans le layout parent.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_038",
+    "intitule": "Quel composant fournit la police optimisée côté **Next.js** sans chargement manuel de fichiers ?",
+    "reponses": [
+      "next/font",
+      "next/fonts",
+      "font-loader",
+      "font-optimizer"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`next/font` (avec import depuis `'next/font/local'` ou Google) gère le chargement optimisé des polices.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_039",
+    "intitule": "Dans une page **App Router**, où se situe généralement la logique de data fetching ?",
+    "reponses": [
+      "Dans useEffect côté client",
+      "Dans le Server Component via async function et fetch",
+      "Uniquement dans middleware.ts",
+      "Uniquement dans getServerSideProps (historique)"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On privilégie le data fetching dans les **Server Components** (`async`, `fetch`) plutôt que dans `useEffect` côté client.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_040",
+    "intitule": "Dans l'**App Router**, quel fichier remplace les anciennes **API Routes** de `/pages/api` pour la nouvelle approche ?",
+    "reponses": [
+      "api.tsx",
+      "server.ts",
+      "route.ts dans app/api/.../",
+      "apiRoute.ts"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les **Route Handlers** sont définis via `route.ts` (ou `.js`) dans l'arborescence `/app/api`.",
+    "categorie": "nextjs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "next_041",
+    "intitule": "Dans un **Server Component**, quelle est la bonne façon de déclarer une fonction de page avec data fetching ?",
+    "reponses": [
+      "export default function Page() {}",
+      "export default async function Page() {}",
+      "export async Page() {}",
+      "export default function Page(props: { data: any }) {}"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On peut déclarer la page comme une fonction `async` pour utiliser `fetch` directement côté serveur.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_042",
+    "intitule": "Quelle option de `fetch()` désactive complètement le cache de **Next.js** pour une requête donnée ?",
+    "reponses": [
+      "{ cache: 'default' }",
+      "{ cache: 'force-cache' }",
+      "{ cache: 'no-store' }",
+      "{ cache: 'reload' }"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`cache: 'no-store'` indique que la réponse ne doit pas être mise en cache et doit être refetchée à chaque requête.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_043",
+    "intitule": "Quelle constante de segment permet de configurer la revalidation automatique d'une page **App Router** ?",
+    "reponses": [
+      "export const revalidate = 60",
+      "export const cache = 60",
+      "export const ISR = 60",
+      "export const refresh = 60"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`revalidate` définit en secondes la durée de vie du cache avant une nouvelle revalidation **ISR** côté serveur.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_044",
+    "intitule": "Quelle constante de segment force une page à être dynamique (pas de cache) ?",
+    "reponses": [
+      "export const dynamic = 'force-dynamic'",
+      "export const revalidate = 0",
+      "export const cache = 'dynamic'",
+      "export const dynamicRoute = true"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`dynamic = 'force-dynamic'` indique que la page doit être exécutée à chaque requête, sans cacher la sortie.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_045",
+    "intitule": "Dans un **Route Handler** `app/api/posts/route.ts`, comment déclare-t-on un handler GET basique ?",
+    "reponses": [
+      "export default function GET() {}",
+      "export async function GET(request: Request) {}",
+      "export const GET = new Response()",
+      "export function handlerGET() {}"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On exporte une fonction nommée `GET` (`async`) qui reçoit un `Request` et retourne un `Response` ou `NextResponse`.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_046",
+    "intitule": "Quel utilitaire de `'next/server'` est couramment utilisé pour construire une réponse JSON dans un **Route Handler** ?",
+    "reponses": [
+      "Response.json()",
+      "NextResponse.json()",
+      "JSONResponse()",
+      "ServerResponse.json()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`NextResponse.json()` facilite la création de réponses JSON typées pour les **Route Handlers**.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_047",
+    "intitule": "Dans l'**App Router**, comment définit-on des métadonnées dynamiques basées sur les `params` ?",
+    "reponses": [
+      "Via getServerSideProps (historique)",
+      "Via getInitialProps (historique)",
+      "Via la fonction export async function generateMetadata()",
+      "Via un hook useMetadata()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`generateMetadata` reçoit `params` et `searchParams`, et retourne un objet Metadata calculé côté serveur.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_048",
+    "intitule": "Dans un **Server Component**, que retourne la fonction `headers()` de `'next/headers'` ?",
+    "reponses": [
+      "Les headers côté client",
+      "Les headers de la requête actuelle côté serveur",
+      "Les headers de la réponse",
+      "Les headers de next.config"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`headers()` permet de lire les en-têtes de la requête HTTP côté serveur (**RSC**, route handler).",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_049",
+    "intitule": "Quel fichier middleware avancé est exécuté avant l'**App Router** pour chaque requête correspondante ?",
+    "reponses": [
+      "app/middleware.ts",
+      "middleware.ts à la racine",
+      "app/_middleware.ts",
+      "pages/_middleware.ts (historique)"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`middleware.ts` à la racine du projet est exécuté dans l'**Edge Runtime** avant la résolution de routes.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_050",
+    "intitule": "Quel objet est utilisé dans `middleware.ts` pour décider quelles routes sont concernées ?",
+    "reponses": [
+      "config.matcher",
+      "routes.match",
+      "next.config.matcher",
+      "middleware.routes"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "On exporte `config` avec une propriété `matcher` pour cibler certaines routes (patterns d'URL).",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_051",
+    "intitule": "Dans l'**App Router**, comment définir une UI de chargement spécifique pour un segment enfant précis uniquement ?",
+    "reponses": [
+      "Créer loading.tsx à la racine",
+      "Créer loading.tsx dans le dossier du segment ciblé",
+      "Utiliser Suspense uniquement côté client",
+      "Ce n'est pas possible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un `loading.tsx` dans un segment s'applique à ce segment et à ses enfants, permettant des loaders granulaire.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_052",
+    "intitule": "Comment intercepter et personnaliser les erreurs pour un segment dans l'**App Router** ?",
+    "reponses": [
+      "En utilisant try/catch autour du JSX",
+      "En créant error.tsx dans le segment",
+      "En créant 500.tsx global",
+      "En modifiant next.config.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`error.tsx` est un **Error Boundary** pour un segment, géré par **Next.js** et **React**.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_053",
+    "intitule": "Dans un **Route Handler**, comment accéder aux paramètres dynamiques d'URL (ex: `/api/posts/[id]`) ?",
+    "reponses": [
+      "Via req.query.id",
+      "Via req.params.id",
+      "Via le second argument { params }",
+      "Via useRouter()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les **Route Handlers** reçoivent un second paramètre optionnel contenant `params` et autres données de routing.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_054",
+    "intitule": "Quelle option de `fetch()` permet de combiner cache et revalidation automatique côté serveur ?",
+    "reponses": [
+      "{ next: { revalidate: 60 } }",
+      "{ caching: 60 }",
+      "{ cache: 'next-60' }",
+      "{ revalidate: 60 }"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "L'option `next.revalidate` permet de définir la durée de revalidation pour cette requête spécifique.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_055",
+    "intitule": "Dans l'**API Metadata**, comment définir le titre de base d'une page **App Router** ?",
+    "reponses": [
+      "export const title = '...' ",
+      "export const metadata = { title: '...' }",
+      "export const head = { title: '...' }",
+      "Utiliser <title> dans le JSX"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On exporte un objet `metadata` avec la clé `title`, ou bien un objet structuré pour les templates avancés.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_056",
+    "intitule": "Dans `middleware.ts`, quelle classe utilise-t-on généralement pour manipuler réponse et requête ?",
+    "reponses": [
+      "NextResponse",
+      "NextMiddleware",
+      "ServerResponse",
+      "ExpressResponse"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`NextResponse` (`next/server`) fournit des helpers pour redirect, rewrite et modification des headers.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_057",
+    "intitule": "Quelle différence majeure entre les **Route Handlers** (`/app/api`) et les anciennes **API Routes** (`/pages/api`) doit-on connaître ?",
+    "reponses": [
+      "Les Route Handlers fonctionnent avec l'App Router et supportent mieux les RSC",
+      "Les anciennes API Routes étaient SSR only",
+      "Les Route Handlers ne supportent pas les méthodes HTTP",
+      "Les API Routes ne pouvaient pas utiliser TypeScript"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les **Route Handlers** sont intégrés à l'**App Router**, se basent sur Request/Response web standard et fonctionnent bien avec **RSC** (comparaison historique).",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_058",
+    "intitule": "Comment définir une route 'catch-all' dans `/app` pour matcher plusieurs segments ?",
+    "reponses": [
+      "[...slug]",
+      "[slug...]",
+      "{slug*}",
+      "[slug]"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Un segment `[...slug]` capture plusieurs segments d'URL en un tableau de paramètres.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_059",
+    "intitule": "Dans l'**App Router**, comment gérer un 'not found' programmatique depuis un **Server Component** ?",
+    "reponses": [
+      "return <NotFound />",
+      "throw new Error('Not Found')",
+      "import { notFound } from 'next/navigation' puis appeler notFound()",
+      "rediriger vers /404 via useRouter()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "La fonction `notFound()` (`next/navigation`) déclenche le rendu du composant `not-found.tsx` du segment.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_060",
+    "intitule": "Dans l'**App Router**, comment définir un layout spécifique à une section (ex: `/dashboard`) avec des sous-pages ?",
+    "reponses": [
+      "Créer dashboard/_app.tsx",
+      "Créer dashboard/layout.tsx",
+      "Créer dashboard/_document.tsx",
+      "Création impossible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`dashboard/layout.tsx` définit un layout pour toutes les routes sous `/dashboard`.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_061",
+    "intitule": "Comment afficher des skeletons de chargement plus granulaires que `loading.tsx` global ?",
+    "reponses": [
+      "Impossible, un seul loading.tsx",
+      "Créer plusieurs Suspense et fallback dans le JSX",
+      "Utiliser un seul Error Boundary global",
+      "Ajouter config.loading dans next.config.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On peut combiner `loading.tsx` et **Suspense** côté client/serveur pour des skeletons locaux.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_062",
+    "intitule": "Dans un projet **App Router**, comment définir une redirection côté serveur dans un **Server Component** ?",
+    "reponses": [
+      "window.location.href = '/login'",
+      "useRouter().push('/login')",
+      "import { redirect } from 'next/navigation' puis appeler redirect('/login')",
+      "Utiliser <Link>"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`redirect()` de `'next/navigation'` fonctionne côté serveur et déclenche une redirection HTTP.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_063",
+    "intitule": "Quelle option de segment force une page à être entièrement statique avec pré-rendu au build ?",
+    "reponses": [
+      "export const dynamic = 'force-dynamic'",
+      "export const dynamic = 'error'",
+      "export const dynamic = 'force-static'",
+      "export const revalidate = 0"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`dynamic = 'force-static'` impose un rendu statique au build, même si des APIs dynamiques sont utilisées.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_064",
+    "intitule": "Dans un **Route Handler**, comment lire le body JSON d'une requête POST ?",
+    "reponses": [
+      "request.body.json()",
+      "await request.json()",
+      "await req.body()",
+      "useBody()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les `Request` des Web APIs exposent la méthode async `json()` pour parser le corps JSON.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_065",
+    "intitule": "Comment définir des métadonnées spécifiques pour toutes les pages d'une section (layout) ?",
+    "reponses": [
+      "Ajouter <Head> dans tous les page.tsx",
+      "Définir export const metadata dans layout.tsx de la section",
+      "Utiliser only next.config.js",
+      "Impossible avec l'App Router"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un layout peut exporter `metadata` ou `generateMetadata` pour affecter toutes les pages enfants.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_066",
+    "intitule": "Dans `middleware.ts`, quel runtime est utilisé par défaut ?",
+    "reponses": [
+      "Node.js Runtime",
+      "Edge Runtime",
+      "Deno Runtime",
+      "Choix manuel obligatoire"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le middleware tourne dans l'**Edge Runtime**, ce qui impose certaines contraintes sur les APIs disponibles.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_067",
+    "intitule": "Quelle approche est la plus adaptée pour injecter des headers de sécurité (**CSP**, etc.) sur toutes les pages ?",
+    "reponses": [
+      "Depuis les Server Components via headers()",
+      "Depuis middleware.ts avec NextResponse.next()",
+      "Depuis chaque Route Handler manuellement",
+      "Depuis _document.tsx (historique) uniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le middleware peut modifier globalement les headers des réponses en une seule place.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_068",
+    "intitule": "Dans l'**App Router**, comment gérer les erreurs spécifique dans un composant enfant sans affecter tout le segment ?",
+    "reponses": [
+      "Impossible, error.tsx est global",
+      "En créant un Error Boundary React classique côté client",
+      "En ajoutant un second error.tsx",
+      "En utilisant notFound()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On peut toujours utiliser des **Error Boundaries** **React** classiques pour encapsuler des parties spécifiques de l'arbre.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_069",
+    "intitule": "Quelle stratégie de cache de `fetch` convient pour des données quasi statiques (ex: FAQ) dans un **RSC** ?",
+    "reponses": [
+      "cache: 'no-store'",
+      "next: { revalidate: 6060 }",
+      "dynamic = 'force-dynamic'",
+      "Utiliser useEffect côté client"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Une revalidation espacée (par exemple toutes les heures) garde les données fraîches sans requêtes trop fréquentes.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_070",
+    "intitule": "Quelle différence importante entre `getServerSideProps` (historique) et l'**App Router** avec **RSC** doit-on comprendre ?",
+    "reponses": [
+      "getServerSideProps fonctionne côté client",
+      "Les RSC permettent de séparer logique et UI et d'effectuer plusieurs fetchs concurrents",
+      "Les RSC ne permettent pas de fetch",
+      "getServerSideProps était plus performant"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **RSC** offrent une orchestration fine des données et du streaming, au-delà d'un simple préfetch unique (comparaison historique).",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_071",
+    "intitule": "Comment définissez-vous un segment généré statiquement mais revalidé à chaque minute au niveau de la page ?",
+    "reponses": [
+      "export const revalidate = 60",
+      "dynamic = 'force-dynamic'",
+      "cache: 'no-store'",
+      "middleware.ts"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`revalidate` définit la fréquence de revalidation **ISR** pour la page ou le layout.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_072",
+    "intitule": "Quel fichier dans l'**App Router** est responsable de l'injection du HTML de base (lang, body, etc.) ?",
+    "reponses": [
+      "_document.tsx (historique)",
+      "layout.tsx racine",
+      "head.tsx racine",
+      "template.tsx racine"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le root layout remplace le rôle historique de `_document` pour structurer l'HTML de base.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_073",
+    "intitule": "Dans l'**App Router**, comment gérer une page de recherche dépendant de query params (`searchParams`) ?",
+    "reponses": [
+      "Via getServerSideProps (historique)",
+      "Via useSearchParams côté client uniquement",
+      "Via la prop searchParams passée aux Server Components de page",
+      "Impossible, seuls params sont supportés"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les **Server Components** de page reçoivent un objet `searchParams` représentant les query strings.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_074",
+    "intitule": "Quelle structure est correcte pour un layout root avec **Tailwind** et **Metadata API** ?",
+    "reponses": [
+      "export default function RootLayout(); export const metadata = {...}",
+      "export const RootLayout = {...}",
+      "export default function Layout(); export const head = {...}",
+      "export default class Layout extends React.Component"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "On exporte `default RootLayout` et un export nommé `metadata` ou `generateMetadata` pour la racine.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_075",
+    "intitule": "Comment gérer les favicons et manifest dans l'**App Router** moderne ?",
+    "reponses": [
+      "Uniquement via public/favicon.ico",
+      "Uniquement via Head personnalisé",
+      "En plaçant favicon.ico, icon.png, app-icon, manifest.webmanifest dans /app ou /public selon conventions",
+      "Impossible en App Router"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "**Next.js** détecte certains fichiers (favicon, icon, manifest) via conventions et les intègre à la Metadata API.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_076",
+    "intitule": "Dans un **Route Handler**, comment renvoyer une réponse redirigeant vers une autre URL ?",
+    "reponses": [
+      "return Response.redirect('/login')",
+      "return NextResponse.redirect(new URL('/login', request.url))",
+      "return redirect('/login')",
+      "return window.location('/login')"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`NextResponse.redirect` permet de construire une redirection avec l'URL complète.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_077",
+    "intitule": "Quelle approche de CSS est compatible nativement avec l'**App Router** et supporte le scoping automatique par fichier ?",
+    "reponses": [
+      "CSS Modules",
+      "styled-jsx uniquement",
+      "Sass global uniquement",
+      "Aucune solution"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les **CSS Modules** (`.module.css`/`.module.scss`) sont supportés et scoper les styles par composant.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_078",
+    "intitule": "Dans l'**App Router**, comment gérer les erreurs réseau lors du data fetching dans un **Server Component** ?",
+    "reponses": [
+      "Toujours laisser l'erreur remonter jusqu'à error.tsx",
+      "Utiliser try/catch et renvoyer un state fallback",
+      "Utiliser uniquement useEffect côté client",
+      "Middleware capture tout"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On peut combiner `try/catch` côté serveur et `error.tsx` pour une expérience contrôlée.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_079",
+    "intitule": "Quelle méthode est recommandée pour limiter la taille du bundle client dans un projet **App Router** ?",
+    "reponses": [
+      "Tout mettre en Client Components",
+      "Maximiser l'usage de Server Components et isoler le code client dans des 'use client' ciblés",
+      "Utiliser uniquement useEffect",
+      "Désactiver l'App Router"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Plus la logique reste dans les **RSC**, moins de code est envoyé au client.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_080",
+    "intitule": "Dans l'**App Router**, comment différencier les erreurs 404 des autres erreurs serveur pour une API ?",
+    "reponses": [
+      "Utiliser uniquement des codes 500",
+      "Utiliser NextResponse.json({ ... }, { status: 404 })",
+      "throw notFound()",
+      "Impossible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **Route Handlers** permettent de définir explicitement les status HTTP, dont 404.",
+    "categorie": "nextjs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "next_081",
+    "intitule": "Quelle fonction avancée de `'next/cache'` permet de marquer une section de code comme non cachable, même dans un **RSC** ?",
+    "reponses": [
+      "disableCache()",
+      "noCache()",
+      "unstable_noStore() ou noStore()",
+      "cacheOff()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`noStore` (anciennement `unstable_noStore`) indique à **Next.js** de ne pas stocker le résultat dans son cache pour ce chemin.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_082",
+    "intitule": "Quelle stratégie de cache avancée combine tags et `revalidateTag` pour invalider sélectivement des données ?",
+    "reponses": [
+      "Tag-based caching",
+      "Stale-while-revalidate uniquement",
+      "Cache global unique",
+      "LocalStorage caching"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le cache basé sur des tags permet de revalider précisément des requêtes associées à ces tags via `revalidateTag`.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_083",
+    "intitule": "Dans les **Server Actions**, quel mot-clé spécial doit apparaître en haut du fichier ou de la fonction pour activer le support côté serveur ?",
+    "reponses": [
+      "\"use server\";",
+      "\"server action\";",
+      "\"use action\";",
+      "\"use next-server\";"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`\"use server\"` indique que la fonction est une **Server Action** exécutée côté serveur lors de son invocation.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_084",
+    "intitule": "Comment associer une **Server Action** à un formulaire dans l'**App Router** ?",
+    "reponses": [
+      "En passant la fonction à onSubmit côté client",
+      "En passant la fonction Server Action à l'attribut action du formulaire",
+      "En utilisant fetch() dans useEffect",
+      "En déclarant la route /api/form"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un formulaire HTML peut pointer directement vers une **Server Action** via l'attribut `action={myAction}`.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_085",
+    "intitule": "Quelle API permet à une **Server Action** de revalider un segment spécifique après une mutation ?",
+    "reponses": [
+      "revalidate()",
+      "revalidatePath()",
+      "refreshPath()",
+      "next.revalidateSegment()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`revalidatePath('/route')` invalide le cache associé à ce chemin pour que les prochaines requêtes refetchent les données.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_086",
+    "intitule": "Quelle API permet à une **Server Action** de revalider toutes les requêtes associées à un tag ?",
+    "reponses": [
+      "revalidateTag()",
+      "invalidateTag()",
+      "refreshTag()",
+      "clearTagCache()"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`revalidateTag('posts')` force la revalidation de toutes les requêtes de `fetch` taggées avec ce tag.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_087",
+    "intitule": "Quelle est la principale différence entre une **Server Action** et un **Route Handler** pour les mutations ?",
+    "reponses": [
+      "Les Server Actions ne supportent pas les méthodes POST",
+      "Les Server Actions peuvent être appelées directement depuis le JSX (form/action), sans passer par fetch manuel",
+      "Les Route Handlers ne peuvent pas accéder à la base de données",
+      "Les Server Actions ne fonctionnent pas avec RSC"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **Server Actions** s'intègrent directement à la hiérarchie de composants et peuvent être référencées comme fonctions.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_088",
+    "intitule": "Dans l'**App Router**, que permet un segment parallèle nommé `@modal` ?",
+    "reponses": [
+      "Créer plusieurs instances de page.tsx",
+      "Rendre une UI alternative (par ex. modale) en parallèle de la route principale",
+      "Créer des API Routes parallèles",
+      "Optimiser le cache"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les routes parallèles (`@slot`) permettent d'afficher plusieurs branches d'UI en même temps pour un même chemin d'URL.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_089",
+    "intitule": "Quel pattern d'URL est utilisé par les routes interceptées pour afficher une page dans un contexte différent (ex: modale sur la liste) ?",
+    "reponses": [
+      "[intercept]/page.tsx",
+      "(.)segment",
+      "(intercept)/segment",
+      "{intercept}/page"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les interceptions utilisent des segments comme `(.)photo` ou `(..)photo` pour réutiliser une page dans une hiérarchie différente.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_090",
+    "intitule": "Quel est l'impact du streaming sur l'UX d'une page **RSC** avec beaucoup de data fetching ?",
+    "reponses": [
+      "Il bloque tout jusqu'à ce que tout soit chargé",
+      "Il permet d'envoyer des parties de la page progressivement, avec des fallbacks de chargement",
+      "Il désactive le cache",
+      "Il ne change rien au comportement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le streaming permet à **Next.js** d'envoyer le shell rapidement puis de remplir progressivement les sections lentes.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_091",
+    "intitule": "Comment combiner **Suspense** **React** et **RSC** pour optimiser une section spécifique d'une page ?",
+    "reponses": [
+      "Suspense n'est pas compatible avec RSC",
+      "En enveloppant un composant enfant dans <Suspense fallback={...}> depuis un Server Component",
+      "En ajoutant suspense: true dans next.config.js",
+      "En utilisant uniquement loading.tsx"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **RSC** supportent **Suspense**, permettant de différer le rendu d'une branche et d'afficher un fallback.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_092",
+    "intitule": "Quel runtime est le plus adapté pour un endpoint très low-latency distribué globalement ?",
+    "reponses": [
+      "Node.js Runtime",
+      "Edge Runtime",
+      "Deno local",
+      "Webpack Dev Server"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'**Edge Runtime** exécute le code proche de l'utilisateur sur le réseau de CDN, réduisant la latence.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_093",
+    "intitule": "Comment définir qu'un **Route Handler** doit s'exécuter dans l'**Edge Runtime** ?",
+    "reponses": [
+      "export const runtime = 'edge'",
+      "export const edge = true",
+      "export const platform = 'edge'",
+      "next.config.js: runtime = 'edge'"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`runtime = 'edge'` peut être exporté depuis un segment ou un **Route Handler** pour cibler l'**Edge Runtime**.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_094",
+    "intitule": "Quelle API de `'next/font'` permet de charger une police hébergée localement avec subsetting optimisé ?",
+    "reponses": [
+      "import { Local } from 'next/font'",
+      "import { localFont } from 'next/font/local'",
+      "import { FontLocal } from 'next/font'",
+      "import { local } from 'next/font/google'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`localFont` de `'next/font/local'` optimise le chargement des fichiers locaux (subsetting, font-display, etc.).",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_095",
+    "intitule": "Quel composant permet d'injecter un script avec stratégie de chargement contrôlée (`beforeInteractive`, `lazyOnload`, etc.) ?",
+    "reponses": [
+      "<script>",
+      "<NextScript>",
+      "<Script> de 'next/script'",
+      "<HeadScript>"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`<Script>` (`next/script`) permet de choisir quand et comment charger les scripts tiers pour éviter de bloquer le rendu.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_096",
+    "intitule": "Quel pattern d'auth est recommandé avec **RSC** pour limiter le code côté client ?",
+    "reponses": [
+      "Tout gérer avec JWT dans localStorage et useEffect",
+      "Décoder les cookies/session côté serveur dans RSC et passer un user sérialisé aux Client Components",
+      "Utiliser uniquement middleware.ts",
+      "Rediriger systématiquement vers /api/auth"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Lire l'auth côté serveur permet de limiter les aller-retours et de garder le client léger.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_097",
+    "intitule": "Comment combiner **Server Actions** et formulaires pour une UX de mutation robuste sans écrire manuellement `fetch` ?",
+    "reponses": [
+      "Impossible, il faut toujours fetch",
+      "En utilisant action={serverAction} côté form et en exploitant useFormStatus/useFormState côté client",
+      "En mettant onClick sur un bouton",
+      "En utilisant seulement Route Handlers"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les helpers comme `useFormStatus`/`useFormState` permettent de réagir à la progression des **Server Actions** côté client.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_098",
+    "intitule": "Dans un système de routes parallèles, comment rendre un layout qui affiche toujours la liste et parfois un détail en modale ?",
+    "reponses": [
+      "Avec pages/_app.tsx",
+      "Avec un slot @modal combiné à des routes interceptées",
+      "Avec un seul page.tsx",
+      "Ce n'est pas possible en App Router"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les slots parallèles (`@modal`) et les routes interceptées permettent de garder la liste et de monter le détail dans un overlay.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_099",
+    "intitule": "Quel est un problème potentiel d'utiliser `dynamic = 'force-dynamic'` partout dans une grosse app ?",
+    "reponses": [
+      "Les pages deviennent statiques",
+      "Les pages ne sont plus streaming",
+      "Le cache ne sert plus, augmentant fortement la charge serveur",
+      "Les RSC ne fonctionnent plus"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "En désactivant le cache globalement, on perd les bénéfices de mise en cache et d'**ISR**, augmentant le coût par requête.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_100",
+    "intitule": "Dans une **Server Action**, pourquoi est-il préférable d'utiliser des schémas de validation (Zod, Yup...) côté serveur ?",
+    "reponses": [
+      "Pour éviter d'écrire des tests",
+      "Pour éviter toute validation côté client",
+      "Pour garantir la validation même si le client est compromis ou modifié",
+      "Parce que les RSC ne supportent pas la validation"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "La validation doit rester fiable même si le client n'applique pas correctement les contraintes.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_101",
+    "intitule": "Quel pattern de route permet de rendre des variantes d'une même vue en parallèle (par exemple version tablette/desktop) ?",
+    "reponses": [
+      "Layout nested",
+      "Routes parallèles (slots @tablet et @desktop)",
+      "Routes dynamiques simples",
+      "Middleware avec rewrite"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les routes parallèles autorisent plusieurs branches d'UI pour un même chemin, chacune dans son slot.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_102",
+    "intitule": "Comment éviter les 'waterfalls' de `fetch` dans une page **RSC** avec plusieurs composants qui ont chacun besoin de données ?",
+    "reponses": [
+      "Faire tout le fetch dans un useEffect",
+      "Utiliser un seul fetch global remonté",
+      "Utiliser des RSC avec fetch en haut de l'arbre et passer les données, ou utiliser la concurrence et le cache partagé",
+      "Désactiver le streaming"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le cache de `fetch` et l'exécution concurrente des **RSC** permettent de mutualiser et paralléliser les requêtes.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_103",
+    "intitule": "Quel impact a l'utilisation intensive de **Client Components** imbriqués dans des layouts sur le streaming ?",
+    "reponses": [
+      "Aucun, le streaming reste identique",
+      "Cela peut réduire la capacité à streamer tôt, car il faut attendre le JS client",
+      "Cela améliore la vitesse de streaming",
+      "Cela désactive le cache"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **Client Components** nécessitent l'hydratation côté client, ce qui peut retarder l'interactivité si utilisés partout.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_104",
+    "intitule": "Pour un flux d'auth basé sur OAuth, quelle combinaison est la plus adaptée en **App Router** ?",
+    "reponses": [
+      "Tout gérer en Client Components + localStorage",
+      "Route Handlers pour callback + RSC pour lecture session + quelques Client Components pour l'UI",
+      "Uniquement middleware.ts",
+      "Seulement Server Actions"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On combine **Route Handlers** pour les callbacks, **RSC** pour la session, et du client minimal pour l'UX.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_105",
+    "intitule": "Quel problème spécifique peut apparaître lors de l'utilisation d'**Edge Runtime** avec certaines bibliothèques **Node** classiques ?",
+    "reponses": [
+      "Elles deviennent plus rapides",
+      "Elles ne sont pas supportées car l'environnement Edge n'expose pas toutes les APIs Node",
+      "Elles cassent le cache",
+      "Elles cassent la SSR"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'**Edge Runtime** n'a pas toutes les APIs **Node.js**, donc certaines libs ne fonctionnent pas (fs, net, etc.).",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_106",
+    "intitule": "Comment réduire l'impact de grosses dépendances client-only (graphes, éditeurs Rich Text, etc.) ?",
+    "reponses": [
+      "Les importer partout",
+      "Utiliser des imports dynamiques (next/dynamic) avec ssr: false pour charger uniquement aux besoins",
+      "Les mettre dans layout.tsx",
+      "Les transformer en Server Components"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les imports dynamiques côté client permettent de découper le bundle et de charger ces libs uniquement sur les pages qui en ont besoin.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_107",
+    "intitule": "Quelle pratique de sécurité importante s'applique aux **Route Handlers** et **Server Actions** lorsqu'ils manipulent des données utilisateur ?",
+    "reponses": [
+      "Toujours renvoyer 200",
+      "Ne jamais utiliser try/catch",
+      "Échapper correctement et valider les entrées pour éviter injections et fuites de données",
+      "Utiliser uniquement GET"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Même avec **RSC** et **Server Actions**, les règles de sécurité classiques (validation, sanitisation) restent critiques.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_108",
+    "intitule": "Comment gérer un scénario où une **Server Action** doit mettre à jour plusieurs sources de données atomiquement ?",
+    "reponses": [
+      "Faire plusieurs fetch sans transaction",
+      "Utiliser une transaction au niveau de la base ou d'un service backend, la Server Action jouant le rôle d'orchestrateur",
+      "Utiliser plusieurs Route Handlers",
+      "Impossible avec Server Actions"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **Server Actions** orchestrent des mutations, souvent en s'appuyant sur des transactions backend pour garantir l'atomicité.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_109",
+    "intitule": "Quelle approche minimise le 'flash' entre logged-out et logged-in dans un layout **App Router** ?",
+    "reponses": [
+      "Lire le token uniquement côté client",
+      "Décider du layout en fonction de la session lue côté serveur (cookies/headers) dans un RSC",
+      "Utiliser seulement middleware.ts pour rediriger",
+      "Toujours passer par /login au chargement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Décider côté serveur évite les désynchronisations entre état initial et état après hydratation.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_110",
+    "intitule": "Pourquoi est-il dangereux de mélanger dans un même **RSC** des `fetch` avec `'force-cache'` et `'no-store'` sans réflexion ?",
+    "reponses": [
+      "Cela casse la compilation",
+      "Cela peut amener des incohérences de données et un comportement de cache difficile à raisonner",
+      "Les RSC ne supportent pas plusieurs fetch",
+      "Le middleware est désactivé"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Des politiques de cache contradictoires compliquent la cohérence et la revalidation; il faut structurer clairement les segments.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_111",
+    "intitule": "Quel design d'architecture favorise la testabilité des **Server Actions** ?",
+    "reponses": [
+      "Mettre toute la logique directement dans la fonction annotée \"use server\"",
+      "Isoler la logique métier dans des fonctions/services purs, et garder la Server Action comme fine couche d'adaptation",
+      "Tester uniquement via e2e",
+      "Utiliser uniquement les Route Handlers"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Séparer la logique métier de la glue **Next.js** permet de tester cette logique indépendamment du framework.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_112",
+    "intitule": "Comment organiser proprement des **Server Actions** liées à une page donnée ?",
+    "reponses": [
+      "Les mettre toutes dans route.ts",
+      "Les déclarer dans le même fichier que la page ou dans un fichier actions.ts adjacent et les importer",
+      "Les mettre dans middleware.ts",
+      "Dans next.config.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **Server Actions** peuvent être co-localisées avec la page ou extraites dans un module actions pour clarifier la structure.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_113",
+    "intitule": "Pour une page qui combine données publiques et données très sensibles par utilisateur, quelle stratégie est la plus sûre ?",
+    "reponses": [
+      "Tout charger côté client avec fetch('/api')",
+      "Séparer en RSC publics + Server Actions/Route Handlers pour la partie sensible avec contrôle d'accès serveur",
+      "Mettre tout dans localStorage",
+      "Utiliser uniquement middleware.ts"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les données sensibles doivent être filtrées côté serveur, en exploitant l'auth et les contrôles d'accès côté backend.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_114",
+    "intitule": "Comment tirer parti des **RSC** pour réduire les surcharges liées aux bibliothèques client d'auth (par ex. OAuth) ?",
+    "reponses": [
+      "En important tout côté client",
+      "En déplaçant autant que possible la logique d'auth dans des RSC et Route Handlers, et en gardant la lib client pour des cas spécifiques",
+      "En supprimant les composants Serveur",
+      "En utilisant uniquement localStorage"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Plus la logique d'auth reste côté serveur, moins on expose de surface client et de dépendances lourdes.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_115",
+    "intitule": "Dans un contexte de monorepo, quelle pratique améliore la réutilisation entre **Next.js** (**App Router**) et d'autres services ?",
+    "reponses": [
+      "Mettre tout le code dans /app",
+      "Isoler la logique métier dans des packages partagés (par ex. /packages/core) et utiliser RSC/Server Actions comme adaptateurs",
+      "Utiliser seulement pages/",
+      "Éviter TypeScript"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les packages partagés permettent de réutiliser la logique entre plusieurs apps (Next, CLI, workers...).",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_116",
+    "intitule": "Pour une app heavy realtime (chat), quelle combinaison d'outils **Next.js** est la plus pertinente ?",
+    "reponses": [
+      "RSC uniquement",
+      "Client Components avec WebSockets + RSC pour le shell statique + éventuellement Edge pour certains endpoints",
+      "Uniquement Route Handlers",
+      "Middleware pour pousser les messages"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On garde le shell et le SEO via **RSC**, et les interactions temps réel dans des **Client Components**/WebSockets.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_117",
+    "intitule": "Comment éviter les erreurs d'hydratation liées à des valeurs non déterministes (`Date.now`, `Math.random`) dans un **RSC** + client ?",
+    "reponses": [
+      "Les utiliser partout sans précaution",
+      "Les utiliser uniquement côté client dans useEffect ou après hydratation",
+      "Les utiliser dans middleware.ts",
+      "Les mettre dans metadata uniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le markup serveur doit correspondre à l'initial client; les valeurs non déterministes doivent être gérées après hydratation.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_118",
+    "intitule": "Quel impact a un nombre important de routes parallèles et interceptées sur la complexité du debug ?",
+    "reponses": [
+      "Réduit la complexité",
+      "Augmente la complexité de raisonner sur quel segment rend quoi pour un chemin donné",
+      "Aucun impact",
+      "Empêche le streaming"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Plus les combinaisons de slots sont nombreuses, plus il est important d'avoir une convention claire pour les comprendre.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_119",
+    "intitule": "Comment utiliser efficacement les 'route groups' (dossiers entre parenthèses) pour organiser un design system interne ?",
+    "reponses": [
+      "Les utiliser comme vraies routes",
+      "S'en servir pour structurer les layouts et slots sans impacter l'URL, par exemple (marketing), (auth), etc.",
+      "Éviter de les utiliser",
+      "Uniquement pour les tests"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les route groups permettent de structurer l'arbre de composants/layouts sans changer les URLs.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "next_120",
+    "intitule": "Pour une migration d'un gros projet **Pages Router** vers **App Router**, quelle stratégie est la plus réaliste ?",
+    "reponses": [
+      "Reécrire tout en une fois",
+      "Faire coexister /pages et /app, migrer route par route et extraire progressivement la logique dans des RSC/Server Actions",
+      "Supprimer /pages et recommencer de zéro",
+      "Ne pas utiliser App Router"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Next.js** permet de faire coexister les deux routeurs, ce qui autorise une migration progressive et contrôlée.",
+    "categorie": "nextjs",
+    "difficulte": "difficile"
+  }
+]

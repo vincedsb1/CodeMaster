@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "hr_001",
+    "intitule": "Présentez-vous en 2 minutes.",
+    "reponses": [
+      "Je m’appelle Vincent, j’ai 34 ans, je cherche juste un job stable et un bon salaire.",
+      "Je m’appelle Vincent, 34 ans, passionné par la tech. J’ai construit mon parcours autour du web et de l’informatique, avec beaucoup d’auto-formation et de projets qui me permettent de comprendre le fonctionnement global des systèmes.",
+      "Je m’appelle Vincent, j’ai un peu touché à tout sans vraiment me spécialiser, donc je verrai bien ce que vous me donnerez à faire.",
+      "Je préfère ne pas trop parler de moi, vous verrez sur le CV."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant une présentation claire, cohérente avec le poste, et insiste sur l’**auto-formation** et la passion pour la **tech**.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_002",
+    "intitule": "Comment vous définiriez-vous en quelques mots ?",
+    "reponses": [
+      "Je suis surtout quelqu’un qui n’aime pas qu’on le dérange.",
+      "Calme, observateur, persévérant, minutieux et honnête, avec une vraie curiosité pour les sujets techniques.",
+      "Je suis un peu de tout, ça dépend des jours.",
+      "On me dit souvent que je parle beaucoup et que je coupe la parole, mais je pense que c’est un avantage."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse reprend des traits cohérents avec votre profil et donne une image professionnelle et stable.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_003",
+    "intitule": "Pourquoi avoir choisi le **développement web** plutôt qu’un autre domaine ?",
+    "reponses": [
+      "Parce que c’est un métier qui paye bien en ce moment.",
+      "Parce que j’aime à la fois la partie technique et la partie visible pour l’utilisateur, et le web permet de concrétiser rapidement des idées et de les mettre dans les mains des gens.",
+      "Je n’avais pas trop le choix, c’était la seule formation disponible.",
+      "Je voulais faire quelque chose d’assez simple, le web a l’air moins compliqué que le reste."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une motivation profonde pour le **web**, centrée sur l’impact utilisateur et la création concrète.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_004",
+    "intitule": "Pourquoi postuler dans notre entreprise en particulier ?",
+    "reponses": [
+      "Honnêtement, je postule un peu partout, on verra qui répond.",
+      "Votre positionnement technique et vos produits correspondent à ce qui m’intéresse, et j’ai l’impression que je pourrais apprendre beaucoup tout en apportant ma rigueur et ma curiosité.",
+      "C’est proche de chez moi, donc c’est surtout pratique.",
+      "Je ne connais pas vraiment votre activité, mais ça a l’air correct."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La bonne réponse montre que vous vous êtes renseigné et que vous projetez une relation gagnant-gagnant avec l’entreprise.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_005",
+    "intitule": "Quelles sont vos principales qualités en tant que **développeur web** ?",
+    "reponses": [
+      "Je suis surtout très rapide, je code plus vite que la plupart des développeurs.",
+      "Je suis minutieux, persévérant et je prends le temps de comprendre le contexte avant de proposer des solutions.",
+      "Je n’ai pas vraiment de qualités particulières, je fais juste mon travail.",
+      "Je préfère qu’on me dise quoi faire, je ne prends pas trop d’initiatives."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant des qualités recherchées (rigueur, persévérance, compréhension du contexte) sans arrogance.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_006",
+    "intitule": "Quels sont vos principaux défauts ?",
+    "reponses": [
+      "Je ne supporte pas qu’on remette en question mon code.",
+      "Je peux parfois être un peu trop perfectionniste et passer du temps à améliorer des détails, mais j’apprends à prioriser selon les enjeux du projet.",
+      "Je n’en ai pas vraiment, on ne m’a jamais fait de remarques.",
+      "Je suis assez désorganisé mais je préfère ne pas changer ma façon de faire."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse présente un défaut réaliste, maîtrisé, et montre une volonté d’ajustement selon les priorités.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_007",
+    "intitule": "Qu’est-ce qui vous motive le plus dans votre travail ?",
+    "reponses": [
+      "Surtout la sécurité de l’emploi.",
+      "Résoudre des problèmes concrets, apprendre en continu et voir l’impact de ce que je développe sur les utilisateurs et l’équipe.",
+      "Ne pas avoir trop de responsabilités.",
+      "Pouvoir faire un minimum d’efforts pour un salaire correct."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse insiste sur la résolution de problèmes, l’apprentissage et l’impact, ce qui est très apprécié.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_008",
+    "intitule": "Comment parlez-vous de votre précédent employeur en entretien ?",
+    "reponses": [
+      "Je dis qu’ils étaient incompétents et que c’est pour ça que je suis parti.",
+      "Je reste factuel: il y avait des points positifs (équipe, projets) et des limites (organisation, perspectives) qui m’ont donné envie de chercher un environnement plus aligné avec ma façon de travailler.",
+      "Je préfère dire que c’était une perte de temps.",
+      "Je n’en parle pas, ce n’est pas pertinent."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse reste professionnelle, nuancée, sans dénigrer l’ancien employeur, et explique la démarche de progression.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_009",
+    "intitule": "Si je demande à vos collègues de vous décrire, que diraient-ils ?",
+    "reponses": [
+      "Que je suis le seul à vraiment savoir coder dans l’équipe.",
+      "Que je suis calme, fiable, que je partage volontiers ce que j’apprends et que je reste respectueux même quand je ne suis pas d’accord.",
+      "Que je fais mon travail sans plus.",
+      "Qu’on se dispute souvent parce que je veux avoir le dernier mot."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse valorise la fiabilité, le partage et l’attitude constructive en équipe.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_010",
+    "intitule": "Comment organisez-vous votre **auto-formation** au quotidien ?",
+    "reponses": [
+      "Je regarde des vidéos quand j’ai le temps, sans vraie structure.",
+      "Je planifie des créneaux réguliers, je regarde des contenus techniques en accéléré, en anglais, et je les relie à des projets concrets pour ancrer ce que j’apprends.",
+      "Je compte surtout sur l’entreprise pour me former.",
+      "Je ne me forme pas en dehors des heures de travail, ça ne m’intéresse pas."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une démarche volontaire, structurée et orientée pratique dans l’**auto-formation**.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_011",
+    "intitule": "Êtes-vous plutôt travail en autonomie ou en équipe ?",
+    "reponses": [
+      "Je préfère travailler seul, sans rendre de comptes.",
+      "J’aime les deux: je suis à l’aise en autonomie pour avancer sur mes tâches, mais j’apprécie les échanges d’équipe pour aligner les priorités et améliorer la qualité du résultat.",
+      "Je préfère qu’on me dise tout le temps quoi faire.",
+      "Je n’aime pas trop les réunions, donc si possible je reste dans mon coin."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre un équilibre entre autonomie et collaboration, très apprécié en équipe produit.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_012",
+    "intitule": "Quelle place accordez-vous à l’équilibre vie privée / vie professionnelle ?",
+    "reponses": [
+      "Je suis prêt à sacrifier complètement ma vie perso pour le travail.",
+      "Je suis investi dans mon travail, mais j’ai besoin d’un équilibre sain pour rester efficace et durablement motivé.",
+      "Je fais le strict minimum au travail pour garder toute mon énergie pour ma vie perso.",
+      "Je n’y pense pas vraiment, ce n’est pas un sujet pour moi."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse rappelle un engagement sérieux tout en insistant sur un équilibre nécessaire pour la performance long terme.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_013",
+    "intitule": "Comment gérez-vous la ponctualité au travail ?",
+    "reponses": [
+      "Je viens quand je peux, l’important c’est le résultat.",
+      "Je fais en sorte d’être à l’heure aux réunions et aux horaires définis, et si j’ai un imprévu, je préviens en amont.",
+      "Je suis souvent en retard, mais ce n’est pas très grave selon moi.",
+      "Je ne regarde pas vraiment l’heure, ce n’est pas une priorité."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre un sens des responsabilités et de la communication en cas d’imprévu.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_014",
+    "intitule": "Qu’attendez-vous de votre futur **manager** ?",
+    "reponses": [
+      "Qu’il me laisse tranquille et ne pose pas de questions.",
+      "Qu’il donne une vision claire, des priorités, des retours honnêtes, et qu’on puisse échanger ouvertement sur les améliorations possibles.",
+      "Qu’il valide toutes mes idées sans discuter.",
+      "Qu’il soit là surtout pour gérer les problèmes des autres."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant la communication, le feedback et la clarté, sans attente irréaliste.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_015",
+    "intitule": "Qu’est-ce qui vous attire dans le poste de **développeur web** chez nous ?",
+    "reponses": [
+      "Le poste a l’air simple, ça ne devrait pas être trop compliqué.",
+      "La combinaison entre vos enjeux produits, votre stack technique et la possibilité de contribuer à l’amélioration continue des process me motive beaucoup.",
+      "Surtout le salaire.",
+      "Le fait de pouvoir éviter les interactions avec les autres équipes."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La bonne réponse se connecte aux enjeux de l’entreprise, à la stack et à l’amélioration continue.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_016",
+    "intitule": "Quelle est votre disponibilité pour démarrer ?",
+    "reponses": [
+      "Je peux être là demain, peu importe mon préavis.",
+      "Je respecte mon préavis actuel, mais je peux être disponible rapidement pour des échanges et une éventuelle prise en main progressive.",
+      "Je ne sais pas, on verra.",
+      "Je préfère ne pas m’engager sur une date."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre le respect du cadre actuel tout en restant ouvert à une transition fluide.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_017",
+    "intitule": "Êtes-vous ouvert à un mode de travail hybride (présentiel / télétravail) ?",
+    "reponses": [
+      "Je refuse de venir au bureau.",
+      "Oui, tant que le mode de fonctionnement est clair et qu’on garde des temps d’échange suffisants avec l’équipe.",
+      "Je préfère décider au jour le jour sans prévenir.",
+      "Je ne veux que du présentiel, même si l’équipe est à distance."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met l’accent sur la clarté et la qualité de la collaboration, plus que sur une position rigide.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_018",
+    "intitule": "Comment réagissez-vous quand vous ne savez pas répondre à une question technique ?",
+    "reponses": [
+      "Je brode pour ne pas perdre la face.",
+      "Je le dis clairement, j’essaie d’expliquer comment je m’y prendrais pour trouver la réponse et je peux proposer de revenir vers vous après avoir creusé.",
+      "Je dis que ce n’est pas une bonne question.",
+      "Je change de sujet."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse valorise l’honnêteté et la capacité à se projeter dans une démarche de recherche et d’apprentissage.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_019",
+    "intitule": "Comment montrez-vous votre passion pour la **tech** en entretien ?",
+    "reponses": [
+      "Je dis simplement que je suis passionné.",
+      "Je parle de mes habitudes d’auto-formation, de projets perso, et de la manière dont je relie mes centres d’intérêt (design, crypto, immobilier) à des sujets techniques.",
+      "Je montre juste que je reste tard au bureau.",
+      "Je dis que je connais toutes les dernières buzzwords."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La bonne réponse donne des exemples concrets de passion et de mise en pratique, pas seulement une déclaration.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_020",
+    "intitule": "Comment parlez-vous de vos réussites en entretien ?",
+    "reponses": [
+      "Je dis que tout vient de moi, l’équipe ne m’a pas beaucoup aidé.",
+      "Je donne des exemples concrets, j’explique le contexte, mon rôle, l’impact obtenu, et j’essaie de rester factuel sans exagérer.",
+      "Je reste très vague pour ne pas entrer dans les détails.",
+      "Je dis que je n’ai pas vraiment de réussites marquantes."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse adopte une approche structurée, factuelle, sans écraser le travail de l’équipe.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_021",
+    "intitule": "Comment répondez-vous à la question sur vos loisirs ou passions ?",
+    "reponses": [
+      "Je dis que je ne fais pas grand-chose.",
+      "Je parle de mes centres d’intérêt (informatique, design, crypto, immobilier) en expliquant brièvement ce qu’ils m’apportent dans ma façon de réfléchir et de travailler.",
+      "Je rentre dans des détails personnels très intimes.",
+      "Je préfère éviter la question, cela ne regarde pas l’employeur."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse relie vos passions à des compétences ou qualités utiles dans le poste, sans sur-exposition personnelle.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_022",
+    "intitule": "Comment expliquez-vous votre façon de gérer votre temps ?",
+    "reponses": [
+      "Je ne planifie rien, je fais au feeling.",
+      "Je structure ma journée avec des priorités, je limite les distractions (notifications, réseaux sociaux) et j’essaie d’optimiser les moments où je suis le plus concentré.",
+      "Je me contente de suivre ce qu’on me dit, sans réfléchir à l’organisation.",
+      "Je travaille surtout en dernière minute."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre un sens de l’organisation et de l’optimisation cohérent avec votre profil.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_023",
+    "intitule": "Comment décririez-vous votre niveau d’anglais en entretien ?",
+    "reponses": [
+      "Je dis que je suis bilingue même si ce n’est pas exact.",
+      "Je précise que je consomme beaucoup de contenu en anglais, que je suis à l’aise pour lire et comprendre, et que je peux échanger à l’oral avec un peu de pratique.",
+      "Je dis juste que je suis nul.",
+      "Je réponds que la langue ne m’intéresse pas."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse est honnête, montre un niveau exploitable et une exposition continue à l’anglais.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_024",
+    "intitule": "Comment réagissez-vous si le recruteur vous demande: peut-on continuer en anglais ?",
+    "reponses": [
+      "Je refuse catégoriquement.",
+      "J’accepte en précisant que ce n’est pas parfait mais que je suis à l’aise pour parler technique et que ce sera l’occasion de montrer mon niveau.",
+      "Je dis oui puis j’essaie de rester le plus vague possible.",
+      "Je réponds que ce n’est pas dans la fiche de poste."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une ouverture, une honnêteté sur le niveau et une attitude constructive.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_025",
+    "intitule": "Comment expliquez-vous votre choix de reconversion ou d’évolution vers le **développement web** ?",
+    "reponses": [
+      "Je dis que je n’avais plus le choix dans mon ancien domaine.",
+      "Je montre le fil conducteur: la tech, la curiosité, l’envie de créer des solutions concrètes, et j’explique comment je me suis formé sérieusement pour être opérationnel.",
+      "Je dis juste que c’est à la mode.",
+      "Je réponds que c’était une décision impulsive."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse donne du sens à la transition et montre un investissement réel dans la reconversion.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_026",
+    "intitule": "Que répondez-vous si on vous demande: que pensent vos amis de vous ?",
+    "reponses": [
+      "Qu’ils peuvent toujours compter sur moi pour faire la fête.",
+      "Qu’ils me trouvent posé, fiable, curieux, et que je vais souvent au fond des sujets qui m’intéressent.",
+      "Qu’ils me trouvent un peu trop obsédé par le travail.",
+      "Qu’ils disent surtout que je ne suis jamais disponible."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant des qualités relationnelles et de fiabilité, cohérentes avec le profil.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_027",
+    "intitule": "Comment présentez-vous une journée de travail idéale pour vous ?",
+    "reponses": [
+      "Une journée où je n’ai aucun compte à rendre.",
+      "Une journée avec des objectifs clairs, des plages de concentration pour coder, et quelques échanges ciblés avec l’équipe pour rester alignés.",
+      "Une journée sans réunions ni communication.",
+      "Une journée où je peux faire ce que je veux sans suivre la roadmap."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre un besoin de clarté, de temps de focus et de collaboration équilibrée.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_028",
+    "intitule": "Comment réagissez-vous face à des photos personnelles sur les réseaux que l’employeur pourrait voir ?",
+    "reponses": [
+      "Ce n’est pas son problème, je publie ce que je veux.",
+      "Je fais attention à ce que je publie, je garde certains contenus privés et j’assume ce qui reste public.",
+      "Je supprime tout avant chaque entretien.",
+      "Je trouve ça paranoïaque de se poser la question."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre de la conscience professionnelle et une gestion responsable de son image en ligne.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_029",
+    "intitule": "Comment expliquez-vous votre capacité de travail en entretien ?",
+    "reponses": [
+      "Je peux travailler autant qu’on me le demande, même si ce n’est pas légal.",
+      "Je suis capable de fournir un gros effort quand c’est nécessaire, mais je privilégie la régularité, l’organisation et la qualité pour tenir sur la durée.",
+      "Je préfère faire le minimum syndical.",
+      "Je ne sais pas, je verrai en fonction des projets."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse valorise l’endurance, l’organisation et la qualité plutôt que le sur-engagement permanent.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_030",
+    "intitule": "Que répondez-vous à: pourquoi avez-vous quitté votre dernier poste ?",
+    "reponses": [
+      "Parce que l’entreprise était vraiment nulle.",
+      "Parce que j’avais atteint un palier d’apprentissage et que je cherchais un environnement plus aligné avec mes objectifs techniques et ma façon de travailler.",
+      "Parce que je ne supportais plus mon manager.",
+      "Parce que je voulais tenter autre chose sans trop réfléchir."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse est orientée progression, sans dénigrement, et montre une démarche réfléchie.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_031",
+    "intitule": "Comment parlez-vous d’une formation suivie récemment ?",
+    "reponses": [
+      "Je dis simplement que j’ai fait une formation, sans détail.",
+      "J’explique pourquoi je l’ai choisie, ce que j’y ai appris et comment je l’ai déjà appliqué sur des projets concrets.",
+      "Je dis que c’était surtout pour avoir une ligne de plus sur le CV.",
+      "Je dis que ça ne m’a pas vraiment servi."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse relie la formation à des bénéfices concrets et à la pratique, ce qui rassure le recruteur.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_032",
+    "intitule": "Que répondez-vous si on vous demande: pourquoi le **développement web** et pas uniquement la crypto ou l’immobilier ?",
+    "reponses": [
+      "Parce que la crypto ne marche plus très bien.",
+      "Parce que le **développement web** est au cœur de nombreux produits, et mes intérêts en crypto ou immobilier m’aident surtout à comprendre des contextes fonctionnels différents.",
+      "Parce que l’immobilier est trop compliqué.",
+      "Parce que le web est plus à la mode sur LinkedIn."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre que vos autres domaines d’intérêt enrichissent votre compréhension métier, sans détourner du cœur de poste.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_033",
+    "intitule": "Comment réagissez-vous si un interviewer vous challenge sur un choix technique passé ?",
+    "reponses": [
+      "Je me braque et je défends mon choix coûte que coûte.",
+      "Je clarifie le contexte, j’explique ma logique, et je suis ouvert à discuter d’alternatives avec du recul.",
+      "Je réponds que ce n’est pas discutable.",
+      "Je dis que c’était la faute de l’équipe."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La bonne réponse montre une capacité à expliquer ses décisions tout en restant ouvert et non défensif.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_034",
+    "intitule": "Que répondez-vous si on vous demande vos attentes principales vis-à-vis de l’entreprise ?",
+    "reponses": [
+      "Surtout un bon salaire et le moins de contraintes possible.",
+      "Un environnement où je peux progresser, apporter de la valeur, avoir des retours clairs et contribuer à des projets utiles.",
+      "Des horaires totalement flexibles sans contrepartie.",
+      "Qu’on ne me demande jamais de sortir de ma zone de confort."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse parle de progression, d’impact et de feedback, ce qui plaît aux recruteurs.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_035",
+    "intitule": "Comment présentez-vous vos défauts sans vous tirer une balle dans le pied ?",
+    "reponses": [
+      "Je dis que je travaille trop et que je suis trop parfait.",
+      "Je choisis un point réel mais maîtrisé, j’explique comment je le gère et ce que j’ai mis en place pour le compenser.",
+      "Je refuse de parler de mes défauts.",
+      "Je dresse une liste de tout ce que je fais mal."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre de la lucidité, une capacité à s’améliorer et à gérer ses points faibles.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_036",
+    "intitule": "Comment réagissez-vous à la question: avez-vous d’autres processus de recrutement en cours ?",
+    "reponses": [
+      "Je mens pour mettre la pression.",
+      "Je réponds honnêtement, en donnant un niveau d’avancement global sans entrer dans les détails, pour que vous puissiez situer le timing.",
+      "Je refuse de répondre, c’est trop personnel.",
+      "Je dis que vous êtes mon seul plan pour vous rassurer."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse est transparente sans être manipulatrice, ce qui renforce la confiance.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_037",
+    "intitule": "Comment parlez-vous de votre autonomie en entretien ?",
+    "reponses": [
+      "Je veux qu’on me laisse faire sans jamais contrôler.",
+      "Je suis à l’aise pour avancer seul sur mes tâches, mais je demande des clarifications quand c’est nécessaire et je communique sur l’avancement.",
+      "Je préfère qu’on me dise chaque étape à faire.",
+      "Je n’aime pas trop qu’on me donne des objectifs."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre un juste équilibre entre autonomie et communication, très apprécié en équipe.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_038",
+    "intitule": "Comment répondez-vous à: que disent vos ennemis de vous ?",
+    "reponses": [
+      "Que je suis insupportable, mais je m’en fiche.",
+      "Probablement que je vais au bout des choses et que je défends mes idées, même si j’essaie toujours de rester respectueux dans la forme.",
+      "Je n’ai aucun défaut, donc ils n’ont rien à dire.",
+      "Je préfère insulter mon ancien manager à cette occasion."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse garde de la distance, reconnaît du caractère tout en restant respectueuse et maîtrisée.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_039",
+    "intitule": "Que répondez-vous si on vous demande: préférez-vous un environnement très structuré ou très flexible ?",
+    "reponses": [
+      "Je veux faire ce que je veux, sans règle.",
+      "Un cadre clair sur les objectifs et les process essentiels, avec assez de flexibilité pour s’adapter et proposer des améliorations.",
+      "Je veux que tout soit figé et qu’on ne change jamais rien.",
+      "Je n’ai pas d’avis, je m’en fiche."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse valorise la clarté et la capacité d’évolution, ce qui est réaliste dans une équipe **tech**.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_040",
+    "intitule": "Comment concluez-vous un entretien quand on vous demande: avez-vous des questions ?",
+    "reponses": [
+      "Non, c’est bon pour moi.",
+      "Oui, je m’intéresse aux défis concrets du poste, à la façon dont l’équipe travaille au quotidien, et à ce que vous considérez comme un succès dans 6 mois sur ce poste.",
+      "Je pose surtout des questions sur les vacances et les RTT.",
+      "Je demande directement: alors, je suis pris ou pas ?"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre un réel intérêt pour le poste, l’équipe et les critères de succès, pas uniquement les avantages.",
+    "categorie": "Entretien",
+    "difficulte": "facile"
+  },
+  {
+    "id": "hr_041",
+    "intitule": "Racontez une situation où vous avez dû gérer une forte pression ou un délai serré.",
+    "reponses": [
+      "J’ai paniqué et j’ai travaillé sans réfléchir, en espérant que ça passe.",
+      "J’ai clarifié la priorité avec mon manager, découpé le travail, communiqué sur les risques et adapté le périmètre pour tenir un délai réaliste.",
+      "J’ai simplement travaillé toute la nuit sans prévenir personne.",
+      "J’ai laissé tomber parce que c’était trop stressant."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse suit une logique de priorisation, communication et adaptation, cohérente avec une approche professionnelle.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_042",
+    "intitule": "Décrivez une situation où vous avez travaillé efficacement en équipe.",
+    "reponses": [
+      "Je me suis occupé de tout, les autres ne servaient pas à grand-chose.",
+      "On a réparti les rôles, partagé les contraintes, j’ai proposé des idées tout en écoutant celles des autres, et on a ajusté au fur et à mesure avec des points réguliers.",
+      "Je me suis contenté de suivre sans poser de questions.",
+      "Je me suis isolé pour ne pas perdre de temps à discuter."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant la communication, la répartition des tâches et l’ajustement collectif.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_043",
+    "intitule": "Comment gérez-vous les interruptions fréquentes pendant que vous codez ?",
+    "reponses": [
+      "Je me plains et je dis que je ne peux pas travailler dans ces conditions.",
+      "J’essaie de regrouper les interruptions (questions, points rapides), j’explique à l’équipe que j’ai besoin de plages de focus et je m’adapte quand il y a une vraie urgence.",
+      "Je coupe tous les canaux de communication en permanence.",
+      "Je réponds à tout instantanément, quitte à ne plus avancer sur mon travail."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse cherche un équilibre entre disponibilité et protection du temps de concentration.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_044",
+    "intitule": "Parlez d’une situation où votre travail a été critiqué.",
+    "reponses": [
+      "Je l’ai mal pris et j’ai expliqué que le problème venait des spécifications.",
+      "J’ai cherché à comprendre le fond de la critique, posé des questions, corrigé ce qui devait l’être et gardé ce retour comme une opportunité d’amélioration.",
+      "J’ai ignoré la critique, car je savais que j’avais raison.",
+      "J’ai décidé de faire le minimum ensuite pour éviter les critiques."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une capacité à recevoir un feedback, à l’analyser et à progresser.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_045",
+    "intitule": "Comment gérez-vous un conflit léger avec un collègue sur une décision technique ?",
+    "reponses": [
+      "Je m’énerve et je veux imposer ma solution.",
+      "Je propose de poser les arguments de chacun, de regarder l’impact concret, éventuellement de faire un test rapide ou de trancher avec le lead si besoin.",
+      "Je cède tout de suite, même si la solution est mauvaise.",
+      "J’essaie de rallier les autres contre lui."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse privilégie l’argumentation, l’impact et, si besoin, l’arbitrage serein.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_046",
+    "intitule": "Décrivez votre relation idéale avec un **manager technique**.",
+    "reponses": [
+      "Qu’il ne se mêle pas de ce que je fais.",
+      "Qu’il partage la vision, aide à lever les blocages, challenge les choix techniques et donne des feedbacks réguliers.",
+      "Qu’il valide tout sans jamais poser de questions.",
+      "Qu’il se charge de toute la partie technique à ma place."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse valorise la vision, le support et le challenge, pas l’absence totale de contrôle.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_047",
+    "intitule": "Comment vous adaptez-vous à une équipe déjà en place avec ses habitudes de travail ?",
+    "reponses": [
+      "Je critique leurs pratiques et je leur dis qu’on va tout changer.",
+      "Je commence par observer, comprendre leurs façons de faire, puis je propose des améliorations argumentées quand j’ai assez de contexte.",
+      "Je m’adapte sans jamais proposer quoi que ce soit.",
+      "Je fais comme si j’étais là depuis toujours et j’impose ma méthode."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse combine observation, adaptation et propositions progressives, ce qui rassure l’équipe.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_048",
+    "intitule": "Racontez une expérience où vous avez contribué à améliorer un process dans votre équipe.",
+    "reponses": [
+      "Je ne m’occupe pas de process, ce n’est pas mon rôle.",
+      "J’ai identifié un point de friction, proposé un ajustement (outil, rituel, documentation) et on a testé en équipe avant de l’adopter.",
+      "J’ai imposé une nouvelle façon de faire sans consulter personne.",
+      "J’ai juste suivi ce qu’on m’a dit sans jamais poser de questions."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La bonne réponse montre que vous repérez les frictions et proposez des améliorations pragmatiques.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_049",
+    "intitule": "Comment gérez-vous votre énergie sur une journée de travail pour rester concentré ?",
+    "reponses": [
+      "Je travaille en continu sans pause, même si je décroche.",
+      "Je prévois des plages de focus, je limite les distractions, et je prends de courtes pauses pour garder de la clarté mentale.",
+      "Je fais plusieurs choses en parallèle en permanence.",
+      "Je gère au feeling sans me poser de questions."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une gestion consciente de l’énergie et de la concentration, signe de maturité professionnelle.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_050",
+    "intitule": "Comment vivez-vous le travail en méthode **Agile** ou **Scrum** du point de vue humain ?",
+    "reponses": [
+      "C’est surtout des réunions inutiles.",
+      "J’apprécie le fait de découper le travail, d’avoir des feedbacks fréquents, et d’avoir des rituels qui favorisent la communication et la transparence.",
+      "Je préfère ignorer les rituels et juste coder.",
+      "Je trouve que ça sert surtout à surveiller les gens."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met l’accent sur la communication, la transparence et l’amélioration continue, cœur d’**Agile**.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_051",
+    "intitule": "Décrivez une situation où vous avez dû travailler avec quelqu’un dont le style était très différent du vôtre.",
+    "reponses": [
+      "Je l’ai évité autant que possible.",
+      "J’ai essayé de comprendre comment il fonctionnait, on a clarifié nos attentes mutuelles et trouvé un terrain d’entente sur l’organisation.",
+      "Je lui ai demandé de s’adapter entièrement à moi.",
+      "J’ai ignoré son avis, ce qui a réglé le problème."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse valorise l’empathie, la communication et la recherche de compromis.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_052",
+    "intitule": "Comment gérez-vous le fait de devoir changer de priorité en cours de **sprint** ?",
+    "reponses": [
+      "Je refuse, ce n’est pas dans le **sprint**.",
+      "Je vérifie la raison du changement, son impact, on ajuste le périmètre avec le Product Owner et on communique clairement à l’équipe.",
+      "Je change sans prévenir personne.",
+      "Je laisse tout en plan et je commence la nouvelle tâche sans me soucier du reste."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant la compréhension de l’impact, l’ajustement et la communication avec l’équipe.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_053",
+    "intitule": "Comment réagissez-vous après avoir fait une erreur qui a impacté un projet ?",
+    "reponses": [
+      "Je cherche d’abord à me justifier.",
+      "Je reconnais l’erreur, j’explique ce qui s’est passé, je participe à la correction et à la mise en place de garde-fous pour éviter que ça se reproduise.",
+      "J’essaie de faire porter la responsabilité à quelqu’un d’autre.",
+      "Je préfère ne rien dire tant que personne ne s’en aperçoit."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse illustre la responsabilité, la transparence et la logique d’amélioration continue.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_054",
+    "intitule": "Comment vous assurez-vous de bien comprendre une demande métier avant de coder ?",
+    "reponses": [
+      "Je code directement et je verrai ensuite.",
+      "Je pose des questions, je reformule ce que j’ai compris, et si possible je demande un exemple concret ou un cas d’usage réel.",
+      "Je prends la demande telle quelle sans réfléchir.",
+      "Je demande à quelqu’un d’autre de décider à ma place."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une approche structurée pour clarifier le besoin avant de produire.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_055",
+    "intitule": "Comment gérez-vous une journée où tout s’accumule (messages, tickets, réunions) ?",
+    "reponses": [
+      "Je fais tout en même temps.",
+      "Je priorise, je regroupe ce qui peut l’être, j’informe si certains sujets doivent être décalés et je garde une ou deux tâches clés à absolument sécuriser.",
+      "Je laisse tout de côté pour ne pas me stresser.",
+      "Je me déconnecte en espérant que ça se calme."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse illustre la priorisation, la communication et le réalisme face à la charge.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_056",
+    "intitule": "Parlez d’une fois où vous avez aidé un collègue en difficulté sur un sujet technique.",
+    "reponses": [
+      "Je n’ai pas le temps d’aider les autres.",
+      "Je lui ai posé des questions pour comprendre son blocage, orienté vers des pistes et, si nécessaire, pris un peu de temps pour débloquer ensemble.",
+      "Je lui ai dit de se débrouiller seul.",
+      "J’ai tout fait à sa place pour montrer que j’étais meilleur."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant l’entraide, le partage de connaissances, sans faire à la place de l’autre.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_057",
+    "intitule": "Comment abordez-vous un nouveau projet dans une stack que vous maîtrisez partiellement ?",
+    "reponses": [
+      "Je me lance sans me former, ça ira.",
+      "Je fais un point rapide sur mon niveau, je me forme en amont sur les bases manquantes et je communique sur là où j’ai besoin d’un soutien au début.",
+      "Je refuse le projet.",
+      "Je dis que je maîtrise tout pour ne pas inquiéter l’équipe."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse combine honnêteté, montée en compétence rapide et communication.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_058",
+    "intitule": "Comment vous assurez-vous que votre travail reste aligné avec les priorités du produit ?",
+    "reponses": [
+      "Je me concentre uniquement sur la partie technique.",
+      "Je vérifie régulièrement avec le Product Owner ou le manager, je lis les specs et je pose des questions quand quelque chose n’est pas clair.",
+      "Je fais ce qui me semble le plus intéressant.",
+      "Je ne m’occupe pas des priorités produit."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une attention aux priorités produit et aux échanges réguliers avec les parties prenantes.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_059",
+    "intitule": "Comment abordez-vous une rétrospective d’équipe ?",
+    "reponses": [
+      "Je n’y participe pas vraiment, c’est une formalité.",
+      "Je viens avec quelques exemples concrets, je partage ce qui a bien fonctionné et les points à améliorer, sans attaquer les personnes.",
+      "Je m’en sers pour régler mes comptes.",
+      "Je dis que tout va bien pour aller plus vite."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La bonne réponse illustre l’esprit d’amélioration continue et de feedback constructif.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_060",
+    "intitule": "Comment conciliez-vous votre envie d’apprendre avec les objectifs à court terme du projet ?",
+    "reponses": [
+      "Je privilégie toujours ce que j’ai envie d’apprendre, même si ça ralentit le projet.",
+      "Je respecte les priorités du projet, et j’essaie d’orienter certaines tâches ou mon temps personnel pour apprendre ce qui sera utile à l’équipe.",
+      "Je ne me forme que sur mon temps de travail.",
+      "Je ne tiens pas compte des objectifs du projet."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre que l’apprentissage est articulé avec les besoins du projet, pas en opposition.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_061",
+    "intitule": "Comment gérez-vous la relation avec un Product Owner qui change souvent d’avis ?",
+    "reponses": [
+      "Je l’ignore et je fais comme je veux.",
+      "Je demande à clarifier les priorités, à figer un minimum le périmètre dans un horizon donné, tout en restant ouvert aux ajustements justifiés.",
+      "Je me plains sans proposer de solution.",
+      "Je refuse tous les changements."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse cherche un cadre clair tout en acceptant la réalité du changement côté produit.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_062",
+    "intitule": "Comment réagissez-vous lorsqu’un **sprint** ne se passe pas comme prévu (objectifs non atteints) ?",
+    "reponses": [
+      "Je considère que ce n’est pas mon problème.",
+      "Je participe à l’analyse des causes, j’assume ma part, et je propose des ajustements réalistes pour la suite.",
+      "Je cherche un responsable à pointer du doigt.",
+      "J’évite d’en parler pour ne pas créer de tensions."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse illustre la responsabilité partagée et la recherche d’amélioration, plutôt que la culpabilisation.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_063",
+    "intitule": "Comment abordez-vous le fait de donner un feedback à votre **manager** ?",
+    "reponses": [
+      "Je ne donne jamais de feedback à mon manager.",
+      "Je prépare ce que je veux dire, je reste factuel, orienté solutions, et je choisis un moment approprié pour en parler calmement.",
+      "Je vide mon sac dès que quelque chose me dérange.",
+      "Je passe par les autres pour qu’ils fassent remonter."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre de la maturité dans la manière de donner du feedback vers le haut.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_064",
+    "intitule": "Comment protégez-vous votre vie personnelle dans un contexte de télétravail ?",
+    "reponses": [
+      "Je reste disponible en permanence.",
+      "Je définis des plages de travail claires, un espace dédié autant que possible, et je coupe les outils de travail hors de ces plages.",
+      "Je travaille quand j’ai envie, sans cadre.",
+      "Je laisse mes notifications professionnelles actives 24h sur 24."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse illustre une gestion saine des frontières entre vie pro et perso en télétravail.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_065",
+    "intitule": "Comment vous comportez-vous si vous sentez que quelqu’un dans l’équipe est en difficulté ?",
+    "reponses": [
+      "Je laisse faire, ce n’est pas mon problème.",
+      "Je vérifie si la personne est ouverte à de l’aide, je propose un coup de main ou un pair programming, sans imposer ni juger.",
+      "Je lui fais remarquer devant tout le monde qu’elle ne suit pas.",
+      "J’en parle aux autres sans lui en parler."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La bonne réponse met l’accent sur l’empathie, le respect et une proposition d’aide non imposée.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_066",
+    "intitule": "Comment réagissez-vous si votre **manager** ne prend jamais vos idées en compte ?",
+    "reponses": [
+      "Je me braque et je ne propose plus rien.",
+      "Je demande un échange pour comprendre ses critères, j’illustre mes idées avec des exemples concrets, et si ça ne bouge pas, je me demande si le contexte me convient à long terme.",
+      "Je passe au-dessus de lui pour imposer mes idées.",
+      "Je critique ouvertement son manque d’écoute devant l’équipe."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une tentative de dialogue structuré, puis une réflexion sur la compatibilité à long terme.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_067",
+    "intitule": "Comment gérez-vous un désaccord sur la manière d’appliquer une méthode **Agile** (Scrum, Kanban) ?",
+    "reponses": [
+      "Je dis que l’Agile ne sert à rien.",
+      "Je propose de tester une adaptation sur un temps donné, de mesurer l’impact et de décider ensuite ensemble.",
+      "Je refuse toute discussion et je fais à ma manière.",
+      "Je laisse le sujet de côté pour éviter les débats."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse suggère l’expérimentation et la mesure plutôt que le débat théorique.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_068",
+    "intitule": "Comment réagissez-vous quand quelqu’un interrompt souvent vos explications en réunion ?",
+    "reponses": [
+      "Je hausse le ton pour reprendre la main.",
+      "Je garde mon calme, je termine mon idée si possible, et si le comportement se répète, j’en parle en direct avec la personne ou au facilitateur.",
+      "Je laisse tomber et je ne parle plus.",
+      "Je me venge en l’interrompant aussi."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse reste calme, assertive et cherche à régler le problème de façon adulte.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_069",
+    "intitule": "Comment répartissez-vous votre temps entre tickets urgents et tâches de fond (refacto, qualité) ?",
+    "reponses": [
+      "Je ne fais que l’urgent.",
+      "Je discute avec le **manager** ou le Product Owner pour garder un minimum de temps pour la qualité et la dette technique, tout en gérant les urgences.",
+      "Je ne fais que de la refacto.",
+      "Je décide tout seul de ce qui est important."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une conscience de la dette technique et une recherche d’équilibre validée avec la hiérarchie.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_070",
+    "intitule": "Comment vous assurez-vous de bien transmettre un sujet lors d’un handover ou d’un départ en congés ?",
+    "reponses": [
+      "Je pars en laissant le code parler pour moi.",
+      "Je documente les points essentiels, j’indique l’état d’avancement, les risques, et je prends un moment pour transmettre à la personne qui reprend.",
+      "Je laisse tous les tickets en cours sans information.",
+      "Je compte sur l’équipe pour se débrouiller."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse insiste sur la documentation, la transmission orale et l’anticipation des risques.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_071",
+    "intitule": "Comment gérez-vous un feedback que vous jugez injuste ?",
+    "reponses": [
+      "Je l’ignore complètement.",
+      "Je demande à comprendre les exemples concrets, j’explique calmement mon point de vue et j’essaie de trouver ce que je peux quand même en tirer.",
+      "Je réponds sur le ton de l’attaque.",
+      "Je quitte la discussion."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une capacité à traiter le feedback avec recul et à dialoguer.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_072",
+    "intitule": "Comment adaptez-vous votre communication entre un profil très technique et un profil très métier ?",
+    "reponses": [
+      "Je parle toujours en jargon technique.",
+      "Je simplifie ou détaille selon la personne, j’utilise des exemples adaptés et je vérifie régulièrement que le message est clair.",
+      "Je simplifie tout au maximum, même pour les profils techniques.",
+      "Je laisse quelqu’un d’autre communiquer à ma place."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une capacité d’ajustement du niveau de langage et de vérification de la compréhension.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_073",
+    "intitule": "Comment gérez-vous le fait de devoir dire non à une demande métier irréaliste ?",
+    "reponses": [
+      "Je dis juste non sans expliquer.",
+      "Je propose une alternative réaliste en termes de délai ou de périmètre, en expliquant les contraintes techniques et l’impact sur le reste.",
+      "J’accepte tout pour ne pas faire de vagues.",
+      "Je dis que ce n’est pas mon problème."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse illustre la capacité à dire non de façon constructive et argumentée.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_074",
+    "intitule": "Comment vous préparez-vous avant de rejoindre une nouvelle équipe ?",
+    "reponses": [
+      "Je viens sans m’informer, je verrai sur place.",
+      "Je me renseigne sur le produit, la stack, la culture affichée, et je prépare quelques questions sur les défis techniques et organisationnels.",
+      "Je regarde seulement où se trouve le bureau.",
+      "Je me contente de lire mon contrat."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre de la curiosité et une préparation active avant l’arrivée.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_075",
+    "intitule": "Comment décririez-vous votre méthode pour apprendre une nouvelle **techno** ?",
+    "reponses": [
+      "Je teste un peu au hasard.",
+      "Je commence par les bases, je fais rapidement un petit projet, je regarde de la doc et des vidéos, puis j’approfondis en liant à un cas réel.",
+      "Je me contente de lire une fois la documentation.",
+      "Je demande à quelqu’un d’autre de me l’expliquer et je ne pratique pas."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse explique une méthode structurée basée sur la pratique et la compréhension globale.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_076",
+    "intitule": "Comment réagissez-vous après une journée de travail particulièrement frustrante ?",
+    "reponses": [
+      "Je garde tout pour moi jusqu’à exploser.",
+      "Je prends un peu de recul, je note ce qui m’a frustré, j’essaie de distinguer ce que je peux influencer et ce qui relève du contexte, puis je propose des ajustements si nécessaire.",
+      "Je critique tout le monde à chaud.",
+      "Je décide que tout est nul et que je dois partir immédiatement."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse illustre la prise de recul et la transformation d’une frustration en piste d’amélioration.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_077",
+    "intitule": "Comment abordez-vous un 1:1 (entretien individuel régulier) avec votre **manager** ?",
+    "reponses": [
+      "Je viens sans sujet, c’est son problème.",
+      "Je prépare quelques points: avancement, blocages, feedbacks, envies d’évolution, et j’utilise ce moment pour ajuster la façon de travailler.",
+      "J’essaie d’écourter au maximum.",
+      "Je le vois comme un contrôle, donc je reste très fermé."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre que vous voyez le 1:1 comme un outil d’alignement et d’amélioration, pas comme une contrainte.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_078",
+    "intitule": "Comment réagissez-vous si votre vie perso traverse une période compliquée tout en ayant un gros projet au travail ?",
+    "reponses": [
+      "Je garde tout pour moi et j’attends que ça passe.",
+      "Je garde ce que je veux privé, mais si cela risque d’impacter mon travail, j’en parle en termes d’organisation avec mon **manager** pour ajuster temporairement.",
+      "Je disparais sans prévenir.",
+      "Je dis que le travail n’est plus une priorité et je ne fais plus d’efforts."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse conjugue respect de la vie privée et responsabilité vis-à-vis des engagements professionnels.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_079",
+    "intitule": "Comment gérez-vous le fait de devoir aider un profil non technique à formuler un besoin ?",
+    "reponses": [
+      "Je lui dis d’écrire une spec complète seul.",
+      "Je pose des questions, je simplifie le vocabulaire, je reformule et je valide avec lui que ce que j’ai compris correspond à son besoin.",
+      "Je lui propose de laisser tomber.",
+      "Je lui donne un template compliqué à remplir."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une posture pédagogique et collaborative pour clarifier le besoin.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_080",
+    "intitule": "Comment vous positionnez-vous quand vous arrivez dans une équipe avec des niveaux très variés ?",
+    "reponses": [
+      "Je juge rapidement les plus faibles.",
+      "Je reste humble sur ce que je sais, je partage ce que je peux apporter et je profite aussi des forces des autres pour progresser.",
+      "J’essaie de montrer que je suis le plus compétent.",
+      "Je me mets automatiquement en retrait."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse allie humilité, partage de compétences et volonté de progresser avec l’équipe.",
+    "categorie": "Entretien",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "hr_081",
+    "intitule": "Pourquoi vous plutôt qu’un autre candidat ?",
+    "reponses": [
+      "Parce que je suis meilleur que la plupart des développeurs que vous avez vus.",
+      "Parce que mon profil combine une vraie passion pour la **tech**, une forte capacité d’auto-apprentissage et une façon de travailler calme, rigoureuse et orientée problème.",
+      "Parce que j’ai besoin de ce poste.",
+      "Parce que je peux tout faire sans qu’on me dise quoi que ce soit."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant des forces concrètes, sans dénigrer les autres candidats ni verser dans l’arrogance.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_082",
+    "intitule": "Parlez de votre plus grand échec professionnel ou de projet.",
+    "reponses": [
+      "Je préfère ne pas en parler.",
+      "Je décris un projet où j’ai sous-estimé un point clé, j’explique l’impact, ce que j’ai appris et ce que j’ai changé dans ma façon de travailler depuis.",
+      "Je dis que c’était entièrement la faute des autres.",
+      "Je dis que je n’ai jamais échoué."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre de la lucidité, de la responsabilité et une vraie capacité à tirer des leçons de l’échec.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_083",
+    "intitule": "Comment abordez-vous une négociation salariale en fin de process ?",
+    "reponses": [
+      "Je pose un chiffre au hasard, sans explication.",
+      "Je m’appuie sur le marché, mon expérience, les responsabilités du poste, et je reste ouvert à une discussion argumentée pour trouver un accord cohérent.",
+      "Je demande le maximum possible sans justification.",
+      "Je dis que je prendrai ce qu’on me donne."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse combine préparation, connaissance du marché et attitude ouverte à la discussion.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_084",
+    "intitule": "Où vous voyez-vous dans 5 ans ?",
+    "reponses": [
+      "Je n’en ai aucune idée et ça ne m’intéresse pas.",
+      "Avec un niveau technique plus poussé, plus de responsabilités sur la qualité des produits, et peut-être dans un rôle où je peux aussi accompagner d’autres développeurs.",
+      "Dans un poste complètement différent, sans lien avec la **tech**.",
+      "À la retraite si possible."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une projection réaliste, en lien avec votre progression et la transmission.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_085",
+    "intitule": "Comment expliquez-vous un trou ou une période atypique dans votre CV ?",
+    "reponses": [
+      "Je préfère ne pas en parler du tout.",
+      "Je l’explique simplement (reconversion, formation, situation perso) en montrant ce que j’en ai tiré et comment ça me rend plus solide aujourd’hui.",
+      "Je dis que c’est un oubli administratif.",
+      "Je donne une excuse floue sans lien avec la réalité."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse est honnête, concise, orientée sur l’apprentissage et la valeur actuelle.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_086",
+    "intitule": "Comment gérez-vous un conflit grave avec un collègue qui impacte le travail ?",
+    "reponses": [
+      "Je coupe toute communication avec lui.",
+      "J’essaie d’abord de clarifier la situation en direct, et si on n’y arrive pas, je sollicite un tiers (**manager**, RH) pour trouver une solution structurée.",
+      "Je monte les autres contre lui.",
+      "Je menace de quitter l’entreprise si la personne reste."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse combine tentative de résolution directe et recours à la médiation si nécessaire.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_087",
+    "intitule": "Si on vous propose un salaire en dessous de vos attentes, comment réagissez-vous ?",
+    "reponses": [
+      "Je me vexe et je coupe la discussion.",
+      "Je demande à comprendre les critères, j’explique mes attentes avec des arguments, et je vois s’il y a une marge de progression ou d’évolution à court terme.",
+      "Je dis oui ou non sans discussion.",
+      "Je signe tout de suite en regrettant ensuite."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une négociation posée, argumentée et ouverte.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_088",
+    "intitule": "Comment réagissez-vous si un **manager** vous demande quelque chose qui va à l’encontre de vos valeurs (ex: manipuler des données utilisateur de façon douteuse) ?",
+    "reponses": [
+      "Je le fais, ce n’est pas mon problème.",
+      "Je questionne la demande, j’explique mes réserves éthiques et, si besoin, j’escalade à un niveau approprié plutôt que de l’exécuter aveuglément.",
+      "Je refuse sans expliquer et je quitte le projet.",
+      "Je le fais, mais je le raconte ensuite sur les réseaux sociaux."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant l’éthique, le dialogue et la responsabilité vis-à-vis des utilisateurs.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_089",
+    "intitule": "Que répondez-vous si on vous dit: votre profil est intéressant mais vous êtes en reconversion, pourquoi vous prendre vous plutôt qu’un profil plus classique ?",
+    "reponses": [
+      "Parce que je mérite qu’on me donne une chance.",
+      "Parce que ma reconversion m’a obligé à être très structuré, à apprendre vite, et que je viens avec une vision plus globale grâce à mes expériences précédentes.",
+      "Parce que les autres profils sont moins bons.",
+      "Parce que je suis prêt à accepter un salaire très bas."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse valorise la reconversion comme une force et met en avant la discipline et la vision globale.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_090",
+    "intitule": "Comment réagissez-vous si, après plusieurs entretiens, on vous refuse le poste sans détail ?",
+    "reponses": [
+      "Je critique publiquement l’entreprise.",
+      "Je remercie pour le temps accordé, je demande poliment un feedback si possible, et j’utilise ce retour pour ajuster ma démarche.",
+      "Je réponds de façon agressive.",
+      "Je coupe tout contact en les bloquant partout."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre du professionnalisme et une volonté d’apprendre de l’expérience, même en cas de refus.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_091",
+    "intitule": "Si vous deviez expliquer en une phrase votre valeur ajoutée principale pour une équipe produit web, que diriez-vous ?",
+    "reponses": [
+      "Que je suis un excellent individu, mieux que les autres.",
+      "Que je suis quelqu’un de stable, qui apprend en continu, qui comprend le contexte global et qui cherche des solutions fiables plutôt que des effets de mode.",
+      "Que je peux faire le travail de tout le monde.",
+      "Que je suis surtout là pour faire du télétravail."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse résume votre profil en mettant l’accent sur la stabilité, l’apprentissage et la compréhension système.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_092",
+    "intitule": "Comment gérez-vous la situation où on vous promet des choses en entretien (**techno**, organisation) qui ne sont pas tenues une fois en poste ?",
+    "reponses": [
+      "Je me résigne et je ne dis rien.",
+      "Je fais un point avec mon **manager** pour confronter les attentes initiales et la réalité, et voir comment on peut se rapprocher de ce qui avait été présenté.",
+      "Je quitte immédiatement l’entreprise sans prévenir.",
+      "Je me contente de râler auprès de mes collègues."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse privilégie le dialogue et la clarification avant toute décision plus radicale.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_093",
+    "intitule": "Comment abordez-vous une question volontairement provocatrice en entretien (par exemple: pourquoi avez-vous autant changé de voie) ?",
+    "reponses": [
+      "Je le prends personnellement.",
+      "Je garde mon calme, je réponds sur le fond en expliquant le fil conducteur et ce que j’en ai tiré, sans me laisser entraîner dans une justification émotionnelle.",
+      "Je réponds sur le même ton agressif.",
+      "Je mets fin à l’entretien."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre du recul, de la maîtrise émotionnelle et une capacité à recentrer sur le fond.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_094",
+    "intitule": "Comment préparez-vous la partie questions à poser au recruteur en fin d’entretien ?",
+    "reponses": [
+      "Je n’en prépare pas.",
+      "Je prépare des questions sur les défis du poste, la manière dont l’équipe fonctionne, les critères de succès et les prochaines étapes.",
+      "Je pose uniquement des questions sur les avantages.",
+      "Je demande juste: alors, c’est bon pour moi ?"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse illustre une préparation active et un intérêt réel pour le contexte du poste.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_095",
+    "intitule": "Comment parlez-vous de la rémunération sans donner l’impression que c’est votre seul critère ?",
+    "reponses": [
+      "Je dis que seul le salaire m’intéresse.",
+      "Je précise que la rémunération doit être cohérente avec le marché et mes responsabilités, mais que l’environnement, les projets et la progression comptent aussi beaucoup pour moi.",
+      "Je refuse d’aborder le sujet.",
+      "Je demande le maximum possible dès le début, sans contexte."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse positionne le salaire comme un élément important mais pas unique dans la décision.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_096",
+    "intitule": "Si l’entreprise traverse une période difficile (plan de restructuration, incertitudes), comment réagissez-vous ?",
+    "reponses": [
+      "Je panique et je cherche à partir immédiatement.",
+      "Je me renseigne sur la situation, j’évalue l’impact sur mon poste et mes valeurs, et je communique avec mon **manager** pour comprendre la vision à moyen terme.",
+      "Je fais comme si de rien n’était.",
+      "Je propage des rumeurs dans l’équipe."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une attitude informée et réfléchie avant de prendre des décisions.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_097",
+    "intitule": "Comment réagissez-vous à une question qui vous semble discriminante ou déplacée en entretien ?",
+    "reponses": [
+      "Je réponds quand même en détail.",
+      "Je reste poli, je recentre la discussion sur des éléments professionnels, et je note que c’est un signal à prendre en compte sur la culture de l’entreprise.",
+      "Je me mets en colère immédiatement.",
+      "Je me moque de l’interviewer."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une capacité à garder son calme et à analyser le signal envoyé par l’interviewer.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_098",
+    "intitule": "On vous propose un poste avec des missions intéressantes mais peu de temps pour apprendre, que faites-vous ?",
+    "reponses": [
+      "J’accepte sans condition.",
+      "Je discute du rythme, j’essaie de sécuriser un minimum de temps pour la montée en compétences, sinon je me demande si ce contexte correspond à ma façon de travailler sur la durée.",
+      "Je refuse tout de suite.",
+      "Je dis oui et j’espère que ça ira bien."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met en avant la nécessité d’un environnement propice à l’apprentissage, en lien avec votre profil.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_099",
+    "intitule": "Comment répondez-vous si on vous dit que vous semblez trop calme, et qu’ils cherchent quelqu’un de plus « pushy » ?",
+    "reponses": [
+      "Je joue un rôle pour paraître plus agressif.",
+      "J’explique que mon calme ne m’empêche pas d’être persévérant, force de proposition et capable de défendre mes idées de manière structurée.",
+      "Je dis que je peux changer totalement ma personnalité.",
+      "Je réponds que ce n’est pas leur problème."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse recadre le calme comme une force, tout en rassurant sur votre assertivité.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_100",
+    "intitule": "Comment abordez-vous le fait que vous ayez plusieurs centres d’intérêt (**tech**, design, crypto, immobilier) sans paraître dispersé ?",
+    "reponses": [
+      "Je dis que je change d’avis tout le temps.",
+      "Je montre le fil conducteur: comprendre les systèmes, analyser, investir sur moi, et j’explique comment ces domaines nourrissent ma réflexion de développeur.",
+      "Je minimise ces centres d’intérêt.",
+      "Je détaille tout sans montrer de lien entre eux."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse transforme la diversité des intérêts en cohérence autour de la compréhension des systèmes.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_101",
+    "intitule": "Que faites-vous si, une fois en poste, le rôle ne correspond pas du tout à ce qui était décrit (missions uniquement de maintenance, peu d’apprentissage) ?",
+    "reponses": [
+      "Je reste sans rien dire.",
+      "Je discute avec mon **manager**, je propose des ajustements, et si rien ne change, je réfléchis à moyen terme à un environnement plus aligné avec mes objectifs.",
+      "Je démissionne du jour au lendemain.",
+      "Je fais le strict minimum."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse privilégie le dialogue, puis une décision réfléchie si le décalage persiste.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_102",
+    "intitule": "Comment répondez-vous à la question: qu’est-ce qui pourrait vous faire refuser notre offre ?",
+    "reponses": [
+      "Rien, je prends tout.",
+      "Un décalage important entre ce qui est présenté et la réalité, une culture opposée à mes valeurs, ou un cadre qui ne permet pas de progresser techniquement.",
+      "Uniquement le salaire.",
+      "Le fait de devoir travailler en équipe."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met l’accent sur la cohérence valeurs / culture / progression, pas seulement sur l’argent.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_103",
+    "intitule": "Vous sentez qu’un **manager** utilise la peur pour gérer son équipe. Que faites-vous ?",
+    "reponses": [
+      "Je m’adapte à ce mode de management.",
+      "Je garde une posture professionnelle, j’en parle si possible en direct ou avec un interlocuteur RH, et je réfléchis à moyen terme à la compatibilité avec ce type de culture.",
+      "Je l’affronte immédiatement devant tout le monde.",
+      "Je me tais et j’encaisse, même si cela me détruit."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse combine protection de soi, tentative de dialogue et évaluation de la culture.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_104",
+    "intitule": "Comment géreriez-vous un conflit entre vos propres objectifs de carrière (par exemple, devenir très spécialisé) et les besoins de l’entreprise (polyvalence) ?",
+    "reponses": [
+      "Je fais uniquement ce qui m’intéresse.",
+      "Je discute ouvertement de mes objectifs, j’essaie de trouver un terrain d’entente (se spécialiser progressivement tout en restant utile à l’équipe), et je réévalue si le décalage reste trop fort.",
+      "Je cache mes objectifs personnels.",
+      "Je change d’entreprise sans prévenir."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse privilégie la transparence et la recherche d’un compromis raisonnable.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_105",
+    "intitule": "Comment réagissez-vous si vous découvrez une pratique éthiquement discutable dans le code (ex: logs de données sensibles) ?",
+    "reponses": [
+      "Je ferme les yeux, ce n’est pas mon rôle.",
+      "Je remonte la situation à mon lead ou à la personne responsable, j’explique le risque, et je propose des alternatives plus respectueuses des utilisateurs.",
+      "Je supprime tout sans rien dire.",
+      "Je publie ces informations sur internet pour dénoncer."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse allie vigilance éthique, dialogue interne et recherche de solutions techniques appropriées.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_106",
+    "intitule": "On vous dit que vous manquez « d’ego » et qu’ils cherchent quelqu’un de plus agressif. Comment répondez-vous ?",
+    "reponses": [
+      "Je promets d’être plus agressif.",
+      "J’explique que mon style est plutôt calme et posé, mais que je sais défendre mes idées avec des faits et que je privilégie la qualité de la collaboration.",
+      "Je contredis directement en haussant le ton.",
+      "Je dis que c’est leur problème s’ils préfèrent les gens agressifs."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse recadre votre style comme un atout, sans vous dévaloriser ni attaquer l’interlocuteur.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_107",
+    "intitule": "Comment réagissez-vous si on vous propose de prendre un rôle de lead plus tôt que prévu ?",
+    "reponses": [
+      "J’accepte sans réfléchir.",
+      "Je vérifie les attentes, je vois si cela correspond à mon niveau actuel et à mes envies, et j’en discute ouvertement pour éviter un rôle mal calibré.",
+      "Je refuse directement tout rôle de lead.",
+      "Je dis oui pour le titre, sans me soucier du contenu."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une réflexion sur l’alignement entre rôle, niveau et motivation.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_108",
+    "intitule": "Comment gérez-vous un désaccord profond sur une question éthique avec un collègue (ex: collecte de données) ?",
+    "reponses": [
+      "Je le considère comme un ennemi.",
+      "Je sépare la personne de la position, j’explique mon point de vue, j’écoute le sien et, si c’est grave, je m’appuie sur les référentiels internes (legal, DPO, éthique).",
+      "Je me moque de ses arguments.",
+      "Je refuse de travailler avec lui sur tout sujet."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse combine débat argumenté, écoute et recours aux bonnes instances en cas d’enjeu sérieux.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_109",
+    "intitule": "Si vous constatez que vos propres attentes évoluent (plus de liberté, plus de remote) mais que l’entreprise ne suit pas, que faites-vous ?",
+    "reponses": [
+      "Je subis la situation sans rien dire.",
+      "Je discute d’abord de ces attentes avec mon **manager**, je regarde les possibilités d’aménagement, puis j’évalue s’il est préférable de rester ou de chercher un contexte plus adapté.",
+      "Je me mets en retrait sans explication.",
+      "Je menace de partir à chaque désaccord."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse met l’accent sur le dialogue avant toute décision stratégique de carrière.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_110",
+    "intitule": "Comment racontez-vous une situation où vous avez dû dire non à un client important ?",
+    "reponses": [
+      "Je dis que le client n’y comprenait rien.",
+      "J’explique comment j’ai présenté les contraintes, proposé des options acceptables et gardé une relation professionnelle malgré le refus.",
+      "Je décris le client comme le problème principal.",
+      "Je dis que j’ai refusé sans argumenter."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse illustre la capacité à dire non tout en préservant la relation et en offrant des options.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_111",
+    "intitule": "Comment répondez-vous à la question: que faites-vous si vous réalisez que ce poste n’est pas fait pour vous après quelques mois ?",
+    "reponses": [
+      "Je reste sans rien dire.",
+      "J’en parle honnêtement avec mon **manager**, j’essaie de voir s’il y a des ajustements possibles, et si ce n’est pas le cas, je prépare une transition propre.",
+      "Je pars brutalement.",
+      "Je fais le minimum en attendant mieux."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre du professionnalisme même en cas de mismatch avec le poste.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_112",
+    "intitule": "Comment parler d’un conflit passé avec un **manager** sans vous décrédibiliser ?",
+    "reponses": [
+      "Je dis que le manager était toxique et incompétent.",
+      "Je décris brièvement le contexte, ce que j’ai essayé de faire pour améliorer la situation, et je reste centré sur ce que j’ai appris plutôt que sur le jugement de la personne.",
+      "Je détaille toutes ses erreurs.",
+      "Je dramatise la situation."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse reste factuelle, centrée sur vous, et évite le dénigrement direct.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_113",
+    "intitule": "Comment réagissez-vous si on vous demande d’accepter des horaires qui empiètent fortement sur votre vie perso ?",
+    "reponses": [
+      "J’accepte tout, même si ça me détruit.",
+      "Je clarifie si c’est ponctuel ou structurel, j’explique mes limites et je vois s’il est possible de trouver un compromis respectueux.",
+      "Je refuse de discuter.",
+      "Je dis oui et je me plains ensuite."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre la volonté de négocier un cadre acceptable, tout en restant respectueux.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_114",
+    "intitule": "Comment abordez-vous le sujet de la progression de carrière dans une entreprise qui n’a pas de parcours très formalisé ?",
+    "reponses": [
+      "Je considère que je n’aurai aucune progression.",
+      "Je discute des possibilités d’évolution réelles (technique, transversale), même si elles ne sont pas formalisées, et je clarifie comment sera mesurée ma progression.",
+      "Je ne pose pas la question.",
+      "Je demande directement un titre de senior ou de lead."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse cherche à comprendre les chemins d’évolution même informels, avec des critères clairs.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_115",
+    "intitule": "On vous demande: acceptez-vous de travailler sur une **techno** qui ne vous intéresse pas, sur le long terme ?",
+    "reponses": [
+      "Oui, même si ça ne m’intéresse pas du tout.",
+      "Je peux m’engager sur une période si c’est utile à l’équipe, mais à long terme j’ai besoin d’échanger sur la direction de ma stack pour rester motivé.",
+      "Je refuse toute **techno** qui ne me plaît pas.",
+      "Je dis oui et je me désengage progressivement."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse propose un compromis réaliste et met en avant la nécessité d’un alignement à long terme.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_116",
+    "intitule": "Si on vous demande de mentir à un client sur l’état d’avancement d’un projet, que faites-vous ?",
+    "reponses": [
+      "Je mens, c’est mon **manager** qui décide.",
+      "Je refuse de mentir, je propose une formulation honnête mais rassurante, et j’explique pourquoi la transparence structurée est plus saine.",
+      "Je mens puis je le dis au client plus tard.",
+      "Je démissionne immédiatement sans explication."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse réaffirme une éthique de transparence, tout en cherchant à communiquer de façon responsable.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_117",
+    "intitule": "Comment gérez-vous votre image professionnelle en ligne (**GitHub**, **LinkedIn**, site perso) ?",
+    "reponses": [
+      "Je ne m’en occupe pas.",
+      "Je m’efforce de garder ces espaces cohérents avec ce que je suis: des projets que j’assume, un discours honnête sur mon niveau et mes envies.",
+      "Je grossis beaucoup mes compétences.",
+      "Je mélange tout, même des contenus très personnels."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse montre une gestion consciente et cohérente de votre image pro avec votre profil réel.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_118",
+    "intitule": "Comment parlez-vous de vos ambitions financières sur le long terme (crypto, immobilier, etc.) en entretien sans inquiéter l’employeur ?",
+    "reponses": [
+      "Je dis que je veux devenir riche vite et arrêter de travailler.",
+      "J’explique que ces sujets font partie de ma réflexion personnelle, mais que je me vois encore investir sérieusement dans un poste où j’apprends et j’apporte de la valeur.",
+      "Je raconte tous mes plans pour quitter le marché du travail.",
+      "Je dis que le travail n’est qu’un moyen temporaire d’avoir du cash."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse rassure sur votre engagement au travail tout en assumant une réflexion financière personnelle.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_119",
+    "intitule": "Si, dans 10 ans, vous n’êtes plus développeur, comment l’expliqueriez-vous à un recruteur aujourd’hui ?",
+    "reponses": [
+      "Je dirais que le dev n’était pas si intéressant.",
+      "Probablement parce que j’aurai évolué vers un rôle qui garde un lien avec la **tech** (architecture, produit, accompagnement), en capitalisant sur ce que j’aurai construit comme développeur.",
+      "Parce que je me serai lassé très vite.",
+      "Parce que je veux changer de domaine tous les deux ans."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse projette une évolution cohérente, pas une fuite, et valorise le passage par le développement.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "hr_120",
+    "intitule": "Si je vous embauche, qu’est-ce qui me fera dire dans 6 mois que j’ai eu raison de vous recruter ?",
+    "reponses": [
+      "Que je suis resté discret et que je n’ai pas trop posé de questions.",
+      "Que vous avez quelqu’un de fiable, qui monte en compétence en continu, qui cherche à améliorer les choses et qui reste calme même quand la pression monte.",
+      "Que je n’ai jamais dit non et que j’ai tout accepté.",
+      "Que je me suis contenté de livrer au minimum ce qu’on me demandait."
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La réponse projette une image professionnelle alignée avec votre profil: fiabilité, progression et gestion sereine de la pression.",
+    "categorie": "Entretien",
+    "difficulte": "difficile"
+  }
+]

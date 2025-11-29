@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "ts_001",
+    "intitule": "Quel est l'objectif principal de **TypeScript** par rapport à **JavaScript** ?",
+    "reponses": [
+      "Ajouter un typage statique et des fonctionnalités de développement",
+      "Rendre le code plus rapide à l'exécution",
+      "Remplacer complètement JavaScript dans les navigateurs",
+      "Interdire les fonctions"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "**TypeScript** ajoute un système de types statiques et des fonctionnalités avancées tout en compilant vers **JavaScript**.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_002",
+    "intitule": "Comment déclare-t-on une variable de type string en **TypeScript** ?",
+    "reponses": [
+      "let name: string = 'John';",
+      "let name = string 'John';",
+      "string name = 'John';",
+      "let name: String = 'John';"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "La syntaxe est identique à **JS** avec une annotation de type après les deux-points.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_003",
+    "intitule": "Quel type primitif représente les nombres en **TypeScript** ?",
+    "reponses": [
+      "int",
+      "float",
+      "number",
+      "numeric"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "**TypeScript** utilise un type unique `number` pour les nombres (entiers, flottants, etc.).",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_004",
+    "intitule": "Quel type est utilisé pour représenter une valeur vraie ou fausse ?",
+    "reponses": [
+      "bool",
+      "boolean",
+      "trueFalse",
+      "bit"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le type primitif `boolean` est utilisé pour les valeurs `true` et `false`.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_005",
+    "intitule": "Comment taper un tableau de chaînes de caractères en **TypeScript** ?",
+    "reponses": [
+      "string[]",
+      "array<string>",
+      "string<>",
+      "[]string"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`string[]` est la notation la plus courante pour un tableau de chaînes.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_006",
+    "intitule": "Quel est l'effet du type `any` sur une variable ?",
+    "reponses": [
+      "Il interdit toute affectation",
+      "Il désactive pratiquement les vérifications de type pour cette variable",
+      "Il force la variable à être un tableau",
+      "Il la rend immuable"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Avec `any`, la variable peut recevoir n'importe quelle valeur sans contrôle statique.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_007",
+    "intitule": "Quel est le principal avantage du **typage statique** par rapport au typage dynamique ?",
+    "reponses": [
+      "Moins de code à écrire",
+      "Détection d'erreurs au moment de l'exécution",
+      "Détection d'erreurs au moment de la compilation",
+      "Plus de performance côté runtime"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le **typage statique** permet de repérer de nombreuses erreurs avant d'exécuter le code.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_008",
+    "intitule": "Comment définir un tuple contenant un string puis un number ?",
+    "reponses": [
+      "[string, number]",
+      "tuple<string, number>",
+      "(string, number)[]",
+      "Array<string, number>"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les tuples se définissent avec la syntaxe `[Type1, Type2, ...]` qui fixe le nombre et l'ordre des éléments.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_009",
+    "intitule": "Quel mot-clé est utilisé pour déclarer une **interface** simple en **TypeScript** ?",
+    "reponses": [
+      "type",
+      "interface",
+      "struct",
+      "shape"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le mot-clé `interface` permet de décrire la forme d'un objet.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_010",
+    "intitule": "Comment définir une propriété optionnelle dans une **interface** ?",
+    "reponses": [
+      "name?: string;",
+      "name: string?;",
+      "optional name: string;",
+      "name: optional string;"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le point d'interrogation après le nom de la propriété la rend optionnelle.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_011",
+    "intitule": "Que signifie le type `string | number` ?",
+    "reponses": [
+      "Une concaténation de string et number",
+      "Un type tuple",
+      "Une union type: la valeur est soit un string soit un number",
+      "Un type invalide"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "L'opérateur `|` crée une union: la variable peut prendre l'une des formes listées.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_012",
+    "intitule": "Comment **TypeScript** infère-t-il le type dans `let x = 5;` ?",
+    "reponses": [
+      "Il infère 'any'",
+      "Il infère 'number'",
+      "Il infère 'string'",
+      "Il infère 'unknown'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "À partir de la valeur `5`, le compilateur infère le type `number` pour `x`.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_013",
+    "intitule": "Quel type représente l'absence de valeur retournée par une fonction ?",
+    "reponses": [
+      "void",
+      "null",
+      "undefined",
+      "never"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le type `void` indique qu'une fonction ne retourne aucune valeur utile.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_014",
+    "intitule": "Comment annoter une fonction qui prend un number et retourne un string ?",
+    "reponses": [
+      "function f(n: string): number {}",
+      "function f(n): string {}",
+      "function f(n: number): string {}",
+      "function f(string): number {}"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "On annote chaque paramètre et le type de retour après les parenthèses.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_015",
+    "intitule": "Quel fichier de configuration est utilisé par **TypeScript** ?",
+    "reponses": [
+      "tsconfig.js",
+      "tsconfig.json",
+      "typescript.config.json",
+      "ts.config"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`tsconfig.json` définit les options de compilation du projet **TypeScript**.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_016",
+    "intitule": "Comment écrire une annotation de type pour un paramètre optionnel ?",
+    "reponses": [
+      "function f(x?: number) {}",
+      "function f(?x: number) {}",
+      "function f(optional x: number) {}",
+      "function f(x: number?)"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le `?` placé après le nom du paramètre indique qu'il est optionnel.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_017",
+    "intitule": "Quel est le type par défaut d'une variable déclarée sans annotation mais initialisée à une chaîne ?",
+    "reponses": [
+      "any",
+      "string",
+      "unknown",
+      "String"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**TypeScript** infère automatiquement `string` à partir de la valeur initiale.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_018",
+    "intitule": "Comment typer une constante qui ne doit accepter que la valeur `'success'` ?",
+    "reponses": [
+      "const status: string = 'success';",
+      "const status: 'success' = 'success';",
+      "const status: success = 'success';",
+      "const status = <success>'success';"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On utilise un **literal type**: la seule valeur autorisée est `'success'`.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_019",
+    "intitule": "Comment déclarer un tableau de nombres avec la syntaxe **generics** ?",
+    "reponses": [
+      "Array[number]",
+      "Array<number>",
+      "number<Array>",
+      "Array<number, number>"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Array<number>` est l'équivalent **generics** de `number[]`.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_020",
+    "intitule": "Quel est le comportement de **TypeScript** si l'on omet le type de retour d'une fonction ?",
+    "reponses": [
+      "Il assigne 'any'",
+      "Il infère le type de retour à partir des retours de la fonction",
+      "Il lance une erreur de compilation",
+      "Il assigne 'unknown'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le compilateur essaie de déduire le type de retour à partir des instructions `return`.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_021",
+    "intitule": "Comment définir une **interface** simple `User` avec une propriété `name` de type string ?",
+    "reponses": [
+      "interface User { name: string; }",
+      "type User = interface { name: string; }",
+      "User: { name: string; }",
+      "class User { name: string; }"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "L'**interface** décrit la forme de l'objet sans implémentation.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_022",
+    "intitule": "Comment déclarer un tuple représentant `[latitude: number, longitude: number]` ?",
+    "reponses": [
+      "let coords: [number, number];",
+      "let coords: number[];",
+      "let coords: (number, number);",
+      "let coords: tuple<number, number>;"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le tuple fixe la longueur et le type de chaque position.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_023",
+    "intitule": "Comment indiquer qu'une fonction ne retourne jamais (par exemple lance toujours une erreur) ?",
+    "reponses": [
+      "function f(): void {}",
+      "function f(): never {}",
+      "function f(): null {}",
+      "function f(): undefined {}"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le type `never` indique que la fonction ne termine jamais normalement.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_024",
+    "intitule": "Comment taper une variable qui peut être un string ou `undefined` ?",
+    "reponses": [
+      "let v: string?;",
+      "let v: string | undefined;",
+      "let v: optional string;",
+      "let v: string & undefined;"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On utilise une union avec `undefined` pour exprimer l'optionnalité au niveau du type.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_025",
+    "intitule": "Comment activer la vérification stricte des types dans **TypeScript** (mode conseillé) ?",
+    "reponses": [
+      "compilerOptions.strict: true dans tsconfig.json",
+      "compilerOptions.loose: false dans tsconfig.json",
+      "strictTypes: true dans index.ts",
+      "use strict types; en haut du fichier"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "L'option `strict` renforce toutes les vérifications de type recommandées.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_026",
+    "intitule": "Quel est l'intérêt principal des types dans un **IDE** ?",
+    "reponses": [
+      "Réduire la taille du code",
+      "Fournir l'auto-complétion et la documentation contextuelle",
+      "Empêcher la compilation",
+      "Obliger à utiliser des classes"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les types alimentent l'auto-complétion, la navigation et les suggestions intelligentes.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_027",
+    "intitule": "Comment typer une fonction fléchée qui prend un string et retourne un number ?",
+    "reponses": [
+      "const f = (s): number => {};",
+      "const f = (s: string): number => {};",
+      "const f: string => number = () => {};",
+      "const f = string (s): number => {};"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La signature de la fonction fléchée accepte les annotations paramètre et retour comme une fonction classique.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_028",
+    "intitule": "Que se passe-t-il si l'on assigne un nombre à une variable typée string ?",
+    "reponses": [
+      "TypeScript convertit automatiquement en string",
+      "Le compilateur signale une erreur de type",
+      "Le code ne compile pas mais s'exécute quand même",
+      "Rien de spécial, c'est autorisé"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le système de types empêche les affectations incompatibles au moment de la compilation.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_029",
+    "intitule": "Comment indiquer qu'une propriété d'interface est en lecture seule ?",
+    "reponses": [
+      "locked name: string;",
+      "const name: string;",
+      "readonly name: string;",
+      "freeze name: string;"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le mot-clé `readonly` empêche la réassignation de la propriété après initialisation.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_030",
+    "intitule": "Quel type utilise-t-on pour représenter l'absence volontaire de valeur (par exemple dans une API) ?",
+    "reponses": [
+      "null",
+      "void",
+      "never",
+      "empty"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "**TypeScript** distingue `null` et `undefined` pour représenter l'absence de valeur, souvent via unions.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_031",
+    "intitule": "Comment déclarer un union type simple pour un statut `'success'` ou `'error'` ?",
+    "reponses": [
+      "type Status = 'success' | 'error';",
+      "interface Status = 'success' | 'error';",
+      "union Status = 'success', 'error';",
+      "Status: 'success' | 'error';"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les **type aliases** sont souvent utilisés pour les unions de **literal types**.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_032",
+    "intitule": "Que fait le compilateur **TypeScript** au final ?",
+    "reponses": [
+      "Il exécute le code directement",
+      "Il convertit le code TS en code JavaScript",
+      "Il convertit le code TS en bytecode",
+      "Il ne fait qu'analyser sans générer de sortie"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**TypeScript** est un sur-ensemble de **JS** qui se compile en **JavaScript** standard.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_033",
+    "intitule": "Comment indiquer le type d'un paramètre rest dans une fonction ?",
+    "reponses": [
+      "function f(...nums: number[]) {}",
+      "function f(...nums: [number]) {}",
+      "function f(nums: ...number) {}",
+      "function f(nums: rest number[]) {}"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le paramètre rest est typé comme un tableau du type attendu.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_034",
+    "intitule": "Quel type utilise-t-on pour une fonction callback sans retour ?",
+    "reponses": [
+      "() => void",
+      "() => any",
+      "() => never",
+      "() => undefined"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le type de fonction indique les types des paramètres et le type de retour (`void` ici).",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_035",
+    "intitule": "Que permet l'option `noImplicitAny` dans `tsconfig.json` ?",
+    "reponses": [
+      "Interdire explicitement le type 'any'",
+      "Signaler les variables pour lesquelles le type 'any' a été inféré implicitement",
+      "Supprimer 'any' du langage",
+      "Convertir 'any' en 'unknown'"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Elle oblige le développeur à être explicite lorsque `any` est réellement voulu.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_036",
+    "intitule": "Comment typer une promesse qui résout un string ?",
+    "reponses": [
+      "Promise",
+      "Promise<any>",
+      "Promise<string>",
+      "stringPromise"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`Promise<T>` est un type générique qui représente une promesse résolvant une valeur de type `T`.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_037",
+    "intitule": "Quel est l'intérêt des **interfaces** pour les objets passés en paramètre de fonction ?",
+    "reponses": [
+      "Réduire la taille du code",
+      "Documenter et vérifier la forme attendue de l'objet",
+      "Les rendre plus rapides",
+      "Les transformer en classes"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **interfaces** rendent explicite la structure attendue et permettent la vérification statique.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_038",
+    "intitule": "Que se passe-t-il si une propriété obligatoire d'une **interface** manque dans un objet ?",
+    "reponses": [
+      "TypeScript la crée avec une valeur par défaut",
+      "Le compilateur signale une erreur de type",
+      "L'objet est converti en any",
+      "Rien, c'est autorisé"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le système de types impose la présence des propriétés non optionnelles.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_039",
+    "intitule": "Comment déclarer un type pour une fonction qui ne prend aucun argument et ne retourne rien ?",
+    "reponses": [
+      "type F = () => void;",
+      "type F = void => void;",
+      "type F = function(): void;",
+      "type F(): void;"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les types de fonction s'écrivent avec la flèche entre paramètres et retour.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_040",
+    "intitule": "Quel type est le plus sûr pour représenter une valeur inconnue provenant d'une source externe ?",
+    "reponses": [
+      "any",
+      "unknown",
+      "never",
+      "object"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`unknown` oblige à vérifier le type avant d'utiliser la valeur, contrairement à `any`.",
+    "categorie": "typescript",
+    "difficulte": "facile"
+  },
+  {
+    "id": "ts_041",
+    "intitule": "Que signifie la notation générique `Array<T>` en **TypeScript** ?",
+    "reponses": [
+      "Un tableau de n'importe quel type",
+      "Un tableau dont le type des éléments est T",
+      "Un tuple de type T",
+      "Un objet avec des clés de type T"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Array<T>` représente un tableau dont tous les éléments sont du type `T`.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_042",
+    "intitule": "Comment déclarer une fonction générique `identite` qui renvoie son argument tel quel ?",
+    "reponses": [
+      "function identite<T>(arg: T): T { return arg; }",
+      "function<T> identite(arg): T { return arg; }",
+      "function identite(arg: any): any { return arg; }",
+      "generic function identite<T>(arg): arg;"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "On déclare le paramètre de type `<T>` puis on l'utilise pour le paramètre et le retour.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_043",
+    "intitule": "Quel mot-clé est utilisé pour définir un **enum** en **TypeScript** ?",
+    "reponses": [
+      "enum",
+      "enumeration",
+      "set",
+      "constenum"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le mot-clé `enum` définit un ensemble de valeurs nommées.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_044",
+    "intitule": "Quelle est la différence principale entre un **type alias** et une **interface** pour décrire un objet ?",
+    "reponses": [
+      "Une interface ne peut pas être étendue",
+      "Un type alias ne peut pas décrire un objet",
+      "Une interface peut être étendue et fusionnée, un type alias non",
+      "Aucune différence, ils sont totalement équivalents"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les **interfaces** supportent l'extension et la déclaration fusionnée, les **type aliases** non.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_045",
+    "intitule": "Quel est l'effet d'une type assertion `value as string` ?",
+    "reponses": [
+      "Elle convertit la valeur en string à l'exécution",
+      "Elle indique au compilateur de traiter la valeur comme un string au niveau des types",
+      "Elle lance une erreur si la valeur n'est pas un string",
+      "Elle force la valeur à être immutable"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les assertions ne changent pas la valeur à l'exécution, elles n'agissent qu'au niveau statique.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_046",
+    "intitule": "Que signifie le type `unknown` par rapport à `any` ?",
+    "reponses": [
+      "Il est moins sûr que 'any'",
+      "Il est plus sûr et nécessite un affinement de type avant utilisation",
+      "Il se compile en code différent",
+      "Il est réservé aux fonctions async"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`unknown` est l'analogue sécurisé de `any`: il impose des vérifications avant usage.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_047",
+    "intitule": "Que fait l'opérateur de coalescence nulle `??` ?",
+    "reponses": [
+      "Il remplace toute valeur falsy par la valeur de droite",
+      "Il remplace seulement null ou undefined par la valeur de droite",
+      "Il remplace NaN par 0",
+      "Il fusionne deux objets"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Contrairement à `||`, `??` ne déclenche le fallback que pour `null` ou `undefined`.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_048",
+    "intitule": "Que fait l'opérateur d'enchaînement optionnel `obj?.prop` ?",
+    "reponses": [
+      "Lance une erreur si obj est null",
+      "Retourne toujours un objet vide si obj est null",
+      "Retourne undefined si obj est null ou undefined, sinon obj.prop",
+      "Convertit obj en any"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Optional chaining évite les erreurs d'accès sur `null`/`undefined` en retournant `undefined`.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_049",
+    "intitule": "Que fait le utility type `Partial<T>` ?",
+    "reponses": [
+      "Rend toutes les propriétés de T optionnelles",
+      "Rend toutes les propriétés de T obligatoires",
+      "Supprime toutes les propriétés de T",
+      "Rend toutes les propriétés de T readonly"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`Partial` transforme toutes les propriétés de `T` en propriétés optionnelles.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_050",
+    "intitule": "Que fait le utility type `Readonly<T>` ?",
+    "reponses": [
+      "Supprime toutes les propriétés de T",
+      "Rend toutes les propriétés de T en lecture seule",
+      "Rend toutes les propriétés optionnelles",
+      "Clone profondément le type T"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Readonly` ajoute le modificateur `readonly` à toutes les propriétés de `T`.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_051",
+    "intitule": "Que fait le utility type `Pick<T, K>` ?",
+    "reponses": [
+      "Retire les clés K de T",
+      "Sélectionne uniquement les propriétés de T dont les clés sont dans K",
+      "Remplace les clés de T par K",
+      "Fusionne T avec K"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Pick` crée un type avec un sous-ensemble de propriétés de `T`.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_052",
+    "intitule": "Que fait le utility type `Omit<T, K>` ?",
+    "reponses": [
+      "Supprime les clés K de T",
+      "Garde uniquement les clés K de T",
+      "Inverse les types des propriétés",
+      "Rend les clés K optionnelles"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`Omit` est l'opposé de `Pick`: il enlève les clés `K` et garde le reste.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_053",
+    "intitule": "Comment déclare-t-on un **enum** numérique simple pour les directions Nord, Sud, Est, Ouest ?",
+    "reponses": [
+      "enum Direction { Nord, Sud, Est, Ouest }",
+      "type Direction = enum { Nord, Sud, Est, Ouest }",
+      "Direction: enum { Nord, Sud, Est, Ouest }",
+      "enum Direction = { Nord, Sud, Est, Ouest }"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les **enums** se déclarent avec le mot-clé `enum` suivi des membres.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_054",
+    "intitule": "Quelle est une différence notable entre `any` et `unknown` côté utilisation ?",
+    "reponses": [
+      "On peut appeler librement des méthodes sur unknown",
+      "On ne peut pas accéder aux propriétés d'un unknown sans vérification préalable",
+      "On ne peut pas stocker unknown dans des tableaux",
+      "unknown n'est pas assignable à any"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`unknown` nécessite un type guard ou un cast avant toute opération spécifique.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_055",
+    "intitule": "Que permet un **literal type** comme `'up' | 'down' | 'left' | 'right'` ?",
+    "reponses": [
+      "Définir un enum implicite",
+      "Limiter les valeurs possibles à ce jeu de chaînes",
+      "Créer un type any spécialisé",
+      "Créer un alias de string"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **literal types** définissent un sous-ensemble très précis d'un type primitif.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_056",
+    "intitule": "Comment écrire une assertion de type avec la syntaxe **angle brackets** (dans un fichier .tsx, à éviter) ?",
+    "reponses": [
+      "<string>value",
+      "value<string>",
+      "assert<string>(value)",
+      "value: <string>"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "La syntaxe `<Type>value` est une autre forme d'assertion, mais elle entre en conflit avec **JSX**.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_057",
+    "intitule": "Quel est l'intérêt de déclarer un **type alias** plutôt qu'une **interface** pour une union ?",
+    "reponses": [
+      "Les interfaces ne supportent pas les unions",
+      "Les type aliases sont plus rapides",
+      "Les interfaces ne sont pas compatibles avec les generics",
+      "Aucun, c'est interdit"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les unions et intersections se déclarent via des **type aliases**, pas avec `interface`.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_058",
+    "intitule": "Que fait le utility type `Required<T>` ?",
+    "reponses": [
+      "Rend toutes les propriétés de T optionnelles",
+      "Rend toutes les propriétés de T obligatoires",
+      "Rend toutes les propriétés readonly",
+      "Supprime toutes les propriétés null"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Required` enlève le modificateur `?` sur toutes les propriétés de `T`.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_059",
+    "intitule": "Quel utility type crée un objet avec des clés `K` et des valeurs de type `T` ?",
+    "reponses": [
+      "Record<K, T>",
+      "Map<K, T>",
+      "KeyOf<K, T>",
+      "Object<K, T>"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`Record<K, T>` est très utilisé pour des dictionnaires typés.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_060",
+    "intitule": "Que fait l'opérateur `as const` appliqué à un littéral ?",
+    "reponses": [
+      "Il convertit en type any",
+      "Il gèle la valeur et la traite comme des literal types readonly",
+      "Il convertit en nombre",
+      "Il supprime les propriétés optionnelles"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`as const` réduit le type au plus précis possible et marque les propriétés comme `readonly`.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_061",
+    "intitule": "Que renvoie `typeof` en contexte de type (par exemple `type T = typeof obj`) ?",
+    "reponses": [
+      "Une chaîne indiquant le type",
+      "Le type statique de l'expression obj",
+      "La valeur de obj",
+      "Le constructeur de obj"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "En contexte type, `typeof` récupère le type de l'expression au lieu de son type runtime JS.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_062",
+    "intitule": "À quoi servent principalement les **enums string** (`enum Status { Success = 'SUCCESS', Error = 'ERROR' }`) ?",
+    "reponses": [
+      "À réduire la taille du bundle",
+      "À avoir des valeurs lisibles et stables pour la sérialisation",
+      "À améliorer les performances runtime",
+      "À remplacer les unions de literal types"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **enums string** sont pratiques pour des codes stables vers l'extérieur (API, logs, etc.).",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_063",
+    "intitule": "Que permet l'option `strictNullChecks` ?",
+    "reponses": [
+      "Autoriser null partout",
+      "Interdire null dans tous les types",
+      "Forcer à exclure null/undefined sauf si explicitement présents dans le type",
+      "Convertir automatiquement null en undefined"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Avec `strictNullChecks`, `null` et `undefined` doivent être explicitement pris en compte dans les types.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_064",
+    "intitule": "Que signifie une signature de fonction générique `<T extends object>(value: T): T` ?",
+    "reponses": [
+      "T doit être un nombre",
+      "T doit être un objet (non primitif)",
+      "T doit être une fonction",
+      "T ne peut être qu'un tableau"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le mot-clé `extends` impose une contrainte sur le paramètre de type.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_065",
+    "intitule": "Dans quel cas utilise-t-on souvent `keyof` sur un type ?",
+    "reponses": [
+      "Pour récupérer le type des valeurs",
+      "Pour obtenir l'union des noms de propriétés du type",
+      "Pour supprimer des propriétés",
+      "Pour créer un tableau de valeurs"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`keyof T` produit un type union des clés de `T` sous forme de strings ou symbols.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_066",
+    "intitule": "Quel est l'intérêt d'utiliser un **type guard** `'typeof x === \"string\"'` dans **TypeScript** ?",
+    "reponses": [
+      "Il ne sert qu'en JS, pas en TS",
+      "Il permet au compilateur de restreindre le type de x à 'string' dans le bloc correspondant",
+      "Il désactive strictNullChecks",
+      "Il convertit la variable en string"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les garde-fous de type permettent le **narrowing**: le type est affiné dans les branches.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_067",
+    "intitule": "Que fait `?.()` dans `'callback?.()'` ?",
+    "reponses": [
+      "Appelle toujours la fonction callback",
+      "Appelle callback uniquement si ce n'est pas null/undefined",
+      "Lance une erreur si callback est undefined",
+      "Convertit callback en promesse"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Optional chaining** appliqué à un appel de fonction évite d'appeler une fonction inexistante.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_068",
+    "intitule": "Pourquoi préfère-t-on souvent `unknown` à `any` pour des données **JSON** parsées ?",
+    "reponses": [
+      "Parce qu'unknown est plus rapide",
+      "Parce qu'unknown empêche d'utiliser la valeur sans la valider",
+      "Parce que any est obsolète",
+      "Parce que JSON.parse retourne unknown nativement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`unknown` oblige à valider la forme des données avant de les utiliser, ce qui est plus sûr.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_069",
+    "intitule": "Que permet d'exprimer un type comme `T | null` dans un modèle de données ?",
+    "reponses": [
+      "Que T est toujours défini",
+      "Que la valeur peut être soit de type T, soit null",
+      "Que la valeur ne peut jamais être null",
+      "Que T est optionnel dans tout le projet"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les unions avec `null`/`undefined` modélisent explicitement l'absence possible de valeur.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_070",
+    "intitule": "Quel est l'intérêt d'un **type alias** pour une union complexe par rapport à réécrire l'union partout ?",
+    "reponses": [
+      "Aucun intérêt",
+      "Cela centralise la définition du type et facilite la maintenance",
+      "Cela empêche le code de compiler",
+      "Cela désactive les checks stricts"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Nommer un type compliqué le rend réutilisable, lisible et facile à modifier.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_071",
+    "intitule": "Que permet le type `readonly string[]` ?",
+    "reponses": [
+      "Un tableau dont la taille ne change pas mais dont les éléments sont modifiables",
+      "Un tableau qui ne peut pas être muté (push, pop, etc.)",
+      "Un tableau non indexable",
+      "Un tableau qui ne peut contenir qu'un seul élément"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`readonly` sur un tableau empêche les opérations mutantes qui modifient sa structure.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_072",
+    "intitule": "Que fait le compilerOption `noUncheckedIndexedAccess` ?",
+    "reponses": [
+      "Il interdit les tableaux",
+      "Il considère les accès par index comme potentiellement undefined",
+      "Il interdit les index numériques",
+      "Il convertit les tableaux en tuples"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Cette option rend les accès indexés plus sûrs en introduisant `undefined` dans le type de retour.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_073",
+    "intitule": "Que permet le mot-clé `as const` sur un tableau de literal types ?",
+    "reponses": [
+      "Il le convertit en any[]",
+      "Il le traite comme un tuple readonly de literal types",
+      "Il le convertit en union de types primaires",
+      "Il l'empêche d'être compilé"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`as const` fige la structure et les types exacts des éléments.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_074",
+    "intitule": "Quelle est la différence entre `interface A { x: string }` et `type A = { x: string }` ?",
+    "reponses": [
+      "Interface n'est pas assignable",
+      "Interface supporte la déclaration fusionnée, type non",
+      "Type est plus lent à la compilation",
+      "Il est interdit d'utiliser type pour des objets"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **interfaces** peuvent être étendues et fusionnées, les **type aliases** sont plus généraux mais figés.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_075",
+    "intitule": "Que modélise un type `T & U` (intersection) ?",
+    "reponses": [
+      "Une valeur qui est soit T soit U",
+      "Une valeur qui est à la fois T et U",
+      "Une union stricte",
+      "Un type impossible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'intersection combine toutes les propriétés de `T` et `U` dans un type qui doit satisfaire les deux.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_076",
+    "intitule": "Que fait l'option `strictFunctionTypes` ?",
+    "reponses": [
+      "Elle désactive les generics",
+      "Elle rend les comparaisons de types de fonctions plus strictes (surtout sur les paramètres)",
+      "Elle interdit les callbacks",
+      "Elle force toutes les fonctions à retourner void"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Cette option applique des règles de variance plus strictes sur les types de fonctions.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_077",
+    "intitule": "À quoi sert `satisfies` (par exemple `const obj = {...} satisfies SomeType`) ?",
+    "reponses": [
+      "À caster l'objet en SomeType",
+      "À vérifier que l'objet respecte SomeType tout en gardant les literal types de l'objet",
+      "À transformer SomeType en any",
+      "À rendre l'objet readonly"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`satisfies` est un opérateur de contrainte qui n'altère pas le type inféré de la valeur.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_078",
+    "intitule": "Pourquoi préférer des unions de **literal types** à des **enums** dans certains cas ?",
+    "reponses": [
+      "Parce que les enums ne sont pas typés",
+      "Parce que les unions sont entièrement effacées au runtime et plus simples pour la tree-shaking",
+      "Parce que les enums sont interdits en TS moderne",
+      "Parce que les enums ne supportent pas les strings"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les unions de literals génèrent moins de code JS que les enums numériques classiques.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_079",
+    "intitule": "Que se passe-t-il si l'on utilise `as any` sur une valeur ?",
+    "reponses": [
+      "Le compilateur devient plus strict",
+      "On désactive les checks de type pour cette valeur",
+      "On transforme la valeur en null",
+      "On empêche toute assignation"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "C'est un échappatoire du système de types et doit rester exceptionnel.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_080",
+    "intitule": "Quel est l'intérêt d'utiliser des **types littéraux** pour les clés d'un objet (par exemple `type Keys = 'id' | 'name'`) ?",
+    "reponses": [
+      "Empêcher les objets d'avoir d'autres clés à l'exécution",
+      "Limiter statiquement les clés acceptées par certaines fonctions",
+      "Améliorer les performances de l'objet",
+      "Remplacer keyof"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **literal types** pour les clés rendent les APIs plus sûres et mieux documentées.",
+    "categorie": "typescript",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "ts_081",
+    "intitule": "Que signifie la contrainte générique `<T extends U>` dans un type ou une fonction ?",
+    "reponses": [
+      "T doit être exactement égal à U",
+      "T doit être assignable à U (un sous-type de U)",
+      "T doit être un super-type de U",
+      "T et U sont des types incompatibles"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`extends` impose une relation d'assignabilité entre `T` et `U` pour rendre l'utilisation de `T` plus sûre.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_082",
+    "intitule": "Que représente le type `keyof T` ?",
+    "reponses": [
+      "Le type des valeurs de T",
+      "L'union des clés de T sous forme de string ou symbol",
+      "Une liste de toutes les propriétés de T à l'exécution",
+      "Un tableau des valeurs de T"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`keyof` est l'opérateur qui produit l'union des noms de propriétés d'un type objet.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_083",
+    "intitule": "Que représente l'expression de type `T[K]` où `K` est `keyof T` ?",
+    "reponses": [
+      "Un tuple des valeurs de T",
+      "Le type d'une propriété spécifique de T indexée par K",
+      "Toujours any",
+      "Le type de la clé K elle-même"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`T[K]` est un type d'indexation, il accède au type de la propriété `K` dans `T`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_084",
+    "intitule": "Que fait ce **mapped type**: `type PartialLike<T> = { [K in keyof T]?: T[K] };` ?",
+    "reponses": [
+      "Il supprime les propriétés de T",
+      "Il rend toutes les propriétés de T readonly",
+      "Il rend toutes les propriétés de T optionnelles",
+      "Il fusionne T avec un autre type"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "C'est l'implémentation conceptuelle de **Partial**: toutes les clés deviennent optionnelles.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_085",
+    "intitule": "Que signifie un **conditional type** du genre `T extends U ? X : Y` ?",
+    "reponses": [
+      "Une condition à l'exécution",
+      "Une condition au niveau des types: si T est assignable à U, le type est X sinon Y",
+      "Un if dans le code",
+      "Un type invalide"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **conditional types** permettent de décrire des relations de types dépendantes d'autres types.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_086",
+    "intitule": "Que fait le mot-clé `infer` dans un **conditional type** ?",
+    "reponses": [
+      "Il déclare une variable globale",
+      "Il permet d'inférer une partie de type à partir d'un pattern de type",
+      "Il remplace keyof",
+      "Il désactive les generics"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`infer` introduit un paramètre de type à capturer dans un **conditional type** (par exemple pour extraire le type de retour).",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_087",
+    "intitule": "Quel est le rôle d'une fonction de **type guard** personnalisée `function isUser(obj: any): obj is User` ?",
+    "reponses": [
+      "Elle convertit obj en User",
+      "Elle indique au compilateur qu'après un test, obj peut être considéré comme User",
+      "Elle remplace instanceof",
+      "Elle supprime les propriétés invalides de obj"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le prédicat de type `obj is User` permet le **narrowing** dans les branches où la fonction renvoie `true`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_088",
+    "intitule": "Dans quel cas le type `never` est-il souvent utilisé dans les vérifications de code exhaustif ?",
+    "reponses": [
+      "Pour typer les erreurs de compilation",
+      "Pour typer les fonctions async",
+      "Pour signaler qu'un cas de switch ne devrait jamais se produire",
+      "Pour typer les constantes"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Assigner une valeur impossible à un `never` déclenche une erreur, utiles pour les checks exhaustifs sur des unions.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_089",
+    "intitule": "Que fait ce type: `type NonNullable<T> = T extends null | undefined ? never : T;` ?",
+    "reponses": [
+      "Il autorise null et undefined",
+      "Il retire null et undefined de T",
+      "Il ne garde que null et undefined",
+      "Il convertit T en any"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`NonNullable` enlève les branches `null` et `undefined` d'une union de type.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_090",
+    "intitule": "Que signifie que les types de retour de fonctions sont **covariants** ?",
+    "reponses": [
+      "Qu'ils peuvent être substitués par des types plus généraux",
+      "Qu'ils peuvent être substitués par des types plus spécifiques",
+      "Qu'ils ne peuvent jamais être substitués",
+      "Que TypeScript ignore les types de retour"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La covariance autorise à remplacer un type de retour par un sous-type sans danger.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_091",
+    "intitule": "Que signifie que les types de paramètres de fonctions sont **contravariants** (en mode strict) ?",
+    "reponses": [
+      "Qu'ils peuvent être remplacés par des types plus spécifiques",
+      "Qu'ils peuvent être remplacés par des types plus généraux",
+      "Qu'ils sont ignorés par le compilateur",
+      "Qu'ils doivent toujours être any"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La contravariance autorise un paramètre à accepter un super-type, ce qui reste sûr pour les appels.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_092",
+    "intitule": "Que fait ce type utilitaire: `type ReturnType<T> = T extends (...args: any[]) => infer R ? R : never;` ?",
+    "reponses": [
+      "Il extrait les paramètres de la fonction T",
+      "Il extrait le type de retour de la fonction T",
+      "Il convertit T en promesse",
+      "Il rend T readonly"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`ReturnType` utilise `infer` pour récupérer le type de retour d'une fonction passée en paramètre.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_093",
+    "intitule": "Dans le type `Exclude<T, U>`, que représente `Exclude<string | number, string>` ?",
+    "reponses": [
+      "string",
+      "number",
+      "string | number",
+      "never"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Exclude` retire de `T` les membres assignables à `U`, il reste donc `number`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_094",
+    "intitule": "Que permet le pattern de **mapped type** suivant: `type ReadonlyKeys<T> = { readonly [K in keyof T]: T[K] };` ?",
+    "reponses": [
+      "Il rend toutes les propriétés optionnelles",
+      "Il rend toutes les propriétés readonly",
+      "Il supprime toutes les propriétés readonly",
+      "Il extrait seulement les clés readonly"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "C'est une version simplifiée du utility **Readonly** pour toutes les propriétés de `T`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_095",
+    "intitule": "Que fait le pattern: `type PromiseValue<T> = T extends Promise<infer U> ? U : T;` ?",
+    "reponses": [
+      "Il crée toujours un Promise<T>",
+      "Il force T à être une Promise",
+      "Il extrait le type résolu d'une Promise ou laisse T tel quel",
+      "Il retourne toujours never"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Ce **conditional type** est utile pour obtenir le type interne d'une promesse.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_096",
+    "intitule": "Que signifie un paramètre de type par défaut dans `type Box<T = string>` ?",
+    "reponses": [
+      "T doit être toujours string",
+      "Si T n'est pas fourni, il vaut string par défaut",
+      "T ne peut jamais être string",
+      "Box ne peut pas être générique"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les paramètres de type peuvent recevoir une valeur par défaut utilisée lorsqu'on omet `T`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_097",
+    "intitule": "Dans la signature `<T extends { id: string }>(value: T): T`, que garantit la contrainte ?",
+    "reponses": [
+      "Que T est un string",
+      "Que T a au moins une propriété id: string",
+      "Que T ne peut avoir que id",
+      "Que T est toujours readonly"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La contrainte impose que tout type `T` possède au minimum la propriété `id` typée `string`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_098",
+    "intitule": "Quel est l'objectif principal des **decorators** en **TypeScript** ?",
+    "reponses": [
+      "Modifier le runtime de Node.js",
+      "Annoter et éventuellement enrichir des classes, méthodes ou propriétés avec de la logique meta-programmative",
+      "Remplacer les interfaces",
+      "Générer automatiquement du CSS"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **decorators** fournissent un mécanisme d'annotations et de transformation au niveau des classes et de leurs membres.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_099",
+    "intitule": "Pourquoi les **decorators** sont-ils marqués comme fonctionnalité expérimentale dans **TypeScript** ?",
+    "reponses": [
+      "Parce qu'ils ne fonctionnent pas",
+      "Parce qu'ils ne sont pas encore standardisés définitivement au niveau ECMAScript",
+      "Parce qu'ils sont réservés à Angular",
+      "Parce qu'ils remplacent les classes"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le support des **decorators** dépend de la progression de la proposition correspondante dans le standard JS.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_100",
+    "intitule": "Que modélise un type intersection complexe comme `A & B & C` ?",
+    "reponses": [
+      "Une valeur qui est soit A, soit B, soit C",
+      "Une valeur qui satisfait simultanément A, B et C",
+      "Un tuple de [A, B, C]",
+      "Un type impossible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les intersections combinent des contraintes de plusieurs types que la valeur doit toutes respecter.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_101",
+    "intitule": "Que fait le type `Extract<T, U>` ?",
+    "reponses": [
+      "Il enlève tous les membres de T assignables à U",
+      "Il garde seulement les membres de T assignables à U",
+      "Il fusionne T et U",
+      "Il retourne toujours never"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Extract` est l'inverse d'`Exclude`: il ne conserve que les branches compatibles avec `U`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_102",
+    "intitule": "Que permet de vérifier le **type guard** personnalisé: `function isStringArray(x: unknown): x is string[]` ?",
+    "reponses": [
+      "Que x est un any",
+      "Que x est un tableau de strings, ce qui affine x en string[] dans les branches true",
+      "Que x est toujours un tuple",
+      "Que x est un objet"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **type guards** personnalisés permettent de définir des conditions d'affinage complexes.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_103",
+    "intitule": "À quoi peut servir un type `never` dans une union (par exemple `T | never`) ?",
+    "reponses": [
+      "À ajouter de nouveaux cas",
+      "À ne rien changer au type effectif",
+      "À interdire T",
+      "À forcer une erreur de compilation"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`never` est la bottom type; une union avec `never` se simplifie au type non-never.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_104",
+    "intitule": "Que représente ce type: `type Head<T extends any[]> = T extends [infer H, ...any[]] ? H : never;` ?",
+    "reponses": [
+      "La longueur du tableau",
+      "Le type du premier élément d'un tuple ou tableau",
+      "Le dernier élément d'un tableau",
+      "Toujours any"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On utilise `infer` sur un pattern de tuple pour extraire le premier élément.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_105",
+    "intitule": "Que permet un type `this` spécialisé dans une interface de méthode (par exemple `method(this: MyClass, arg: number)`) ?",
+    "reponses": [
+      "Changer dynamiquement la valeur de this à l'exécution",
+      "Définir le type de this attendu dans l'appel pour bénéficier de l'auto-complétion",
+      "Supprimer this",
+      "Désactiver le typage strict"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le paramètre `this` typé n'est pas passé à l'exécution mais permet de typer correctement le contexte.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_106",
+    "intitule": "Pourquoi les **conditional types** sont-ils parfois dits 'distributifs' sur les unions ?",
+    "reponses": [
+      "Parce qu'ils ne fonctionnent que sur les nombres",
+      "Parce qu'ils évaluent chaque membre de l'union séparément lorsque le paramètre est nu",
+      "Parce qu'ils se distribuent sur les objets",
+      "Parce qu'ils remplacent les generics"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un type comme `(T extends U ? X : Y)` appliqué à une union `T = A | B` est évalué pour `A` puis pour `B`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_107",
+    "intitule": "Que fait l'opérateur `readonly` dans un **mapped type** comme `{ readonly [K in keyof T]: T[K] }` ?",
+    "reponses": [
+      "Il rend T immuable profondément",
+      "Il rend toutes les propriétés de T en lecture seule en surface",
+      "Il empêche la compilation",
+      "Il supprime les propriétés de T"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`readonly` appliqué dans un **mapped type** touche toutes les propriétés mais pas nécessairement en profondeur.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_108",
+    "intitule": "Que modélise un type `((x: Dog) => void) | ((x: Cat) => void)` en termes de variance ?",
+    "reponses": [
+      "Une union de types de fonctions, avec des contraintes de contravariance sur les paramètres",
+      "Une intersection de fonctions",
+      "Un type impossible",
+      "Un type any"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les unions de callbacks doivent respecter les règles de variance sur les paramètres pour rester sûres.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_109",
+    "intitule": "Que permet de vérifier le pattern suivant dans un **switch** sur un discriminant: `default: const _exhaustiveCheck: never = value;` ?",
+    "reponses": [
+      "Que value est toujours any",
+      "Que toutes les branches du switch ont été couvertes pour une union de types",
+      "Que value est null",
+      "Que value est un enum"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Affecter `value` à un `never` force le compilateur à signaler les unions non exhaustives.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_110",
+    "intitule": "Quelle est la différence principale entre un **decorator de classe** et un **decorator de méthode** ?",
+    "reponses": [
+      "Le decorator de méthode n'existe pas",
+      "Le decorator de classe reçoit le constructeur, celui de méthode reçoit prototype, nom et descriptor",
+      "Les deux reçoivent exactement les mêmes arguments",
+      "Le decorator de classe ne peut rien modifier"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **decorators de méthode** agissent au niveau du descriptor alors que les **decorators de classe** s'appliquent au constructeur.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_111",
+    "intitule": "Quel est le risque principal d'un usage abusif de `any` dans un large codebase **TypeScript** ?",
+    "reponses": [
+      "Des performances plus faibles à l'exécution",
+      "Perdre les garanties du système de types et introduire des erreurs silencieuses",
+      "Des bundles plus gros",
+      "Des problèmes de compatibilité navigateur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`any` contourne les vérifications et peut faire disparaître des bugs jusqu'au runtime.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_112",
+    "intitule": "Que représente ce type: `{ [K in keyof T as get${Capitalize<string & K>}]: () => T[K] }` ?",
+    "reponses": [
+      "Un type invalide",
+      "Un type qui crée pour chaque propriété K de T un getter getK() correspondant",
+      "Un type qui supprime toutes les propriétés de T",
+      "Un type qui transforme T en tableau"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Il s'agit d'un **mapped type** avec renommage de clés via **templates literal types**.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_113",
+    "intitule": "Que permet un **template literal type** comme `${number}px` ?",
+    "reponses": [
+      "Définir un type string générique",
+      "Restreindre les strings aux formes finissant par 'px' avec une partie numérique devant",
+      "Créer un type number",
+      "Créer un enum implicite"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **template literal types** permettent de composer des contraintes sur la forme des chaînes.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_114",
+    "intitule": "Que modélise un type `readonly [number, number]` ?",
+    "reponses": [
+      "Un tuple modifiable",
+      "Un tuple de deux nombres qui ne peut pas être muté via ses indices",
+      "Un tableau dynamique",
+      "Une promesse de deux nombres"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le modifier `readonly` sur un tuple empêche de changer ses éléments après création.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_115",
+    "intitule": "Pourquoi les types utilitaires comme `Awaited<T>` sont utiles avec `async`/`await` ?",
+    "reponses": [
+      "Ils remplacent Promise",
+      "Ils permettent d'obtenir le type de la valeur résolue par une promesse ou une fonction async",
+      "Ils désactivent strictNullChecks",
+      "Ils ne sont utiles qu'en Node.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Awaited` déplie les promesses imbriquées pour exposer le type résolu final.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_116",
+    "intitule": "Que permet ce type: `type Brand<T, B> = T & { __brand: B };` ?",
+    "reponses": [
+      "Créer un type any",
+      "Créer des types 'marqués' distincts au niveau du type mais identiques au runtime",
+      "Supprimer les propriétés de T",
+      "Créer un enum"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **branded types** permettent de distinguer des valeurs structurellement identiques mais conceptuellement différentes.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_117",
+    "intitule": "Que représente un type `readonly string[] & { 0: string }` ?",
+    "reponses": [
+      "Un tableau vide",
+      "Un tableau readonly de strings garanti d'avoir au moins un élément",
+      "Un tuple de longueur 0",
+      "Un type impossible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'intersection avec `{ 0: string }` impose l'existence de l'index 0.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_118",
+    "intitule": "Que fait ce conditional type distribué: `type Nullable<T> = T | null; type NonEmpty<T> = T extends null ? never : T;` ?",
+    "reponses": [
+      "Il force T à être null",
+      "Il retire null d'un type potentiellement nullable",
+      "Il convertit T en any",
+      "Il fait la même chose que never"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`NonEmpty` sur un type comme `string | null` élimine la branche `null` pour garder seulement `string`.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_119",
+    "intitule": "Pourquoi l'approche 'structural typing' de **TypeScript** complique-t-elle parfois la modélisation de la variance ?",
+    "reponses": [
+      "Parce que TypeScript ne supporte pas les generics",
+      "Parce qu'il se base sur la structure des types plutôt que sur leurs noms, ce qui peut introduire des assignabilités inattendues",
+      "Parce qu'il n'a pas de classes",
+      "Parce qu'il ne supporte pas union et intersection"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le **typage structurel** fait que deux types compatibles structurellement sont assignables, même si on ne voulait pas forcément cela.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "ts_120",
+    "intitule": "Dans un projet complexe, pourquoi créer des types utilitaires maison plutôt que d'utiliser uniquement ceux du standard (`Partial`, `Pick`, etc.) ?",
+    "reponses": [
+      "Pour remplacer les types standards",
+      "Pour adapter finement les modèles de types aux conventions métier et réduire la duplication",
+      "Parce que les utilitaires standard sont obsolètes",
+      "Pour éviter d'écrire des interfaces"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Des utilitaires adaptés au domaine offrent une meilleure expressivité et documentent les patterns de conception du projet.",
+    "categorie": "typescript",
+    "difficulte": "difficile"
+  }
+]
