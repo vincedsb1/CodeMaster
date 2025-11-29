@@ -96,7 +96,7 @@ function goToStats() {
 
   <div v-else class="flex flex-col bg-slate-50 text-slate-900 h-full">
     <!-- Main Content -->
-    <main class="px-6 pb-12 space-y-6 pt-2 mx-auto max-w-2xl w-full flex-grow">
+    <main class="px-6 pb-12 space-y-6 pt-6 mx-auto max-w-2xl w-full flex-grow">
 
       <!-- A. Welcome Card -->
       <section class="rounded-[2rem] bg-white p-6 shadow-[0_4px_12px_rgba(0,0,0,0.05)] transition-transform duration-500 ease-out">
