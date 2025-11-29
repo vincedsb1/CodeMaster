@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeMaster - Home</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Configuration Tailwind pour les animations et fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'apple-card': '0 8px 30px rgb(0,0,0,0.04)',
+                        'apple-blue': '0 6px 20px rgba(37,99,235,0.3)',
+                    },
+                    keyframes: {
+                        pulse: {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: .5 },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Phosphor Icons (Web Font version pour simplicité HTML) -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Vue 3 -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <style>
+        /* Styles spécifiques pour le glassmorphism et safe areas */
+        .glass-nav {
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        
+        .safe-pb {
+            padding-bottom: env(safe-area-inset-bottom, 24px);
+        }
+
+        /* Masquer la scrollbar tout en permettant le scroll */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        body {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 min-h-screen">
+
+<div id="app" class="min-h-screen flex flex-col">
+
+    <!-- 1. Navigation Bar (Sticky + Glassmorphism) -->
+    <!-- Note: isScrolled change le padding et la taille du texte -->
+    <nav class="sticky top-0 z-40 w-full transition-all duration-300 border-b border-transparent"
+         :class="isScrolled ? 'glass-nav border-white/20 shadow-sm' : 'bg-transparent'">
+      
+      <div class="px-6 transition-all duration-300 ease-out mx-auto max-w-2xl"
+           :class="isScrolled ? 'py-3' : 'pt-6 pb-4'">
+        
+        <div class="flex items-center justify-between">
+          <!-- Left: Logo + Title -->
+          <div class="flex items-center gap-3 overflow-hidden">
+            <!-- Logo Icon -->
+            <div class="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm cursor-pointer" @click="reloadPage">
+              <span class="text-white font-bold text-lg leading-none pt-0.5">C</span>
+            </div>
+            
+            <!-- Animated Title -->
+            <h1 class="font-bold tracking-tight transition-all duration-300 origin-left whitespace-nowrap"
+                :class="isScrolled ? 'text-xl' : 'text-4xl'">
+              CodeMaster
+            </h1>
+          </div>
+
+          <!-- Right: Actions Icons -->
+          <div class="flex items-center gap-1 flex-shrink-0">
+            <!-- Settings -->
+            <button @click="goToSettings"
+                    class="w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-slate-200/50 active:scale-90 text-slate-600">
+              <i class="ph ph-gear text-xl"></i>
+            </button>
+
+            <!-- Stats -->
+            <button @click="goToStats"
+                    class="relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 hover:bg-slate-200/50 active:scale-90 text-slate-600">
+              <i class="ph ph-chart-bar text-xl"></i>
+              <!-- Badge Notification -->
+              <span v-if="showStatsBadge" 
+                    class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full animate-pulse ring-2 ring-white/80"></span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- 2. Main Content -->
+    <main class="px-6 pb-12 space-y-6 pt-2 mx-auto max-w-2xl w-full flex-grow safe-pb">
+      
+      <!-- A. Welcome Card -->
+      <section class="rounded-[2rem] bg-white p-6 shadow-apple-card transition-transform duration-500 ease-out">
+        <h2 class="text-3xl font-bold text-slate-900 mb-2">👋 Bonjour !</h2>
+        <p class="text-base text-slate-500 leading-relaxed font-medium">
+          Prêt pour un entraînement ?<br>
+          Choisis une catégorie pour commencer.
+        </p>
+      </section>
+
+      <!-- B. Content State: EMPTY (Alert) -->
+      <!-- Toggle la variable 'hasData' dans le script pour tester cet état -->
+      <section v-if="categories.length === 0" 
+               class="rounded-[2rem] bg-red-50/80 backdrop-blur-sm p-6 space-y-4 border border-red-200/50">
+        
+        <div class="flex gap-4">
+          <i class="ph ph-warning text-2xl text-red-600 mt-0.5 flex-shrink-0"></i>
+          <div class="space-y-1">
+            <h3 class="text-lg font-semibold text-red-900">Aucune catégorie disponible</h3>
+            <p class="text-sm text-red-700/90 leading-relaxed">
+              Vous devez d'abord charger les questions depuis les fichiers JSON pour pouvoir jouer.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex gap-3 pt-2">
+          <button @click="reloadQuestions"
+                  class="flex-1 px-4 py-3 rounded-full bg-white/60 text-slate-600 font-semibold text-sm hover:bg-white active:scale-95 transition-all duration-200 shadow-sm border border-transparent hover:border-slate-200 flex items-center justify-center gap-2">
+            <i class="ph ph-arrow-clockwise"></i> Recharger
+          </button>
+          <button @click="goToImport"
+                  class="flex-1 px-4 py-3 rounded-full bg-blue-600 text-white font-semibold text-sm hover:bg-blue-700 active:scale-95 transition-all duration-200 shadow-apple-blue flex items-center justify-center gap-2">
+            <i class="ph ph-download-simple"></i> Import
+          </button>
+        </div>
+      </section>
+
+      <!-- C. Content State: DATA LOADED -->
+      <template v-else>
+        <!-- Categories Grid -->
+        <section class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+          <button v-for="cat in categories" 
+                  :key="cat.id"
+                  @click="selectCategory(cat)"
+                  class="group relative rounded-[2rem] bg-white p-6 flex flex-col items-center gap-4 border border-slate-100/50 shadow-[0_4px_12px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_20px_rgba(0,0,0,0.08)] hover:bg-slate-50/50 active:scale-95 transition-all duration-200 ease-out cursor-pointer text-center">
+            
+            <!-- Icon Badge -->
+            <div class="w-14 h-14 rounded-full flex items-center justify-center transition-transform duration-200 group-hover:scale-110"
+                 :class="cat.colorClass.bg">
+               <!-- Utilisation dynamique des classes Phosphor -->
+               <i :class="['ph', cat.iconClass, 'text-2xl', cat.colorClass.text]"></i>
+            </div>
+
+            <!-- Label -->
+            <span class="text-lg font-semibold text-slate-900 line-clamp-2 leading-tight">
+              {{ cat.label }}
+            </span>
+          </button>
+        </section>
+
+        <!-- Random Mode Button (Primary Action) -->
+        <button @click="openRandomConfig"
+                class="w-full group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-700 p-1 shadow-apple-blue hover:shadow-lg active:scale-[0.98] transition-all duration-200 mt-2">
+          
+          <div class="px-5 py-4 flex items-center justify-between w-full h-full">
+            <div class="flex items-center gap-4">
+              <!-- Icon Glass Container -->
+              <div class="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center shadow-inner border border-white/10 group-hover:scale-110 transition-transform duration-300">
+                <i class="ph ph-shuffle text-white text-2xl"></i>
+              </div>
+              
+              <div class="text-left">
+                <div class="text-lg font-bold text-white">Mode Aléatoire</div>
+                <div class="text-sm font-medium text-blue-100/90">Mélange les catégories</div>
+              </div>
+            </div>
+
+            <i class="ph ph-caret-right text-white/60 text-xl group-hover:text-white group-hover:translate-x-1 transition-all duration-200"></i>
+          </div>
+        </button>
+      </template>
+
+      <!-- 3. Footer Link (Tertiary) -->
+      <footer class="pt-8 border-t border-slate-200/60 flex justify-center pb-6 mt-auto">
+        <button @click="goToImport"
+                class="inline-flex items-center gap-2 text-blue-600 font-medium hover:text-blue-700 active:scale-95 active:opacity-70 transition-all duration-200 px-4 py-2 rounded-xl hover:bg-blue-50/50">
+          <i class="ph ph-download-simple text-lg"></i>
+          <span>Gestion des données / Import</span>
+        </button>
+      </footer>
+
+    </main>
+
+    <!-- Modal Mockup (Juste pour le feedback visuel de navigation) -->
+    <div v-if="toastMessage" class="fixed bottom-10 left-1/2 transform -translate-x-1/2 bg-slate-800/90 text-white px-6 py-3 rounded-full backdrop-blur-md shadow-lg z-50 transition-all animate-bounce">
+        {{ toastMessage }}
+    </div>
+
+</div>
+
+<script>
+    const { createApp, ref, onMounted, onUnmounted } = Vue;
+
+    createApp({
+        setup() {
+            const isScrolled = ref(false);
+            const showStatsBadge = ref(true);
+            const toastMessage = ref(null);
+
+            // Données Mockées
+            const categories = ref([
+                { id: 'js', label: 'JavaScript', iconClass: 'ph-code', colorClass: { bg: 'bg-amber-100', text: 'text-amber-600' } },
+                { id: 'vue', label: 'Vue.js', iconClass: 'ph-palette', colorClass: { bg: 'bg-green-100', text: 'text-green-600' } },
+                { id: 'react', label: 'React', iconClass: 'ph-rocket', colorClass: { bg: 'bg-blue-100', text: 'text-blue-600' } },
+                { id: 'node', label: 'Node.js', iconClass: 'ph-database', colorClass: { bg: 'bg-emerald-100', text: 'text-emerald-600' } },
+                { id: 'css', label: 'CSS Mastery', iconClass: 'ph-paint-brush', colorClass: { bg: 'bg-purple-100', text: 'text-purple-600' } },
+                { id: 'web', label: 'Web Culture', iconClass: 'ph-globe', colorClass: { bg: 'bg-cyan-100', text: 'text-cyan-600' } },
+            ]);
+
+            // Gestion du scroll pour l'animation du titre
+            const handleScroll = () => {
+                isScrolled.value = window.scrollY > 10;
+            };
+
+            onMounted(() => {
+                window.addEventListener('scroll', handleScroll);
+            });
+
+            onUnmounted(() => {
+                window.removeEventListener('scroll', handleScroll);
+            });
+
+            // Mock Navigation pour la démo
+            const showToast = (msg) => {
+                toastMessage.value = "Navigation vers : " + msg;
+                setTimeout(() => toastMessage.value = null, 2000);
+            };
+
+            const selectCategory = (cat) => showToast(`/quiz/difficulty/${cat.id}`);
+            const openRandomConfig = () => showToast("/quiz/randomconfig");
+            const goToStats = () => showToast("/stats");
+            const goToSettings = () => showToast("/settings/categories");
+            const goToImport = () => showToast("/settings/import");
+            const reloadQuestions = () => {
+                toastMessage.value = "Rechargement...";
+                setTimeout(() => toastMessage.value = null, 1000);
+                // Pour tester l'état vide, on pourrait vider le tableau ici
+                // categories.value = []; 
+            };
+            const reloadPage = () => window.location.reload();
+
+            return {
+                isScrolled,
+                showStatsBadge,
+                categories,
+                selectCategory,
+                openRandomConfig,
+                goToStats,
+                goToSettings,
+                goToImport,
+                reloadQuestions,
+                reloadPage,
+                toastMessage
+            };
+        }
+    }).mount('#app');
+</script>
+
+</body>
+</html>

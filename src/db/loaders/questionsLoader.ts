@@ -88,7 +88,7 @@ export async function loadQuestionsFromJsonFile(
         ...q,
         explication: q.explication || '',
         difficulte: q.difficulte as Exclude<Difficulty, 'random'>,
-        categorie: normalizeCategoryName(q.categorie),
+        categorie: q.categorie,
         countApparition: 0,
         countBonneReponse: 0,
       }

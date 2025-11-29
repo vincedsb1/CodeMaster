@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Gestion des Catégories</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- React & ReactDOM -->
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    
+    <!-- Babel for JSX -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <style>
+        /* Apple-like smooth scrolling and fonts */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #F2F2F7; /* Apple System Gray 6 */
+            -webkit-tap-highlight-color: transparent;
+            overscroll-behavior-y: none;
+        }
+
+        /* Hide scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Apple-style spring animation for swipe */
+        .smooth-transform {
+            transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* Prevent text selection during swipe */
+        .noselect {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useRef } = React;
+
+        // --- MOCK DATA & CONSTANTS ---
+
+        const INITIAL_CATEGORIES = [
+            { id: 'cat_1', label: 'Informatique', icon: 'code', color: 'blue', questionCount: 24 },
+            { id: 'cat_2', label: 'Mathématiques', icon: 'calculator', color: 'orange', questionCount: 15 },
+            { id: 'cat_3', label: 'Sciences', icon: 'flask', color: 'green', questionCount: 12 },
+            { id: 'cat_4', label: 'Histoire', icon: 'globe', color: 'amber', questionCount: 8 },
+            { id: 'cat_5', label: 'Art & Design', icon: 'palette', color: 'purple', questionCount: 3 },
+            { id: 'cat_6', label: 'Géographie', icon: 'map-trifold', color: 'cyan', questionCount: 18 },
+        ];
+
+        // Apple System Colors adjusted for the new "Squircle" style
+        // Using slight transparencies for backgrounds to match iOS styling
+        const COLOR_MAP = {
+            slate:  { bg: 'bg-slate-100', text: 'text-slate-600' },
+            red:    { bg: 'bg-red-100',   text: 'text-red-600' },
+            orange: { bg: 'bg-orange-100',text: 'text-orange-600' },
+            amber:  { bg: 'bg-amber-100', text: 'text-amber-600' },
+            yellow: { bg: 'bg-yellow-100',text: 'text-yellow-600' },
+            lime:   { bg: 'bg-lime-100',  text: 'text-lime-600' },
+            green:  { bg: 'bg-green-100', text: 'text-green-600' },
+            emerald:{ bg: 'bg-emerald-100',text: 'text-emerald-600' },
+            teal:   { bg: 'bg-teal-100',  text: 'text-teal-600' },
+            cyan:   { bg: 'bg-cyan-100',  text: 'text-cyan-600' },
+            blue:   { bg: 'bg-blue-100',  text: 'text-blue-600' },
+            indigo: { bg: 'bg-indigo-100',text: 'text-indigo-600' },
+            purple: { bg: 'bg-purple-100',text: 'text-purple-600' },
+            pink:   { bg: 'bg-pink-100',  text: 'text-pink-600' },
+        };
+
+        // --- COMPONENTS ---
+
+        // 1. Delete Confirmation Modal
+        const DeleteDialog = ({ isOpen, onCancel, onConfirm }) => {
+            if (!isOpen) return null;
+
+            return (
+                <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+                    <div className="absolute inset-0 bg-black/20 backdrop-blur-sm transition-opacity" onClick={onCancel}></div>
+                    <div className="relative bg-white/90 backdrop-blur-xl rounded-[20px] w-full max-w-[270px] pt-6 shadow-2xl transform transition-all scale-100 text-center overflow-hidden">
+                        <h3 className="text-[17px] font-semibold text-gray-900 mb-1 px-4">Supprimer la catégorie ?</h3>
+                        <p className="text-[13px] text-gray-500 mb-6 px-4 leading-relaxed">
+                            Cette action supprimera également toutes les questions associées.
+                        </p>
+                        <div className="flex border-t border-gray-300/50">
+                            <button 
+                                onClick={onCancel}
+                                className="flex-1 py-3 text-[17px] text-[#007AFF] font-normal hover:bg-gray-50 transition-colors active:bg-gray-200"
+                            >
+                                Annuler
+                            </button>
+                            <div className="w-[0.5px] bg-gray-300/50"></div>
+                            <button 
+                                onClick={onConfirm}
+                                className="flex-1 py-3 text-[17px] text-[#FF3B30] font-semibold hover:bg-gray-50 transition-colors active:bg-gray-200"
+                            >
+                                Supprimer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // 2. Swipeable Category Item (Refined Apple Style)
+        const CategoryItem = ({ category, onDelete, onClick }) => {
+            const [offset, setOffset] = useState(0);
+            const [isDragging, setIsDragging] = useState(false);
+            const startX = useRef(0);
+            const currentOffset = useRef(0);
+            const itemRef = useRef(null);
+
+            const DELETE_THRESHOLD = -60;
+            const MAX_SWIPE = -90; // Slightly wider to show the red better
+
+            // Handlers for Touch
+            const handleTouchStart = (e) => {
+                startX.current = e.touches[0].clientX;
+                setIsDragging(true);
+            };
+
+            const handleTouchMove = (e) => {
+                if (!isDragging) return;
+                const touchX = e.touches[0].clientX;
+                const diff = touchX - startX.current;
+                
+                let newOffset = currentOffset.current + diff;
+                
+                if (newOffset > 0) newOffset = 0; 
+                if (newOffset < MAX_SWIPE) newOffset = MAX_SWIPE + (newOffset - MAX_SWIPE) * 0.2; // Rubber band effect
+
+                setOffset(newOffset);
+            };
+
+            const handleTouchEnd = () => {
+                setIsDragging(false);
+                if (offset < DELETE_THRESHOLD) {
+                    setOffset(MAX_SWIPE);
+                    currentOffset.current = MAX_SWIPE;
+                } else {
+                    setOffset(0);
+                    currentOffset.current = 0;
+                }
+            };
+
+            // Mouse Simulation
+            const handleMouseDown = (e) => {
+                startX.current = e.clientX;
+                setIsDragging(true);
+            };
+            const handleMouseMove = (e) => {
+                if (!isDragging) return;
+                e.preventDefault(); 
+                const diff = e.clientX - startX.current;
+                let newOffset = currentOffset.current + diff;
+                if (newOffset > 0) newOffset = 0;
+                if (newOffset < MAX_SWIPE) newOffset = MAX_SWIPE + (newOffset - MAX_SWIPE) * 0.2;
+                setOffset(newOffset);
+            };
+            const handleMouseUp = () => {
+                if (!isDragging) return;
+                setIsDragging(false);
+                if (offset < DELETE_THRESHOLD) {
+                    setOffset(MAX_SWIPE);
+                    currentOffset.current = MAX_SWIPE;
+                } else {
+                    setOffset(0);
+                    currentOffset.current = 0;
+                }
+            };
+
+            const colorStyles = COLOR_MAP[category.color] || COLOR_MAP.slate;
+
+            return (
+                <div 
+                    className="relative overflow-hidden group noselect"
+                    style={{ 
+                        height: '80px', // slightly shorter for denser feel
+                        borderRadius: '16px', // "Squircle" radius
+                        boxShadow: '0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.02)' // Very subtle shadow
+                    }} 
+                >
+                    {/* Background Delete Layer (Revealed on Swipe) */}
+                    <div className="absolute inset-0 bg-[#FF3B30] flex items-center justify-end pr-5 z-0 rounded-[16px]">
+                         <button 
+                            onClick={(e) => {
+                                e.stopPropagation();
+                                onDelete(category.id);
+                            }}
+                            className="flex flex-col items-center justify-center w-[80px] h-full text-white"
+                        >
+                            <i className="ph ph-trash-simple text-2xl mb-1"></i>
+                            <span className="text-[11px] font-semibold tracking-wide">Supprimer</span>
+                        </button>
+                    </div>
+
+                    {/* Main Content Layer (White Card) */}
+                    <div
+                        ref={itemRef}
+                        className={`absolute inset-0 w-full bg-white flex items-center gap-4 px-4 cursor-pointer active:bg-[#F2F2F7] transition-colors duration-200 ${!isDragging ? 'smooth-transform' : ''}`}
+                        style={{ transform: `translateX(${offset}px)` }}
+                        onTouchStart={handleTouchStart}
+                        onTouchMove={handleTouchMove}
+                        onTouchEnd={handleTouchEnd}
+                        onMouseDown={handleMouseDown}
+                        onMouseMove={handleMouseMove}
+                        onMouseUp={handleMouseUp}
+                        onMouseLeave={handleMouseUp}
+                        onClick={() => {
+                            if (offset === 0) onClick(category.id);
+                        }}
+                    >
+                        {/* Icon - Apple "Squircle" Style */}
+                        <div className={`w-[48px] h-[48px] rounded-[12px] flex items-center justify-center flex-shrink-0 ${colorStyles.bg} transition-transform group-active:scale-95 duration-200`}>
+                            <i className={`ph ph-${category.icon} text-2xl ${colorStyles.text}`}></i>
+                        </div>
+
+                        {/* Text Info */}
+                        <div className="flex-1 min-w-0 flex flex-col justify-center h-full py-2">
+                            <div className="flex justify-between items-baseline mb-0.5">
+                                <span className="font-semibold text-[17px] text-gray-900 truncate tracking-tight">
+                                    {category.label}
+                                </span>
+                            </div>
+                            <span className="text-[14px] text-gray-500 font-normal">
+                                {category.questionCount} question{category.questionCount !== 1 ? 's' : ''}
+                            </span>
+                        </div>
+
+                        {/* Chevron - Subtler */}
+                        <div className="flex-shrink-0 text-[#C7C7CC] pl-1">
+                            <i className="ph ph-caret-right text-lg font-bold"></i>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        // 3. FAB
+        const FloatingActionButton = ({ onClick }) => {
+            return (
+                <button
+                    onClick={onClick}
+                    className="fixed bottom-8 right-6 z-40 w-[56px] h-[56px] rounded-full bg-[#007AFF] hover:bg-[#006ee6] text-white shadow-lg active:scale-90 transition-all duration-300 cubic-bezier(0.175, 0.885, 0.32, 1.275) flex items-center justify-center"
+                >
+                    <i className="ph ph-plus text-[28px] font-bold"></i>
+                </button>
+            );
+        };
+
+        // 4. Empty State
+        const EmptyState = () => (
+            <div className="text-center py-24 space-y-6 animate-fade-in opacity-60">
+                <div className="w-20 h-20 bg-gray-100 rounded-[20px] flex items-center justify-center mx-auto">
+                    <i className="ph ph-folder-dashed text-4xl text-gray-400"></i>
+                </div>
+                <div>
+                    <p className="text-gray-900 font-semibold text-lg">Aucune catégorie</p>
+                    <p className="text-sm text-gray-500 mt-1 max-w-xs mx-auto px-4">
+                        Vos catégories apparaîtront ici. Appuyez sur + pour commencer.
+                    </p>
+                </div>
+            </div>
+        );
+
+        // --- MAIN APP COMPONENT ---
+
+        const App = () => {
+            const [categories, setCategories] = useState(INITIAL_CATEGORIES);
+            const [deleteModal, setDeleteModal] = useState({ isOpen: false, categoryId: null });
+
+            const handleCategoryClick = (id) => {
+                console.log(`Open Category: ${id}`);
+            };
+
+            const handleCreateClick = () => {
+                const colors = Object.keys(COLOR_MAP);
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                const newCat = {
+                    id: `cat_${Date.now()}`,
+                    label: `Nouvelle catégorie`,
+                    icon: 'star',
+                    color: randomColor,
+                    questionCount: 0
+                };
+                setCategories([...categories, newCat]);
+                setTimeout(() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' }), 100);
+            };
+
+            const initiateDelete = (id) => setDeleteModal({ isOpen: true, categoryId: id });
+            
+            const confirmDelete = () => {
+                // Animation delay could be added here
+                setCategories(categories.filter(c => c.id !== deleteModal.categoryId));
+                setDeleteModal({ isOpen: false, categoryId: null });
+            };
+
+            return (
+                <div className="min-h-screen pb-32">
+                    
+                    {/* Large Title Header */}
+                    <header className="pt-14 px-5 pb-4 bg-[#F2F2F7]">
+                        <div className="max-w-xl mx-auto flex items-end justify-between">
+                            <div>
+                                <h1 className="text-[34px] font-bold text-black tracking-tight leading-tight">
+                                    Catégories
+                                </h1>
+                                <p className="text-[15px] text-gray-500 font-medium mt-1">
+                                    Bibliothèque de questions
+                                </p>
+                            </div>
+                        </div>
+                    </header>
+
+                    {/* Content List */}
+                    <main className="px-4 max-w-xl mx-auto">
+                        <div className="flex flex-col gap-3">
+                            {categories.length > 0 ? (
+                                categories.map(category => (
+                                    <CategoryItem 
+                                        key={category.id} 
+                                        category={category} 
+                                        onClick={handleCategoryClick}
+                                        onDelete={initiateDelete}
+                                    />
+                                ))
+                            ) : (
+                                <EmptyState />
+                            )}
+                        </div>
+                    </main>
+
+                    {/* FAB */}
+                    <FloatingActionButton onClick={handleCreateClick} />
+
+                    {/* Modal */}
+                    <DeleteDialog 
+                        isOpen={deleteModal.isOpen} 
+                        onConfirm={confirmDelete} 
+                        onCancel={() => setDeleteModal({ isOpen: false, categoryId: null })} 
+                    />
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
