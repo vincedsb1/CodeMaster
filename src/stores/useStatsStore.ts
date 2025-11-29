@@ -54,6 +54,13 @@ export const useStatsStore = defineStore('stats', () => {
     return Math.max(0, xpEnd - globalStats.value.xp)
   })
 
+  const isDailyChallengeCompleted = computed(() => {
+    const today = new Date().toISOString().split('T')[0]
+    return globalStats.value.historiqueSessions.some(
+      (s) => s.isDailyChallenge && s.dateJour === today
+    )
+  })
+
   // Actions
   async function loadStats() {
     try {
@@ -87,7 +94,13 @@ export const useStatsStore = defineStore('stats', () => {
       // In a real persistent system, we would store XP incrementally.
       // Here, we re-calculate it from session history to ensure consistency
       // since we don't have a dedicated User table yet.
-      const totalXp = completedSessions.reduce((acc, s) => acc + calculateSessionXp(s.questions), 0)
+      const totalXp = completedSessions.reduce((acc, s) => {
+        // Check if legacy session without isDailyChallenge (treat as false)
+        let xp = calculateSessionXp(s.questions)
+        if (s.isDailyChallenge) xp *= 2
+        return acc + xp
+      }, 0)
+      
       const level = calculateLevel(totalXp)
 
       globalStats.value = {
@@ -110,7 +123,13 @@ export const useStatsStore = defineStore('stats', () => {
 
     try {
       // Calculate XP gain for this session
-      const sessionXp = calculateSessionXp(session.questions)
+      let sessionXp = calculateSessionXp(session.questions)
+      
+      // Double XP for Daily Challenge
+      if (session.isDailyChallenge) {
+        sessionXp *= 2
+      }
+      
       xpGainedLastSession.value = sessionXp
 
       const allSessions = await sessionRepository.getAll()
@@ -253,11 +272,13 @@ export const useStatsStore = defineStore('stats', () => {
     globalStats,
     previousStats,
     newlyUnlockedBadges,
+    xpGainedLastSession,
 
     // Computed
     badgesNonLus,
     levelProgress,
     xpToNextLevel,
+    isDailyChallengeCompleted,
 
     // Actions
     loadStats,

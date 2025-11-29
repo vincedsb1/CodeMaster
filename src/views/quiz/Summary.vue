@@ -4,11 +4,16 @@ import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/useQuizStore'
 import { useStatsStore } from '@/stores/useStatsStore'
 import { AppRoutes } from '@/router/routes'
+import { calculateLevel } from '@/logic/gamification'
 
 const router = useRouter()
 const quizStore = useQuizStore()
 const statsStore = useStatsStore()
 const displayScore = ref(0)
+
+// XP Animation State
+const displayXp = ref(0)
+const displayBonusXp = ref(0)
 
 // Computed values
 const session = computed(() => quizStore.activeSession)
@@ -20,6 +25,28 @@ const correctAnswers = computed(() => {
 const totalQuestions = computed(() => session.value?.nbQuestions || 0)
 const averageScore = computed(() => Math.round(unref(statsStore.globalStats)?.moyenneGlobale || 0))
 const currentStreak = computed(() => unref(statsStore.globalStats)?.streakActuel || 0)
+
+// XP Calculations
+const totalXp = computed(() => statsStore.globalStats.xp || 0)
+const xpGain = computed(() => statsStore.xpGainedLastSession || 0)
+const previousXp = computed(() => Math.max(0, totalXp.value - xpGain.value))
+const isDailyChallenge = computed(() => session.value?.isDailyChallenge || false)
+
+// Split XP for animation
+const baseXpGain = computed(() => {
+  const gain = xpGain.value || 0
+  return isDailyChallenge.value ? Math.floor(gain / 2) : gain
+})
+
+const bonusXpGain = computed(() => {
+  const gain = xpGain.value || 0
+  return isDailyChallenge.value ? Math.ceil(gain / 2) : 0
+})
+
+// Level Calculations
+const currentLevel = computed(() => calculateLevel(totalXp.value))
+const previousLevel = computed(() => calculateLevel(previousXp.value))
+const isLevelUp = computed(() => currentLevel.value > previousLevel.value)
 
 // Score vs Moyenne
 const isAboveAverage = computed(() => score.value > averageScore.value)
@@ -111,6 +138,34 @@ onMounted(async () => {
 
   animate()
 
+  // Animate XP
+  setTimeout(() => {
+    const xpDuration = 1500
+    const xpStartTime = Date.now()
+    
+    const animateXp = () => {
+      const elapsed = Date.now() - xpStartTime
+      const progress = Math.min(elapsed / xpDuration, 1)
+      
+      // Ease out cubic
+      const ease = 1 - Math.pow(1 - progress, 3)
+      
+      displayXp.value = Math.round((baseXpGain.value || 0) * ease)
+      
+      if (isDailyChallenge.value) {
+        // Bonus XP starts animating halfway through
+        const bonusProgress = Math.max(0, (progress - 0.5) * 2)
+        const bonusEase = 1 - Math.pow(1 - bonusProgress, 3)
+        displayBonusXp.value = Math.round((bonusXpGain.value || 0) * bonusEase)
+      }
+      
+      if (progress < 1) {
+        requestAnimationFrame(animateXp)
+      }
+    }
+    requestAnimationFrame(animateXp)
+  }, 500)
+
   // Déclencher confetti après 500ms
   setTimeout(() => {
     createConfetti()
@@ -186,6 +241,41 @@ async function replayQuiz() {
           {{ congratulationsMessage }}
         </p>
       </div>
+
+      <!-- XP Gained Card -->
+      <section class="rounded-[24px] bg-white border border-indigo-100 shadow-sm p-5 animate-page-enter" style="animation-delay: 0.2s;">
+        <div class="flex justify-between items-center mb-2">
+          <span class="text-sm font-bold text-slate-500 uppercase tracking-wider">XP Gagnée</span>
+          <div class="flex items-center gap-2">
+            <span class="text-2xl font-bold text-indigo-600">+{{ (displayXp || 0) + (displayBonusXp || 0) }}</span>
+            <span class="text-sm font-semibold text-indigo-400">XP</span>
+          </div>
+        </div>
+
+        <!-- Progress Bar Container -->
+        <div class="relative h-4 bg-slate-100 rounded-full overflow-hidden">
+          <!-- Base XP Bar -->
+          <div class="absolute top-0 left-0 h-full bg-indigo-500 transition-all duration-300 ease-out"
+               :style="{ width: `${(baseXpGain + bonusXpGain) > 0 ? (displayXp / (baseXpGain + bonusXpGain)) * 100 : 0}%` }"></div>
+          
+          <!-- Bonus XP Bar (Stacked) -->
+          <div v-if="isDailyChallenge" 
+               class="absolute top-0 h-full bg-orange-400 transition-all duration-300 ease-out"
+               :style="{ 
+                 left: `${(baseXpGain + bonusXpGain) > 0 ? (displayXp / (baseXpGain + bonusXpGain)) * 100 : 0}%`,
+                 width: `${(baseXpGain + bonusXpGain) > 0 ? (displayBonusXp / (baseXpGain + bonusXpGain)) * 100 : 0}%` 
+               }"></div>
+        </div>
+
+        <div v-if="isDailyChallenge" class="mt-2 flex items-center justify-center gap-1 text-xs font-bold text-orange-600 animate-pulse">
+          <i class="ph-fill ph-lightning"></i>
+          BONUS QUOTIDIEN x2 APPLIQUÉ !
+        </div>
+
+        <div v-if="isLevelUp" class="mt-3 text-center p-2 bg-indigo-50 rounded-xl border border-indigo-100 animate-bounce-short">
+          <span class="font-bold text-indigo-700">Niveau Supérieur ! {{ previousLevel }} ➔ {{ currentLevel }}</span>
+        </div>
+      </section>
 
       <!-- Score Circle (Animated SVG) -->
       <section class="rounded-[32px] bg-white/60 backdrop-blur-md border border-white/40 shadow-[0_4px_12px_rgba(0,0,0,0.05)] p-8 flex flex-col items-center relative overflow-hidden">
