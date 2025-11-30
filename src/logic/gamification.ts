@@ -1,4 +1,4 @@
-import type { Difficulty, SessionQuestion } from '@/types/models'
+import type { Difficulty, SessionQuestion, QuizSession, Badge } from '@/types/models'
 
 export const XP_TABLE = {
   EASY: 10,
@@ -82,4 +82,119 @@ export function calculateSessionXp(questions: SessionQuestion[]): number {
   })
 
   return totalXp
+}
+
+/**
+ * Checks for new badges based on session results and history.
+ * Returns an array of newly unlocked badges.
+ */
+export function checkNewBadges(
+  session: QuizSession,
+  history: QuizSession[],
+  currentStreak: number,
+  existingBadges: Badge[]
+): Badge[] {
+  const newBadges: Badge[] = []
+  const completedSessions = history.filter(s => s.dateFin !== null)
+  
+  // Helper to unlock
+  const unlock = (id: string) => {
+    const badge = existingBadges.find((b) => b.id === id)
+    if (badge && badge.statut === 'verrouille') {
+      badge.statut = 'debloque'
+      badge.dateDebloque = new Date().toISOString()
+      newBadges.push(badge)
+    }
+  }
+
+  // 1. Débutant (1er quiz)
+  if (completedSessions.length >= 1) unlock('first_quiz')
+
+  // 2. Perfection (100% score)
+  if (session.notePourcentage === 100) unlock('perfect_score')
+
+  // 3. Série 3 jours
+  if (currentStreak >= 3) unlock('streak_3')
+
+  // 4. Série 7 jours
+  if (currentStreak >= 7) unlock('streak_7')
+
+  // 5. Série 14 jours
+  if (currentStreak >= 14) unlock('streak_14')
+
+  // 6. Série 30 jours
+  if (currentStreak >= 30) unlock('streak_30')
+
+  // 7. Volume 10 quiz
+  if (completedSessions.length >= 10) unlock('volume_10')
+
+  // 8. Volume 50 quiz
+  if (completedSessions.length >= 50) unlock('volume_50')
+
+  // 9. Volume 100 quiz (Marathonien renamed/mapped)
+  if (completedSessions.length >= 100) unlock('marathon')
+
+  // 10. Score cumulé 1000 XP
+  // Note: We need total XP. Assuming it's calculated elsewhere or passed.
+  // For simplicity, let's approximate from scorePondere if XP not available in session?
+  // Actually, we need total XP from store. Let's use a heuristic or pass it.
+  // Better: The store handles this. But logic should be here.
+  // We'll skip XP badges here and rely on store? No, logic should be pure.
+  // Let's assume we calculate XP from history.
+  const totalXp = completedSessions.reduce((sum, s) => sum + calculateSessionXp(s.questions), 0)
+  if (totalXp >= 1000) unlock('score_1000')
+
+  // 11. Score cumulé 5000 XP
+  if (totalXp >= 5000) unlock('score_5000')
+
+  // 12. Difficulté (Quiz Difficile sans faute)
+  if (session.difficulteChoisie === 'difficile' && session.notePourcentage === 100) {
+    unlock('hard_perfect')
+  }
+
+  // 13. Persévérance (Finir avec < 50%)
+  if (session.notePourcentage < 50) unlock('persistance')
+
+  // 14. Vitesse (Speedster: >10 questions, >80% score, < 2 min)
+  const durationMs = new Date(session.dateFin!).getTime() - new Date(session.dateDebut).getTime()
+  if (session.nbQuestions >= 10 && session.notePourcentage >= 80 && durationMs < 120000) {
+    unlock('speedster')
+  }
+
+  // 15. Explorateur (Joué Facile, Moyen, Difficile)
+  const difficulties = new Set(completedSessions.map(s => s.difficulteChoisie))
+  if (difficulties.has('facile') && difficulties.has('moyen') && difficulties.has('difficile')) {
+    unlock('explorer')
+  }
+
+  // 16. Insomniaque (Jouer entre 2h et 5h du matin)
+  const hour = new Date(session.dateFin!).getHours()
+  if (hour >= 2 && hour < 5) unlock('night_owl')
+
+  // 17. Lève-tôt (Jouer entre 5h et 8h du matin)
+  if (hour >= 5 && hour < 8) unlock('early_bird')
+
+  // 18. Polyglotte (Jouer 3 catégories différentes)
+  const categoriesPlayed = new Set(completedSessions.flatMap(s => s.categories))
+  if (categoriesPlayed.size >= 3) unlock('polyglot')
+
+  // 19. Focus (5 quiz de suite même catégorie)
+  // Check last 5 sessions
+  if (completedSessions.length >= 5) {
+    const last5 = completedSessions.slice(-5)
+    const firstCat = last5[0]?.categories[0]
+    if (firstCat && last5.every(s => s.categories.length === 1 && s.categories[0] === firstCat)) {
+      unlock('focus')
+    }
+  }
+
+  // 20. Weekend Warrior (Jouer Samedi et Dimanche)
+  const hasSat = completedSessions.some(s => new Date(s.dateFin!).getDay() === 6)
+  const hasSun = completedSessions.some(s => new Date(s.dateFin!).getDay() === 0)
+  if (hasSat && hasSun) unlock('weekend_warrior')
+
+  // 21. Daily Challenge (Jouer un défi quotidien)
+  if (session.isDailyChallenge) unlock('daily_challenger')
+
+  return newBadges
 }

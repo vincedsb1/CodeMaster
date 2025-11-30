@@ -15,6 +15,7 @@ import SummaryView from '@/views/quiz/Summary.vue'
 
 // Other Views
 import StatsView from '@/views/stats/Index.vue'
+import ProfileView from '@/views/stats/Profile.vue'
 import ImportView from '@/views/settings/Import.vue'
 import SelectCategoryView from '@/views/settings/SelectCategory.vue'
 import CategoriesView from '@/views/settings/Categories.vue'
@@ -63,6 +64,11 @@ const routes: RouteRecordRaw[] = [
         path: 'stats',
         name: AppRoutes.Stats,
         component: StatsView,
+      },
+      {
+        path: 'profile',
+        name: AppRoutes.Profile,
+        component: ProfileView,
       },
       {
         path: 'settings/import',

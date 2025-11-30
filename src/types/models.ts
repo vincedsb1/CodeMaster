@@ -64,6 +64,7 @@ export interface GlobalStats {
   historiqueSessions: QuizSession[]
   xp: number
   level: number
+  avatar?: string
 }
 
 export interface ImportData {

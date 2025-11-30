@@ -11,7 +11,7 @@ const router = useRouter()
 const route = useRoute()
 
 // Hide header on stats page (has its own navigation)
-const showHeader = computed(() => !route.path.startsWith('/stats'))
+const showHeader = computed(() => !route.path.startsWith('/stats') && !route.path.startsWith('/profile'))
 
 function abandonResume() {
   quizStore.abandonSession()

@@ -75,6 +75,19 @@ async function quitQuiz() {
   quizStore.clearActiveSession()
   await router.push({ name: AppRoutes.Home })
 }
+
+function handleGlobalClick(event: MouseEvent) {
+  // If not answered, do nothing
+  if (!hasAnswered.value) return
+
+  // Check if the target is interactive (button, link, etc.) to avoid conflict
+  const target = event.target as HTMLElement
+  const isInteractive = target.closest('button, a, [role="button"]')
+  
+  if (!isInteractive) {
+    handleNext()
+  }
+}
 </script>
 
 <template>
@@ -82,7 +95,7 @@ async function quitQuiz() {
     <p>Quiz non trouvé.</p>
   </div>
 
-  <div v-else class="flex flex-col bg-slate-50 text-slate-900 h-full relative">
+  <div v-else class="flex flex-col bg-slate-50 text-slate-900 h-full relative" @click="handleGlobalClick">
     <!-- Progress Bar (Fixed Top) -->
     <div class="fixed top-0 left-0 h-1.5 bg-blue-600 transition-all duration-500 ease-out z-50"
          :style="{ width: progressPercent + '%' }"></div>

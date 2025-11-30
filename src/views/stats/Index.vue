@@ -48,6 +48,7 @@ const currentLevel = computed(() => globalStats.value.level || 1)
 const currentTitle = computed(() => getTitleForLevel(currentLevel.value))
 const levelProgress = computed(() => statsStore.levelProgress)
 const xpToNext = computed(() => statsStore.xpToNextLevel)
+const currentAvatar = computed(() => globalStats.value.avatar || '🧑‍💻')
 
 // Actions
 async function goHome() {
@@ -56,6 +57,10 @@ async function goHome() {
 
 function goBack() {
   router.back()
+}
+
+function goToProfile() {
+  router.push({ name: AppRoutes.Profile })
 }
 
 // Modal Logic
@@ -99,16 +104,21 @@ function isBadgeUnlocked(badge: Badge): boolean {
     <main class="flex-grow pt-20 pb-12 px-6 max-w-2xl mx-auto w-full space-y-8">
 
       <!-- Profile / Level Section -->
-      <section class="rounded-[24px] bg-white/60 backdrop-blur-md border border-indigo-100 p-6 shadow-sm">
+      <section @click="goToProfile" class="rounded-[24px] bg-white/60 backdrop-blur-md border border-indigo-100 p-6 shadow-sm cursor-pointer hover:bg-white/80 transition-colors active:scale-[0.98]">
         <div class="flex items-center gap-4 mb-4">
           <!-- Avatar Placeholder -->
           <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center text-3xl shadow-inner border-2 border-white">
-            🧑‍💻
+            {{ currentAvatar }}
           </div>
           
           <div>
             <h2 class="text-lg font-bold text-slate-900 leading-tight">{{ currentTitle }}</h2>
             <p class="text-indigo-600 font-semibold text-sm">Niveau {{ currentLevel }}</p>
+          </div>
+          
+          <!-- Edit Icon -->
+          <div class="ml-auto text-slate-400">
+            <i class="ph ph-pencil-simple text-xl"></i>
           </div>
         </div>
 

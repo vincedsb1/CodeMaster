@@ -33,16 +33,26 @@ export const useDataStore = defineStore('data', () => {
         logger.warn('[DataStore] ⚠️ No questions found in IndexedDB. User needs to load them via /settings/import')
       }
 
-      // Load badges from meta store
-      let bdgs = await metaRepository.getBadges()
+      // Load badges from meta store and merge with defaults to ensure new badges are present
+      let dbBadges = await metaRepository.getBadges()
+      
+      // Merge strategy: Use DEFAULT_BADGES as the source of truth for definitions.
+      // Restore status and unlock date from DB if the badge ID exists.
+      const mergedBadges: Badge[] = DEFAULT_BADGES.map(def => {
+        const existing = dbBadges.find(b => b.id === def.id)
+        if (existing) {
+          return {
+            ...def,
+            statut: existing.statut,
+            dateDebloque: existing.dateDebloque
+          }
+        }
+        return def
+      })
 
-      if (bdgs.length === 0) {
-        // First time: load defaults
-        await metaRepository.saveBadges(DEFAULT_BADGES)
-        bdgs = DEFAULT_BADGES
-      }
-
-      badges.value = bdgs
+      // Force save merged badges to DB to update definitions and add new ones
+      await metaRepository.saveBadges(mergedBadges)
+      badges.value = mergedBadges
 
       // Load categories from DB
       let cats = await categoryRepository.getAll()

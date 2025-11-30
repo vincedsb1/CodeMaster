@@ -13,6 +13,7 @@ export const AppRoutes = {
     Summary: 'quiz-summary',
   },
   Stats: 'stats',
+  Profile: 'profile',
   Settings: {
     Import: 'settings-import',
     SelectCategory: 'settings-select-category',

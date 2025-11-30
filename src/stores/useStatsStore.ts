@@ -5,9 +5,9 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
 import type { GlobalStats, QuizSession, Badge, ComparisonStats } from '@/types/models'
-import { sessionRepository } from '@/db/repositories'
+import { sessionRepository, metaRepository } from '@/db/repositories'
 import { useDataStore } from './useDataStore'
-import { calculateSessionXp, calculateLevel, xpForNextLevel } from '@/logic/gamification'
+import { calculateSessionXp, calculateLevel, xpForNextLevel, checkNewBadges } from '@/logic/gamification'
 
 export const useStatsStore = defineStore('stats', () => {
   // State
@@ -19,6 +19,7 @@ export const useStatsStore = defineStore('stats', () => {
     historiqueSessions: [],
     xp: 0,
     level: 1,
+    avatar: '🧑‍💻',
   })
 
   const previousStats = ref<ComparisonStats>({ average: 0 })
@@ -42,7 +43,7 @@ export const useStatsStore = defineStore('stats', () => {
     const progress = currentXp - xpStart
     const range = xpEnd - xpStart
     
-    // Avoid division by zero for level 1 (0-100)
+    // Avoid division by zero for level 1 (0-100)s
     const totalRange = range > 0 ? range : 100
     
     return Math.min(100, Math.max(0, (progress / totalRange) * 100))
@@ -66,6 +67,10 @@ export const useStatsStore = defineStore('stats', () => {
     try {
       const allSessions = await sessionRepository.getAll()
       const completedSessions = allSessions.filter((s) => s.dateFin !== null)
+      
+      // Load avatar from meta
+      const profileMeta = await metaRepository.get('profile')
+      const avatar = profileMeta?.avatar || '🧑‍💻'
 
       if (completedSessions.length === 0) {
         globalStats.value = {
@@ -76,6 +81,7 @@ export const useStatsStore = defineStore('stats', () => {
           historiqueSessions: [],
           xp: 0,
           level: 1,
+          avatar,
         }
         return
       }
@@ -91,9 +97,6 @@ export const useStatsStore = defineStore('stats', () => {
       const currentStreak = calculateCurrentStreak(completedSessions)
 
       // Calculate Total XP
-      // In a real persistent system, we would store XP incrementally.
-      // Here, we re-calculate it from session history to ensure consistency
-      // since we don't have a dedicated User table yet.
       const totalXp = completedSessions.reduce((acc, s) => {
         // Check if legacy session without isDailyChallenge (treat as false)
         let xp = calculateSessionXp(s.questions)
@@ -111,10 +114,16 @@ export const useStatsStore = defineStore('stats', () => {
         historiqueSessions: completedSessions,
         xp: totalXp,
         level: level,
+        avatar,
       }
     } catch (err) {
       console.error('Error loading stats:', err)
     }
+  }
+
+  async function updateAvatar(avatar: string) {
+    globalStats.value.avatar = avatar
+    await metaRepository.save('profile', { avatar })
   }
 
   async function updateStatsAndBadges(session: QuizSession) {
@@ -138,65 +147,35 @@ export const useStatsStore = defineStore('stats', () => {
       // Calculate streak after this session
       const currentStreak = calculateCurrentStreak([...completedSessions, session])
 
-      // Check and unlock badges
+      // Check and unlock badges using pure logic
       const badges = dataStore.badges
-      checkAndUnlockBadges(session, completedSessions, currentStreak, badges)
+      
+      // Use pure logic from gamification.ts
+      const newBadges = checkNewBadges(
+        session,
+        [...completedSessions, session], // Include current session in history for logic
+        currentStreak,
+        badges
+      )
+      
+      newlyUnlockedBadges.value = newBadges
 
-      // Update badges in store
+      // Update badges in store (modify objects in place or replace array?)
+      // Store expects Badge[] to save.
+      // newBadges are references to objects inside `badges` array if find() returns refs?
+      // checkNewBadges modifies nothing, just returns list.
+      // We need to update the status in the main badges array before saving.
+      
+      // Actually checkNewBadges in gamification.ts MODIFIES the badge object?
+      // No, it finds it and returns it. But if we modify it in `unlock` helper inside checkNewBadges...
+      // Wait, `checkNewBadges` in `gamification.ts` modifies the badge object: `badge.statut = 'debloque'`.
+      // Since objects are passed by reference from `dataStore.badges`, this mutation is effective.
+      
       await dataStore.updateBadges(badges)
       
       // Note: loadStats() will be called by the consumer to refresh the global stats object
     } catch (err) {
       console.error('Error updating stats and badges:', err)
-    }
-  }
-
-  function checkAndUnlockBadges(
-    session: QuizSession,
-    completedSessions: QuizSession[],
-    currentStreak: number,
-    badges: Badge[],
-  ) {
-    const unlock = (id: string) => {
-      const badge = badges.find((x) => x.id === id)
-      if (badge && badge.statut === 'verrouille') {
-        badge.statut = 'debloque'
-        badge.dateDebloque = new Date().toISOString()
-        newlyUnlockedBadges.value.push(badge)
-      }
-    }
-
-    // First Quiz
-    if (completedSessions.length >= 1) {
-      unlock('first_quiz')
-    }
-
-    // Perfect Score
-    if (session.notePourcentage === 100) {
-      unlock('perfect_score')
-    }
-
-    // Streak Badges
-    if (currentStreak >= 3) {
-      unlock('streak_3')
-    }
-    if (currentStreak >= 7) {
-      unlock('streak_7')
-    }
-
-    // Marathon (20 total quizzes)
-    if (completedSessions.length >= 20) {
-      unlock('marathon')
-    }
-
-    // Math Expert (5 math quizzes)
-    if (session.categories.length === 1 && session.categories[0] === 'Maths') {
-      const mathCount = completedSessions.filter(
-        (s) => s.categories.length === 1 && s.categories[0] === 'Maths',
-      ).length
-      if (mathCount >= 5) {
-        unlock('math_expert')
-      }
     }
   }
 
@@ -284,5 +263,6 @@ export const useStatsStore = defineStore('stats', () => {
     loadStats,
     updateStatsAndBadges,
     calculateDailyAverages,
+    updateAvatar,
   }
 })
