@@ -110,12 +110,12 @@ function isBadgeUnlocked(badge: Badge): boolean {
           <div class="w-16 h-16 rounded-full bg-indigo-100 flex items-center justify-center text-3xl shadow-inner border-2 border-white">
             {{ currentAvatar }}
           </div>
-          
+
           <div>
             <h2 class="text-lg font-bold text-slate-900 leading-tight">{{ currentTitle }}</h2>
             <p class="text-indigo-600 font-semibold text-sm">Niveau {{ currentLevel }}</p>
           </div>
-          
+
           <!-- Edit Icon -->
           <div class="ml-auto text-slate-400">
             <i class="ph ph-pencil-simple text-xl"></i>
@@ -203,7 +203,7 @@ function isBadgeUnlocked(badge: Badge): boolean {
             </div>
 
             <!-- Lock Icon -->
-            <div v-if="!isBadgeUnlocked(badge)" class="absolute top-1.5 right-1.5">
+            <div v-if="!isBadgeUnlocked(badge)" class="absolute top-0 right-1.5">
               <i class="ph-fill ph-lock text-slate-400 text-xs"></i>
             </div>
           </button>

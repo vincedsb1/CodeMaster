@@ -37,15 +37,15 @@ function renderMarkdown(text: string): string {
 function handleAnswer(answerIndex: number, event?: MouseEvent) {
   // If answered, let the event bubble to handleGlobalClick (which triggers next)
   if (hasAnswered.value) return
-  
+
   // If not answered, stop propagation to prevent triggering next immediately
   if (event) {
     event.stopPropagation()
   }
-  
+
   haptics.light()
   quizStore.submitAnswer(answerIndex)
-  
+
   if (currentQuestion.value) {
     const isCorrect = answerIndex === currentQuestion.value.indexBonneReponse
     if (isCorrect) {
@@ -89,7 +89,7 @@ function handleGlobalClick(event: MouseEvent) {
   // Check if the target is a link (e.g. in markdown explanation)
   const target = event.target as HTMLElement
   if (target.closest('a')) return
-  
+
   handleNext()
 }
 </script>
@@ -105,7 +105,7 @@ function handleGlobalClick(event: MouseEvent) {
          :style="{ width: progressPercent + '%' }"></div>
 
     <!-- Navigation Bar (Sticky) -->
-    <nav class="sticky top-1.5 z-40 h-14 bg-white/85 backdrop-blur-md border-b border-gray-200/50 flex items-center justify-between px-6 transition-all duration-300">
+    <nav class="sticky top-0 z-40 h-14 bg-white/85 backdrop-blur-md border-b border-gray-200/50 flex items-center justify-between px-6 transition-all duration-300">
       <button @click.stop="confirmAbandon"
               class="flex items-center text-blue-600 hover:text-blue-700 active:opacity-60 transition-colors w-10">
         <i class="ph ph-caret-left text-xl"></i>
