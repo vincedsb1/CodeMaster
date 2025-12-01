@@ -203,7 +203,7 @@ function isBadgeUnlocked(badge: Badge): boolean {
             </div>
 
             <!-- Lock Icon -->
-            <div v-if="!isBadgeUnlocked(badge)" class="absolute top-0 right-1.5">
+            <div v-if="!isBadgeUnlocked(badge)" class="absolute top-1.5 right-1.5">
               <i class="ph-fill ph-lock text-slate-400 text-xs"></i>
             </div>
           </button>

@@ -1,23 +1,23 @@
 <script setup lang="ts">
-import { computed, onMounted, unref, ref } from 'vue'
+import { computed, onMounted, unref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useQuizStore } from '@/stores/useQuizStore'
 import { useStatsStore } from '@/stores/useStatsStore'
 import { AppRoutes } from '@/router/routes'
-import { calculateLevel, xpForNextLevel } from '@/logic/gamification'
+import { calculateLevel } from '@/logic/gamification'
+import { useSummaryAnimations } from '@/composables/useSummaryAnimations'
+import { useSummaryBadges } from '@/composables/useSummaryBadges'
 
 const router = useRouter()
 const quizStore = useQuizStore()
 const statsStore = useStatsStore()
-const displayScore = ref(0)
 
-// XP Animation State
-const displayXp = ref(0)
-const displayBonusXp = ref(0)
-const currentDisplayedLevel = ref(1)
-const currentBarProgress = ref(0) // 0 to 100
-const isLevelUp = ref(false)
-const levelsGained = ref(0)
+// Composables
+const { 
+  displayScore, displayXp, displayBonusXp, currentDisplayedLevel, 
+  currentBarProgress, isLevelUp,
+  animateScore, animateXpSequence, createConfetti 
+} = useSummaryAnimations()
 
 // Computed values
 const session = computed(() => quizStore.activeSession)
@@ -48,8 +48,11 @@ const bonusXpGain = computed(() => {
 })
 
 // Level Calculations
-const targetLevel = computed(() => calculateLevel(totalXp.value))
 const startLevel = computed(() => calculateLevel(previousTotalXp.value))
+
+// Badges
+const badgesSource = computed(() => statsStore.newlyUnlockedBadges || [])
+const { sortedBadges: newBadges } = useSummaryBadges(badgesSource)
 
 // Score vs Moyenne
 const isAboveAverage = computed(() => score.value > averageScore.value)
@@ -104,9 +107,6 @@ const comparisonTextColor = computed(() => {
   return 'text-blue-700'
 })
 
-// Badges
-const newBadges = computed(() => statsStore.newlyUnlockedBadges || [])
-
 // Streak
 const isPrimaryQuizOfDay = computed(() => {
   if (!session.value) return false
@@ -121,138 +121,29 @@ const shouldShowConfetti = computed(() => isAboveAverage.value)
 onMounted(async () => {
   await statsStore.loadStats()
 
-  // Initialize Display Values
-  currentDisplayedLevel.value = startLevel.value
-  
-  // Calculate initial progress within the start level
-  const startLevelXpReq = xpForNextLevel(startLevel.value - 1) // Floor XP for current level
-  const nextLevelXpReq = xpForNextLevel(startLevel.value)      // Ceiling XP for current level
-  const range = nextLevelXpReq - startLevelXpReq
-  const progressInLevel = previousTotalXp.value - startLevelXpReq
-  
-  currentBarProgress.value = (progressInLevel / (range > 0 ? range : 1)) * 100
-
   // Animate score counter
-  const startScore = 0
-  const targetScore = score.value
-  const duration = 2000
-  const startTime = Date.now()
-
-  const animate = () => {
-    const elapsed = Date.now() - startTime
-    const progress = Math.min(elapsed / duration, 1)
-    displayScore.value = Math.round(startScore + (targetScore - startScore) * progress)
-
-    if (progress < 1) {
-      requestAnimationFrame(animate)
-    } else {
-      displayScore.value = targetScore
-    }
-  }
-
-  animate()
+  animateScore(score.value)
 
   // Animate XP and Level Up
   setTimeout(() => {
-    animateXpSequence()
+    animateXpSequence(
+      startLevel.value,
+      previousTotalXp.value,
+      totalXp.value,
+      xpGain.value || 0,
+      baseXpGain.value,
+      bonusXpGain.value,
+      isDailyChallenge.value
+    )
   }, 500)
 
   // Déclencher confetti après 500ms
   setTimeout(() => {
-    createConfetti()
+    if (shouldShowConfetti.value) {
+      createConfetti()
+    }
   }, 500)
 })
-
-function getXpRangeForLevel(level: number) {
-  const start = xpForNextLevel(level - 1)
-  const end = xpForNextLevel(level)
-  return { start, end, range: end - start }
-}
-
-function animateXpSequence() {
-  const xpGainValue = xpGain.value || 0
-  let currentXpAccumulator = previousTotalXp.value
-  const finalXp = totalXp.value
-  
-  let currentAnimLevel = startLevel.value
-  
-  // Animation loop function
-  const step = () => {
-    // Calculate target XP for this frame? No, better to interpolate.
-    // Let's do a time-based interpolation of the XP value from previousTotal to totalXp
-    // And update the level/bar based on that interpolated value.
-    
-    const duration = 2000 // 2 seconds total animation
-    const startTime = Date.now()
-    
-    const frame = () => {
-      const now = Date.now()
-      const progress = Math.min((now - startTime) / duration, 1)
-      const ease = 1 - Math.pow(1 - progress, 3) // Cubic ease out
-      
-      const currentInterpolatedXp = Math.floor(previousTotalXp.value + (xpGainValue * ease))
-      
-      // Update display numbers for gain
-      displayXp.value = Math.round((baseXpGain.value || 0) * ease)
-      if (isDailyChallenge.value) {
-        const bonusEase = Math.max(0, (ease - 0.5) * 2) // Bonus animates later
-        displayBonusXp.value = Math.round((bonusXpGain.value || 0) * bonusEase)
-      } else {
-        displayXp.value = Math.round(xpGainValue * ease)
-      }
-
-      // Update Level and Bar
-      const calculatedLevel = calculateLevel(currentInterpolatedXp)
-      
-      if (calculatedLevel > currentAnimLevel) {
-        // Level Up Event!
-        currentAnimLevel = calculatedLevel
-        isLevelUp.value = true
-        levelsGained.value = currentAnimLevel - startLevel.value
-      }
-      
-      currentDisplayedLevel.value = currentAnimLevel
-      
-      const { start, range } = getXpRangeForLevel(currentAnimLevel)
-      const progressInLevel = currentInterpolatedXp - start
-      const percentage = (progressInLevel / (range > 0 ? range : 1)) * 100
-      
-      currentBarProgress.value = Math.min(100, Math.max(0, percentage))
-      
-      if (progress < 1) {
-        requestAnimationFrame(frame)
-      }
-    }
-    requestAnimationFrame(frame)
-  }
-  
-  step()
-}
-
-// Methods
-function createConfetti() {
-  if (!shouldShowConfetti.value) return
-
-  const container = document.getElementById('confetti-container')
-  if (!container) return
-
-  const colors = ['#FFD700', '#FF6B6B', '#4ECDC4', '#45B7D1', '#FFA07A', '#98D8C8']
-  const pieces = 50
-
-  for (let i = 0; i < pieces; i++) {
-    const piece = document.createElement('div')
-    piece.className = 'confetti-piece'
-    piece.style.left = `${Math.random() * 100}%`
-    piece.style.top = `${Math.random() * 50}%`
-    piece.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)]!
-    piece.style.animationDelay = `${Math.random() * 0.5}s`
-    piece.style.animationDuration = `${Math.random() * 2 + 2}s`
-    container.appendChild(piece)
-
-    // Cleanup
-    setTimeout(() => piece.remove(), 5000)
-  }
-}
 
 async function goHome() {
   quizStore.clearActiveSession()
@@ -475,9 +366,6 @@ async function replayQuiz() {
       </button>
     </div>
 
-    <!-- Confetti Container (si score > moyenne) -->
-    <div v-if="shouldShowConfetti" id="confetti-container" class="fixed inset-0 pointer-events-none"></div>
-
   </div>
 </template>
 
@@ -558,20 +446,5 @@ async function replayQuiz() {
 
 .progress-circle {
   transition: stroke-dashoffset 1s ease-out;
-}
-
-.confetti-piece {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  animation: confettiFall linear forwards;
-}
-
-@keyframes confettiFall {
-  to {
-    transform: translateY(100vh) rotateZ(360deg);
-    opacity: 0;
-  }
 }
 </style>

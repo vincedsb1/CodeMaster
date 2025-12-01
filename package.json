@@ -20,6 +20,7 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "canvas-confetti": "^1.9.4",
     "chart.js": "^4.5.1",
     "marked": "^17.0.1",
     "pinia": "^3.0.3",
@@ -31,6 +32,7 @@
     "@prettier/plugin-oxc": "^0.0.4",
     "@tailwindcss/postcss": "^4.1.17",
     "@tsconfig/node22": "^22.0.2",
+    "@types/canvas-confetti": "^1.9.0",
     "@types/jsdom": "^27.0.0",
     "@types/node": "^22.18.11",
     "@vitejs/plugin-vue": "^6.0.1",

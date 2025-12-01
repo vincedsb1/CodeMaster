@@ -14,6 +14,7 @@ import {
 import { loadQuestionsFromJsonFile } from '@/db/loaders/questionsLoader'
 import { questionRepository } from '@/db/repositories'
 import { AppRoutes } from '@/router/routes'
+import { generateDemoData } from '@/utils/demoData'
 
 const router = useRouter()
 const dataStore = useDataStore()
@@ -122,6 +123,25 @@ async function resetStats() {
     alert('Statistiques remises à zéro.')
   } catch (err) {
     alert(err instanceof Error ? err.message : 'Erreur lors de la réinitialisation')
+  }
+}
+
+async function handleDemoData() {
+  if (!confirm('Ceci va effacer vos données actuelles et générer des données de démonstration. Continuer ?')) return
+  
+  try {
+    isLoading.value = true
+    await generateDemoData()
+    // Reload stats
+    await statsStore.loadStats()
+    await dataStore.initData() // To reload badges
+    alert('Données de démonstration générées !')
+    router.push({ name: AppRoutes.Stats })
+  } catch (err) {
+    console.error(err)
+    alert('Erreur lors de la génération')
+  } finally {
+    isLoading.value = false
   }
 }
 
@@ -478,6 +498,14 @@ function cancelLoadAll() {
           <p class="text-[13px] text-red-800/80 leading-relaxed font-medium">
             Cette action est irréversible. Elle supprimera toutes vos statistiques, sessions et badges, mais conservera les questions chargées.
           </p>
+
+          <button v-if="false"
+                  @click="handleDemoData"
+                  class="w-full rounded-full px-6 py-3.5 bg-white border border-indigo-200 text-indigo-600 font-semibold text-[15px]
+                         hover:bg-indigo-50 active:scale-[0.98] transition-all duration-200 shadow-sm flex items-center justify-center gap-2 mb-2">
+            <i class="ph-bold ph-magic-wand text-lg"></i>
+            Générer Données Démo
+          </button>
 
           <button @click="resetStats"
                   class="w-full rounded-full px-6 py-3.5 bg-white border border-red-200 text-red-600 font-semibold text-[15px]

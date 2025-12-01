@@ -199,6 +199,11 @@ export default {
         'slide-in': 'slideIn 0.3s ease-out forwards',
         'pop': 'pop 0.2s cubic-bezier(0.16, 1, 0.3, 1)',
       },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        display: ['Outfit', 'sans-serif'],
+        mono: ['JetBrains Mono', 'monospace'],
+      },
     },
   },
   plugins: [],

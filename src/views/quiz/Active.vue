@@ -144,7 +144,7 @@ function handleGlobalClick(event: MouseEvent) {
 
           <!-- Question Text -->
           <div class="markdown-body">
-            <h2 class="text-xl font-bold text-slate-900 leading-snug" v-html="renderMarkdown(currentQuestion.intitule)"></h2>
+            <h2 class="text-xl text-slate-900 leading-snug" v-html="renderMarkdown(currentQuestion.intitule)"></h2>
           </div>
 
           <!-- Answer Options -->

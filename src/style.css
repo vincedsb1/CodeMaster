@@ -1,5 +1,22 @@
 @import "tailwindcss";
 
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+  
+  /* Slack-like inline code style */
+  :not(pre) > code {
+    @apply text-[#E01E5A] bg-[#F8F8F8] border border-[#DDDDDD] rounded px-1 py-0.5 text-[0.9em];
+  }
+}
+
 /* ======================================
    Material Design 3 Custom Styles
    ====================================== */
