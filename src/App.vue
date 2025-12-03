@@ -7,10 +7,25 @@ const dataStore = useDataStore()
 const quizStore = useQuizStore()
 
 onMounted(async () => {
-  // Initialize data from IndexedDB
-  await dataStore.initData()
-  // Check if there's a pending quiz session to resume
-  await quizStore.checkResumableSession()
+  try {
+    // Initialize data from IndexedDB
+    await dataStore.initData()
+    // Check if there's a pending quiz session to resume
+    await quizStore.checkResumableSession()
+  } catch (err) {
+    console.error('[App] Error during initialization:', err)
+  } finally {
+    // Ensure loading stops (this handles any edge cases where initData gets stuck)
+    if (dataStore.isLoading) {
+      // Force a re-render by toggling the loading state
+      setTimeout(() => {
+        if (dataStore.isLoading) {
+          console.warn('[App] Loading timeout: forcing isLoading to false')
+          dataStore.$state.isLoading = false
+        }
+      }, 5000)
+    }
+  }
 })
 </script>
 

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import AppHeader from './AppHeader.vue'
 import BaseModal from '@/components/common/BaseModal.vue'
 import { useQuizStore } from '@/stores/useQuizStore'
@@ -7,6 +8,10 @@ import { useRouter } from 'vue-router'
 
 const quizStore = useQuizStore()
 const router = useRouter()
+const route = useRoute()
+
+// Hide header on stats page (has its own navigation)
+const showHeader = computed(() => !route.path.startsWith('/stats') && !route.path.startsWith('/profile'))
 
 function abandonResume() {
   quizStore.abandonSession()
@@ -21,9 +26,9 @@ function confirmResume() {
 
 <template>
   <div
-    class="h-full flex flex-col max-w-md mx-auto w-full bg-white shadow-xl relative overflow-hidden"
+    class="h-dvh flex flex-col mx-auto w-full bg-white relative overflow-hidden"
   >
-    <AppHeader />
+    <AppHeader v-if="showHeader" />
 
     <main class="flex-1 overflow-y-auto overflow-x-hidden relative bg-slate-50">
       <router-view />

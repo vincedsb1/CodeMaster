@@ -4,6 +4,14 @@
 
 export type Difficulty = 'facile' | 'moyen' | 'difficile' | 'random'
 export type BadgeStatus = 'verrouille' | 'debloque'
+export type TailwindColor = 'slate' | 'red' | 'orange' | 'amber' | 'yellow' | 'lime' | 'green' | 'emerald' | 'teal' | 'cyan' | 'blue' | 'indigo' | 'purple' | 'pink'
+
+export interface Category {
+  id: string
+  label: string
+  icon: string
+  color: TailwindColor
+}
 
 export interface Question {
   id: string
@@ -36,6 +44,7 @@ export interface QuizSession {
   difficulteChoisie: Difficulty
   categories: string[]
   dateJour?: string
+  isDailyChallenge?: boolean
 }
 
 export interface Badge {
@@ -53,6 +62,9 @@ export interface GlobalStats {
   streakActuel: number
   totalSessions: number
   historiqueSessions: QuizSession[]
+  xp: number
+  level: number
+  avatar?: string
 }
 
 export interface ImportData {

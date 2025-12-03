@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "react_001",
+    "intitule": "Que représente **JSX** dans un projet **React** ?",
+    "reponses": [
+      "Une syntaxe permettant d'écrire du HTML dans JavaScript",
+      "Un nouveau langage de programmation",
+      "Un type spécial de composant React",
+      "Un outil de déploiement pour React"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "**JSX** est une extension de syntaxe qui permet d'écrire une structure semblable au HTML directement dans le code **JavaScript**. **React** la transforme ensuite en appels **JavaScript**.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_002",
+    "intitule": "Quel est le but principal de **React** ?",
+    "reponses": [
+      "Gérer la base de données",
+      "Construire des interfaces utilisateurs",
+      "Compiler du code Java en JavaScript",
+      "Créer des APIs REST"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**React** est une librairie **JavaScript** dédiée à la construction d'interfaces utilisateurs. Il se concentre principalement sur la couche vue.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_003",
+    "intitule": "Comment s'appelle la fonction utilisée pour créer un composant fonctionnel ?",
+    "reponses": [
+      "class MyComponent extends React.Component",
+      "function MyComponent() { ... }",
+      "new Component(MyComponent)",
+      "React.createElementComponent()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les composants modernes sont des fonctions **JavaScript** qui retournent du **JSX**. On parle de **Functional Components**.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_004",
+    "intitule": "Comment passe-t-on des données d'un parent à un enfant ?",
+    "reponses": [
+      "Avec le hook useData",
+      "Avec les props",
+      "Avec le state global",
+      "Avec un fichier JSON externe"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les `props` permettent de transmettre des données d'un composant parent à un composant enfant. Elles sont en lecture seule dans l'enfant.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_005",
+    "intitule": "Comment définir l'état local dans un composant fonctionnel ?",
+    "reponses": [
+      "Avec this.state",
+      "Avec le hook useState",
+      "Avec setLocalState()",
+      "Avec React.state()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Dans les composants fonctionnels, l'état local se gère avec le hook `useState`. Il retourne une valeur d'état et une fonction pour la mettre à jour.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_006",
+    "intitule": "Quel est le bon moyen de rendre une liste d'éléments en **React** ?",
+    "reponses": [
+      "Utiliser une boucle for classique en dehors du JSX",
+      "Utiliser map sur un tableau et retourner du JSX",
+      "Utiliser while à l'intérieur du JSX",
+      "Créer un élément HTML avec innerHTML"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On utilise la méthode `map` sur un tableau pour retourner un élément **JSX** par item. Chaque élément doit avoir une prop `key` unique.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_007",
+    "intitule": "À quoi sert la prop `key` dans une liste ?",
+    "reponses": [
+      "À définir le style CSS",
+      "À améliorer le SEO",
+      "À aider React à identifier chaque élément de la liste",
+      "À traduire le texte"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "La prop `key` permet à **React** d'identifier de façon stable chaque élément d'une liste. Cela optimise le processus de reconciliation.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_008",
+    "intitule": "Comment gère-t-on un événement de clic sur un bouton ?",
+    "reponses": [
+      "Avec l'attribut onclick=\"handleClick()\"",
+      "Avec la prop onClick={handleClick}",
+      "Avec la méthode addEventListener directement sur le DOM",
+      "On ne peut pas gérer de clic en React"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**React** utilise une syntaxe camelCase pour les événements comme `onClick`. On passe une fonction, pas le résultat de son appel.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_009",
+    "intitule": "Que doit retourner un composant **React** fonctionnel ?",
+    "reponses": [
+      "Toujours null",
+      "Un objet JavaScript",
+      "Du JSX ou null",
+      "Du HTML sous forme de string"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Un composant **React** retourne généralement du **JSX**, qui sera transformé en éléments **React**. Il peut aussi retourner `null` pour ne rien rendre.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_010",
+    "intitule": "Quelle est la bonne façon d'insérer une variable **JavaScript** dans du **JSX** ?",
+    "reponses": [
+      "En utilisant ${variable}",
+      "En utilisant {{ variable }}",
+      "En utilisant {variable}",
+      "En utilisant %variable%"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Dans **JSX**, on insère des expressions **JavaScript** en les entourant d'accolades, comme `{variable}`.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_011",
+    "intitule": "Comment applique-t-on une classe **CSS** à un élément **JSX** ?",
+    "reponses": [
+      "En utilisant l'attribut class",
+      "En utilisant l'attribut className",
+      "En utilisant l'attribut cssClass",
+      "En utilisant styleClass"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "En **React**, l'attribut HTML `class` devient `className` car `class` est un mot réservé en **JavaScript**.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_012",
+    "intitule": "Que se passe-t-il si vous modifiez directement une variable d'état retournée par `useState` ?",
+    "reponses": [
+      "Le composant se re-render",
+      "Rien ne se passe, l'état est immuable",
+      "React déclenche une erreur",
+      "Le DOM est mis à jour, mais pas le state"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'état retourné par `useState` doit être mis à jour via la fonction `setState`. Le modifier directement ne déclenche pas de re-render.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_013",
+    "intitule": "Quel hook permet d'initialiser un état booléen simple ?",
+    "reponses": [
+      "useToggle",
+      "useState",
+      "useBool",
+      "useFlag"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useState` permet d'initialiser n'importe quel type de valeur, y compris un booléen. On peut ensuite inverser sa valeur avec la fonction de set.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_014",
+    "intitule": "Quelle syntaxe permet de faire un rendu conditionnel simple ?",
+    "reponses": [
+      "{isLogged && <Dashboard />}",
+      "if (isLogged) return <Dashboard />",
+      "<Dashboard if={isLogged} />",
+      "<Dashboard condition={isLogged} />"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "L'opérateur logique `&&` est souvent utilisé dans **JSX** pour afficher un composant seulement si la condition est vraie.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_015",
+    "intitule": "Comment définir une valeur par défaut pour une prop dans un composant fonctionnel moderne ?",
+    "reponses": [
+      "Avec defaultProps sur le composant",
+      "Avec des valeurs par défaut dans la déstructuration des props",
+      "Avec this.defaultProps",
+      "Ce n'est pas possible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On utilise souvent la déstructuration avec une valeur par défaut dans la signature du composant, par exemple `function MyComp({ title = 'Titre' }) {}`.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_016",
+    "intitule": "Quel est le rôle principal du **Virtual DOM** dans **React** ?",
+    "reponses": [
+      "Remplacer complètement le DOM du navigateur",
+      "Gérer les requêtes réseau",
+      "Optimiser les mises à jour du DOM réel",
+      "Stocker les styles CSS"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le **Virtual DOM** est une représentation en mémoire de l'UI. **React** l'utilise pour calculer les différences avec l'ancien état et appliquer les mises à jour minimales au DOM réel.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_017",
+    "intitule": "Dans `create-react-app`, quel fichier est le point d'entrée principal ?",
+    "reponses": [
+      "index.html",
+      "index.js ou main.jsx",
+      "App.js",
+      "ReactEntry.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le point d'entrée **JavaScript** est généralement `index.js` ou `main.jsx`, qui monte le composant racine (souvent `App`) dans le DOM.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_018",
+    "intitule": "À quoi correspond la prop `children` dans un composant ?",
+    "reponses": [
+      "Aux styles du composant",
+      "Aux événements du composant",
+      "Au contenu passé entre les balises du composant",
+      "À la liste des enfants du DOM"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "La prop `children` contient tout ce qui est passé entre les balises ouvrante et fermante d'un composant. C'est utile pour créer des layouts réutilisables.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_019",
+    "intitule": "Comment importer **React** dans un fichier avec **JSX** dans les versions modernes (avec bundler configuré) ?",
+    "reponses": [
+      "import React from 'react'; est toujours obligatoire",
+      "Il n'y a plus besoin d'importer React juste pour JSX",
+      "import { JSX } from 'react';",
+      "import ReactJSX from 'react/jsx-runtime';"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Avec la nouvelle transform **JSX**, l'import explicite de **React** n'est plus nécessaire uniquement pour utiliser du **JSX**, selon la configuration du bundler.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_020",
+    "intitule": "Quel outil permet de créer rapidement une application **React** préconfigurée ?",
+    "reponses": [
+      "npx create-react-app",
+      "npm create vue-app",
+      "npx init-react-project",
+      "react-init-cli"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`create-react-app` a longtemps été l'outil standard pour bootstrapper une app **React**. Aujourd'hui, on utilise aussi beaucoup **Vite**.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_021",
+    "intitule": "Comment empêchez-vous le rechargement de la page lors de la soumission d'un formulaire ?",
+    "reponses": [
+      "En retournant false dans la fonction",
+      "En appelant event.preventDefault() dans le handler",
+      "En ajoutant prevent=\"true\" au formulaire",
+      "Ce n'est pas possible en React"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les événements **React** sont des **Synthetic Events**. Il faut appeler `event.preventDefault()` pour empêcher le comportement par défaut du navigateur.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_022",
+    "intitule": "Quel type de composant privilégie-t-on dans le **React** moderne ?",
+    "reponses": [
+      "Les composants de classe",
+      "Les composants fonctionnels avec hooks",
+      "Les composants mixins",
+      "Les composants basés sur jQuery"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Depuis l'arrivée des hooks, les composants fonctionnels sont la manière recommandée d'écrire des composants **React**.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_023",
+    "intitule": "Que fait la fonction passée à `setState` (`useState`) si on lui donne une fonction au lieu d'une valeur ?",
+    "reponses": [
+      "Elle est ignorée",
+      "Elle reçoit l'ancien état et doit retourner le nouveau",
+      "Elle reçoit les props et retourne l'état",
+      "Elle déclenche un effet secondaire"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Passer une fonction à `setState` permet de calculer le nouvel état à partir de l'état précédent, ce qui évite des bugs liés à l'asynchronicité.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_024",
+    "intitule": "Comment afficher une valeur par défaut lorsqu'une variable est *falsy* ?",
+    "reponses": [
+      "{value || 'Par défaut'}",
+      "{value ?? 'Par défaut'}",
+      "{value ? 'Par défaut' : value}",
+      "Les trois sont identiques"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'opérateur de coalescence nulle `??` ne remplace que les valeurs `null` ou `undefined`. `||` remplace aussi `0`, `''`, `false`, etc.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_025",
+    "intitule": "Quel est le type de données typique de `props.children` ?",
+    "reponses": [
+      "Toujours un string",
+      "Toujours un tableau",
+      "Un ReactNode (élément, string, nombre, tableau, etc.)",
+      "Uniquement un composant"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`children` peut contenir différents types de valeurs rendables par **React**. On le typpe souvent `ReactNode` en **TypeScript**.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_026",
+    "intitule": "Que représente `<App />` en **React** ?",
+    "reponses": [
+      "Une fonction JavaScript",
+      "Un élément React créé à partir du composant App",
+      "Un tag HTML personnalisé reconnu par le navigateur",
+      "Un composant de classe uniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`<App />` est un élément **React**. Sous le capot, il est créé par un appel à `React.createElement(App, props)`.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_027",
+    "intitule": "Quel est le bon moyen de commenter une ligne dans du **JSX** ?",
+    "reponses": [
+      "// Commentaire",
+      "",
+      "{/* Commentaire */}",
+      "## Commentaire"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Dans du **JSX**, on ouvre des accolades pour revenir dans du **JavaScript**, puis on utilise la syntaxe de commentaire en bloc.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_028",
+    "intitule": "Quelle recommandation est juste concernant les keys dans une liste ?",
+    "reponses": [
+      "Utiliser l'index du tableau partout",
+      "Utiliser un id unique et stable",
+      "Utiliser une valeur aléatoire à chaque render",
+      "Les keys sont optionnelles"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les keys doivent être stables d'un render à l'autre pour refléter correctement l'identité des éléments. Un `id` unique est idéal.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_029",
+    "intitule": "Quelle instruction est vraie concernant les `props` ?",
+    "reponses": [
+      "Les props peuvent être modifiées directement dans l'enfant",
+      "Les props sont immuables dans le composant qui les reçoit",
+      "Les props doivent être des strings",
+      "Les props sont partagées automatiquement entre tous les composants"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les `props` sont en lecture seule dans le composant qui les reçoit. Pour modifier une valeur, il faut passer un callback au parent.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_030",
+    "intitule": "À quoi sert `ReactDOM.createRoot` dans les versions récentes ?",
+    "reponses": [
+      "À créer un nouveau composant",
+      "À monter l'application dans le DOM avec le mode concurrent",
+      "À créer une nouvelle route",
+      "À initialiser le state global"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`createRoot` remplace `ReactDOM.render` et prépare le root pour les fonctionnalités concurrentes de **React 18**.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_031",
+    "intitule": "Comment récupère-t-on les `props` dans un composant fonctionnel ?",
+    "reponses": [
+      "Avec this.props",
+      "Avec le paramètre de la fonction",
+      "Avec useProps()",
+      "Avec React.getProps()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les composants fonctionnels reçoivent leurs `props` en paramètre. On peut les déstructurer directement dans la signature.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_032",
+    "intitule": "Quel est l'intérêt principal de composer plusieurs petits composants ?",
+    "reponses": [
+      "Améliorer les performances uniquement",
+      "Rendre le code plus réutilisable et maintenable",
+      "Réduire la taille du bundle automatiquement",
+      "Éviter d'utiliser les hooks"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Découper l'UI en petits composants améliore la réutilisabilité, la maintenabilité et la testabilité du code.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_033",
+    "intitule": "Que signifie 'unidirectional data flow' dans **React** ?",
+    "reponses": [
+      "Les données circulent uniquement du parent vers l'enfant",
+      "Les données circulent dans tous les sens",
+      "Les données ne peuvent être lues qu'une seule fois",
+      "Les données sont chiffrées à chaque étape"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "**React** impose un flux de données unidirectionnel : les données descendent via les `props`, et les événements remontent via des callbacks.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_034",
+    "intitule": "Quel hook permet d'accéder à une référence vers un élément DOM ?",
+    "reponses": [
+      "useRef",
+      "useDom",
+      "useElement",
+      "useNode"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`useRef` permet de créer une référence mutable qui peut pointer vers un élément DOM ou une valeur persistante.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_035",
+    "intitule": "Comment se nomme le composant racine standard dans beaucoup de projets **React** ?",
+    "reponses": [
+      "Root",
+      "Index",
+      "App",
+      "MainComponent"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Par convention, beaucoup de projets utilisent un composant `App` comme racine de l'application.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_036",
+    "intitule": "Que renvoie `useState` lors de son appel ?",
+    "reponses": [
+      "Seulement la valeur d'état",
+      "Seulement une fonction de mise à jour",
+      "Un objet avec value et setValue",
+      "Un tableau [valeur, setValeur]"
+    ],
+    "indexBonneReponse": 3,
+    "explication": "`useState` renvoie un tableau contenant la valeur actuelle et une fonction pour la mettre à jour. On le déstructure souvent.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_037",
+    "intitule": "Quelle est la bonne façon de mettre à jour un state représentant un tableau ?",
+    "reponses": [
+      "state.push(nouvelÉlément); setState(state);",
+      "setState([...state, nouvelÉlément]);",
+      "setState(state);",
+      "Modifier state directement dans le render"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'état doit rester immuable. On crée un nouveau tableau avec l'opérateur spread, puis on le passe à `setState`.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_038",
+    "intitule": "Quel est l'effet de `React.StrictMode` en développement ?",
+    "reponses": [
+      "Il empêche l'utilisation des hooks",
+      "Il double certains appels pour détecter des effets de bord",
+      "Il empêche tout warning",
+      "Il active le mode production"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`StrictMode` monte et démonte certains composants deux fois en développement pour aider à repérer des effets de bord non voulus.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_039",
+    "intitule": "Comment typiquement structure-t-on un projet **React** ?",
+    "reponses": [
+      "Un seul fichier App.js avec tout le code",
+      "Plusieurs dossiers (components, pages, hooks, etc.)",
+      "Un fichier par route uniquement",
+      "Un fichier par style uniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On organise généralement un projet par domaines ou types (`components`, `pages`, `hooks`) pour garder une architecture claire.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_040",
+    "intitule": "Quel outil de debug est souvent utilisé avec **React** dans le navigateur ?",
+    "reponses": [
+      "Redux Debugger",
+      "React DevTools",
+      "Vue DevTools",
+      "jQuery Inspector"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**React DevTools** est une extension de navigateur permettant d'inspecter la hiérarchie des composants et leurs props/state.",
+    "categorie": "react",
+    "difficulte": "facile"
+  },
+  {
+    "id": "react_041",
+    "intitule": "Quel hook permet d'exécuter du code après le rendu du composant ?",
+    "reponses": [
+      "useAfterRender",
+      "useEffect",
+      "usePost",
+      "useCallback"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useEffect` permet d'exécuter des effets après le rendu, comme des appels réseau ou des subscriptions.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_042",
+    "intitule": "Quelle dépendance doit-on mettre dans `useEffect` pour déclencher l'effet à chaque changement de prop `userId` ?",
+    "reponses": [
+      "[]",
+      "[userId]",
+      "[props]",
+      "Aucune, on ne met pas de dépendances"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le tableau de dépendances indique quand relancer l'effet. En mettant `[userId]`, l'effet se rejoue à chaque changement de `userId`.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_043",
+    "intitule": "Comment exécuter un `useEffect` une seule fois au montage du composant ?",
+    "reponses": [
+      "Sans deuxième argument",
+      "Avec [props]",
+      "Avec un tableau de dépendances vide []",
+      "Ce n'est pas possible"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Un tableau de dépendances vide signifie que l'effet ne dépend d'aucune valeur, il est donc exécuté une seule fois au montage.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_044",
+    "intitule": "Quel hook permet de partager un état global léger sans passer systématiquement des props ?",
+    "reponses": [
+      "useEffect",
+      "useContext",
+      "useReducer",
+      "useGlobal"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useContext` permet de consommer une valeur fournie par un **Provider**, évitant le 'props drilling'.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_045",
+    "intitule": "Quelle est la bonne façon de créer un contexte ?",
+    "reponses": [
+      "const MyContext = new Context();",
+      "const MyContext = React.createContext();",
+      "const MyContext = useContext();",
+      "const MyContext = createHookContext();"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On crée un contexte avec `React.createContext()`, ce qui retourne un **Provider** et un **Consumer** (ou on utilise `useContext`).",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_046",
+    "intitule": "Quel hook est le plus adapté pour gérer un state complexe avec plusieurs actions ?",
+    "reponses": [
+      "useState",
+      "useEffect",
+      "useReducer",
+      "useRef"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`useReducer` permet de gérer un état complexe via un reducer et des actions, ce qui rend la logique plus explicite.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_047",
+    "intitule": "Quelle est la signature d'un reducer utilisé avec `useReducer` ?",
+    "reponses": [
+      "(state, action) => newState",
+      "(state) => void",
+      "(action) => state",
+      "(props, action) => void"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Un reducer reçoit l'état courant et une action, puis retourne le nouvel état. C'est le même concept que dans **Redux**.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_048",
+    "intitule": "Quel est l'intérêt principal de **React Router** dans une application **React** ?",
+    "reponses": [
+      "Gérer les requêtes HTTP",
+      "Gérer la navigation entre différentes pages/écrans",
+      "Optimiser les performances",
+      "Gérer le state global"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**React Router** permet de déclarer des routes et d'afficher des composants différents en fonction de l'URL.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_049",
+    "intitule": "Quel composant de **React Router v6** permet de définir des routes ?",
+    "reponses": [
+      "<Switch>",
+      "<Routes>",
+      "<Navigator>",
+      "<RouterView>"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Dans **React Router v6**, on utilise `<Routes>` qui contient plusieurs `<Route>` avec l'attribut `element`.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_050",
+    "intitule": "Comment créer un lien de navigation interne avec **React Router** ?",
+    "reponses": [
+      "<a href=\"/profil\">Profil</a>",
+      "<Link to=\"/profil\">Profil</Link>",
+      "<RouterLink href=\"/profil\">Profil</RouterLink>",
+      "<Nav to=\"/profil\">Profil</Nav>"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le composant `Link` de **React Router** permet de naviguer sans recharger la page.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_051",
+    "intitule": "Comment récupérer les paramètres d'URL (ex: `/user/:id`) avec **React Router v6** ?",
+    "reponses": [
+      "avec useLocation",
+      "avec useSearchParams",
+      "avec useParams",
+      "avec useHistory"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`useParams` retourne un objet contenant les paramètres dynamiques de la route, par exemple `{ id }`.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_052",
+    "intitule": "Comment gère-t-on un champ de formulaire contrôlé en **React** ?",
+    "reponses": [
+      "En laissant le DOM gérer la valeur",
+      "En liant value à une variable et onChange à un setState",
+      "En lisant la valeur uniquement au submit",
+      "En utilisant innerHTML"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un champ contrôlé a sa valeur liée au state, et la fonction `onChange` met à jour ce state.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_053",
+    "intitule": "Que se passe-t-il si on oublie le tableau de dépendances dans `useEffect` ?",
+    "reponses": [
+      "L'effet ne sera jamais exécuté",
+      "L'effet sera exécuté une seule fois",
+      "L'effet sera exécuté à chaque rendu",
+      "L'effet provoquera une erreur"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Sans deuxième argument, `useEffect` se déclenche après chaque rendu, ce qui peut causer des boucles infinies.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_054",
+    "intitule": "Comment nettoie-t-on un effet (par ex. un `setInterval`) dans `useEffect` ?",
+    "reponses": [
+      "En appelant clearInterval après setInterval",
+      "En retournant une fonction de nettoyage depuis useEffect",
+      "En utilisant useCleanup",
+      "En n'utilisant pas useEffect"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La fonction retournée par `useEffect` est appelée lors du cleanup (démontage ou changement de dépendances).",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_055",
+    "intitule": "Quel hook permet d'accéder à l'objet location (path, search...) dans **React Router** ?",
+    "reponses": [
+      "useRouter",
+      "useLocation",
+      "useParams",
+      "usePath"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useLocation` retourne l'objet location contenant notamment `pathname` et `search`.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_056",
+    "intitule": "Quel est l'intérêt de fragmenter l'état d'un formulaire dans plusieurs `useState` au lieu d'un seul ?",
+    "reponses": [
+      "Aucun, c'est interdit",
+      "Faciliter les mises à jour ciblées et la lisibilité",
+      "Améliorer le SEO",
+      "Réduire la taille du bundle"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Plusieurs `useState` peuvent rendre le code plus lisible pour des champs indépendants, mais un état unique peut être pratique pour les gros formulaires.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_057",
+    "intitule": "Que renvoie `useContext(MyContext)` ?",
+    "reponses": [
+      "Le Provider du contexte",
+      "La valeur actuelle du contexte",
+      "Une fonction pour créer un contexte",
+      "Un reducer"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useContext` retourne la valeur passée au **Provider** le plus proche pour ce contexte.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_058",
+    "intitule": "Comment éviter le 'props drilling' dans une arborescence profonde ?",
+    "reponses": [
+      "En utilisant uniquement useState",
+      "En utilisant le Context",
+      "En utilisant des variables globales window",
+      "En dupliquant les composants"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le **Context** permet de partager des valeurs sans les passer manuellement à chaque niveau intermédiaire.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_059",
+    "intitule": "Quel hook utiliser pour stocker une valeur mutable qui ne déclenche pas de re-render ?",
+    "reponses": [
+      "useState",
+      "useEffect",
+      "useRef",
+      "useMemo"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`useRef` stocke une valeur persistante dans la propriété `current` sans déclencher de re-render lors de sa modification.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_060",
+    "intitule": "Que permet l'attribut `exact` dans les anciennes versions de **React Router** (v5) ?",
+    "reponses": [
+      "Rendre la route accessible uniquement en HTTPS",
+      "Faire matcher uniquement le chemin exact",
+      "Protéger la route par authentification",
+      "Rendre la route lazy"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Dans **React Router v5**, `exact` force le chemin à matcher exactement, sinon la route se déclenchait aussi pour les sous-chemins.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_061",
+    "intitule": "Quel pattern de formulaire réduit le boilerplate avec de nombreux champs ?",
+    "reponses": [
+      "Un state séparé par champ",
+      "Un seul state objet et un handler générique",
+      "Pas de state, seulement le DOM",
+      "Un hook useForm unique pour toute l'app"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un state objet (ex: `form`) et un handler `onChange` générique permettent de gérer plusieurs champs avec moins de code.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_062",
+    "intitule": "Dans `useEffect`, que se passe-t-il si on met comme dépendance un objet recréé à chaque render ?",
+    "reponses": [
+      "L'effet ne sera jamais relancé",
+      "L'effet sera relancé à chaque render",
+      "React ignore les objets en dépendances",
+      "L'objet est automatiquement mémorisé"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les objets créés à chaque render ont une nouvelle référence, donc l'effet se relance à chaque fois. Il faut les mémoriser ou extraire les primitives.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_063",
+    "intitule": "Quel hook **React Router v6** permet de naviguer par code (rediriger) ?",
+    "reponses": [
+      "useHistory",
+      "useNavigate",
+      "useRedirect",
+      "useRouter"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useNavigate` remplace `useHistory` en v6 et permet de changer de route par code.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_064",
+    "intitule": "Quel problème peut survenir si un `useEffect` modifie un state utilisé dans ses propres dépendances ?",
+    "reponses": [
+      "Le composant ne se re-render plus",
+      "Une boucle infinie de renders peut apparaître",
+      "Le state devient en lecture seule",
+      "Les dépendances sont ignorées"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Si l'effet met à jour un state qui est dans le tableau de dépendances, il se relancera après chaque update et peut créer une boucle.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_065",
+    "intitule": "Quel est l'intérêt de découper une page en composants plus petits pour les performances ?",
+    "reponses": [
+      "Aucun impact",
+      "Faciliter le memo et limiter les renders inutiles",
+      "Réduire le temps de build uniquement",
+      "Augmenter la taille du bundle pour le cache"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Des composants plus ciblés se re-render seulement quand leurs props ou state changent, ce qui limite les recalculs.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_066",
+    "intitule": "Quel hook permet de dériver une valeur mémoïsée à partir de dépendances ?",
+    "reponses": [
+      "useDerived",
+      "useMemo",
+      "useEffect",
+      "useCallback"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useMemo` mémorise le résultat d'une fonction tant que ses dépendances ne changent pas.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_067",
+    "intitule": "Quelle est la différence principale entre `useMemo` et `useCallback` ?",
+    "reponses": [
+      "useMemo est pour le DOM, useCallback pour les hooks",
+      "useMemo mémorise une valeur, useCallback mémorise une fonction",
+      "useMemo est obsolète, useCallback non",
+      "Il n'y a aucune différence"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useMemo` retourne une valeur mémoïsée, alors que `useCallback` retourne une fonction mémoïsée.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_068",
+    "intitule": "Quel est le but de `React.memo` autour d'un composant ?",
+    "reponses": [
+      "Forcer le re-render à chaque fois",
+      "Empêcher le composant d'utiliser des hooks",
+      "Mémoïser le composant pour éviter des re-renders inutiles",
+      "Transformer un composant fonctionnel en classe"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`React.memo` évite de re-render un composant si ses props n'ont pas changé (comparaison superficielle).",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_069",
+    "intitule": "Quel problème peut-on avoir en abusant de `useMemo` partout ?",
+    "reponses": [
+      "Aucun, c'est toujours bénéfique",
+      "Le code devient plus lent à cause du coût de mémorisation",
+      "Les hooks ne fonctionnent plus",
+      "Le Virtual DOM est désactivé"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Mémoriser a un coût de calcul. Sur des valeurs peu coûteuses, cela peut dégrader les performances et complexifier le code.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_070",
+    "intitule": "Que représente le processus de reconciliation dans **React** ?",
+    "reponses": [
+      "Le merge des fichiers CSS",
+      "La comparaison de l'arbre d'éléments pour déterminer les mises à jour du DOM",
+      "La synchronisation avec le serveur",
+      "La compilation du JSX"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La reconciliation est l'algorithme de **React** qui compare l'ancien et le nouvel arbre d'éléments pour calculer les modifications minimales du DOM.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_071",
+    "intitule": "Quel hook est adapté pour gérer un state dérivant de plusieurs interactions complexes (ex: wizard) ?",
+    "reponses": [
+      "useState avec de nombreux setState",
+      "useReducer avec un reducer clair",
+      "useEffect uniquement",
+      "useContext uniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useReducer` permet de centraliser la logique dans un reducer et rend les transitions d'état plus explicites.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_072",
+    "intitule": "Dans un formulaire, comment gérer la validation côté client en **React** ?",
+    "reponses": [
+      "En laissant le navigateur gérer tout",
+      "En ajoutant des conditions dans le render et dans le submit",
+      "En utilisant uniquement le required HTML",
+      "Ce n'est pas possible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On combine souvent du state de validation et des conditions dans le submit et l'affichage des erreurs dans le render.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_073",
+    "intitule": "À quoi sert la prop `element` dans une `<Route>` de **React Router v6** ?",
+    "reponses": [
+      "À définir le chemin de la route",
+      "À définir le composant à rendre pour cette route",
+      "À définir les enfants",
+      "À définir le layout"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Dans v6, `<Route element={<MyComp />} />` indique quel élément doit être rendu lorsque la route matche.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_074",
+    "intitule": "Pourquoi est-il déconseillé de déclencher des requêtes réseau directement dans le body du composant ?",
+    "reponses": [
+      "Car fetch ne fonctionne pas en React",
+      "Car cela peut être appelé à chaque rendu et provoquer des boucles",
+      "Car useEffect est plus rapide",
+      "Car cela bloque le Virtual DOM"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le body du composant est exécuté à chaque rendu. Les effets secondaires doivent être gérés dans `useEffect` pour éviter les répétitions.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_075",
+    "intitule": "Quel est l'avantage principal des composants contrôlés pour les formulaires ?",
+    "reponses": [
+      "Ils sont plus rapides que les non-contrôlés",
+      "Ils permettent de garder le state source de vérité et de valider en temps réel",
+      "Ils n'utilisent pas d'événements",
+      "Ils n'ont pas besoin de state"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Avec des composants contrôlés, la valeur du champ est dans le state **React**, ce qui facilite validation, formatage et synchro.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_076",
+    "intitule": "Que se passe-t-il si on oublie de nettoyer un abonnement (ex: WebSocket) dans `useEffect` ?",
+    "reponses": [
+      "Rien, React le nettoie toujours",
+      "On risque des fuites mémoire et des callbacks sur des composants démontés",
+      "L'effet ne fonctionne pas",
+      "Le composant est recréé"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Sans cleanup, les abonnements continuent même après démontage, ce qui peut provoquer des fuites et des erreurs.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_077",
+    "intitule": "Quel pattern de **Context** évite de re-render tous les enfants quand une petite partie du state change ?",
+    "reponses": [
+      "Un seul gros Provider global",
+      "Plusieurs Context spécifiques et/ou des selectors",
+      "Aucun Context",
+      "Utiliser uniquement Redux"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Découper le **Context** en plusieurs morceaux ou utiliser des selectors limite les re-renders aux composants concernés.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_078",
+    "intitule": "Comment gérer la redirection après un login réussi avec **React Router v6** ?",
+    "reponses": [
+      "window.location.href = '/';",
+      "useNavigate et navigate('/')",
+      "Utiliser <Redirect />",
+      "Ce n'est pas possible"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useNavigate` permet de rediriger l'utilisateur après une action, par exemple après un login.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_079",
+    "intitule": "Quel problème peut survenir si on met un state de formulaire complet dans un **Context** ?",
+    "reponses": [
+      "Le state ne peut plus être modifié",
+      "Le moindre changement re-rendera tous les consommateurs du Context",
+      "Les hooks ne fonctionnent plus",
+      "Le formulaire ne se soumet plus"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un **Context** re-render tous ses consommateurs à chaque changement. Un gros state souvent mis à jour peut être coûteux.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_080",
+    "intitule": "Quelle stratégie de découpage des routes améliore le chargement initial ?",
+    "reponses": [
+      "Tout mettre dans App",
+      "Utiliser le code splitting et lazy loading sur les pages",
+      "Dupliquer le code des pages",
+      "Désactiver React Router"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le code splitting permet de charger le code des pages à la demande, améliorant le temps de chargement initial.",
+    "categorie": "react",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "react_081",
+    "intitule": "Quel est l'impact d'une fonction inline passée en prop sur les re-renders des enfants ?",
+    "reponses": [
+      "Aucun impact",
+      "Elle crée une nouvelle référence à chaque render, pouvant déclencher des re-renders inutiles",
+      "Elle bloque les re-renders",
+      "Elle désactive React.memo"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Une fonction inline a une nouvelle référence à chaque render. Combiné à `React.memo`, cela peut annuler la mémoïsation.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_082",
+    "intitule": "Quand est-il pertinent d'utiliser `useCallback` ?",
+    "reponses": [
+      "Toujours sur toutes les fonctions",
+      "Uniquement lorsqu'une fonction est passée à un composant mémoïsé ou à un hook dépendant",
+      "Jamais, il est obsolète",
+      "Uniquement pour les handlers d'événements natifs"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useCallback` est utile quand la référence de la fonction est importante pour éviter des re-renders ou des recomputations.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_083",
+    "intitule": "Quel est le risque de mettre `state` et `setState` dans les dépendances de `useEffect` de façon systématique ?",
+    "reponses": [
+      "Aucun, c'est recommandé",
+      "setState changera à chaque render",
+      "On peut déclencher des effets en boucle si l'effet met à jour ce state",
+      "Les hooks cessent de fonctionner"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Inclure un state mis à jour dans l'effet peut créer une boucle infinie si l'effet dépend de ce même state.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_084",
+    "intitule": "Quel avantage apportent les **Custom Hooks** ?",
+    "reponses": [
+      "Ils remplacent tous les composants",
+      "Ils permettent de réutiliser la logique d'état et d'effets entre composants",
+      "Ils remplacent Redux",
+      "Ils suppriment le besoin de useEffect"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un custom hook extrait de la logique basée sur des hooks pour la réutiliser dans plusieurs composants.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_085",
+    "intitule": "Quelle règle fondamentale doit respecter un **Custom Hook** ?",
+    "reponses": [
+      "Commencer son nom par 'use' et respecter les règles des hooks",
+      "Être défini dans App.js",
+      "Ne pas utiliser d'autres hooks",
+      "Retourner toujours un objet"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Les custom hooks doivent commencer par `use` et appeler les hooks **React** uniquement au niveau supérieur.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_086",
+    "intitule": "Dans l'algorithme de reconciliation, comment **React** gère-t-il les listes sans keys stables ?",
+    "reponses": [
+      "Il les ignore",
+      "Il met à jour les éléments par position, pouvant entraîner des bugs visuels",
+      "Il crée des ids automatiques stables",
+      "Il force un rechargement complet de la page"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Sans keys stables, **React** se base sur l'ordre. Les insertions/suppressions peuvent alors faire 'bouger' les éléments incorrectement.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_087",
+    "intitule": "Quel pattern historique **React** permettait de partager de la logique entre composants avant les hooks ?",
+    "reponses": [
+      "Custom Hooks",
+      "Higher-Order Components (HOC)",
+      "Context API",
+      "Portals"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **HOC** sont des fonctions qui prennent un composant et retournent un nouveau composant en lui injectant de la logique ou des props.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_088",
+    "intitule": "Quel est le principal inconvénient des **HOC** par rapport aux hooks ?",
+    "reponses": [
+      "Ils ne fonctionnent pas avec TypeScript",
+      "Ils provoquent du 'wrapper hell' et compliquent le tree",
+      "Ils ne permettent pas la réutilisation de logique",
+      "Ils ne peuvent pas accéder aux props"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **HOC** imbriqués créent des couches supplémentaires dans l'arbre de composants, rendant le debug plus difficile.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_089",
+    "intitule": "Quel pattern permettait de partager de la logique via une prop de rendu ?",
+    "reponses": [
+      "Render Props",
+      "Context",
+      "Portal",
+      "Reducer"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le pattern **Render Props** consiste à passer une fonction en prop qui retourne du **JSX**, permettant de partager de la logique.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_090",
+    "intitule": "Quelle est la différence majeure entre **SSR** (Server-Side Rendering) et **CSR** (Client-Side Rendering) ?",
+    "reponses": [
+      "SSR n'utilise pas React",
+      "SSR rend le HTML sur le serveur avant de l'hydrater côté client",
+      "CSR ne peut pas appeler d'API",
+      "CSR nécessite un backend Java"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "En **SSR**, le serveur renvoie directement une page HTML déjà rendue, puis **React** hydrate cette page côté client.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_091",
+    "intitule": "Quel avantage clé apporte la **SSR** pour une application **React** ?",
+    "reponses": [
+      "Un code plus simple",
+      "Un meilleur SEO et un time-to-first-byte plus rapide",
+      "Des bundles plus gros",
+      "La suppression du besoin de hooks"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**SSR** peut améliorer le SEO et le temps d'affichage initial perçu, en envoyant du HTML déjà prêt.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_092",
+    "intitule": "Que signifie 'hydration' dans le contexte **React SSR** ?",
+    "reponses": [
+      "La compression du HTML",
+      "L'ajout progressif des styles CSS",
+      "La connexion du code React au HTML déjà rendu côté serveur",
+      "Le rechargement complet de la page"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "L'hydration consiste à attacher les listeners et l'état **React** au HTML statique renvoyé par le serveur.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_093",
+    "intitule": "Dans un custom hook, pourquoi est-il utile de retourner un objet plutôt qu'un tableau ?",
+    "reponses": [
+      "Pour éviter la déstructuration",
+      "Pour permettre un nommage explicite des valeurs retournées",
+      "Parce que les tableaux ne sont pas supportés",
+      "Pour améliorer les performances"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Retourner un objet permet de déstructurer par nom, ce qui rend le code plus lisible et plus robuste aux changements d'ordre.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_094",
+    "intitule": "Quel problème typique les **Suspense** et **Error Boundaries** aident-ils à résoudre ?",
+    "reponses": [
+      "Les collisions de CSS",
+      "La gestion des états de chargement et d'erreurs pour le code splitting et les données",
+      "Les conflits de versions de React",
+      "Les problèmes de mémoire"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Suspense** et **Error Boundaries** offrent des primitives pour gérer les chargements et erreurs de façon déclarative.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_095",
+    "intitule": "Pourquoi les hooks doivent-ils être appelés au 'top level' d'un composant ?",
+    "reponses": [
+      "Pour respecter l'ordre des hooks entre les renders",
+      "Pour des raisons de performance uniquement",
+      "Pour permettre l'arbre de contexte",
+      "Pour pouvoir les minifier"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "L'ordre des hooks doit rester identique entre les renders pour que **React** associe correctement chaque hook à son état.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_096",
+    "intitule": "Que se passe-t-il si un hook est appelé dans une condition (`if`) ?",
+    "reponses": [
+      "Rien de spécial",
+      "React ignore ce hook",
+      "L'ordre des hooks peut changer, menant à un comportement imprévisible",
+      "React optimise automatiquement l'appel"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Appeler les hooks conditionnellement peut casser l'ordre des appels et corrompre l'association des états.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_097",
+    "intitule": "Dans un `useEffect`, quelle est la meilleure façon de dépendre d'une fonction de callback mémoïsée ?",
+    "reponses": [
+      "Ne jamais la mettre en dépendance",
+      "La mettre en dépendance et mémoïser la fonction avec useCallback",
+      "Utiliser un tableau vide",
+      "Utiliser un commentaire eslint-disable à la place"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La fonction doit être stable (`useCallback`) si on la met en dépendance pour éviter des relances inutiles de l'effet.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_098",
+    "intitule": "Pourquoi certains hooks comme `useLayoutEffect` existent-ils en plus de `useEffect` ?",
+    "reponses": [
+      "Pour remplacer useEffect",
+      "Pour exécuter des effets synchrone après le DOM, avant le paint",
+      "Pour améliorer le SEO",
+      "Pour supporter IE11"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`useLayoutEffect` est appelé de manière synchrone après les mutations du DOM, ce qui permet de mesurer ou ajuster la mise en page avant l'affichage.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_099",
+    "intitule": "Comment limiter le coût de re-render d'une grande liste en **React** ?",
+    "reponses": [
+      "En utilisant un seul composant pour tout",
+      "En utilisant la virtualisation de liste (ex: react-window)",
+      "En désactivant le Virtual DOM",
+      "En utilisant useEffect sur chaque item"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La virtualisation rend seulement les éléments visibles, ce qui réduit fortement le coût de rendu.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_100",
+    "intitule": "Que fait `React.lazy` ?",
+    "reponses": [
+      "Il compile le code plus vite",
+      "Il permet de charger un composant dynamiquement (code splitting)",
+      "Il rend un composant plus lent",
+      "Il désactive la SSR"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`React.lazy` charge un composant de manière asynchrone, souvent combiné à **Suspense** pour afficher un fallback.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_101",
+    "intitule": "Dans un contexte **SSR**, pourquoi faut-il éviter d'accéder directement à `window` ou `document` dans le body d'un composant ?",
+    "reponses": [
+      "Parce que window est trop lent",
+      "Parce que ces objets n'existent pas côté serveur",
+      "Parce que React les interdit",
+      "Parce que cela casse le Virtual DOM"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "En **SSR**, le code s'exécute côté serveur où `window` et `document` n'existent pas, ce qui provoquerait des erreurs.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_102",
+    "intitule": "Quel problème peuvent provoquer des effets non idempotents en mode `StrictMode` (double invocation en dev) ?",
+    "reponses": [
+      "Ils ne sont jamais exécutés",
+      "Ils s'exécutent deux fois, pouvant dupliquer des abonnements ou des requêtes",
+      "Ils sont optimisés automatiquement",
+      "Ils sont supprimés en production"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "En développement, certains effets sont exécutés deux fois pour détecter les effets de bord, ce qui requiert un code idempotent.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_103",
+    "intitule": "Pourquoi est-il dangereux de stocker des données dérivées du state et des props dans un autre state ?",
+    "reponses": [
+      "Cela augmente la taille du bundle",
+      "Cela risque de créer des incohérences si l'on oublie de synchroniser ce state dérivé",
+      "Cela empêche les re-renders",
+      "Cela casse la SSR"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Dupliquer des données dans le state peut créer des divergences. Il vaut mieux dériver ces valeurs à la volée ou avec `useMemo`.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_104",
+    "intitule": "Quel est l'intérêt de normaliser les données (style 'entities') dans le state global ?",
+    "reponses": [
+      "Simplifier la sérialisation et limiter les duplications",
+      "Accélérer le bundling",
+      "Éviter l'utilisation des hooks",
+      "Faciliter la SSR uniquement"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "La normalisation permet d'éviter les duplications de données et facilite les mises à jour ciblées.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_105",
+    "intitule": "Dans une app **React** + **SSR**, quel problème peut survenir si le rendu client diffère du rendu serveur ?",
+    "reponses": [
+      "Aucun, React corrige toujours",
+      "Une erreur d'hydration et un re-render complet",
+      "Un crash du serveur",
+      "Un blocage du Virtual DOM"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Une divergence entre rendu serveur et client peut provoquer des warnings et forcer un re-render complet côté client.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_106",
+    "intitule": "Quel est l'effet de l'utilisation de clés index dans une liste triable ou filtrable ?",
+    "reponses": [
+      "Aucun, c'est parfaitement sûr",
+      "Cela peut provoquer des re-orderings incorrects et des states d'items mélangés",
+      "Cela accélère la liste",
+      "Cela améliore la SSR"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Lorsque l'ordre change, les indexes ne reflètent plus l'identité des éléments, ce qui peut mélanger les states des items.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_107",
+    "intitule": "Pourquoi est-il recommandé de garder les composants 'présentationnels' sans logique métier lourde ?",
+    "reponses": [
+      "Pour les rendre plus faciles à styliser et à réutiliser",
+      "Pour améliorer le SEO",
+      "Pour activer automatiquement le memo",
+      "Pour éviter d'utiliser des hooks"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Séparer présentation et logique métier facilite la réutilisation, les tests et le refactor.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_108",
+    "intitule": "Quel est l'intérêt d'un hook `usePrevious` personnalisé ?",
+    "reponses": [
+      "Stocker la valeur précédente d'une variable pour comparer les changements",
+      "Remplacer useState",
+      "Remplacer useEffect",
+      "Simplifier le routing"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`usePrevious` stocke la valeur précédente d'une dépendance, ce qui facilite des comparaisons dans les effets.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_109",
+    "intitule": "Pourquoi éviter d'avoir un **Context** 'géant' qui contient tout le state global de l'application ?",
+    "reponses": [
+      "Parce que Context est limité en taille",
+      "Parce que chaque changement re-render beaucoup de consommateurs, impactant les performances",
+      "Parce que cela casse useEffect",
+      "Parce que ce n'est pas typable"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un gros **Context** provoque des re-renders étendus. Il vaut mieux le découper ou utiliser une solution dédiée au state management.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_110",
+    "intitule": "Dans un custom hook d'API, pourquoi est-il important de gérer l'annulation des requêtes lors du démontage ?",
+    "reponses": [
+      "Pour libérer le cache",
+      "Pour éviter de mettre à jour le state d'un composant démonté",
+      "Pour respecter la SSR",
+      "Pour diminuer la taille du bundle"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Sans annulation, une réponse tardive peut tenter de mettre à jour un composant démonté et produire des erreurs ou fuites.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_111",
+    "intitule": "Quel est l'objectif principal de la concurrent mode (**React 18**) ?",
+    "reponses": [
+      "Rendre le rendu plus déterministe uniquement",
+      "Permettre à React d'interrompre et de prioriser le rendu pour garder l'UI réactive",
+      "Accélérer les builds",
+      "Supprimer le Virtual DOM"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le mode concurrent permet de rendre le rendu interruptible et priorisable, améliorant la réactivité de l'UI.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_112",
+    "intitule": "Que permet la fonction `startTransition` en **React 18** ?",
+    "reponses": [
+      "Lancer une transition CSS",
+      "Marquer certaines mises à jour comme non urgentes",
+      "Démarrer un router",
+      "Initialiser la SSR"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`startTransition` permet de marquer certaines mises à jour comme de faible priorité pour garder l'UI fluide.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_113",
+    "intitule": "Dans un composant très généraliste, quel est l'avantage d'utiliser le pattern 'controlled/uncontrolled' pour un input ?",
+    "reponses": [
+      "Permettre au composant d'être utilisé avec ou sans gestion externe de la valeur",
+      "Éviter complètement le state",
+      "Accélérer le rendu",
+      "Supprimer la nécessité d'onChange"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Un composant peut être contrôlé par son parent ou gérer son propre state interne, ce qui le rend plus polyvalent.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_114",
+    "intitule": "Pourquoi est-il intéressant de découpler la logique de fetching des composants d'affichage ?",
+    "reponses": [
+      "Pour écrire moins de tests",
+      "Pour réutiliser la logique de fetching et rendre les composants d'affichage plus simples et testables",
+      "Pour désactiver le Virtual DOM",
+      "Pour supprimer les hooks"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Séparer la logique (via hooks ou containers) rend l'affichage plus déclaratif et les tests unitaires plus simples.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_115",
+    "intitule": "Quel problème peut créer un `setState` dans le render (ou dans le body du composant) ?",
+    "reponses": [
+      "Rien de particulier",
+      "Une boucle infinie de re-renders",
+      "Une erreur de compilation",
+      "Un re-render unique supplémentaire"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Appeler `setState` lors du rendu provoque un nouveau rendu immédiatement, créant une boucle sans fin.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_116",
+    "intitule": "Dans un système de design **React**, pourquoi privilégier des composants 'headless' ?",
+    "reponses": [
+      "Pour imposer un style unique à toute l'app",
+      "Pour fournir uniquement la logique et laisser le style à l'implémentation",
+      "Pour éviter d'utiliser le CSS",
+      "Pour améliorer le SEO"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les composants headless exposent la logique et l'accessibilité, laissant la responsabilité du rendu et du style au consommateur.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_117",
+    "intitule": "Pourquoi vaut-il mieux éviter les effets 'magiques' dans les custom hooks (ex: navigation implicite) ?",
+    "reponses": [
+      "Parce que les hooks ne peuvent pas naviguer",
+      "Parce que cela réduit la prévisibilité et rend le hook difficile à réutiliser",
+      "Parce que React l'interdit",
+      "Parce que cela casse la SSR"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un hook avec des effets cachés devient difficile à raisonner et à réutiliser. Il est préférable d'exposer des callbacks explicites.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_118",
+    "intitule": "Dans une app **SSR**, pourquoi faut-il faire attention à l'utilisation de données aléatoires (`Math.random`) dans le rendu ?",
+    "reponses": [
+      "Parce que Math.random est lent",
+      "Parce que la valeur peut différer entre serveur et client et casser l'hydration",
+      "Parce que React bloque Math.random",
+      "Parce que cela empêche l'utilisation des hooks"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Si le rendu serveur et client divergent (ex: clés aléatoires), **React** peut échouer à hydrater correctement.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_119",
+    "intitule": "Quel est l'intérêt d'utiliser des selectors mémoïsés (ex: reselect) dans un state global **React**/**Redux** ?",
+    "reponses": [
+      "Remplacer complètement useMemo",
+      "Éviter de recalculer des dérivés coûteux tant que leurs dépendances n'ont pas changé",
+      "Accélérer la compilation",
+      "Diminuer la taille du bundle"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les selectors mémoïsés calculent une valeur dérivée uniquement lorsque leurs entrées changent, limitant les recalculs.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "react_120",
+    "intitule": "Dans un arbre de composants très profond, quel pattern peut limiter la complexité de la gestion d'état ?",
+    "reponses": [
+      "Remonter tout le state au composant racine",
+      "Combiner Context, custom hooks et éventuellement un store externe (Redux/Zustand)",
+      "Utiliser uniquement des props",
+      "Multiplier les effets dans tous les composants"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Combiner des outils adaptés (**Context** ciblé, hooks, stores) permet de garder un état cohérent sans props drilling excessif.",
+    "categorie": "react",
+    "difficulte": "difficile"
+  }
+]

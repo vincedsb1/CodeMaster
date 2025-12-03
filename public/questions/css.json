@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "css_001",
+    "intitule": "Quelle propriété permet de changer la couleur du texte ?",
+    "reponses": [
+      "text-color",
+      "font-color",
+      "color",
+      "text-style"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "La propriété `color` définit la couleur du texte d'un élément.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_002",
+    "intitule": "Quel symbole est utilisé pour cibler une **classe** en **CSS** ?",
+    "reponses": [
+      ".",
+      "#",
+      "",
+      "&"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le point `.` suivi du nom (par exemple `.btn`) cible une **classe**.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_003",
+    "intitule": "Quel symbole est utilisé pour cibler un **id** en **CSS** ?",
+    "reponses": [
+      ".",
+      "#",
+      "@",
+      "$"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le dièse `#` suivi du nom (par exemple `#header`) cible un **id**.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_004",
+    "intitule": "Quel sélecteur cible tous les éléments `<p>` ?",
+    "reponses": [
+      "#p",
+      ".p",
+      "p",
+      "p"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le sélecteur de type `p` cible toutes les balises `<p>`.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_005",
+    "intitule": "Quel sélecteur cible tous les éléments de la page ?",
+    "reponses": [
+      "body",
+      "",
+      "html",
+      ":root"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le sélecteur universel `*` correspond à tous les éléments.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_006",
+    "intitule": "Quelle notation de couleur représente une couleur avec transparence ?",
+    "reponses": [
+      "rgb()",
+      "rgba()",
+      "hex court",
+      "hsl() sans alpha"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`rgba(r,g,b,a)` permet de définir la couleur et l'alpha (opacité).",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_007",
+    "intitule": "Quelle propriété définit la couleur de fond d'un élément ?",
+    "reponses": [
+      "background",
+      "background-color",
+      "color-bg",
+      "fill-color"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`background-color` définit spécifiquement la couleur de fond.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_008",
+    "intitule": "Quel format de couleur est valide en **CSS** ?",
+    "reponses": [
+      "#ff0000",
+      "rgb(255, 0, 0)",
+      "hsl(0, 100%, 50%)",
+      "Toutes les réponses précédentes"
+    ],
+    "indexBonneReponse": 3,
+    "explication": "**CSS** accepte les couleurs en **hex**, **rgb**, **hsl** et d'autres formats.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_009",
+    "intitule": "Quelle propriété contrôle la taille de la police ?",
+    "reponses": [
+      "font",
+      "font-style",
+      "font-size",
+      "text-size"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`font-size` définit la taille de la police d'un texte.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_010",
+    "intitule": "Quelle propriété permet d'aligner le texte au centre horizontalement ?",
+    "reponses": [
+      "text-align: middle",
+      "text-align: center",
+      "align-text: center",
+      "text-center: true"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`text-align: center` centre le texte à l'intérieur de son conteneur.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_011",
+    "intitule": "Que fait la propriété `margin` ?",
+    "reponses": [
+      "Ajoute de l'espace interne",
+      "Ajoute de l'espace externe autour de l'élément",
+      "Ajoute une bordure",
+      "Change la couleur de fond"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`margin` définit l'espace extérieur entre l'élément et les autres éléments.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_012",
+    "intitule": "Que fait la propriété `padding` ?",
+    "reponses": [
+      "Ajoute de l'espace interne entre le contenu et la bordure",
+      "Ajoute une bordure",
+      "Ajoute de l'espace externe",
+      "Change la police"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`padding` définit l'espace interne entre le contenu et la bordure.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_013",
+    "intitule": "Quelle propriété définit l'épaisseur de la bordure ?",
+    "reponses": [
+      "border-style",
+      "border-width",
+      "border-size",
+      "border-padding"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`border-width` contrôle l'épaisseur de la bordure.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_014",
+    "intitule": "Quelle propriété change le style de la bordure (plein, pointillé, etc.) ?",
+    "reponses": [
+      "border-style",
+      "border-type",
+      "border-mode",
+      "border-decoration"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`border-style` définit le type de trait (`solid`, `dashed`, `dotted`...).",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_015",
+    "intitule": "Quel mot-clé de `display` masque complètement un élément sans occuper d'espace ?",
+    "reponses": [
+      "display: hidden",
+      "visibility: none",
+      "display: none",
+      "opacity: 0"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`display: none` retire l'élément du flux de mise en page.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_016",
+    "intitule": "Quel `display` fait qu'un élément occupe toute la largeur disponible par défaut ?",
+    "reponses": [
+      "display: inline",
+      "display: block",
+      "display: inline-block",
+      "display: flex"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les éléments `block` s'étendent par défaut sur toute la largeur du conteneur.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_017",
+    "intitule": "Quel `display` permet à un élément de se comporter comme **inline** tout en acceptant `width` et `height` ?",
+    "reponses": [
+      "inline",
+      "block",
+      "inline-block",
+      "flex"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`inline-block` permet de définir `width` et `height` tout en restant sur la ligne.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_018",
+    "intitule": "Quel sélecteur cible tous les `<span>` qui sont à l'intérieur d'un `<div>` ?",
+    "reponses": [
+      "div span",
+      "div > span",
+      "span div",
+      ".div span"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`div span` sélectionne tous les `span` descendants de `div` (à n'importe quel niveau).",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_019",
+    "intitule": "Quel sélecteur cible uniquement les enfants directs `<li>` d'un `<ul>` ?",
+    "reponses": [
+      "ul li",
+      "ul + li",
+      "ul > li",
+      "ul ~ li"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`ul > li` cible les `li` qui sont des enfants directs de `ul`.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_020",
+    "intitule": "Quelle propriété contrôle l'interligne (espacement vertical entre les lignes de texte) ?",
+    "reponses": [
+      "line-height",
+      "text-height",
+      "font-height",
+      "row-height"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`line-height` ajuste l'espace vertical entre les lignes de texte.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_021",
+    "intitule": "Quelle propriété permet de mettre un texte en gras ?",
+    "reponses": [
+      "font-style",
+      "font-weight",
+      "font-bold",
+      "text-weight"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`font-weight` contrôle l'épaisseur de la police (`normal`, `bold`, etc.).",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_022",
+    "intitule": "Comment écrire un commentaire en **CSS** ?",
+    "reponses": [
+      "// commentaire",
+      "",
+      "/ commentaire /",
+      "# commentaire"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les commentaires **CSS** sont entourés par `/*` et `*/`.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_023",
+    "intitule": "Quelle propriété permet de souligner un texte ?",
+    "reponses": [
+      "text-decoration",
+      "text-style",
+      "font-decoration",
+      "underline"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`text-decoration: underline` applique un soulignement au texte.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_024",
+    "intitule": "Que fait la propriété `box-sizing: border-box` ?",
+    "reponses": [
+      "Elle enlève les bordures",
+      "Elle inclut padding et border dans le calcul de width et height",
+      "Elle ajoute un padding automatique",
+      "Elle fixe une box carrée"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Avec `border-box`, la largeur totale inclut contenu, padding et bordure.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_025",
+    "intitule": "Quelle propriété définit la largeur d'un élément ?",
+    "reponses": [
+      "size",
+      "width",
+      "max-width",
+      "layout-width"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`width` fixe la largeur du contenu de l'élément.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_026",
+    "intitule": "Quelle propriété permet de centrer un bloc horizontalement lorsqu'il a une largeur fixe ?",
+    "reponses": [
+      "margin: auto",
+      "padding: auto",
+      "text-align: center",
+      "align: center"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`margin-left: auto` et `margin-right: auto` centrent le bloc dans son conteneur.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_027",
+    "intitule": "Quelle propriété contrôle la casse du texte (majuscule, minuscule) ?",
+    "reponses": [
+      "text-transform",
+      "text-case",
+      "font-transform",
+      "letter-case"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`text-transform` permet par exemple `uppercase`, `lowercase`, `capitalize`.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_028",
+    "intitule": "Que fait la propriété `overflow: hidden` ?",
+    "reponses": [
+      "Elle affiche toujours les scrollbars",
+      "Elle masque le contenu qui dépasse",
+      "Elle permet le défilement",
+      "Elle change le z-index"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`overflow: hidden` coupe le contenu qui dépasse la boîte de l'élément.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_029",
+    "intitule": "Quel sélecteur cible un élément avec l'attribut `disabled` ?",
+    "reponses": [
+      ".disabled",
+      "#disabled",
+      "[disabled]",
+      ":disabled()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le sélecteur d'attribut `[disabled]` cible les éléments ayant cet attribut.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_030",
+    "intitule": "Quelle propriété contrôle l'alignement horizontal du contenu dans un élément **inline-block** sans **flex** ni **grid** ?",
+    "reponses": [
+      "horizontal-align",
+      "align-content",
+      "text-align",
+      "justify-content"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`text-align` agit sur les éléments **inline** et **inline-block** à l'intérieur d'un conteneur.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_031",
+    "intitule": "Quelle propriété définit la police utilisée pour le texte ?",
+    "reponses": [
+      "font-family",
+      "font-name",
+      "font-face",
+      "text-font"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`font-family` définit la liste de polices à utiliser.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_032",
+    "intitule": "Quel sélecteur permet de cibler un élément par son nom de balise et sa classe simultanément ?",
+    "reponses": [
+      "div .card",
+      "div#card",
+      "div.card",
+      ".div.card"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`div.card` cible les éléments `<div>` qui ont la classe `card`.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_033",
+    "intitule": "Quelle propriété permet de définir une image de fond ?",
+    "reponses": [
+      "background-image",
+      "background-src",
+      "image-background",
+      "bg-image"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`background-image` permet de définir une image de fond via `url()`.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_034",
+    "intitule": "Que fait `display: inline` pour un élément `div` ?",
+    "reponses": [
+      "Il le rend invisible",
+      "Il le fait se comporter comme un élément de ligne",
+      "Il le centre automatiquement",
+      "Il le positionne en absolu"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`display: inline` supprime le retour à la ligne et empêche de définir `width` et `height`.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_035",
+    "intitule": "Quelle propriété permet d'arrondir les coins d'un élément ?",
+    "reponses": [
+      "border-radius",
+      "border-round",
+      "corner-radius",
+      "radius"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`border-radius` définit le rayon de courbure des coins.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_036",
+    "intitule": "Quelle propriété contrôle l'ombre portée d'un élément ?",
+    "reponses": [
+      "box-shadow",
+      "shadow",
+      "drop-shadow",
+      "element-shadow"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`box-shadow` permet d'appliquer des ombres au box model de l'élément.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_037",
+    "intitule": "Que fait `cursor: pointer` ?",
+    "reponses": [
+      "Il masque le curseur",
+      "Il affiche un curseur texte",
+      "Il affiche le curseur en forme de main",
+      "Il bloque les clics"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`pointer` est souvent utilisé pour les éléments cliquables comme les boutons ou liens.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_038",
+    "intitule": "Quelle propriété permet de contrôler la transparence d'un élément entier (contenu compris) ?",
+    "reponses": [
+      "visibility",
+      "opacity",
+      "alpha",
+      "filter"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`opacity` va de 0 (transparent) à 1 (opaque) et affecte l'élément et son contenu.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_039",
+    "intitule": "Quelle propriété change le style d'écriture en italique ?",
+    "reponses": [
+      "font-weight",
+      "font-style",
+      "text-style",
+      "font-variant"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`font-style: italic` met la police en italique.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_040",
+    "intitule": "Quelle déclaration **CSS** est correcte pour cibler tous les paragraphes ?",
+    "reponses": [
+      "p {} ",
+      ".p {} ",
+      "#p {} ",
+      "<p> {}"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "On utilise le nom de la balise suivi d'accolades pour définir une règle.",
+    "categorie": "css",
+    "difficulte": "facile"
+  },
+  {
+    "id": "css_041",
+    "intitule": "Quelle propriété **Flexbox** contrôle l'axe principal de disposition des éléments ?",
+    "reponses": [
+      "flex-flow",
+      "flex-direction",
+      "justify-content",
+      "align-items"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`flex-direction` définit l'orientation principale (`row`, `column`, etc.).",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_042",
+    "intitule": "Que fait `justify-content` dans un conteneur **flex** ?",
+    "reponses": [
+      "Aligne les éléments sur l'axe secondaire",
+      "Aligne les éléments sur l'axe principal",
+      "Définit la taille des éléments",
+      "Contrôle le retour à la ligne"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`justify-content` répartit l'espace libre le long de l'axe principal (`start`, `center`, `space-between`, etc.).",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_043",
+    "intitule": "Que fait `align-items` dans un conteneur **flex** ?",
+    "reponses": [
+      "Aligne les éléments sur l'axe principal",
+      "Aligne les éléments sur l'axe secondaire (croisé)",
+      "Contrôle le wrapping",
+      "Change la direction des éléments"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`align-items` gère l'alignement des éléments sur l'axe perpendiculaire à l'axe principal.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_044",
+    "intitule": "Quelle valeur de `flex-direction` dispose les éléments en colonne de haut en bas ?",
+    "reponses": [
+      "row",
+      "row-reverse",
+      "column",
+      "column-reverse"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`column` place les éléments verticalement du haut vers le bas.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_045",
+    "intitule": "Quelle propriété active le modèle **Flexbox** sur un élément parent ?",
+    "reponses": [
+      "display: block",
+      "display: flex",
+      "position: flex",
+      "flex: container"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`display: flex` transforme l'élément en conteneur **flex**.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_046",
+    "intitule": "Quelle propriété **CSS** crée un conteneur **Grid** ?",
+    "reponses": [
+      "display: grid",
+      "grid-container: true",
+      "display: flex-grid",
+      "grid: true"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`display: grid` active le modèle de mise en page **Grid**.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_047",
+    "intitule": "Quelle propriété définit la structure des colonnes dans un conteneur **grid** ?",
+    "reponses": [
+      "grid-columns",
+      "grid-template-columns",
+      "grid-col",
+      "columns-template"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`grid-template-columns` décrit la taille et le nombre de colonnes.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_048",
+    "intitule": "Quelle unité est relative à la taille de police de l'élément racine (`html`) ?",
+    "reponses": [
+      "px",
+      "em",
+      "rem",
+      "%"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`rem` est relative à `font-size` de l'élément racine, contrairement à `em`.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_049",
+    "intitule": "Quelle unité représente un pourcentage de la hauteur de la fenêtre (**viewport**) ?",
+    "reponses": [
+      "vh",
+      "vw",
+      "%",
+      "rem"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`1vh` équivaut à 1% de la hauteur du **viewport**.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_050",
+    "intitule": "Quelle unité représente un pourcentage de la largeur de la fenêtre (**viewport**) ?",
+    "reponses": [
+      "vh",
+      "vw",
+      "%",
+      "em"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`1vw` équivaut à 1% de la largeur du **viewport**.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_051",
+    "intitule": "Quelle propriété de positionnement retire l'élément du flux normal et le positionne par rapport au **viewport** ?",
+    "reponses": [
+      "position: relative",
+      "position: absolute",
+      "position: fixed",
+      "position: sticky"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`fixed` ancre l'élément par rapport à la fenêtre et le retire du flux.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_052",
+    "intitule": "Quel positionnement permet de placer un élément relativement à sa position normale sans le retirer du flux ?",
+    "reponses": [
+      "static",
+      "relative",
+      "absolute",
+      "fixed"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`relative` permet des décalages avec `top`, `left`, etc. tout en conservant la place dans le flux.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_053",
+    "intitule": "À quoi sert `position: absolute` ?",
+    "reponses": [
+      "À centrer l'élément",
+      "À positionner l'élément par rapport au conteneur positionné le plus proche",
+      "À le maintenir dans le flux normal",
+      "À le coller au bas de la page"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`absolute` se réfère au premier ancêtre positionné (non `static`) ou au **viewport**.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_054",
+    "intitule": "Quelle règle `@media` cible des écrans dont la largeur max est 600px ?",
+    "reponses": [
+      "@media (width <= 600px)",
+      "@media screen and (max-width: 600px)",
+      "@media screen (width < 600px)",
+      "@media only (600px)"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La syntaxe standard utilise `max-width` pour les media queries responsives.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_055",
+    "intitule": "Quelle pseudo-classe s'applique lorsqu'un utilisateur passe la souris sur un élément ?",
+    "reponses": [
+      ":focus",
+      ":hover",
+      ":active",
+      ":visited"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`:hover` s'active au survol de l'élément.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_056",
+    "intitule": "Quelle pseudo-classe s'applique lorsqu'un champ de formulaire reçoit le focus ?",
+    "reponses": [
+      ":hover",
+      ":focus",
+      ":active",
+      ":checked"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`:focus` correspond à l'élément actuellement focalisé par le clavier ou la souris.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_057",
+    "intitule": "Que sélectionne `li:nth-child(2)` ?",
+    "reponses": [
+      "Tous les li pairs",
+      "Le deuxième li parmi tous les enfants",
+      "Le deuxième li de chaque groupe de deux",
+      "Le deuxième li de type particulier"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`nth-child` se base sur la position dans la liste des enfants, indépendamment du type.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_058",
+    "intitule": "Quelle propriété **Flexbox** permet à un élément de prendre plus d'espace disponible que les autres ?",
+    "reponses": [
+      "flex-grow",
+      "flex-shrink",
+      "flex-basis",
+      "flex-wrap"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`flex-grow > 0` permet à l'élément de grandir proportionnellement à l'espace libre.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_059",
+    "intitule": "Quelle propriété **Flexbox** contrôle la base de calcul de la taille d'un élément ?",
+    "reponses": [
+      "flex-grow",
+      "flex-shrink",
+      "flex-basis",
+      "flex-base"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`flex-basis` définit la taille de base avant distribution de l'espace.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_060",
+    "intitule": "Quelle propriété **Grid** permet de définir l'espacement entre les lignes et colonnes ?",
+    "reponses": [
+      "margin",
+      "padding",
+      "grid-gap ou gap",
+      "grid-spacing"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`gap` (anciennement `grid-gap`) définit l'espacement entre les pistes du grid.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_061",
+    "intitule": "Quelle propriété positionne un élément sur une ligne de grille spécifique ?",
+    "reponses": [
+      "grid-line",
+      "grid-row",
+      "grid-column",
+      "grid-area"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`grid-row` et `grid-column` contrôlent le placement d'un item dans le grid.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_062",
+    "intitule": "Quelle valeur de position rend un élément sticky lors du scroll ?",
+    "reponses": [
+      "fixed",
+      "absolute",
+      "sticky",
+      "relative"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`sticky` combine un comportement relatif et fixe selon la position de scroll.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_063",
+    "intitule": "Quelle propriété **CSS** est la plus adaptée pour enchaîner plusieurs déclarations de police (taille, famille, etc.) ?",
+    "reponses": [
+      "font",
+      "text",
+      "font-config",
+      "font-style"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "La propriété raccourcie `font` permet de définir plusieurs aspects de la police en une fois.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_064",
+    "intitule": "Que fait `@media (prefers-reduced-motion: reduce)` ?",
+    "reponses": [
+      "Rien en CSS",
+      "Cible les utilisateurs qui préfèrent moins d'animations",
+      "Cible les écrans tactiles",
+      "Cible les écrans haute résolution"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Cette **media query** permet d'adapter les animations pour les utilisateurs sensibles au mouvement.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_065",
+    "intitule": "Quelle pseudo-classe cible un lien déjà visité ?",
+    "reponses": [
+      ":hover",
+      ":visited",
+      ":link",
+      ":active"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`:visited` s'applique aux liens dont l'URL a déjà été visitée.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_066",
+    "intitule": "Quelle pseudo-classe permet de cibler un élément coché (par exemple un input checkbox) ?",
+    "reponses": [
+      ":checked",
+      ":selected",
+      ":toggled",
+      ":on"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`:checked` cible les cases à cocher, radio et options sélectionnées.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_067",
+    "intitule": "Que signifie la syntaxe `@media print` ?",
+    "reponses": [
+      "Règles pour les écrans d'impression",
+      "Règles CSS ignorées",
+      "Règles pour les écrans haute densité",
+      "Règles pour les appareils mobiles"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`@media print` permet de définir des styles spécifiques pour l'impression.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_068",
+    "intitule": "Quelle propriété **CSS** permet de forcer un élément **flex** à passer sur une nouvelle ligne si nécessaire ?",
+    "reponses": [
+      "flex-direction",
+      "flex-flow",
+      "flex-wrap",
+      "flex-break"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`flex-wrap: wrap` autorise les éléments à se répartir sur plusieurs lignes.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_069",
+    "intitule": "Que fait `align-self` sur un élément **flex** ou **grid** ?",
+    "reponses": [
+      "Change la direction de l'axe",
+      "Change l'alignement de tous les éléments",
+      "Surclasse l'alignement de cet élément uniquement sur l'axe secondaire",
+      "Surclasse la largeur de l'élément"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`align-self` permet à un item de s'aligner différemment des autres dans le conteneur.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_070",
+    "intitule": "Quelle propriété **CSS** permet d'ajuster l'espace entre les lettres ?",
+    "reponses": [
+      "word-spacing",
+      "letter-spacing",
+      "text-gap",
+      "char-spacing"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`letter-spacing` définit l'espacement supplémentaire entre les caractères.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_071",
+    "intitule": "Quelle propriété permet de limiter la largeur d'un élément sans empêcher de rétrécir en dessous si nécessaire ?",
+    "reponses": [
+      "width",
+      "max-width",
+      "min-width",
+      "flex-basis"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`max-width` fixe une largeur maximale, tout en autorisant une largeur plus petite.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_072",
+    "intitule": "Quelle propriété permet de changer l'ordre visuel d'un élément dans un conteneur **flex** ?",
+    "reponses": [
+      "z-index",
+      "order",
+      "flex-order",
+      "stack-order"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`order` modifie l'ordre de disposition des éléments **flex** sans changer le **DOM**.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_073",
+    "intitule": "Quelle pseudo-classe sélectionne la première occurrence d'un type parmi ses frères ?",
+    "reponses": [
+      ":first-child",
+      ":first-of-type",
+      ":nth-child(1)",
+      ":only-child"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`:first-of-type` cible le premier élément de ce type parmi ses frères.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_074",
+    "intitule": "Quelle pseudo-classe cible un élément qui ne correspond pas à un sélecteur donné ?",
+    "reponses": [
+      ":not()",
+      ":no()",
+      ":exclude()",
+      ":without()"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`:not(sel)` permet d'exclure les éléments correspondant au sélecteur `sel`.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_075",
+    "intitule": "À quoi sert la propriété `object-fit` pour les images et vidéos ?",
+    "reponses": [
+      "À fixer la taille du conteneur",
+      "À définir comment le média s'adapte à son conteneur",
+      "À changer la résolution de l'image",
+      "À définir la couleur de fond"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`object-fit: cover` ou `contain` contrôle le recadrage ou l'adaptation du média dans son cadre.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_076",
+    "intitule": "Quelle propriété permet de contrôler la coupure des mots longs dans un bloc de texte ?",
+    "reponses": [
+      "word-wrap ou overflow-wrap",
+      "letter-wrap",
+      "text-break",
+      "line-wrap"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`overflow-wrap: break-word` permet de couper les mots trop longs pour éviter le débordement.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_077",
+    "intitule": "Que fait `justify-items` dans un conteneur **grid** ?",
+    "reponses": [
+      "Aligne le contenu à l'intérieur de chaque item sur l'axe inline",
+      "Aligne les linhas de la grille",
+      "Aligne sur l'axe block",
+      "Change le nombre de colonnes"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`justify-items` gère l'alignement horizontal du contenu à l'intérieur des cellules dans la grille.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_078",
+    "intitule": "Que fait `align-content` dans un conteneur **flex** ou **grid** ?",
+    "reponses": [
+      "Aligne les items individuellement",
+      "Aligne les lignes de contenu dans le conteneur lorsqu'il y en a plusieurs",
+      "Change la direction",
+      "Définit la hauteur des lignes"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`align-content` agit sur l'ensemble des lignes lorsqu'il y en a plusieurs pour répartir l'espace vertical.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_079",
+    "intitule": "Quelle déclaration **CSS** commence une **media query** pour les écrans d'au moins 1024px de large ?",
+    "reponses": [
+      "@media (min-width: 1024px)",
+      "@media screen 1024px",
+      "@media width >= 1024px",
+      "@media min-width(1024px)"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`min-width` permet d'appliquer les styles à partir d'une certaine largeur de **viewport**.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_080",
+    "intitule": "Quelle propriété permet de dessiner une bordure spécifiquement au bas d'un élément ?",
+    "reponses": [
+      "border-bottom",
+      "bottom-border",
+      "border-down",
+      "border-line-bottom"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`border-bottom` permet de définir la bordure basse de manière individuelle.",
+    "categorie": "css",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "css_081",
+    "intitule": "Dans le calcul de spécificité, quel sélecteur a le poids le plus élevé ?",
+    "reponses": [
+      "Un sélecteur de type (div)",
+      "Un sélecteur de classe (.btn)",
+      "Un sélecteur d'id (#main)",
+      "Le sélecteur universel ()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les **id** ont une spécificité plus forte que les classes et les types.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_082",
+    "intitule": "Quel sélecteur a la plus grande spécificité parmi ceux-ci ?",
+    "reponses": [
+      "div p",
+      ".card p",
+      "#main .card p",
+      "p:hover"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`#main .card p` inclut un **id**, ce qui augmente fortement sa spécificité.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_083",
+    "intitule": "Lequel de ces sélecteurs a la spécificité la plus faible ?",
+    "reponses": [
+      " + *",
+      "article",
+      ".item",
+      "#header"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le sélecteur universel `*` contribue 0, `article` ajoute un point de type, la classe et l'id en ajoutent davantage.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_084",
+    "intitule": "Quel est l'effet de déclarer une règle avec `!important` ?",
+    "reponses": [
+      "Elle réduit la spécificité",
+      "Elle annule toutes les autres règles du fichier",
+      "Elle surpasse les règles de même propriété sauf si une autre a aussi !important avec plus de spécificité",
+      "Elle n'a aucun effet"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`!important` élève la priorité de la déclaration dans la cascade mais ne supprime pas la notion de spécificité.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_085",
+    "intitule": "Quel scénario crée un nouveau **stacking context** indépendant pour `z-index` ?",
+    "reponses": [
+      "Un élément position: static avec z-index",
+      "Un élément positionné (relative, absolute, fixed) avec z-index non auto",
+      "Un élément display: block sans position",
+      "Un simple span"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un élément positionné avec `z-index` différent de `auto` crée un **stacking context**.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_086",
+    "intitule": "Quel autre cas peut créer un **stacking context** en **CSS** moderne ?",
+    "reponses": [
+      "border-radius non nul",
+      "opacity < 1",
+      "font-size > 16px",
+      "margin négatif"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un élément avec `opacity` inférieur à 1 crée un nouveau **stacking context**.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_087",
+    "intitule": "Que fait la règle `@keyframes` en **CSS** ?",
+    "reponses": [
+      "Définit une media query",
+      "Définit une animation nommée avec différentes étapes",
+      "Définit une grille responsive",
+      "Définit une variable CSS"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`@keyframes` décrit l'évolution de propriétés au fil du temps pour une animation.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_088",
+    "intitule": "Quelle propriété applique une animation définie par `@keyframes` sur un élément ?",
+    "reponses": [
+      "transition",
+      "animation",
+      "keyframes",
+      "animate"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`animation` ou ses sous-propriétés (`animation-name`, `duration`, etc.) lient l'animation à l'élément.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_089",
+    "intitule": "Que fait `animation-fill-mode: forwards` ?",
+    "reponses": [
+      "Rejoue l'animation",
+      "Reviens à l'état initial après l'animation",
+      "Conserve les styles de la dernière frame après la fin",
+      "Inverse l'animation"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`forwards` maintient l'état final de l'animation une fois terminée.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_090",
+    "intitule": "Que permet un pseudo-élément `::before` ?",
+    "reponses": [
+      "Sélectionner le parent d'un élément",
+      "Insérer un contenu généré avant le contenu réel de l'élément",
+      "Changer la couleur du texte",
+      "Créer une media query"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`::before` crée une boîte générée au début du contenu d'un élément, souvent utilisée avec `content`.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_091",
+    "intitule": "Pour que `::before` ou `::after` soit visible, quelle propriété est généralement nécessaire ?",
+    "reponses": [
+      "display: block",
+      "content",
+      "position: absolute",
+      "z-index"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Sans `content` (même vide), le pseudo-élément ne se génère pas.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_092",
+    "intitule": "Comment déclare-t-on une variable **CSS** (custom property) ?",
+    "reponses": [
+      "var-main-color: #000",
+      "--main-color: #000",
+      "$main-color: #000",
+      "@main-color: #000"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les custom properties utilisent un nom commençant par deux tirets, par exemple `--main-color`.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_093",
+    "intitule": "Comment utilise-t-on une variable **CSS** nommée `--primary` dans une déclaration ?",
+    "reponses": [
+      "color: --primary",
+      "color: $primary",
+      "color: var(--primary)",
+      "color: css(--primary)"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "La fonction `var()` récupère la valeur de la custom property.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_094",
+    "intitule": "À quel niveau de l'arbre applique-t-on souvent les variables **CSS** globales ?",
+    "reponses": [
+      "body",
+      ":root",
+      "html ",
+      ""
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`:root` (l'élément racine) est souvent utilisé pour déclarer des variables globales.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_095",
+    "intitule": "Que fait le sélecteur `:is(.btn, .link)` ?",
+    "reponses": [
+      "Cible les éléments qui ne sont pas .btn ni .link",
+      "Cible uniquement le premier des deux",
+      "Cible les éléments correspondant à .btn ou .link",
+      "Crée une variable CSS"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`:is()` permet de regrouper des listes de sélecteurs tout en simplifiant le calcul de spécificité.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_096",
+    "intitule": "Quelle différence majeure entre `:is()` et `:where()` ?",
+    "reponses": [
+      "Aucune différence",
+      ":where() a une spécificité nulle, :is() prend la spécificité la plus élevée des sélecteurs internes",
+      ":is() a une spécificité nulle, :where() prend la plus forte",
+      ":where() ne fonctionne qu'avec les ids"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`where()` n'ajoute aucune spécificité, ce qui est utile pour écrire des patterns sans écraser d'autres règles.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_097",
+    "intitule": "Que permet le sélecteur relationnel `:has()` en **CSS** moderne ?",
+    "reponses": [
+      "Cibler un descendant",
+      "Cibler un parent en fonction de ses enfants",
+      "Créer une animation",
+      "Créer une media query"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`:has()` permet de sélectionner un élément s'il contient un descendant correspondant au sélecteur donné.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_098",
+    "intitule": "Que sélectionne le sélecteur `form:has(input:invalid)` ?",
+    "reponses": [
+      "Les inputs invalides",
+      "Les forms qui contiennent au moins un input invalide",
+      "Tous les forms",
+      "Les inputs valides"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Grâce à `:has`, on peut cibler le parent (`form`) en fonction de l'état de ses enfants.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_099",
+    "intitule": "Que permet la directive `@layer` en **CSS** moderne ?",
+    "reponses": [
+      "Créer des animations",
+      "Définir l'ordre de priorité entre groupes de règles CSS",
+      "Créer des media queries imbriquées",
+      "Définir des variables globales"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`@layer` permet d'organiser les styles en couches avec une priorité de cascade contrôlée.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_100",
+    "intitule": "Que fait `@container (inline-size > 400px)` dans une **container query** ?",
+    "reponses": [
+      "Teste la largeur du viewport",
+      "Teste la largeur du conteneur le plus proche déclaré comme container",
+      "Teste la hauteur du document",
+      "Crée une media query classique"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **container queries** évaluent la taille du conteneur plutôt que celle du viewport.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_101",
+    "intitule": "Pour utiliser les **container queries**, quelle propriété doit être définie sur le parent ?",
+    "reponses": [
+      "display: container",
+      "container-type: inline-size",
+      "position: container",
+      "overflow: container"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`container-type` (par exemple `inline-size`) crée un conteneur de mise en page pour les **container queries**.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_102",
+    "intitule": "Que permet `grid-template-areas` dans un layout **CSS Grid** avancé ?",
+    "reponses": [
+      "Définir les gaps",
+      "Nommer des zones de la grille pour disposer les éléments de façon sémantique",
+      "Définir le nombre de colonnes",
+      "Créer des animations"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`grid-template-areas` donne des noms lisibles aux différentes zones de la grille.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_103",
+    "intitule": "Que fait `minmax(200px, 1fr)` dans `grid-template-columns` ?",
+    "reponses": [
+      "Fixe la colonne à 200px",
+      "Fixe la colonne à 1fr",
+      "Permet à la colonne de ne jamais être plus petite que 200px tout en pouvant s'étendre jusqu'à 1fr",
+      "Empêche la colonne de se redimensionner"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`minmax` fixe une plage de tailles possible pour une piste de grille.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_104",
+    "intitule": "Que fait `repeat(auto-fit, minmax(200px, 1fr))` en **Grid** ?",
+    "reponses": [
+      "Crée un nombre fixe de colonnes",
+      "Crée autant de colonnes que possible en s'adaptant à la largeur disponible",
+      "Crée une seule colonne",
+      "Crée une animation"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`auto-fit` remplit la ligne avec autant de colonnes que possible respectant le `minmax`.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_105",
+    "intitule": "Quelle propriété d'animation contrôle la fonction de timing entre les étapes ?",
+    "reponses": [
+      "animation-delay",
+      "animation-iteration-count",
+      "animation-timing-function",
+      "animation-direction"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`animation-timing-function` définit la courbe (`ease`, `linear`, etc.) de progression de l'animation.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_106",
+    "intitule": "Quel est l'effet de `animation-iteration-count: infinite` ?",
+    "reponses": [
+      "L'animation ne démarre jamais",
+      "L'animation se joue un nombre de fois aléatoire",
+      "L'animation se répète en boucle sans fin",
+      "L'animation joue deux fois"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`infinite` fait boucler l'animation indéfiniment.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_107",
+    "intitule": "Que fait `z-index` sur un élément qui n'a pas de positionnement (`position: static`) ?",
+    "reponses": [
+      "Il change l'ordre d'empilement",
+      "Il n'a aucun effet",
+      "Il crée un stacking context",
+      "Il change la position absolue"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`z-index` ne s'applique qu'aux éléments positionnés (non `static`) ou à certains contextes spécifiques.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_108",
+    "intitule": "Que permet la fonction `calc()` en **CSS** ?",
+    "reponses": [
+      "Calculer uniquement avec des px",
+      "Mélanger différentes unités dans une expression mathématique",
+      "Calculer des couleurs",
+      "Créer des animations"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`calc()` permet d'additionner, soustraire, multiplier ou diviser des valeurs avec unités compatibles.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_109",
+    "intitule": "Pourquoi les custom properties **CSS** sont-elles résolues à l'exécution et non au build ?",
+    "reponses": [
+      "Pour des raisons historiques du langage",
+      "Parce qu'elles dépendent de la cascade et du contexte DOM",
+      "Parce qu'elles ne peuvent pas être utilisées avec calc",
+      "Parce qu'elles sont uniquement globales"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les variables **CSS** respectent la cascade et peuvent changer selon le contexte du **DOM** et les **media queries**.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_110",
+    "intitule": "Que permet de faire la propriété `will-change` ?",
+    "reponses": [
+      "Changer les variables CSS",
+      "Prévenir le navigateur des propriétés susceptibles d'être animées pour optimiser le rendu",
+      "Changer le stacking context",
+      "Désactiver les animations"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`will-change` peut aider le moteur de rendu à optimiser les futures modifications de certaines propriétés.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_111",
+    "intitule": "Dans un contexte empilé, quel élément sera au-dessus si deux éléments ont le même `z-index` et appartiennent au même **stacking context** ?",
+    "reponses": [
+      "Celui avec le plus grand padding",
+      "Celui défini en premier dans le CSS",
+      "Celui apparaissant en dernier dans le DOM",
+      "Celui avec la plus grande hauteur"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "À `z-index` égal, l'ordre dans le **DOM** (peint en dernier) détermine qui est au-dessus.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_112",
+    "intitule": "Que permet un sélecteur comme `.card:hover .card__overlay` ?",
+    "reponses": [
+      "Sélectionner .card quand .card__overlay est survolé",
+      "Sélectionner .card__overlay lorsque .card est survolée",
+      "Sélectionner tous les overlays",
+      "Rien, la syntaxe est invalide"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le sélecteur descendant s'applique à `.card__overlay` lorsqu'un ancêtre `.card` est en état `:hover`.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_113",
+    "intitule": "Que signifie la combinaison `:root:has(body.dark)` pour une stratégie de thème ?",
+    "reponses": [
+      "Cible tous les body avec la classe dark",
+      "Cible :root si un body enfant a la classe dark",
+      "Cible l'élément avec id root",
+      "Cible tous les éléments dark"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On peut appliquer des styles au root en fonction de la présence d'un `body.dark`, utile pour les thèmes.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_114",
+    "intitule": "Que permet un pattern comme `:where(nav a)` pour styler des liens de navigation ?",
+    "reponses": [
+      "Augmenter la spécificité",
+      "Styliser nav et a avec forte priorité",
+      "Styler nav a avec spécificité nulle pour ne pas écraser d'autres règles plus précises",
+      "Créer une animation"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`where()` garde la spécificité à zéro, ce qui laisse de la marge aux overrides locaux.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_115",
+    "intitule": "Quelle valeur de `background-attachment` peut créer un effet de parallaxe simple ?",
+    "reponses": [
+      "scroll",
+      "local",
+      "fixed",
+      "static"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`fixed` fait que le fond reste fixe pendant que le contenu défile, créant un effet de parallaxe de base.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_116",
+    "intitule": "Quel problème potentiel peut provoquer un excès d'animations **CSS** non optimisées ?",
+    "reponses": [
+      "Des erreurs de compilation",
+      "Une cascade incorrecte",
+      "Une consommation CPU élevée et une interface saccadée",
+      "Une perte de spécificité"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Des animations lourdes sur des propriétés non optimisées peuvent impacter les performances et la fluidité.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_117",
+    "intitule": "Pour des animations performantes, quelles propriétés sont généralement à privilégier ?",
+    "reponses": [
+      "width et height",
+      "top et left",
+      "transform et opacity",
+      "border-radius et box-shadow"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les moteurs peuvent généralement optimiser `transform` et `opacity` via le GPU.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_118",
+    "intitule": "Quel est l'intérêt principal d'utiliser des **CSS variables** pour un design system ?",
+    "reponses": [
+      "Réduire la taille des fichiers CSS",
+      "Permettre des changements dynamiques de thème et une centralisation des valeurs",
+      "Éviter d'écrire des classes",
+      "Supprimer le besoin de media queries"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les **custom properties** facilitent la maintenance et les changements de style à l'échelle de l'application.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_119",
+    "intitule": "Quel pattern combine **container queries** et **grid** pour faire une carte qui change de layout selon la taille de son parent ?",
+    "reponses": [
+      "Utiliser uniquement @media",
+      "Définir container-type sur le parent et utiliser @container pour changer grid-template-areas dans la carte",
+      "Utiliser seulement flex-wrap",
+      "Utiliser :has sans container"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On déclare le parent comme container et on adapte la grille du composant enfant en fonction de la taille du parent.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "css_120",
+    "intitule": "Dans un gros projet, pourquoi structurer les styles avec **layers** (base, components, utilities) est pertinent ?",
+    "reponses": [
+      "Pour désactiver la cascade",
+      "Pour forcer l'ordre alphabétique des classes",
+      "Pour maîtriser la priorité des groupes de styles et réduire les conflits de spécificité",
+      "Pour rendre le CSS incompatible avec les anciens navigateurs"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Les **layers** permettent de définir un ordre global (par exemple base < components < utilities) clarifiant la hiérarchie des styles.",
+    "categorie": "css",
+    "difficulte": "difficile"
+  }
+]

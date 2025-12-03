@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import type { RouteRecordRaw } from 'vue-router'
+import { AppRoutes } from '@/router/routes'
 
 // Layout
 import AppLayout from '@/components/layout/AppLayout.vue'
@@ -14,7 +15,11 @@ import SummaryView from '@/views/quiz/Summary.vue'
 
 // Other Views
 import StatsView from '@/views/stats/Index.vue'
+import ProfileView from '@/views/stats/Profile.vue'
 import ImportView from '@/views/settings/Import.vue'
+import SelectCategoryView from '@/views/settings/SelectCategory.vue'
+import CategoriesView from '@/views/settings/Categories.vue'
+import CategoryEditView from '@/views/settings/CategoryEdit.vue'
 
 const routes: RouteRecordRaw[] = [
   {
@@ -27,43 +32,63 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'home',
-        name: 'home',
+        name: AppRoutes.Home,
         component: HomeView,
       },
       {
         path: 'quiz/difficulty',
-        name: 'difficulty',
+        name: AppRoutes.Quiz.Difficulty,
         component: DifficultyView,
       },
       {
         path: 'quiz/count',
-        name: 'count',
+        name: AppRoutes.Quiz.Count,
         component: CountView,
       },
       {
         path: 'quiz/randomconfig',
-        name: 'randomConfig',
+        name: AppRoutes.Quiz.RandomConfig,
         component: RandomConfigView,
       },
       {
         path: 'quiz/active',
-        name: 'quiz-active',
+        name: AppRoutes.Quiz.Active,
         component: QuizActiveView,
       },
       {
         path: 'quiz/summary',
-        name: 'summary',
+        name: AppRoutes.Quiz.Summary,
         component: SummaryView,
       },
       {
         path: 'stats',
-        name: 'stats',
+        name: AppRoutes.Stats,
         component: StatsView,
       },
       {
+        path: 'profile',
+        name: AppRoutes.Profile,
+        component: ProfileView,
+      },
+      {
         path: 'settings/import',
-        name: 'import',
+        name: AppRoutes.Settings.Import,
         component: ImportView,
+      },
+      {
+        path: 'settings/select-category',
+        name: AppRoutes.Settings.SelectCategory,
+        component: SelectCategoryView,
+      },
+      {
+        path: 'settings/categories',
+        name: AppRoutes.Settings.Categories,
+        component: CategoriesView,
+      },
+      {
+        path: 'settings/categories/edit',
+        name: AppRoutes.Settings.CategoryEdit,
+        component: CategoryEditView,
       },
     ],
   },

@@ -2,173 +2,186 @@
  * Constants, enums, and default data for Quiz Master
  */
 
-import type { Question, Badge } from './models'
+import type { Badge, Category, Question, TailwindColor } from './models'
 
 export const DB_CONFIG = {
   NAME: 'quiz-master-db',
-  VERSION: 1,
+  VERSION: 3,
   STORES: {
     QUESTIONS: 'questions',
     SESSIONS: 'sessions',
     META: 'meta',
+    CATEGORIES: 'categories',
   },
 }
 
-export const DEFAULT_QUESTIONS: Question[] = [
-  {
-    id: '1',
-    intitule: 'Combien font 2 + 2 ?',
-    reponses: ['3', '4', '5', '0'],
-    indexBonneReponse: 1,
-    explication: 'Mathématiques de base : 2 + 2 = 4',
-    categorie: 'Maths',
-    difficulte: 'facile',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '2',
-    intitule: 'Capitale de la France ?',
-    reponses: ['Lyon', 'Marseille', 'Paris', 'Bordeaux'],
-    indexBonneReponse: 2,
-    explication: 'Paris est la capitale et la plus grande ville de France.',
-    categorie: 'Géographie',
-    difficulte: 'facile',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '3',
-    intitule: "Symbole chimique de l'Or ?",
-    reponses: ['Ag', 'Au', 'Fe', 'Cu'],
-    indexBonneReponse: 1,
-    explication: 'Au vient du latin Aurum, qui signifie or.',
-    categorie: 'Science',
-    difficulte: 'moyen',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '4',
-    intitule: 'Qui a peint la Joconde ?',
-    reponses: ['Michel-Ange', 'Van Gogh', 'Léonard de Vinci', 'Picasso'],
-    indexBonneReponse: 2,
-    explication: 'Léonard de Vinci a peint la Joconde au début du XVIe siècle.',
-    categorie: 'Art',
-    difficulte: 'moyen',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '5',
-    intitule: 'Vitesse de la lumière ?',
-    reponses: ['300 000 km/s', '150 000 km/s', '1 000 km/s', 'Sonique'],
-    indexBonneReponse: 0,
-    explication: 'Environ 299 792 458 m/s, communément arrondie à 300 000 km/s.',
-    categorie: 'Physique',
-    difficulte: 'difficile',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '6',
-    intitule: 'Racine carrée de 144 ?',
-    reponses: ['10', '11', '12', '14'],
-    indexBonneReponse: 2,
-    explication: '12 × 12 = 144, donc √144 = 12',
-    categorie: 'Maths',
-    difficulte: 'moyen',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '7',
-    intitule: 'Année de la chute du mur de Berlin ?',
-    reponses: ['1987', '1989', '1991', '1990'],
-    indexBonneReponse: 1,
-    explication: 'Le mur de Berlin est tombé le 9 novembre 1989.',
-    categorie: 'Histoire',
-    difficulte: 'moyen',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '8',
-    intitule: 'Planète la plus proche du soleil ?',
-    reponses: ['Vénus', 'Terre', 'Mercure', 'Mars'],
-    indexBonneReponse: 2,
-    explication: 'Mercure est la première planète du système solaire.',
-    categorie: 'Astronomie',
-    difficulte: 'moyen',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '9',
-    intitule: "Nombre de pattes d'une araignée ?",
-    reponses: ['6', '8', '10', '12'],
-    indexBonneReponse: 1,
-    explication: 'Les arachnides ont 8 pattes (ex : araignées, scorpions).',
-    categorie: 'Biologie',
-    difficulte: 'facile',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-  {
-    id: '10',
-    intitule: "Pays d'origine du Sushi ?",
-    reponses: ['Chine', 'Corée', 'Japon', 'Thaïlande'],
-    indexBonneReponse: 2,
-    explication: "C'est un plat emblématique de la cuisine japonaise.",
-    categorie: 'Culture',
-    difficulte: 'facile',
-    countApparition: 0,
-    countBonneReponse: 0,
-  },
-]
+// Unified Category Configuration
+export const CATEGORY_CONFIG: Record<string, { id: string; label: string; icon: string; color: TailwindColor; fileName: string }> = {
+  typescript: { id: 'cat_typescript', label: 'TypeScript', icon: 'Code', color: 'blue', fileName: 'typescript' },
+  react: { id: 'cat_react', label: 'React', icon: 'Code', color: 'cyan', fileName: 'react' },
+  nextjs: { id: 'cat_nextjs', label: 'Next.js', icon: 'Rocket', color: 'slate', fileName: 'nextjs' },
+  nodejs: { id: 'cat_nodejs', label: 'Node.js', icon: 'Cpu', color: 'green', fileName: 'nodejs' },
+  css: { id: 'cat_css', label: 'CSS', icon: 'Palette', color: 'purple', fileName: 'css' },
+  javascript: { id: 'cat_javascript', label: 'JavaScript', icon: 'Code', color: 'yellow', fileName: 'javascript' },
+  entretiens: { id: 'cat_entretiens', label: 'Entretiens', icon: 'Chat', color: 'indigo', fileName: 'entretiens' },
+}
+
+export const DEFAULT_CATEGORIES: Category[] = Object.values(CATEGORY_CONFIG).map(c => ({
+  id: c.id,
+  label: c.label,
+  icon: c.icon,
+  color: c.color
+}))
+
+export const DEFAULT_QUESTIONS: Question[] = []
 
 export const DEFAULT_BADGES: Badge[] = [
   {
     id: 'first_quiz',
     nom: 'Premier Pas',
-    description: 'Terminer un premier quiz',
+    description: 'Complétez votre premier quiz',
     statut: 'verrouille',
     icon: '🐣',
   },
   {
     id: 'perfect_score',
     nom: 'Perfection',
-    description: 'Obtenir 100% à un quiz',
+    description: 'Obtenez 100% à un quiz',
     statut: 'verrouille',
     icon: '🎯',
   },
   {
     id: 'streak_3',
     nom: 'Habitué',
-    description: '3 jours de suite',
+    description: 'Jouez 3 jours de suite',
     statut: 'verrouille',
     icon: '🔥',
   },
   {
     id: 'streak_7',
     nom: 'Accro',
-    description: '7 jours de suite',
+    description: 'Jouez 7 jours de suite',
     statut: 'verrouille',
     icon: '⚡',
   },
   {
+    id: 'streak_14',
+    nom: 'Dévoué',
+    description: 'Jouez 14 jours de suite',
+    statut: 'verrouille',
+    icon: '🗓️',
+  },
+  {
+    id: 'streak_30',
+    nom: 'Inarrêtable',
+    description: 'Jouez 30 jours de suite',
+    statut: 'verrouille',
+    icon: '🚀',
+  },
+  {
+    id: 'volume_10',
+    nom: 'Explorateur',
+    description: 'Terminez 10 quiz',
+    statut: 'verrouille',
+    icon: '🧭',
+  },
+  {
+    id: 'volume_50',
+    nom: 'Vétéran',
+    description: 'Terminez 50 quiz',
+    statut: 'verrouille',
+    icon: '🎖️',
+  },
+  {
     id: 'marathon',
     nom: 'Marathonien',
-    description: 'Faire 20 quiz au total',
+    description: 'Terminez 100 quiz',
     statut: 'verrouille',
     icon: '🏃',
   },
   {
-    id: 'math_expert',
-    nom: 'Boss des Maths',
-    description: '5 quiz de Maths terminés',
+    id: 'score_1000',
+    nom: 'Apprenti',
+    description: 'Cumulez 1000 points d\'XP',
     statut: 'verrouille',
-    icon: '📐',
+    icon: '⭐',
+  },
+  {
+    id: 'score_5000',
+    nom: 'Expert',
+    description: 'Cumulez 5000 points d\'XP',
+    statut: 'verrouille',
+    icon: '🌟',
+  },
+  {
+    id: 'hard_perfect',
+    nom: 'Maître',
+    description: '100% sur un quiz Difficile',
+    statut: 'verrouille',
+    icon: '👑',
+  },
+  {
+    id: 'persistance',
+    nom: 'Persévérant',
+    description: 'Terminez un quiz même avec un score < 50%',
+    statut: 'verrouille',
+    icon: '🛡️',
+  },
+  {
+    id: 'speedster',
+    nom: 'Éclair',
+    description: 'Quiz >10 questions, >80% score en < 2 min',
+    statut: 'verrouille',
+    icon: '⚡',
+  },
+  {
+    id: 'explorer',
+    nom: 'Aventurier',
+    description: 'Jouez aux 3 niveaux de difficulté',
+    statut: 'verrouille',
+    icon: '🗺️',
+  },
+  {
+    id: 'night_owl',
+    nom: 'Oiseau de nuit',
+    description: 'Terminez un quiz entre 2h et 5h du matin',
+    statut: 'verrouille',
+    icon: '🦉',
+  },
+  {
+    id: 'early_bird',
+    nom: 'Lève-tôt',
+    description: 'Terminez un quiz entre 5h et 8h du matin',
+    statut: 'verrouille',
+    icon: '🌅',
+  },
+  {
+    id: 'polyglot',
+    nom: 'Polyglotte',
+    description: 'Jouez à 3 catégories différentes',
+    statut: 'verrouille',
+    icon: '🗣️',
+  },
+  {
+    id: 'focus',
+    nom: 'Focus',
+    description: '5 quiz de suite dans la même catégorie',
+    statut: 'verrouille',
+    icon: '🔬',
+  },
+  {
+    id: 'weekend_warrior',
+    nom: 'Guerrier du WE',
+    description: 'Jouez Samedi et Dimanche',
+    statut: 'verrouille',
+    icon: '⚔️',
+  },
+  {
+    id: 'daily_challenger',
+    nom: 'Quotidien',
+    description: 'Terminez un Défi Quotidien',
+    statut: 'verrouille',
+    icon: '📅',
   },
 ]
 
@@ -197,4 +210,10 @@ export const DIFFICULTY_COLORS = {
     text: 'text-red-800',
     badge: 'bg-red-100 text-red-700',
   },
+}
+
+export function getCategoryLabel(key: string): string {
+  // Check if key matches an ID or fileName in config
+  const config = Object.values(CATEGORY_CONFIG).find(c => c.id === key || c.fileName === key || c.label === key)
+  return config ? config.label : key
 }

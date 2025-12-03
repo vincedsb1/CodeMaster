@@ -1,0 +1,1682 @@
+[
+  {
+    "id": "node_001",
+    "intitule": "Quel est le principal modèle de concurrence de **Node.js** ?",
+    "reponses": [
+      "Multi-processus avec threads bloquants",
+      "Single-threaded avec Event Loop et I/O non bloquantes",
+      "Un thread par requête (modèle Thread-per-request)",
+      "Basé exclusivement sur des coroutines (Green threads)"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Node.js** utilise un thread principal avec une **Event Loop** et délègue les opérations I/O à des mécanismes non bloquants via **libuv**.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_002",
+    "intitule": "Quel module natif utiliser pour manipuler les chemins de fichiers de manière portable ?",
+    "reponses": [
+      "fs",
+      "os",
+      "path",
+      "router"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le module natif `path` fournit des utilitaires pour manipuler les chemins de fichiers en gérant les différences entre OS (Windows vs Linux).",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_003",
+    "intitule": "Quel fichier décrit les dépendances et les scripts d’un projet **Node.js** ?",
+    "reponses": [
+      "node.config.js",
+      "npm.lock",
+      "package.json",
+      "manifest.json"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le fichier **package.json** contient les métadonnées du projet, les dépendances et les scripts **NPM**.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_004",
+    "intitule": "Quel global donne le chemin absolu du répertoire courant du module ?",
+    "reponses": [
+      "__dirname",
+      "__filename",
+      "process.cwd()",
+      "global.path"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`__dirname` est un global en **CommonJS** qui représente le chemin du dossier contenant le fichier en cours d'exécution.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_005",
+    "intitule": "Quel module natif permet de lire et écrire des fichiers ?",
+    "reponses": [
+      "net",
+      "fs",
+      "file",
+      "stream"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le module `fs` (File System) fournit des APIs (sync et async) pour manipuler le système de fichiers.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_006",
+    "intitule": "Quel mot-clé est utilisé pour importer un module en **CommonJS** ?",
+    "reponses": [
+      "import",
+      "include",
+      "require",
+      "load"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "En **CommonJS** (le standard historique de Node), on utilise la fonction `require` pour charger des modules: `const fs = require('fs')`.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_007",
+    "intitule": "Quel champ de **package.json** permet d’ajouter des scripts personnalisés exécutables via `npm run` ?",
+    "reponses": [
+      "commands",
+      "scripts",
+      "tasks",
+      "exec"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le champ `scripts` de **package.json** permet de définir des commandes raccourcies exécutables avec `npm run <nom>`.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_008",
+    "intitule": "Lequel de ces modules est un module natif (built-in) de **Node.js** ?",
+    "reponses": [
+      "express",
+      "lodash",
+      "http",
+      "axios"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`http` est inclus dans **Node.js**, alors qu'**express**, **lodash** et **axios** sont des librairies externes à installer.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_009",
+    "intitule": "Quel objet global représente le processus **Node.js** en cours d’exécution ?",
+    "reponses": [
+      "global",
+      "process",
+      "system",
+      "application"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L’objet global `process` expose des informations (PID, versions, env) et méthodes liées au processus **Node.js**.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_010",
+    "intitule": "Quel module utilise-t-on pour créer un serveur HTTP basique sans framework externe ?",
+    "reponses": [
+      "net",
+      "http",
+      "server",
+      "web"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le module natif `http` permet de créer un serveur HTTP via `http.createServer()`.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_011",
+    "intitule": "Quelle différence principale entre **CommonJS** et **ESM** en **Node.js** ?",
+    "reponses": [
+      "CommonJS est obsolète et retiré de Node.js",
+      "ESM utilise import/export alors que CommonJS utilise require/module.exports",
+      "ESM est synchrone par défaut, CommonJS asynchrone",
+      "ESM ne fonctionne qu’avec TypeScript"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**ESM** (ECMAScript Modules) utilise la syntaxe standard `import`/`export`, alors que **CommonJS** repose sur `require` et `module.exports`.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_012",
+    "intitule": "Quel champ de **package.json** permet d’indiquer que le projet utilise les modules ES (`import`/`export`) par défaut ?",
+    "reponses": [
+      "module",
+      "esm",
+      "type",
+      "engine"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le champ `\"type\": \"module\"` indique à **Node.js** d'interpréter les fichiers `.js` comme des modules ES.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_013",
+    "intitule": "Quelle commande installe une dépendance et l'ajoute à **package.json** ?",
+    "reponses": [
+      "npm install <pkg> --dev",
+      "npm install <pkg>",
+      "npm add-module <pkg>",
+      "npm get <pkg>"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`npm install <pkg>` télécharge le paquet et l'ajoute dans `dependencies` par défaut (depuis npm 5).",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_014",
+    "intitule": "Quelle propriété de l'objet `process` permet d’accéder aux variables d’environnement ?",
+    "reponses": [
+      "process.env",
+      "process.vars",
+      "process.config",
+      "process.environment"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`process.env` est un objet contenant l'environnement utilisateur (ex: PATH, PORT, etc.).",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_015",
+    "intitule": "**Node.js** est principalement conçu pour s'exécuter :",
+    "reponses": [
+      "Dans le navigateur",
+      "Côté Serveur (Backend)",
+      "Dans le noyau du système d'exploitation",
+      "Sur des microcontrôleurs uniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Node.js** est un runtime JS construit sur **V8** principalement utilisé pour le développement côté serveur.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_016",
+    "intitule": "Que signifie I/O non bloquantes dans **Node.js** ?",
+    "reponses": [
+      "Les opérations I/O bloquent le thread principal jusqu'à leur fin",
+      "Les opérations I/O utilisent toujours des threads visibles par le développeur",
+      "Les opérations I/O s'exécutent en arrière-plan et notifient l'Event Loop une fois terminées",
+      "Les opérations I/O sont impossibles en JavaScript"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le modèle non bloquant permet à **Node.js** de continuer à traiter d'autres requêtes pendant qu'une opération I/O (lecture fichier, requête DB) s'exécute.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_017",
+    "intitule": "Quelle méthode de `fs` lit un fichier de manière asynchrone (API callback) ?",
+    "reponses": [
+      "fs.readFileSync",
+      "fs.read",
+      "fs.open",
+      "fs.readFile"
+    ],
+    "indexBonneReponse": 3,
+    "explication": "`fs.readFile(path, callback)` lit un fichier de manière asynchrone. `fs.readFileSync` est la version bloquante.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_018",
+    "intitule": "Quelle commande permet d’exécuter un script nommé `build` défini dans **package.json** ?",
+    "reponses": [
+      "npm start build",
+      "npm run build",
+      "node build",
+      "npm exec build"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Les scripts personnalisés (autres que start/test qui ont des raccourcis) se lancent via `npm run <nomDuScript>`.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_019",
+    "intitule": "Quel est l'équivalent de l'objet `window` du navigateur dans l'environnement **Node.js** ?",
+    "reponses": [
+      "window",
+      "root",
+      "global",
+      "process"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "En **Node.js**, l’objet de portée globale se nomme `global`.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_020",
+    "intitule": "Quelle méthode du module `http` permet de démarrer le serveur et d'écouter sur un port ?",
+    "reponses": [
+      "server.init()",
+      "server.listen()",
+      "server.start()",
+      "server.run()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`server.listen(port, callback)` démarre l’écoute des connexions sur le port spécifié.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_021",
+    "intitule": "Que représente la variable `__filename` en **CommonJS** ?",
+    "reponses": [
+      "Le nom du module uniquement",
+      "Le chemin absolu complet du fichier en cours d'exécution",
+      "Le répertoire courant",
+      "Le contenu du fichier"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`__filename` contient le chemin absolu complet (dossier + fichier) du script en cours.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_022",
+    "intitule": "Dans **package.json**, que signifie le symbole `^` devant une version (ex: `\"^1.2.3\"`) ?",
+    "reponses": [
+      "Verrouille la version exacte (1.2.3 uniquement)",
+      "Autorise uniquement les patchs (1.2.x)",
+      "Autorise les mises à jour mineures et patchs (1.x.x) mais pas majeures",
+      "Autorise toutes les versions supérieures"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le caret `^` autorise les mises à jour compatibles (non-breaking changes), soit tout ce qui ne change pas le numéro majeur (le premier chiffre).",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_023",
+    "intitule": "Quelle commande affiche la version de **Node.js** installée ?",
+    "reponses": [
+      "node -v",
+      "node --list",
+      "npm --version",
+      "node --info"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`node -v` (ou `node --version`) affiche la version actuelle du runtime **Node.js**.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_024",
+    "intitule": "Lequel de ces éléments n’est PAS un module natif **Node.js** ?",
+    "reponses": [
+      "fs",
+      "crypto",
+      "events",
+      "express"
+    ],
+    "indexBonneReponse": 3,
+    "explication": "**express** est un framework web tiers populaire, alors que `fs`, `crypto` et `events` font partie du noyau **Node.js**.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_025",
+    "intitule": "Comment exécute-t-on un fichier JavaScript nommé `index.js` avec **Node.js** ?",
+    "reponses": [
+      "npm index.js",
+      "node index.js",
+      "run index.js",
+      "exec index.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La commande `node` suivie du chemin du fichier lance l'exécution du script.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_026",
+    "intitule": "Quel module natif permet d'obtenir des informations sur le système d’exploitation (CPU, RAM...) ?",
+    "reponses": [
+      "sys",
+      "os",
+      "system",
+      "util"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le module `os` fournit des méthodes comme `os.cpus()`, `os.totalmem()`, `os.platform()`, etc.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_027",
+    "intitule": "Qu’indique la propriété `main` dans **package.json** ?",
+    "reponses": [
+      "Le script de démarrage",
+      "Le point d’entrée du module (fichier chargé lors d'un require)",
+      "La version principale du projet",
+      "L'URL du dépôt Git"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le champ `main` définit le fichier qui sera exporté lorsque d'autres projets importent ce package.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_028",
+    "intitule": "Quel est le rôle principal de **npm** ?",
+    "reponses": [
+      "Compiler le code JavaScript en binaire",
+      "Gérer les paquets et dépendances pour l’écosystème Node.js",
+      "Servir de serveur web de production",
+      "Remplacer Git pour le versionning"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**npm** (Node Package Manager) est le registre et l'outil de ligne de commande pour gérer les dépendances.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_029",
+    "intitule": "À quoi sert la section `dependencies` dans **package.json** ?",
+    "reponses": [
+      "À lister les outils de test uniquement",
+      "À lister les librairies nécessaires à l'exécution de l'application",
+      "À lister les librairies utilisées uniquement pendant le développement",
+      "À définir les variables d’environnement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`dependencies` contient les paquets requis pour que l'application fonctionne en production.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_030",
+    "intitule": "Quelle fonction est utilisée pour afficher un message dans la console standard ?",
+    "reponses": [
+      "print()",
+      "echo()",
+      "process.log()",
+      "console.log()"
+    ],
+    "indexBonneReponse": 3,
+    "explication": "`console.log()` est la méthode standard pour écrire sur la sortie standard (stdout) en **Node.js**.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_031",
+    "intitule": "Que renvoie l'instruction `require('module')` en **CommonJS** ?",
+    "reponses": [
+      "Une promesse",
+      "L'objet exporté via module.exports par le module ciblé",
+      "Le code source du fichier sous forme de texte",
+      "Un nouveau processus système"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`require` est synchrone et retourne l'API publique du module (ce qui a été assigné à `module.exports`).",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_032",
+    "intitule": "Dans le callback d'un serveur http, quel argument représente la requête entrante ?",
+    "reponses": [
+      "req (IncomingMessage)",
+      "res (ServerResponse)",
+      "socket",
+      "next"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Conventionnellement nommé `req`, c'est une instance de `http.IncomingMessage` contenant headers, url, etc.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_033",
+    "intitule": "Dans un serveur http natif, comment signale-t-on que la réponse est terminée et doit être envoyée ?",
+    "reponses": [
+      "res.finish()",
+      "res.close()",
+      "res.end()",
+      "res.send()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`res.end()` termine le flux de réponse. `res.send()` est une méthode helper ajoutée par **Express**, pas native.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_034",
+    "intitule": "Quel module natif permet de créer un serveur TCP bas niveau ?",
+    "reponses": [
+      "tcp",
+      "http",
+      "net",
+      "socket.io"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Le module `net` permet de créer des serveurs et clients TCP bruts.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_035",
+    "intitule": "Que contient le dossier `node_modules` ?",
+    "reponses": [
+      "Les fichiers de configuration de Node.js",
+      "Les paquets (librairies) installés localement via npm",
+      "Le cache du navigateur",
+      "Les fichiers binaires de l'interpréteur Node"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "C'est le dossier où **npm** stocke toutes les dépendances du projet.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_036",
+    "intitule": "Quel moteur JavaScript est utilisé par **Node.js** ?",
+    "reponses": [
+      "SpiderMonkey",
+      "JVM",
+      "V8",
+      "Chakra"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "**Node.js** est construit sur le moteur JavaScript **V8** de Google (le même que Chrome).",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_037",
+    "intitule": "Quelle est la signature standard d'un callback en **Node.js** ?",
+    "reponses": [
+      "callback(err, data)",
+      "callback(data, err)",
+      "callback(data)",
+      "callback(code, message)"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le pattern 'Error-First Callback' est standard : le premier argument est réservé à l'erreur (`null` si succès), le second aux données.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_038",
+    "intitule": "Avec **Express**, comment définit-on une route qui répond aux requêtes GET sur `/api` ?",
+    "reponses": [
+      "app.route('/api', 'GET')",
+      "app.get('/api', callback)",
+      "app.use('/api', callback)",
+      "server.on('GET', '/api')"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`app.get()` est la méthode **Express** dédiée aux requêtes HTTP GET.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_039",
+    "intitule": "Quel module populaire permet de charger des variables depuis un fichier `.env` ?",
+    "reponses": [
+      "env-loader",
+      "dotenv",
+      "process-env",
+      "config-env"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**dotenv** est le standard de facto pour charger les variables d'environnement depuis un fichier `.env` en développement.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_040",
+    "intitule": "Que se passe-t-il si l'**Event Loop** de **Node.js** n'a plus aucune tâche à traiter ?",
+    "reponses": [
+      "Elle se met en pause et attend indéfiniment",
+      "Le processus Node.js se termine",
+      "Le serveur redémarre",
+      "Une erreur 'IdleTimeout' est levée"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Si l'**Event Loop** est vide (plus de timers, plus de sockets ouverts, plus d'opérations I/O), le processus s'arrête.",
+    "categorie": "nodejs",
+    "difficulte": "facile"
+  },
+  {
+    "id": "node_041",
+    "intitule": "Quel est le rôle principal de l’**Event Loop** dans **Node.js** ?",
+    "reponses": [
+      "Compiler le JavaScript en code machine",
+      "Gérer la mémoire heap",
+      "Orchestrer l’exécution des callbacks et des I/O asynchrones",
+      "Gérer le multi-threading des requêtes HTTP"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "L’**Event Loop** permet à **Node.js** d'être non bloquant en déléguant les opérations système et en exécutant les callbacks quand les résultats sont prêts.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_042",
+    "intitule": "Quel module natif fournit la classe `EventEmitter` ?",
+    "reponses": [
+      "events",
+      "emitter",
+      "async",
+      "stream"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le module `events` contient la classe `EventEmitter`, centrale dans l'architecture de Node.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_043",
+    "intitule": "Quelle méthode de `EventEmitter` permet d'écouter un événement ?",
+    "reponses": [
+      "on()",
+      "emit()",
+      "listen()",
+      "trigger()"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`emitter.on('nom', callback)` (ou `addListener`) enregistre un écouteur.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_044",
+    "intitule": "Qu’est-ce qu’un **Readable Stream** en **Node.js** ?",
+    "reponses": [
+      "Une source de données qui peut être lue morceau par morceau (chunk)",
+      "Un flux qui ne sert qu'à écrire des données",
+      "Un tableau complet de données chargé en mémoire",
+      "Un protocole réseau"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Un **Readable stream** permet de consommer des données (fichier, requête HTTP) au fur et à mesure qu'elles arrivent.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_045",
+    "intitule": "Quelle méthode permet de connecter la sortie d'un **Readable Stream** à l'entrée d'un **Writable Stream** ?",
+    "reponses": [
+      "connect()",
+      "bind()",
+      "pipe()",
+      "stream()"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "`readable.pipe(writable)` est la méthode idiomatique pour transférer des données entre streams.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_046",
+    "intitule": "À quoi sert la classe `Buffer` en **Node.js** ?",
+    "reponses": [
+      "À mettre en cache des requêtes HTTP",
+      "À manipuler des données binaires brutes (octets)",
+      "À stocker des chaînes de caractères UTF-8 uniquement",
+      "À gérer la mémoire tampon de l'affichage"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Buffer` est utilisé pour gérer les flux binaires (TCP, fichiers, images) car JS gérait mal le binaire avant ArrayBuffer.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_047",
+    "intitule": "Quelle est la bonne façon de gérer les erreurs dans une fonction `async`/`await` ?",
+    "reponses": [
+      "Utiliser .catch() après await",
+      "Utiliser un bloc try/catch autour de l'await",
+      "Les erreurs sont ignorées automatiquement",
+      "Vérifier si la valeur de retour est null"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Avec `async`/`await`, les exceptions asynchrones se capturent via un bloc `try/catch` standard.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_048",
+    "intitule": "Quelle est la signature d'un middleware standard dans **Express** ?",
+    "reponses": [
+      "function(req, res)",
+      "function(err, req, res)",
+      "function(req, res, next)",
+      "function(next, req, res)"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Un middleware prend `(req, res, next)`. Si `next` est appelé, on passe au middleware suivant.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_049",
+    "intitule": "Comment accède-t-on à une variable d’environnement nommée `API_KEY` ?",
+    "reponses": [
+      "env.API_KEY",
+      "process.env.API_KEY",
+      "global.API_KEY",
+      "node.env.API_KEY"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Toutes les variables d'environnement système sont chargées dans l'objet `process.env`.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_050",
+    "intitule": "Dans l’**Event Loop**, que gère la phase 'timers' ?",
+    "reponses": [
+      "L'exécution des callbacks de setTimeout et setInterval",
+      "L'exécution immédiate de setImmediate",
+      "Les I/O réseau",
+      "La fermeture des processus"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "La phase 'timers' est la première phase de l'**Event Loop**, où sont exécutés les callbacks dont le délai a expiré.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_051",
+    "intitule": "Quelle est la différence entre `process.nextTick()` et `setImmediate()` ?",
+    "reponses": [
+      "Aucune différence",
+      "nextTick s’exécute immédiatement après l'opération courante (avant la suite de l'Event Loop), setImmediate à la prochaine phase 'check'",
+      "setImmediate est plus prioritaire que nextTick",
+      "nextTick est utilisé pour les timers longs"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`process.nextTick` n'est techniquement pas dans l'**Event Loop** mais s'exécute entre chaque phase, ce qui peut bloquer l'I/O si abusé.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_052",
+    "intitule": "Quel type d’objet est renvoyé par `fs.createReadStream()` ?",
+    "reponses": [
+      "Un Buffer",
+      "Une Promesse",
+      "Un Readable Stream",
+      "Une chaîne de caractères"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "Cela retourne un flux en lecture, permettant de lire le fichier morceau par morceau.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_053",
+    "intitule": "Quel est le risque principal d’utiliser `fs.readFile()` pour un fichier de plusieurs giga-octets ?",
+    "reponses": [
+      "Le fichier sera supprimé",
+      "Saturation de la mémoire (RAM) car tout le fichier est chargé d'un coup",
+      "Le processeur va surchauffer",
+      "Le fichier sera lu à l'envers"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`fs.readFile` charge tout en mémoire. Pour les gros fichiers, il faut utiliser les streams (`fs.createReadStream`).",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_054",
+    "intitule": "Quel événement de l'objet `process` permet d’intercepter les promesses rejetées qui n'ont pas de `.catch()` ?",
+    "reponses": [
+      "process.on('unhandledRejection')",
+      "process.on('uncaughtException')",
+      "process.on('error')",
+      "process.on('promiseError')"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "`'unhandledRejection'` est émis quand une promesse échoue sans gestionnaire d'erreur.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_055",
+    "intitule": "Quelle commande permet de lancer **Node.js** en mode debug compatible avec **Chrome DevTools** ?",
+    "reponses": [
+      "node --debug app.js",
+      "node --inspect app.js",
+      "node --chrome app.js",
+      "node --dev app.js"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`--inspect` active le protocole Inspector, permettant de se connecter via `chrome://inspect`.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_056",
+    "intitule": "Quel est le but de la méthode `EventEmitter.once()` ?",
+    "reponses": [
+      "Écouter un événement indéfiniment",
+      "Écouter un événement une seule fois (le listener est supprimé après)",
+      "Émettre un événement une seule fois",
+      "Bloquer l'événement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`once()` garantit que le callback ne sera déclenché qu'à la première émission de l'événement.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_057",
+    "intitule": "Que représente la '**backpressure**' dans les streams **Node.js** ?",
+    "reponses": [
+      "Une erreur de compilation",
+      "Une accumulation de données quand l'écriture est plus lente que la lecture",
+      "Une compression des données",
+      "La pression du processeur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le **backpressure** est le mécanisme permettant de signaler à la source de ralentir quand le buffer de destination est plein.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_058",
+    "intitule": "Quel type de flux est `process.stdin` ?",
+    "reponses": [
+      "Writable",
+      "Readable",
+      "Duplex",
+      "Transform"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'entrée standard (stdin) est un flux en lecture (**Readable**) depuis lequel on lit les entrées clavier/pipe.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_059",
+    "intitule": "Quelle est la bonne pratique pour gérer des secrets (mots de passe, clés API) ?",
+    "reponses": [
+      "Les écrire en dur dans le code",
+      "Les mettre dans un fichier JSON commité sur Git",
+      "Les utiliser via des variables d'environnement (.env non commité)",
+      "Les stocker dans les cookies"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "On ne doit jamais commiter de secrets. On utilise des variables d'environnement injectées au runtime.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_060",
+    "intitule": "À quoi sert la méthode `stream.pause()` sur un **Readable Stream** ?",
+    "reponses": [
+      "À arrêter définitivement le stream",
+      "À passer le stream en mode 'paused' (arrêter l'émission d'événements 'data')",
+      "À vider le buffer",
+      "À supprimer le fichier source"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`pause()` arrête temporairement l'émission de données, permettant de contrôler le flux (flow control).",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_061",
+    "intitule": "Techniquement, un `Buffer` **Node.js** est :",
+    "reponses": [
+      "Une chaîne de caractères encodée en base64",
+      "Une vue sur un espace mémoire brut (ArrayBuffer) alloué hors du heap V8",
+      "Un tableau JavaScript standard",
+      "Une liste chaînée"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`Buffer` manipule la mémoire brute directement, ce qui est nécessaire pour les performances I/O.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_062",
+    "intitule": "Dans **Express** (récent), quel middleware intégré parse le JSON du corps de la requête ?",
+    "reponses": [
+      "express.json()",
+      "express.bodyParser()",
+      "express.urlencoded()",
+      "JSON.parse()"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Depuis **Express** 4.16+, `express.json()` remplace la dépendance externe body-parser pour le JSON.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_063",
+    "intitule": "Quelle erreur est générée si on oublie de gérer un rejet de Promesse ?",
+    "reponses": [
+      "ReferenceError",
+      "SyntaxError",
+      "UnhandledPromiseRejectionWarning",
+      "MemoryLeakError"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "**Node.js** émet un avertissement (et bientôt terminera le processus) si un rejet n'est pas catché.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_064",
+    "intitule": "Pourquoi préférer les **Streams** aux **Buffers** pour servir un gros fichier vidéo ?",
+    "reponses": [
+      "Pour améliorer la qualité vidéo",
+      "Pour réduire l'empreinte mémoire (RAM) et commencer l'envoi immédiatement",
+      "Parce que les Buffers ne supportent pas la vidéo",
+      "Pour crypter la vidéo"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le streaming envoie les données par petits morceaux, évitant de charger 1Go de vidéo en RAM.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_065",
+    "intitule": "Quelle phase de l'**Event Loop** gère les callbacks de `setImmediate()` ?",
+    "reponses": [
+      "Timers",
+      "Check",
+      "Poll",
+      "Close callbacks"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`setImmediate()` est conçu pour s'exécuter lors de la phase 'Check', juste après la phase 'Poll' (I/O).",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_066",
+    "intitule": "Quel est le risque d'abuser de `process.nextTick()` (récursif) ?",
+    "reponses": [
+      "Rien, c'est performant",
+      "Le crash du système d'exploitation",
+      "Affamer l'Event Loop (I/O starvation) en empêchant les autres phases de s'exécuter",
+      "Une erreur de syntaxe"
+    ],
+    "indexBonneReponse": 2,
+    "explication": "La queue `nextTick` est traitée entièrement avant de passer à la phase suivante. Une boucle infinie ici bloque tout.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_067",
+    "intitule": "Comment passer une variable d'environnement temporaire lors du lancement d'un script (Linux/Mac) ?",
+    "reponses": [
+      "env MY_VAR=1 node app.js",
+      "MY_VAR=1 node app.js",
+      "node app.js --env MY_VAR=1",
+      "node app.js -D MY_VAR=1"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La syntaxe `KEY=VAL node script.js` définit la variable pour la durée du processus.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_068",
+    "intitule": "Quelle signature spécifique identifie un middleware de gestion d'erreurs dans **Express** ?",
+    "reponses": [
+      "(req, res, next)",
+      "(err, req, res, next)",
+      "(err, req, res)",
+      "(error, next)"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Express** identifie les gestionnaires d'erreurs par le fait qu'ils acceptent exactement 4 arguments.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_069",
+    "intitule": "Que contient le tableau `process.argv` ?",
+    "reponses": [
+      "Les variables d'environnement",
+      "Les arguments de la ligne de commande",
+      "La liste des modules chargés",
+      "L'historique des commandes"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Il contient `[chemin_node, chemin_script, arg1, arg2...]`.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_070",
+    "intitule": "Quel module natif permet de créer des processus enfants pour exploiter plusieurs cœurs CPU ?",
+    "reponses": [
+      "cluster",
+      "cpus",
+      "parallel",
+      "cores"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Le module `cluster` permet de forker le processus principal pour répartir la charge sur plusieurs cœurs.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_071",
+    "intitule": "Quelle est la différence entre un stream **Duplex** et un **Transform** ?",
+    "reponses": [
+      "Aucune",
+      "Transform modifie les données entre l'entrée et la sortie (ex: compression), Duplex a juste une entrée et une sortie indépendantes",
+      "Duplex est plus rapide",
+      "Transform est en lecture seule"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un **Transform stream** (comme zlib) est un Duplex où la sortie est calculée à partir de l'entrée.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_072",
+    "intitule": "Quel est le comportement par défaut de `fs.watch()` sur différents OS ?",
+    "reponses": [
+      "Il est 100% fiable partout",
+      "Il dépend des API natives (inotify, kqueue) et peut avoir des incohérences selon l'OS",
+      "Il utilise toujours du polling CPU intensif",
+      "Il ne fonctionne que sur Linux"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`fs.watch` essaie d'utiliser les événements système, mais son comportement (récursivité, nom de fichier) varie selon l'OS.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_073",
+    "intitule": "Dans un callback **Node.js** standard, pourquoi le premier argument s'appelle-t-il souvent `err` ?",
+    "reponses": [
+      "C'est une convention sans importance",
+      "Pour forcer le développeur à vérifier les erreurs en premier (Error-First Callback)",
+      "Parce que les erreurs sont plus fréquentes que les succès",
+      "C'est imposé par le moteur V8"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Si `err` est présent (non null), l'opération a échoué. Sinon, on traite le deuxième argument (résultat).",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_074",
+    "intitule": "Quel flag permet d'afficher les traces de stack complètes pour les avertissements (Warnings) ?",
+    "reponses": [
+      "--trace-warnings",
+      "--verbose",
+      "--debug",
+      "--show-stack"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Utile pour déboguer les `DeprecationWarnings` ou `PromiseRejectionWarnings`.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_075",
+    "intitule": "Sur quel module natif le framework **Express** est-il construit ?",
+    "reponses": [
+      "net",
+      "http",
+      "url",
+      "querystring"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Express** est une surcouche (wrapper) autour du module `http` natif pour simplifier le routing et les middlewares.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_076",
+    "intitule": "Pourquoi définir la variable `NODE_ENV` à `production` ?",
+    "reponses": [
+      "C'est juste cosmétique",
+      "Cela désactive certaines vérifications de développement et optimise les performances (Express, React...)",
+      "Cela rend le serveur public sur Internet",
+      "Cela crypte le code"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "De nombreuses bibliothèques vérifient cette variable pour désactiver les logs verbeux ou activer le cache.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_077",
+    "intitule": "Quel flag permettait historiquement d'activer les modules ES (import/export) avant leur stabilisation ?",
+    "reponses": [
+      "--use-import",
+      "--experimental-modules",
+      "--es6",
+      "--harmony"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Avant **Node** 12/14, il fallait ce flag pour utiliser les fichiers `.mjs`.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_078",
+    "intitule": "Dans un middleware **Express**, que se passe-t-il si on n'appelle ni `next()` ni `res.send()` ?",
+    "reponses": [
+      "Express renvoie 404 automatiquement",
+      "La requête reste bloquée (pendante) jusqu'au timeout du client",
+      "Le serveur plante",
+      "On passe au middleware suivant automatiquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le serveur attend indéfiniment une action, ce qui cause un timeout côté client.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_079",
+    "intitule": "À quoi sert l'option `--unhandled-rejections=strict` ?",
+    "reponses": [
+      "À ignorer les erreurs",
+      "À faire crasher l'application immédiatement si une Promesse est rejetée sans être catchée",
+      "À logger les erreurs silencieusement",
+      "À redémarrer le serveur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "C'est le comportement par défaut recommandé pour éviter que le programme ne continue dans un état instable.",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_080",
+    "intitule": "Pourquoi utiliser des loggers comme **Winston** ou **Pino** au lieu de `console.log` en production ?",
+    "reponses": [
+      "console.log est asynchrone",
+      "Pour avoir des logs structurés (JSON), des niveaux (info/error) et de meilleures performances",
+      "console.log ne fonctionne pas sur Linux",
+      "Pour colorer le texte"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`console.log` est bloquant (sur TTY) et non structuré, ce qui complique l'analyse des logs (ELK, Datadog...).",
+    "categorie": "nodejs",
+    "difficulte": "moyen"
+  },
+  {
+    "id": "node_081",
+    "intitule": "Quelle bibliothèque C++ fournit l'**Event Loop** et les I/O asynchrones à **Node.js** ?",
+    "reponses": [
+      "V8",
+      "Libuv",
+      "OpenSSL",
+      "Glib"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Libuv** est la bibliothèque multi-plateforme qui gère la boucle d'événements et le thread pool pour les I/O fichiers/DNS.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_082",
+    "intitule": "Quel est le rôle précis de **V8** dans **Node.js** ?",
+    "reponses": [
+      "Gérer le réseau",
+      "Compiler et exécuter le code JavaScript",
+      "Gérer l'Event Loop",
+      "Gérer le système de fichiers"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**V8** (de Google) compile le JS en code machine. **Libuv** gère le reste (système/event loop).",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_083",
+    "intitule": "Quelle est la différence fondamentale entre `worker_threads` et `cluster` ?",
+    "reponses": [
+      "Les Workers partagent la même mémoire (thread), Cluster crée des processus séparés (mémoire isolée)",
+      "Cluster est obsolète",
+      "Worker_threads sert pour le réseau, Cluster pour les calculs",
+      "Aucune différence"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "**Worker_threads** permet le multi-threading dans un seul processus **Node**, **Cluster** lance plusieurs instances de **Node**.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_084",
+    "intitule": "Quel est l'impact d'un **Garbage Collection (GC)** fréquent et long ?",
+    "reponses": [
+      "Aucun, c'est transparent",
+      "Il bloque l'Event Loop (Stop-The-World), augmentant la latence des requêtes",
+      "Il améliore les performances CPU",
+      "Il nettoie le cache disque"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le **GC** bloque l'exécution du JS. S'il se déclenche trop souvent (fuite mémoire), l'application lag.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_085",
+    "intitule": "Comment analyser une fuite mémoire en production ?",
+    "reponses": [
+      "En redémarrant le serveur",
+      "En générant un Heap Dump (.heapsnapshot) et en l'analysant dans Chrome DevTools",
+      "En utilisant console.memory()",
+      "En augmentant la RAM du serveur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le snapshot permet de comparer les objets alloués en mémoire à deux instants différents.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_086",
+    "intitule": "Qu'est-ce que **N-API** (Node-API) ?",
+    "reponses": [
+      "Une API pour créer des serveurs HTTP",
+      "Une interface stable (ABI stable) pour créer des addons natifs (C++) compatibles entre versions de Node",
+      "L'API interne de NPM",
+      "Une nouvelle API pour les Promesses"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**N-API** évite d'avoir à recompiler les modules C++ à chaque mise à jour majeure de **Node.js**.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_087",
+    "intitule": "Pourquoi préférer **N-API** aux bindings **V8** directs pour les addons natifs ?",
+    "reponses": [
+      "C'est plus rapide",
+      "Cela garantit la compatibilité binaire (ABI) lors des mises à jour de Node.js (et donc de V8)",
+      "C'est écrit en JavaScript",
+      "Cela désactive le Garbage Collector"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'API de **V8** change souvent (breaking changes). **N-API** fournit une couche d'abstraction stable.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_088",
+    "intitule": "Comment gérer manuellement la backpressure lorsqu'on écrit dans un **Writable stream** ?",
+    "reponses": [
+      "Utiliser write() en boucle",
+      "Si write() renvoie false, arrêter d'écrire et attendre l'événement 'drain'",
+      "Augmenter la RAM",
+      "Utiliser setImmediate()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`write()` renvoie `false` si le buffer interne est plein. Il faut alors attendre `'drain'` pour reprendre.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_089",
+    "intitule": "Qu'est-ce qu'une attaque **ReDoS** ?",
+    "reponses": [
+      "Une attaque DDOS réseau",
+      "Regular Expression Denial of Service : une regex mal conçue bloque l'Event Loop",
+      "Une attaque sur Redis",
+      "Un redémarrage forcé du serveur"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Certaines regex complexes peuvent prendre un temps exponentiel sur certaines chaînes, bloquant le thread unique.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_090",
+    "intitule": "Comment prévenir la '**Prototype Pollution**' ?",
+    "reponses": [
+      "Ne jamais utiliser d'objets",
+      "Geler le prototype (Object.freeze) ou valider les clés lors des fusions d'objets (bloquer __proto__)",
+      "Utiliser des classes au lieu de JSON",
+      "Utiliser le mode strict uniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "La pollution survient quand un attaquant modifie `Object.prototype`. Valider les inputs JSON est critique.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_091",
+    "intitule": "Quelle est la différence clé entre `child_process.spawn()` et `exec()` ?",
+    "reponses": [
+      "exec() est asynchrone, spawn() est synchrone",
+      "spawn() retourne un flux (stream), exec() bufferise toute la sortie et la renvoie d'un coup",
+      "exec() est plus rapide",
+      "spawn() ne fonctionne que sous Linux"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "`exec` est limité par la taille du buffer (maxBuffer). `spawn` est préférable pour les processus longue durée ou verbeux.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_092",
+    "intitule": "Quel est le danger de : `child_process.exec(\\`ls ${userInput}\\`)` ?",
+    "reponses": [
+      "Aucun",
+      "Injection de commande (Command Injection)",
+      "Erreur de syntaxe",
+      "Performance lente"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Si `userInput` vaut `; rm -rf /`, la commande malveillante sera exécutée par le **shell**.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_093",
+    "intitule": "Quel module natif récent (Node 18+) permet d'écrire des tests sans framework externe ?",
+    "reponses": [
+      "node:test",
+      "node:assert",
+      "mocha",
+      "jest"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "**Node.js** inclut désormais un test runner natif via `import test from 'node:test'`.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_094",
+    "intitule": "Pourquoi utiliser le test runner natif `node:test` ?",
+    "reponses": [
+      "Pour éviter d'installer des dépendances lourdes (Jest/Mocha) pour des besoins simples",
+      "Parce qu'il est écrit en Rust",
+      "Pour tester le frontend",
+      "Parce qu'il est obligatoire"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Il offre une solution légère et rapide intégrée au runtime.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_095",
+    "intitule": "Quel flag permet de profiler l'exécution CPU de **Node.js** ?",
+    "reponses": [
+      "--profile",
+      "--prof",
+      "--cpu-check",
+      "--track"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Cela génère un fichier `isolate-0x...-v8.log` qui peut être analysé pour trouver les goulots d'étranglement.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_096",
+    "intitule": "Pourquoi placer **Node.js** derrière un Reverse Proxy (**Nginx**/**Apache**) ?",
+    "reponses": [
+      "Pour compiler le JS",
+      "Pour gérer le SSL/TLS, le cache statique, la compression et la sécurité efficacement",
+      "Parce que Node.js ne peut pas écouter sur le port 80",
+      "Pour ralentir les requêtes"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "**Node.js** est moins performant que **Nginx** pour servir des fichiers statiques ou gérer des milliers de connexions SSL.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_097",
+    "intitule": "Qu'est-ce que le principe de '**moindre privilège**' pour un processus **Node** ?",
+    "reponses": [
+      "Lancer Node en tant que 'root'",
+      "Créer un utilisateur système dédié avec des droits restreints pour lancer l'app",
+      "Donner tous les droits au dossier node_modules",
+      "Désactiver le mot de passe"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Si l'application est compromise, l'attaquant n'aura pas accès à tout le serveur (root).",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_098",
+    "intitule": "Que se passe-t-il si on exécute une boucle `while(true)` dans le thread principal ?",
+    "reponses": [
+      "Node.js crée un nouveau thread",
+      "L'application se fige totalement et ne répond plus aux requêtes (Event Loop bloquée)",
+      "Le serveur redémarre",
+      "La boucle est ignorée"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le modèle **Single-Threaded** signifie qu'une boucle infinie synchrone arrête tout le système.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_099",
+    "intitule": "Comment **Node.js** peut-il utiliser 8 cœurs CPU alors qu'il est single-threaded ?",
+    "reponses": [
+      "Il ne peut pas",
+      "En utilisant le module 'cluster' ou un process manager (PM2) pour lancer 8 instances",
+      "C'est automatique via V8",
+      "En utilisant async/await"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "On lance une instance **Node.js** par cœur disponible, et on répartit la charge entre elles.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_100",
+    "intitule": "Quelle est la cause fréquente d'une fuite mémoire en **Node.js** ?",
+    "reponses": [
+      "Trop de console.log",
+      "Des variables globales ou des closures conservant des références inutiles vers des objets",
+      "L'utilisation de Buffer",
+      "L'utilisation de let au lieu de var"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Tant qu'un objet est référencé (même dans un tableau global oublié), le **GC** ne peut pas le nettoyer.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_101",
+    "intitule": "Pour sécuriser une regex contre le **ReDoS**, que faut-il éviter ?",
+    "reponses": [
+      "Les caractères alphabétiques",
+      "Les quantificateurs imbriqués (ex: (a+)+) sur des entrées non fiables",
+      "Les regex commençant par ^",
+      "L'utilisation de .test()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "C'est le '**Catastrophic Backtracking**' qui cause le blocage CPU.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_102",
+    "intitule": "Quel flag augmente la limite de mémoire (Old Space) de **V8** ?",
+    "reponses": [
+      "--max-memory",
+      "--max-old-space-size",
+      "--heap-size",
+      "--v8-mem"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Ex: `--max-old-space-size=4096` pour allouer 4Go à la heap.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_103",
+    "intitule": "Pourquoi `JSON.parse()` peut-il être dangereux sur de gros payloads ?",
+    "reponses": [
+      "Il est asynchrone",
+      "Il est synchrone et bloque l'Event Loop le temps du parsing",
+      "Il consomme trop de réseau",
+      "Il modifie le fichier source"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Parser 10Mo de JSON peut bloquer le serveur pendant plusieurs centaines de ms.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_104",
+    "intitule": "Pourquoi l'utilisation de `eval()` ou `new Function()` est-elle proscrite ?",
+    "reponses": [
+      "C'est lent",
+      "Risque majeur d'injection de code (RCE) si l'entrée n'est pas sûre",
+      "Ce n'est plus supporté",
+      "Cela empêche le minification"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Cela permet d'exécuter n'importe quelle chaîne de caractères comme du code JS avec les droits du serveur.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_105",
+    "intitule": "Qu'est-ce qu'un '**Circuit Breaker**' dans une architecture microservices Node ?",
+    "reponses": [
+      "Un fusible électrique",
+      "Un pattern qui coupe les appels vers un service défaillant pour éviter d'engorger le système",
+      "Un outil de test unitaire",
+      "Un module de cryptographie"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Cela évite l'effet domino quand un service ne répond plus.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_106",
+    "intitule": "Avec `node:test`, comment définir un sous-test ?",
+    "reponses": [
+      "test.sub()",
+      "await t.test('nom', ...)",
+      "describe()",
+      "it()"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "L'argument du callback de test (`t`) possède une méthode `t.test()` pour la hiérarchie.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_107",
+    "intitule": "Pourquoi limiter la taille du body des requêtes (body-parser limit) ?",
+    "reponses": [
+      "Pour économiser la bande passante",
+      "Pour éviter une attaque par déni de service (DoS) via saturation mémoire",
+      "Parce que JSON ne supporte pas les gros fichiers",
+      "Pour aller plus vite"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un attaquant pourrait envoyer 10Go de JSON et crasher le serveur sans cette limite.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_108",
+    "intitule": "Comment communiquent le thread principal et les **worker_threads** ?",
+    "reponses": [
+      "Via HTTP",
+      "Par passage de messages (postMessage / on('message')) ou mémoire partagée (SharedArrayBuffer)",
+      "Ils ne peuvent pas communiquer",
+      "Via la base de données"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "C'est un modèle d'acteurs ou de mémoire partagée, différent des processus classiques.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_109",
+    "intitule": "Quel est le rôle du '**Thread Pool**' de **libuv** (par défaut 4 threads) ?",
+    "reponses": [
+      "Exécuter le code JS",
+      "Gérer les opérations bloquantes (FS, Crypto, DNS) hors de l'Event Loop",
+      "Gérer les connexions HTTP",
+      "Gérer l'affichage"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Le JS est single-threaded, mais **Node** utilise ce pool pour les tâches systèmes lourdes afin de ne pas bloquer.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_110",
+    "intitule": "À quoi sert le middleware `helmet` ?",
+    "reponses": [
+      "À protéger contre les chutes",
+      "À configurer automatiquement les en-têtes HTTP de sécurité (CSP, HSTS...)",
+      "À logger les requêtes",
+      "À compresser les réponses"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Il durcit la sécurité de l'application en masquant `X-Powered-By` et en ajoutant des headers protecteurs.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_111",
+    "intitule": "En optimisation, pourquoi se méfier des fonctions anonymes dans les boucles critiques (Hot Paths) ?",
+    "reponses": [
+      "Elles ne fonctionnent pas",
+      "Elles génèrent une pression sur le Garbage Collector (allocations répétées)",
+      "Elles sont asynchrones",
+      "Elles sont interdites par V8"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Créer des objets/fonctions en boucle oblige le **GC** à travailler plus souvent, causant des micro-pauses.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_112",
+    "intitule": "Quel problème pose un cache in-memory (objet global) qui ne se vide jamais ?",
+    "reponses": [
+      "Le processeur ralentit",
+      "Fuite de mémoire (Memory Leak) menant au crash",
+      "Erreur de réseau",
+      "Corruption de données"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Sans mécanisme d'éviction (TTL, LRU), la mémoire finit par être saturée.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_113",
+    "intitule": "Pourquoi ne jamais utiliser `fs.readFileSync()` dans une route HTTP ?",
+    "reponses": [
+      "C'est moins précis",
+      "Cela bloque l'Event Loop pour TOUS les clients tant que le fichier n'est pas lu",
+      "Cela consomme plus de disque",
+      "C'est impossible techniquement"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Pendant la lecture synchrone, le serveur ne peut répondre à aucune autre requête.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_114",
+    "intitule": "Quelle vulnérabilité concerne la désérialisation d'objets (ex: `node-serialize`) ?",
+    "reponses": [
+      "RCE (Remote Code Execution)",
+      "XSS",
+      "SQL Injection",
+      "Phishing"
+    ],
+    "indexBonneReponse": 0,
+    "explication": "Si le désérialiseur est mal conçu, on peut passer une fonction sérialisée qui sera exécutée par le serveur.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_115",
+    "intitule": "À quoi sert le `highWaterMark` dans un stream ?",
+    "reponses": [
+      "À marquer la fin du fichier",
+      "À définir la taille du buffer interne avant de mettre le flux en pause",
+      "À définir la priorité du thread",
+      "À signer numériquement le flux"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "C'est le seuil de mémoire tampon. Au-delà, `write()` retourne `false` (backpressure).",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_116",
+    "intitule": "Quelle option permet de breaker (pause) dès la première ligne lors du débogage ?",
+    "reponses": [
+      "--inspect",
+      "--inspect-brk",
+      "--debug-stop",
+      "--pause"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Cela permet d'attacher le débogueur avant que le code ne commence à s'exécuter.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_117",
+    "intitule": "Si un **Worker Thread** exécute une boucle infinie, le **Thread Principal** est-il bloqué ?",
+    "reponses": [
+      "Oui, tout Node.js plante",
+      "Non, le thread principal continue de fonctionner",
+      "Oui, car ils partagent l'Event Loop",
+      "Non, mais le réseau est coupé"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "C'est l'intérêt des **Workers** : isoler le CPU-intensive task pour ne pas bloquer le serveur principal.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_118",
+    "intitule": "Pourquoi ne faut-il pas créer 1000 workers **Node.js** sur une machine 4 cœurs ?",
+    "reponses": [
+      "C'est interdit par la licence",
+      "L'overhead (mémoire + context switching) dégradera les performances bien plus que le gain",
+      "Node.js est limité à 10 threads",
+      "Le disque dur va saturer"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Chaque instance **Node** consomme de la mémoire. Le nombre idéal est souvent proche du nombre de cœurs physiques.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_119",
+    "intitule": "Pourquoi désactiver le header `X-Powered-By: Express` ?",
+    "reponses": [
+      "Pour gagner 2 octets de bande passante",
+      "Pour ne pas divulguer la techno utilisée aux attaquants (Security by obscurity)",
+      "Parce que c'est une obligation légale",
+      "Pour activer le HTTP/2"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Moins on donne d'infos à un attaquant, plus il est difficile de cibler des failles spécifiques à une version.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  },
+  {
+    "id": "node_120",
+    "intitule": "Quelle est la meilleure stratégie pour un processus **Node** critique qui rencontre une erreur inattendue (`uncaughtException`) ?",
+    "reponses": [
+      "L'ignorer et continuer",
+      "Logger l'erreur et laisser le processus crasher pour être redémarré proprement (par PM2/Docker)",
+      "Utiliser un try/catch global vide",
+      "Supprimer le fichier fautif"
+    ],
+    "indexBonneReponse": 1,
+    "explication": "Un processus dans un état indéterminé est dangereux. Il vaut mieux 'Fail Fast' et redémarrer une instance saine.",
+    "categorie": "nodejs",
+    "difficulte": "difficile"
+  }
+]

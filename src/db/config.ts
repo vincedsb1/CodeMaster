@@ -33,6 +33,14 @@ function initDatabase(): Promise<IDBDatabase> {
       if (!db.objectStoreNames.contains(DB_CONFIG.STORES.META)) {
         db.createObjectStore(DB_CONFIG.STORES.META, { keyPath: 'id' })
       }
+
+      // Store Categories
+      if (!db.objectStoreNames.contains(DB_CONFIG.STORES.CATEGORIES)) {
+        const cStore = db.createObjectStore(DB_CONFIG.STORES.CATEGORIES, {
+          keyPath: 'id',
+        })
+        cStore.createIndex('label', 'label', { unique: true })
+      }
     }
 
     req.onsuccess = () => {
@@ -48,20 +56,56 @@ function initDatabase(): Promise<IDBDatabase> {
 export async function dbOp<T>(
   storeName: string,
   mode: IDBTransactionMode,
-  callback: (store: IDBObjectStore) => IDBRequest<T>,
+  callback: (store: IDBObjectStore) => IDBRequest<T> | void,
 ): Promise<T> {
   const db = await dbPromise
   return new Promise((resolve, reject) => {
-    const tx = db.transaction(storeName, mode)
-    const store = tx.objectStore(storeName)
-    const req = callback(store)
+    try {
+      console.log(`[dbOp] Starting transaction on ${storeName} (${mode})`)
+      const tx = db.transaction(storeName, mode)
+      const store = tx.objectStore(storeName)
 
-    req.onsuccess = () => {
-      resolve(req.result)
-    }
+      let resolved = false
 
-    req.onerror = () => {
-      reject(req.error)
+      tx.oncomplete = () => {
+        console.log(`[dbOp] Transaction complete for ${storeName}`)
+        if (!resolved) {
+          console.log(`[dbOp] Resolving with undefined (no explicit result)`)
+          resolved = true
+          resolve(undefined as T)
+        }
+      }
+
+      tx.onerror = () => {
+        console.error('[dbOp] Transaction error:', tx.error)
+        if (!resolved) {
+          resolved = true
+          reject(tx.error)
+        }
+      }
+
+      const req = callback(store)
+
+      if (req && typeof req === 'object' && 'onsuccess' in req) {
+        ;(req as IDBRequest<T>).onsuccess = () => {
+          console.log(`[dbOp] Request success for ${storeName}`, (req as IDBRequest<T>).result)
+          if (!resolved) {
+            resolved = true
+            resolve((req as IDBRequest<T>).result)
+          }
+        }
+
+        ;(req as IDBRequest<T>).onerror = () => {
+          console.error('[dbOp] Request error:', (req as IDBRequest<T>).error)
+          if (!resolved) {
+            resolved = true
+            reject((req as IDBRequest<T>).error)
+          }
+        }
+      }
+    } catch (err) {
+      console.error('[dbOp] Caught error:', err)
+      reject(err)
     }
   })
 }

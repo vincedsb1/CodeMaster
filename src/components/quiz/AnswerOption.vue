@@ -15,12 +15,19 @@ const emits = defineEmits<{
   click: []
 }>()
 
+const ariaLabel = computed(() => {
+  if (!props.hasAnswered) return `Réponse : ${props.text}`
+  if (props.isCorrect) return `Réponse correcte : ${props.text}`
+  if (props.isSelected && !props.isCorrect) return `Réponse incorrecte sélectionnée : ${props.text}`
+  return `Réponse : ${props.text}`
+})
+
 const classes = computed(() => {
   const baseClasses =
-    'w-full p-4 rounded-xl border-2 text-left transition relative overflow-hidden flex items-center justify-between'
+    'w-full p-4 rounded-xl border-2 text-left transition relative overflow-hidden flex items-center justify-between outline-none focus-visible:ring-4 focus-visible:ring-blue-300'
 
   if (!props.hasAnswered) {
-    return baseClasses + ' bg-white border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700'
+    return baseClasses + ' bg-white border-slate-200 hover:border-indigo-300 active:bg-indigo-50 text-slate-700 cursor-pointer'
   }
 
   // After answering
@@ -37,15 +44,18 @@ const classes = computed(() => {
 </script>
 
 <template>
-  <button :disabled="disabled" :class="classes" @click="emits('click')">
+  <button
+    type="button"
+    :disabled="disabled"
+    :class="classes"
+    :aria-pressed="isSelected"
+    :aria-label="ariaLabel"
+    @click="emits('click')"
+  >
     <span class="relative z-10">{{ text }}</span>
-    <i
-      v-if="hasAnswered && isCorrect"
-      class="ph ph-check-circle text-xl text-green-600"
-    ></i>
-    <i
-      v-if="hasAnswered && isSelected && !isCorrect"
-      class="ph ph-x-circle text-xl text-red-600"
-    ></i>
+    
+    <!-- Feedback Icons -->
+    <i v-if="hasAnswered && isCorrect" class="ph-fill ph-check-circle text-xl text-green-700" aria-hidden="true"></i>
+    <i v-if="hasAnswered && isSelected && !props.isCorrect" class="ph-fill ph-x-circle text-xl text-red-700" aria-hidden="true"></i>
   </button>
 </template>
